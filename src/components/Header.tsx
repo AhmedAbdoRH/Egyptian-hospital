@@ -28,11 +28,9 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About Us' },
     { id: 'services', label: 'Services' },
-    { id: 'orthobiologics', label: 'Orthobiologics' },
-    { id: 'tourism', label: 'Medical Tourism' },
     { id: 'team', label: 'Our Team' },
-    { id: 'facilities', label: 'Facilities' },
     { id: 'contact', label: 'Contact Us' },
+    { id: 'booking', label: 'Book via WhatsApp' },
   ];
 
   const handleLinkClick = (id: string) => {
@@ -129,7 +127,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Direct Actions */}
           <div className="hidden sm:flex items-center gap-3">
             <button
-              onClick={onOpenWhatsAppBooking}
+              onClick={() => handleLinkClick('booking')}
               className="glass-button-whatsapp inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-white font-bold text-xs sm:text-sm transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-lg"
             >
               <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
@@ -171,7 +169,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenWhatsAppBooking();
+                onNavigate('booking');
               }}
               className="w-full glass-button-whatsapp py-3 rounded-xl text-white font-bold text-sm flex items-center justify-center gap-2"
             >

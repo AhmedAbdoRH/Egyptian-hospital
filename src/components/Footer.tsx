@@ -63,69 +63,16 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Quick Links */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Navigation & Sections
-            </h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Explore Cairo Hospital</h4>
             <ul className="space-y-2 text-xs">
-              <li>
-                <button
-                  onClick={() => onNavigate('about')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  About Cairo Hospital & History
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  22 Medical Specialties
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('orthobiologics')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Orthobiologics & Stem Cell Therapy
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('tourism')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Medical Tourism (Egypt, UK, UAE, USA)
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('team')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Executive Medical Board & Doctors
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('facilities')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Hospital Campus & Operating Theaters
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('contact')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Contact & Garki 2 Location
-                </button>
-              </li>
+              {[
+                ['about', 'About Us'], ['services', 'Services'], ['team', 'Our Team'],
+                ['contact', 'Contact Us'], ['booking', 'Direct WhatsApp Booking'],
+              ].map(([id, label]) => (
+                <li key={id}><button onClick={() => onNavigate(id)} className="hover:text-white transition-colors cursor-pointer text-left">{label}</button></li>
+              ))}
             </ul>
           </div>
-
           {/* Key Specialties Preview */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
