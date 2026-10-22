@@ -1,0 +1,8 @@
+{
+  "name": "Cairo Hospital Abuja | International Multi-Specialties Hospital",
+  "description": "Official portal of Cairo Hospital Abuja, Nigeria - Leading Egyptian referral hospital specializing in orthopedics, orthobiologics, advanced surgery, and medical tourism with direct WhatsApp appointment booking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
