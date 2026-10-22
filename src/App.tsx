@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { AboutUs } from './components/AboutUs';
@@ -17,6 +17,23 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [preselectedSpecialty, setPreselectedSpecialty] = useState('');
   const [preselectedDoctor, setPreselectedDoctor] = useState('');
+
+  useEffect(() => {
+    const targets = document.querySelectorAll('main section, main .glass-panel');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+    targets.forEach((target) => {
+      target.classList.add('scroll-reveal');
+      observer.observe(target);
+    });
+    return () => observer.disconnect();
+  }, [activeTab]);
 
   const handleOpenBooking = (doctorName?: string, specialtyName?: string) => {
     if (doctorName) setPreselectedDoctor(doctorName);
