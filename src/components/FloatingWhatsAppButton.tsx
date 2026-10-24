@@ -44,7 +44,7 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
             </div>
             <button
               onClick={() => setDrawerOpen(false)}
-              className="p-1 rounded-lg text-slate-400 hover:text-white transition-colors cursor-pointer"
+              className="p-1 rounded-lg text-sky-200 hover:text-white transition-colors cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
@@ -57,61 +57,61 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
                 setDrawerOpen(false);
                 onOpenBookingModal();
               }}
-              className="w-full text-left p-3 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/10 transition-colors cursor-pointer flex items-center justify-between group"
+              className="w-full text-left p-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 transition-colors cursor-pointer flex items-center justify-between group"
             >
               <div className="flex items-center gap-2.5">
-                <Calendar className="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform" />
+                <Calendar className="w-4 h-4 text-sky-300 group-hover:scale-110 transition-transform" />
                 <div>
                   <div className="font-bold text-white">Guided Booking Form</div>
-                  <div className="text-[10px] text-slate-400">Select doctor, specialty & time</div>
+                  <div className="text-[11px] text-sky-100 font-medium">Select doctor, specialty & time</div>
                 </div>
               </div>
-              <ChevronUp className="w-3.5 h-3.5 text-slate-400 rotate-90" />
+              <ChevronUp className="w-3.5 h-3.5 text-sky-300 rotate-90" />
             </button>
 
             {/* Action 2: Direct Doctor Consult */}
             <button
               onClick={() => handleDirectWhatsApp('Doctor Appointment & Consultation')}
-              className="w-full text-left p-3 rounded-2xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 transition-colors cursor-pointer flex items-center justify-between group"
+              className="w-full text-left p-3 rounded-2xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-400/40 transition-colors cursor-pointer flex items-center justify-between group"
             >
               <div className="flex items-center gap-2.5">
                 <MessageCircle className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
                 <div>
                   <div className="font-bold text-white">Direct Chat with Reception</div>
-                  <div className="text-[10px] text-slate-400">+234 909 865 6437</div>
+                  <div className="text-[11px] text-emerald-200 font-semibold">+234 909 865 6437</div>
                 </div>
               </div>
-              <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
+              <ExternalLink className="w-3.5 h-3.5 text-emerald-300" />
             </button>
 
             {/* Action 3: Medical Tourism Inquiry */}
             <button
               onClick={() => handleDirectWhatsApp('Overseas Medical Tourism (Egypt / UK / UAE)')}
-              className="w-full text-left p-3 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/10 transition-colors cursor-pointer flex items-center justify-between group"
+              className="w-full text-left p-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 transition-colors cursor-pointer flex items-center justify-between group"
             >
               <div className="flex items-center gap-2.5">
                 <Sparkles className="w-4 h-4 text-teal-300 group-hover:scale-110 transition-transform" />
                 <div>
                   <div className="font-bold text-white">Medical Tourism Desk</div>
-                  <div className="text-[10px] text-slate-400">Egypt · UK · UAE · USA Treatment</div>
+                  <div className="text-[11px] text-sky-100 font-medium">Egypt · UK · UAE · USA Treatment</div>
                 </div>
               </div>
-              <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+              <ExternalLink className="w-3.5 h-3.5 text-sky-200" />
             </button>
 
             {/* Action 4: Urgent Emergency Phone */}
             <a
               href={`tel:${HOSPITAL_CONTACT.phone1}`}
-              className="w-full text-left p-3 rounded-2xl bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30 transition-colors flex items-center justify-between block group"
+              className="w-full text-left p-3 rounded-2xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-400/40 transition-colors flex items-center justify-between block group"
             >
               <div className="flex items-center gap-2.5">
-                <PhoneCall className="w-4 h-4 text-rose-400 group-hover:scale-110 transition-transform" />
+                <PhoneCall className="w-4 h-4 text-rose-300 group-hover:scale-110 transition-transform" />
                 <div>
                   <div className="font-bold text-white">Emergency Call 24/7</div>
-                  <div className="text-[10px] text-slate-400">{HOSPITAL_CONTACT.phone1}</div>
+                  <div className="text-[11px] text-rose-200 font-mono font-bold">{HOSPITAL_CONTACT.phone1}</div>
                 </div>
               </div>
-              <span className="text-[10px] font-bold text-rose-400">CALL</span>
+              <span className="text-[11px] font-black text-rose-200 px-2 py-0.5 rounded-md bg-rose-600">CALL</span>
             </a>
           </div>
         </div>

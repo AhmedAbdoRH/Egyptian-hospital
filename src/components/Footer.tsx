@@ -20,8 +20,8 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenWhatsAppBooking,
 }) => {
   return (
-    <footer className="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-white/10 relative overflow-hidden">
-      <div className="ambient-glow-navy bottom-0 right-1/4" />
+    <footer className="bg-[#001d40] text-sky-100 pt-16 pb-12 border-t border-[#013777]/30 relative overflow-hidden">
+      <div className="ambient-glow-navy bottom-0 right-1/4 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
@@ -39,19 +39,19 @@ export const Footer: React.FC<FooterProps> = ({
                 <span className="text-xl font-black text-white tracking-tight">
                   Cairo Hospital
                 </span>
-                <div className="text-xs font-semibold text-sky-400">
+                <div className="text-xs font-bold text-sky-300">
                   Cairo Rehabilitation Centre (CRC)
                 </div>
               </div>
             </div>
 
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <p className="text-xs text-sky-100 leading-relaxed font-medium">
               The first Egyptian-led hospital founded in Abuja in 2019, carrying forward five decades of healthcare leadership in Nigeria since 1971. International multi-specialties care, advanced orthopedic surgery, and global medical tourism.
             </p>
 
-            <div className="space-y-1.5 text-xs text-slate-300 pt-1">
+            <div className="space-y-1.5 text-xs text-sky-100 pt-1 font-medium">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-sky-400 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-sky-300 flex-shrink-0 mt-0.5" />
                 <span>{HOSPITAL_CONTACT.address}</span>
               </div>
               <div className="flex items-center gap-2">
@@ -63,62 +63,73 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Quick Links */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Explore Cairo Hospital</h4>
+            <h4 className="text-xs font-black uppercase tracking-wider text-white">Explore Cairo Hospital</h4>
             <ul className="space-y-2 text-xs">
               {[
-                ['about', 'About Us'], ['services', 'Services'], ['team', 'Our Team'],
-                ['contact', 'Contact Us'], ['booking', 'Direct WhatsApp Booking'],
+                ['about', 'About Us & 4 Pillars'],
+                ['services', '22 Medical Specialties'],
+                ['team', 'Executive Medical Team'],
+                ['contact', 'Campus Location & Contact'],
+                ['booking', 'Direct WhatsApp Scheduling'],
               ].map(([id, label]) => (
-                <li key={id}><button onClick={() => onNavigate(id)} className="hover:text-white transition-colors cursor-pointer text-left">{label}</button></li>
+                <li key={id}>
+                  <button
+                    onClick={() => onNavigate(id)}
+                    className="hover:text-white transition-colors cursor-pointer text-left font-bold text-sky-100 hover:translate-x-1 duration-200 inline-block"
+                  >
+                    • {label}
+                  </button>
+                </li>
               ))}
             </ul>
           </div>
+
           {/* Key Specialties Preview */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Key Centers
+            <h4 className="text-xs font-black uppercase tracking-wider text-white">
+              Centers of Excellence
             </h4>
-            <ul className="space-y-1.5 text-xs text-slate-300">
+            <ul className="space-y-1.5 text-xs text-sky-100 font-medium">
               <li>• Orthopedic Surgery</li>
-              <li>• Prolotherapy & PRP</li>
-              <li>• Diabetic Foot Clinic</li>
+              <li>• Prolotherapy & Stem Cells</li>
+              <li>• Diabetic Foot Center</li>
               <li>• Obstetrics & Infertility</li>
               <li>• General & Urosurgery</li>
-              <li>• Digital X-Ray & Lab</li>
-              <li>• Alexandria Pharmacy</li>
-              <li>• Skinic Dermatology</li>
+              <li>• Digital X-Ray & Ultrasound</li>
+              <li>• Alexandria Pharmacy Ltd.</li>
+              <li>• Skinic Dermatology Clinic</li>
             </ul>
           </div>
 
           {/* WhatsApp & Emergency Helpline */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h4 className="text-xs font-black uppercase tracking-wider text-white">
               Patient Helplines
             </h4>
             <div className="space-y-2.5 text-xs">
               <button
                 onClick={onOpenWhatsAppBooking}
-                className="w-full glass-button-whatsapp py-3 rounded-xl text-white font-bold flex items-center justify-center gap-2 hover:scale-102 transition-transform cursor-pointer shadow-md"
+                className="w-full glass-button-whatsapp py-3 rounded-xl text-white font-extrabold flex items-center justify-center gap-2 hover:scale-102 transition-transform cursor-pointer shadow-md"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-4 h-4 fill-current" />
                 <span>Instant WhatsApp Booking</span>
               </button>
 
-              <div className="p-3 rounded-xl glass-panel border border-white/10 space-y-1">
-                <div className="text-[11px] text-slate-400">Emergency Phone</div>
+              <div className="p-3 rounded-xl bg-white/10 border border-white/20 space-y-1 text-white">
+                <div className="text-[11px] text-sky-300 font-bold">Emergency Ambulance Hotline</div>
                 <a
                   href={`tel:${HOSPITAL_CONTACT.phone1}`}
-                  className="text-white font-mono font-bold hover:text-sky-400 text-sm block"
+                  className="text-white font-mono font-black hover:text-sky-300 text-sm block"
                 >
                   {HOSPITAL_CONTACT.phone1}
                 </a>
               </div>
 
-              <div className="p-3 rounded-xl glass-panel border border-white/10 space-y-1">
-                <div className="text-[11px] text-slate-400">Email Enquiries</div>
+              <div className="p-3 rounded-xl bg-white/10 border border-white/20 space-y-1 text-white">
+                <div className="text-[11px] text-sky-300 font-bold">Hospital Inquiries & Referrals</div>
                 <a
                   href={`mailto:${HOSPITAL_CONTACT.email}`}
-                  className="text-sky-300 text-xs font-mono hover:underline block"
+                  className="text-sky-100 text-xs font-mono hover:text-white hover:underline block font-semibold"
                 >
                   {HOSPITAL_CONTACT.email}
                 </a>
@@ -128,19 +139,19 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs border-t border-white/10">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="flex items-center gap-1.5 text-slate-400">
+            <span className="flex items-center gap-1.5 text-white font-bold">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
               NHIS Accredited
             </span>
-            <span>·</span>
-            <span>FCDA Certified</span>
-            <span>·</span>
-            <span>African Union, UN & UNICEF Enrolled</span>
+            <span className="text-sky-400">·</span>
+            <span className="text-sky-100 font-semibold">FCDA Certified</span>
+            <span className="text-sky-400">·</span>
+            <span className="text-sky-100 font-semibold">African Union, UN & UNICEF Enrolled</span>
           </div>
 
-          <div>
+          <div className="text-sky-100 font-medium">
             © {new Date().getFullYear()} Cairo Hospital Abuja. All rights reserved.
           </div>
         </div>

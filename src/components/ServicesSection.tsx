@@ -15,6 +15,7 @@ import {
   CheckCircle,
   MessageCircle,
   Search,
+  Sparkles,
 } from 'lucide-react';
 import { MEDICAL_SERVICES } from '../data/cairoHospitalData';
 import { MedicalService } from '../types/hospital';
@@ -32,36 +33,36 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   const getServiceIcon = (iconName: string) => {
     switch (iconName) {
       case 'Ambulance':
-        return <Ambulance className="w-6 h-6 text-rose-400" />;
+        return <Ambulance className="w-6 h-6 text-rose-600" />;
       case 'Bone':
-        return <Bone className="w-6 h-6 text-sky-400" />;
+        return <Bone className="w-6 h-6 text-[#013777]" />;
       case 'Dna':
-        return <Dna className="w-6 h-6 text-teal-300" />;
+        return <Dna className="w-6 h-6 text-teal-600" />;
       case 'Zap':
-        return <Zap className="w-6 h-6 text-amber-400" />;
+        return <Zap className="w-6 h-6 text-amber-600" />;
       case 'Footprints':
-        return <Footprints className="w-6 h-6 text-emerald-400" />;
+        return <Footprints className="w-6 h-6 text-emerald-600" />;
       case 'Activity':
-        return <Activity className="w-6 h-6 text-blue-400" />;
+        return <Activity className="w-6 h-6 text-blue-600" />;
       case 'Baby':
-        return <Baby className="w-6 h-6 text-pink-400" />;
+        return <Baby className="w-6 h-6 text-pink-600" />;
       case 'Scissors':
-        return <Scissors className="w-6 h-6 text-indigo-400" />;
+        return <Scissors className="w-6 h-6 text-indigo-600" />;
       case 'HeartPulse':
-        return <HeartPulse className="w-6 h-6 text-red-400" />;
+        return <HeartPulse className="w-6 h-6 text-red-600" />;
       case 'Users':
-        return <Users className="w-6 h-6 text-cyan-400" />;
+        return <Users className="w-6 h-6 text-cyan-600" />;
       case 'Scan':
-        return <Scan className="w-6 h-6 text-teal-400" />;
+        return <Scan className="w-6 h-6 text-teal-600" />;
       case 'Pill':
-        return <Pill className="w-6 h-6 text-purple-400" />;
+        return <Pill className="w-6 h-6 text-purple-600" />;
       default:
-        return <Activity className="w-6 h-6 text-sky-400" />;
+        return <Activity className="w-6 h-6 text-[#013777]" />;
     }
   };
 
   const categories = [
-    { id: 'all', label: 'All Specialties (22)' },
+    { id: 'all', label: 'All 22 Specialties' },
     { id: 'surgical', label: 'Surgeries & Orthopedics' },
     { id: 'regenerative', label: 'Orthobiologics & Rehab' },
     { id: 'clinical', label: 'Clinical Medicine' },
@@ -79,21 +80,21 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   });
 
   return (
-    <section id="services" className="py-24 relative overflow-hidden bg-slate-900/90 border-t border-white/10">
+    <section id="services" className="py-20 sm:py-24 relative overflow-hidden">
       <div className="ambient-glow-cyan top-40 left-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-14">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-sky-400 uppercase tracking-wider">
-            <Activity className="w-4 h-4 text-sky-400" />
-            <span>Comprehensive Tertiary Care</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
+            <Activity className="w-4 h-4 text-[#013777]" />
+            <span>Comprehensive Tertiary Healthcare</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            Our Medical Services & Specialties
+          <h2 className="text-3xl sm:text-5xl font-black text-[#092545] tracking-tight">
+            Our Medical Specialties & Centers
           </h2>
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-            From 24/7 trauma triage and complex orthopedic reconstructions to non-surgical orthobiologics and dedicated maternal-fetal suites, Cairo Hospital offers complete specialized care in Abuja.
+          <p className="text-sm sm:text-base text-[#1e293b] font-medium leading-relaxed">
+            From emergency trauma triage and complex joint reconstructions to non-surgical orthobiologics and dedicated maternal-fetal suites, Cairo Hospital offers complete specialized care in Abuja.
           </p>
         </div>
 
@@ -101,13 +102,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         <div className="max-w-4xl mx-auto space-y-4">
           {/* Search Bar */}
           <div className="relative">
-            <Search className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Search className="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by specialty, surgery, or medical condition..."
-              className="w-full pl-12 pr-4 py-3.5 rounded-2xl glass-panel text-white placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 border border-white/15"
+              placeholder="Search by specialty, surgery, or clinical condition..."
+              className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white border border-slate-300 text-[#092545] font-semibold placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-[#013777] shadow-sm"
             />
           </div>
 
@@ -119,8 +120,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-4 py-2.5 rounded-xl whitespace-nowrap transition-all cursor-pointer ${
                   activeCategory === cat.id
-                    ? 'bg-sky-500 text-slate-950 shadow-lg shadow-sky-500/25 font-black'
-                    : 'glass-panel text-slate-300 hover:text-white hover:bg-white/10'
+                    ? 'bg-[#013777] text-white shadow-md shadow-[#013777]/25 font-black scale-102'
+                    : 'bg-white border border-slate-300 text-slate-800 hover:bg-slate-50 hover:text-[#013777]'
                 }`}
               >
                 {cat.label}
@@ -134,35 +135,35 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
           {filteredServices.map((service) => (
             <div
               key={service.id}
-              className="glass-panel p-6 sm:p-7 rounded-3xl border border-white/10 glass-panel-hover flex flex-col justify-between space-y-5"
+              className="glass-panel glass-panel-hover p-6 sm:p-7 rounded-3xl border border-slate-200 bg-white shadow-sm flex flex-col justify-between space-y-5"
             >
               <div className="space-y-4">
                 {/* Icon & Category Badge */}
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shadow-inner">
+                  <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center shadow-xs">
                     {getServiceIcon(service.iconName)}
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-sky-400 px-2.5 py-1 rounded-md bg-sky-500/10 border border-sky-500/20">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-[#013777] px-2.5 py-1 rounded-lg bg-sky-50 border border-sky-300">
                     {service.category}
                   </span>
                 </div>
 
                 {/* Title & Description */}
                 <div>
-                  <h3 className="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">
+                  <h3 className="text-lg font-black text-[#092545] group-hover:text-[#013777] transition-colors">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+                  <p className="mt-2 text-xs text-[#1e293b] font-medium leading-relaxed">
                     {service.description}
                   </p>
                 </div>
 
                 {/* Bullet Points */}
                 {service.details && (
-                  <div className="space-y-1.5 pt-2 border-t border-white/5 text-xs text-slate-400">
+                  <div className="space-y-1.5 pt-2 border-t border-slate-100 text-xs text-[#0f172a] font-semibold">
                     {service.details.map((item, i) => (
                       <div key={i} className="flex items-start gap-2">
-                        <CheckCircle className="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-3.5 h-3.5 text-[#013777] flex-shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </div>
                     ))}
@@ -171,13 +172,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               </div>
 
               {/* Card Action */}
-              <div className="pt-4 border-t border-white/10">
+              <div className="pt-4 border-t border-slate-100">
                 <button
                   onClick={() => onSelectServiceForBooking(service.title)}
-                  className="w-full glass-button-whatsapp py-2.5 rounded-xl text-white font-bold text-xs flex items-center justify-center gap-2 hover:brightness-110 transition-all cursor-pointer shadow-md"
+                  className="w-full glass-button-whatsapp py-2.5 rounded-xl text-white font-bold text-xs flex items-center justify-center gap-2 hover:brightness-105 transition-all cursor-pointer shadow-md"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
-                  <span>Book on WhatsApp</span>
+                  <span>Book {service.title.split(' ')[0]} on WhatsApp</span>
                 </button>
               </div>
             </div>
