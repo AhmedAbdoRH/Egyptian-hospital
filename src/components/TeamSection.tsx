@@ -126,7 +126,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                     className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#012654]/85 via-transparent to-transparent" />
-                  <div className="absolute bottom-2.5 left-3 right-3 text-white">
+                  <div className="photo-caption absolute bottom-2.5 left-3 right-3 text-white">
                     <span className="text-[10px] font-black text-sky-300 uppercase tracking-wider block">
                       {member.role}
                     </span>

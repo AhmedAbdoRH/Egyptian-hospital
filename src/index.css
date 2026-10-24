@@ -221,3 +221,38 @@
     transform: none;
   }
 }
+
+/* Contrast corrections: muted brand accents stay readable on the light glass canvas. */
+.text-sky-300 { color: #07508b !important; }
+.text-sky-400 { color: #07508b !important; }
+.text-sky-500 { color: #06477d !important; }
+.text-teal-300 { color: #08676b !important; }
+.text-teal-400 { color: #08676b !important; }
+.text-emerald-300 { color: #087044 !important; }
+.text-emerald-400 { color: #087044 !important; }
+.text-amber-300 { color: #815300 !important; }
+.text-amber-400 { color: #815300 !important; }
+.text-rose-300, .text-rose-400 { color: #a1263b !important; }
+.text-indigo-300, .text-indigo-400 { color: #3d4fa0 !important; }
+.text-purple-300, .text-purple-400 { color: #70429a !important; }
+.text-cyan-300, .text-cyan-400 { color: #08677d !important; }
+
+/* White text is reserved for genuinely dark/colored controls and photo overlays. */
+.glass-button-whatsapp, .glass-button-whatsapp *,
+.bg-emerald-500, .bg-emerald-600,
+.photo-caption, .photo-caption .text-white,
+.bg-slate-900\/80.text-white, .bg-slate-900\/90.text-white,
+.bg-slate-950\/80.text-white, .bg-slate-950\/90.text-white {
+  color: #fff !important;
+}
+.bg-slate-900\/80:not(.text-white) { background: rgba(255,255,255,.94) !important; }
+.bg-slate-900\/95, .bg-slate-950\/95 { background: rgba(255,255,255,.98) !important; }
+.bg-slate-950\/80:not(.bg-gradient-to-t), .bg-slate-950\/90 { background-color: rgba(255,255,255,.96) !important; }
+.bg-slate-900\/95 *, .bg-slate-950\/95 * { color: #15304d; }
+.bg-slate-900\/95 .text-white, .bg-slate-950\/95 .text-white { color: #123253 !important; }
+.bg-slate-950.text-emerald-300, .bg-slate-950 .text-emerald-300 { color: #087044 !important; }
+.photo-caption .text-sky-400, .photo-caption .text-emerald-400 { color: #fff !important; }
+.photo-caption .text-slate-400 { color: #e2eaf2 !important; }
+input, select, textarea { color: #15304d; }
+input::placeholder, textarea::placeholder { color: #647b91 !important; opacity: 1; }
+select option { color: #15304d; background: #fff; }

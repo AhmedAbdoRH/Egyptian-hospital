@@ -411,7 +411,7 @@ export const Hero: React.FC<HeroProps> = ({
                     </div>
 
                     {/* Bottom caption + ECG */}
-                    <div className="absolute bottom-0 inset-x-0 p-5">
+                    <div className="photo-caption absolute bottom-0 inset-x-0 p-5 text-white">
                       <EcgLine className="w-full h-10 mb-2" />
                       <div className="flex items-center gap-1.5 text-xs font-semibold text-sky-300 uppercase tracking-wider">
                         <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
