@@ -242,7 +242,7 @@ export const Hero: React.FC<HeroProps> = ({
       ref={sectionRef}
       onMouseMove={handleSectionMove}
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden pt-10 pb-20 lg:pt-20 lg:pb-28"
+      className="contrast-dark hero-shell relative overflow-hidden pt-10 pb-20 lg:pt-20 lg:pb-28"
     >
       <style>{HERO_CSS}</style>
 
@@ -323,7 +323,7 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={onExploreServices}
-                className="group inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl glass-panel border border-white/15 text-white font-bold text-base transition-all duration-300 hover:bg-white/10 hover:border-sky-400/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 cursor-pointer"
+                className="hero-explore group inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl glass-panel border border-white/15 text-white font-bold text-base transition-all duration-300 hover:bg-white/10 hover:border-sky-400/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 cursor-pointer"
               >
                 <Activity className="w-4 h-4 text-sky-400 transition-transform group-hover:scale-110" aria-hidden="true" />
                 <span>Explore Specialties</span>
@@ -477,14 +477,14 @@ export const Hero: React.FC<HeroProps> = ({
           {HOSPITAL_STATS.map((stat, idx) => (
             <div
               key={idx}
-              className={`group relative overflow-hidden glass-panel p-5 sm:p-6 rounded-2xl border border-white/10 transition-all duration-500 hover:border-sky-400/40 hover:-translate-y-1 ${
+              className={`hero-stat-card group relative overflow-hidden glass-panel p-5 sm:p-6 rounded-2xl border border-white/10 transition-all duration-500 hover:border-sky-400/40 hover:-translate-y-1 ${
                 statsInView ? 'ch-reveal' : 'opacity-0'
               }`}
               style={delay(idx * 120)}
             >
               <div aria-hidden="true" className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-sky-400/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div aria-hidden="true" className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-sky-400/60 to-transparent" />
-              <div className="text-3xl sm:text-5xl font-black tabular-nums text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-teal-300">
+              <div className="hero-stat-value text-3xl sm:text-5xl font-black tabular-nums">
                 <CountUp value={String(stat.value)} start={statsInView} reduced={reduced} />
               </div>
               <div className="mt-2 text-sm sm:text-base font-bold text-white">{stat.label}</div>

@@ -366,7 +366,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
         <AccreditationSection />
 
         {/* Direct WhatsApp Call to Action Banner */}
-        <section className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#012654] via-[#013777] to-[#044a9e] p-8 sm:p-12 text-white shadow-xl">
+        <section className="contrast-dark relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#012654] via-[#013777] to-[#044a9e] p-8 sm:p-12 text-white shadow-xl">
           <div className="absolute top-0 right-0 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
           <div className="max-w-3xl space-y-4 relative z-10">
             <span className="text-xs font-black uppercase tracking-widest text-sky-300">

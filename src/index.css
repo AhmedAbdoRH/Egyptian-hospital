@@ -256,3 +256,38 @@
 input, select, textarea { color: #15304d; }
 input::placeholder, textarea::placeholder { color: #647b91 !important; opacity: 1; }
 select option { color: #15304d; background: #fff; }
+
+/* Keep a bright page canvas by default; reserve navy backgrounds for deliberate feature panels. */
+body { background: var(--brand-canvas, #f4f8fc) !important; color: #1e293b; }
+.hero-shell {
+  color: #f8fafc;
+  background: radial-gradient(ellipse at 72% 12%, rgba(11,85,153,.55), transparent 42%),
+              linear-gradient(135deg, #061a33 0%, #092545 52%, #013777 100%);
+}
+.hero-shell .text-sky-200, .hero-shell .text-sky-300, .hero-shell .text-sky-400,
+.contrast-dark .text-sky-200, .contrast-dark .text-sky-300, .contrast-dark .text-sky-400 { color: #bae6fd !important; }
+.hero-shell .text-teal-300, .hero-shell .text-teal-400,
+.contrast-dark .text-teal-300, .contrast-dark .text-teal-400 { color: #99f6e4 !important; }
+.hero-shell .text-emerald-300, .hero-shell .text-emerald-400,
+.contrast-dark .text-emerald-300, .contrast-dark .text-emerald-400 { color: #a7f3d0 !important; }
+.hero-shell .text-amber-300, .hero-shell .text-amber-400,
+.contrast-dark .text-amber-300, .contrast-dark .text-amber-400 { color: #fde68a !important; }
+.hero-shell .text-rose-300, .hero-shell .text-rose-400,
+.contrast-dark .text-rose-300, .contrast-dark .text-rose-400 { color: #fecdd3 !important; }
+.hero-shell .text-slate-200 { color: #e2e8f0 !important; }
+.hero-shell .text-slate-300 { color: #cbd5e1 !important; }
+.hero-shell .text-slate-400 { color: #a8b7ca !important; }
+.hero-shell .glass-panel { background: rgba(255,255,255,.96) !important; }
+.hero-shell .hero-explore { background: rgba(255,255,255,.10) !important; border-color: rgba(255,255,255,.26) !important; color: #fff !important; }
+.hero-shell .hero-explore * { color: #fff !important; }
+.hero-shell .hero-stat-card { background: rgba(255,255,255,.97) !important; }
+.hero-shell .hero-stat-value { color: #013777 !important; }
+.hero-shell .hero-stat-card .text-slate-400 { color: #475569 !important; }
+.contrast-dark { color: #f8fafc; }
+.contrast-dark p, .contrast-dark li { color: #e2e8f0; }
+.contrast-dark .text-white { color: #fff !important; }
+.header-utility { color: #e2e8f0; }
+.header-utility .text-sky-300, .header-utility .text-sky-400 { color: #bae6fd !important; }
+.header-utility .text-amber-300, .header-utility .text-amber-400 { color: #fde68a !important; }
+.header-utility .text-emerald-300 { color: #a7f3d0 !important; }
+.header-utility .text-white { color: #fff !important; }

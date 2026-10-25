@@ -93,7 +93,7 @@ export default function App() {
             />
             <PartnersSection onOpenWhatsAppBooking={() => handleOpenBooking()} />
             <AccreditationSection />
-            <div className="py-16 bg-gradient-to-b from-[#001d40] via-[#012654] to-[#001d40] text-white relative">
+            <div className="contrast-dark py-16 bg-gradient-to-b from-[#001d40] via-[#012654] to-[#001d40] text-white relative">
               <WhatsAppBookingPage
                 isDarkBg={true}
                 preselectedSpecialty={preselectedSpecialty}

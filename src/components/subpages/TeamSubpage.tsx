@@ -272,7 +272,7 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
         </section>
 
         {/* Direct WhatsApp Call to Action Banner */}
-        <section className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#012654] via-[#013777] to-[#044a9e] p-8 sm:p-12 text-white shadow-xl">
+        <section className="contrast-dark relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#012654] via-[#013777] to-[#044a9e] p-8 sm:p-12 text-white shadow-xl">
           <div className="max-w-3xl space-y-4 relative z-10">
             <span className="text-xs font-black uppercase tracking-widest text-sky-300">
               Personalized Consultation

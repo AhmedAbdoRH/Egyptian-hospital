@@ -41,7 +41,7 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Top Notification Strip */}
-      <div className="bg-[#002654] border-b border-white/10 text-xs text-sky-100 py-2.5 px-4 sm:px-6">
+      <div className="header-utility bg-[#002654] border-b border-white/10 text-xs text-sky-100 py-2.5 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-4 flex-wrap">
             <div className="flex items-center gap-1.5 text-sky-300 font-semibold">
