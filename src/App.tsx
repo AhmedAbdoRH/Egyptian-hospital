@@ -19,11 +19,26 @@ import { ServicesSubpage } from './components/subpages/ServicesSubpage';
 import { TeamSubpage } from './components/subpages/TeamSubpage';
 import { ContactSubpage } from './components/subpages/ContactSubpage';
 import { BookingSubpage } from './components/subpages/BookingSubpage';
+import { LoadingScreen } from './components/LoadingScreen';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
+  const [isLoaderVisible, setIsLoaderVisible] = useState(true);
+  const [isLoaderLeaving, setIsLoaderLeaving] = useState(false);
   const [preselectedSpecialty, setPreselectedSpecialty] = useState('');
   const [preselectedDoctor, setPreselectedDoctor] = useState('');
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const leaveDelay = reducedMotion ? 450 : 1850;
+    const removeDelay = reducedMotion ? 500 : 2240;
+    const leaveTimer = window.setTimeout(() => setIsLoaderLeaving(true), leaveDelay);
+    const removeTimer = window.setTimeout(() => setIsLoaderVisible(false), removeDelay);
+    return () => {
+      window.clearTimeout(leaveTimer);
+      window.clearTimeout(removeTimer);
+    };
+  }, []);
 
   useEffect(() => {
     // Smooth scroll to top on tab change
@@ -44,6 +59,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-transparent text-[#2d435e] selection:bg-[#013777] selection:text-white">
+      {isLoaderVisible && <LoadingScreen isLeaving={isLoaderLeaving} />}
       <Header
         activeTab={activeTab}
         onNavigate={handleNavigate}
