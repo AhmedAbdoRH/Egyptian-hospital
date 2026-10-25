@@ -26,23 +26,8 @@ export default function App() {
   const [preselectedDoctor, setPreselectedDoctor] = useState('');
 
   useEffect(() => {
-    const targets = document.querySelectorAll('main section, main .glass-panel');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
-    targets.forEach((target) => {
-      target.classList.add('scroll-reveal');
-      observer.observe(target);
-    });
-    return () => observer.disconnect();
+    // Smooth scroll to top on tab change
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   }, [activeTab]);
 
   const handleOpenBooking = (doctorName?: string, specialtyName?: string) => {
@@ -93,7 +78,7 @@ export default function App() {
             />
             <PartnersSection onOpenWhatsAppBooking={() => handleOpenBooking()} />
             <AccreditationSection />
-            <div className="contrast-dark py-16 bg-gradient-to-b from-[#001d40] via-[#012654] to-[#001d40] text-white relative">
+            <div className="contrast-dark py-8 sm:py-14 bg-gradient-to-b from-[#001d40] via-[#012654] to-[#001d40] text-white relative">
               <WhatsAppBookingPage
                 isDarkBg={true}
                 preselectedSpecialty={preselectedSpecialty}

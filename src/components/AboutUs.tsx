@@ -12,6 +12,9 @@ import {
   Compass,
   ArrowRight,
   CheckCircle2,
+  Building2,
+  Microscope,
+  BadgeCheck,
 } from 'lucide-react';
 import { PILLARS_OF_CARE, HOSPITAL_CONTACT } from '../data/cairoHospitalData';
 
@@ -21,10 +24,10 @@ interface AboutUsProps {
 
 export const AboutUs: React.FC<AboutUsProps> = ({ onOpenWhatsAppBooking }) => {
   return (
-    <section id="about" className="py-20 sm:py-24 relative overflow-hidden">
+    <section id="about" className="py-10 sm:py-16 lg:py-20 relative overflow-hidden">
       <div className="ambient-glow-navy top-20 right-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-10 sm:space-y-16">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
@@ -45,35 +48,161 @@ export const AboutUs: React.FC<AboutUsProps> = ({ onOpenWhatsAppBooking }) => {
         {/* Narrative & History Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left Narrative Cards */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200 space-y-4 bg-white shadow-sm">
-              <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
-                <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#013777] border border-sky-200 flex items-center justify-center font-black text-lg">
-                  2019
+          <div className="lg:col-span-7 space-y-7">
+            {/* Card 1: 2019 - Founding & Inception */}
+            <div className="group relative overflow-hidden rounded-[2rem] border border-slate-200/90 bg-gradient-to-b from-white via-white/95 to-sky-50/25 p-7 sm:p-9 shadow-md hover:shadow-2xl hover:border-sky-400/50 transition-all duration-300 hover:-translate-y-1.5">
+              {/* Top Accent Gradient Line */}
+              <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#013777] via-[#0b5599] to-[#0284c7]" />
+              
+              {/* Subtle Luminous Ambient Glow */}
+              <div className="absolute -top-20 -right-20 w-44 h-44 rounded-full bg-sky-200/40 blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
+
+              <div className="relative z-10 space-y-5">
+                {/* Header Row */}
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#013777] via-[#0b5599] to-[#0284c7] text-white flex flex-col items-center justify-center font-black shadow-lg shadow-[#013777]/25 shrink-0 group-hover:scale-105 transition-transform duration-300">
+                      <span className="text-[10px] font-bold text-sky-200 tracking-widest leading-none">EST.</span>
+                      <span className="text-xl leading-none mt-0.5">2019</span>
+                    </div>
+                    <div>
+                      <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-sky-50 text-[11px] font-bold text-[#013777] border border-sky-200/80 mb-1">
+                        <Building2 className="w-3.5 h-3.5 text-[#0284c7]" />
+                        <span>Abuja Tertiary Inception</span>
+                      </div>
+                      <h3 className="text-2xl sm:text-[1.7rem] font-black text-[#061a33] tracking-tight leading-tight">
+                        Our Founding & Inception
+                      </h3>
+                    </div>
+                  </div>
+                  <span className="px-3.5 py-1.5 rounded-xl bg-sky-50 text-xs font-bold text-[#013777] border border-sky-200/80 shadow-xs">
+                    Garki 2 · Abuja FCT
+                  </span>
                 </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-black text-[#092545]">Our Founding & Inception</h3>
-                  <div className="text-xs text-[#013777] font-black">Under the umbrella of Cairo Rehabilitation Centre (CRC)</div>
+
+                {/* Subtitle with emblem */}
+                <div className="flex items-center gap-2 text-xs font-bold text-[#013777]">
+                  <span className="w-2 h-2 rounded-full bg-[#0284c7] ring-4 ring-sky-100 shrink-0" />
+                  <span>Established under the umbrella of Cairo Rehabilitation Centre (CRC)</span>
+                </div>
+
+                {/* Highlighted Quote Callout */}
+                <div className="p-3.5 sm:p-4 rounded-2xl bg-sky-50/60 border-l-4 border-[#013777] border-y border-r border-sky-100/80">
+                  <p className="text-xs sm:text-sm font-semibold text-[#092545] leading-relaxed italic">
+                    "The first Egyptian-led hospital founded in Abuja, bridging renowned surgical heritage with comprehensive multidisciplinary clinical care."
+                  </p>
+                </div>
+
+                {/* Narrative Paragraph */}
+                <p className="text-xs sm:text-sm text-[#334155] leading-relaxed font-normal">
+                  Cairo Hospital was founded in 2019 by dedicated Egyptian medical professionals and administrators. Commencing operations as an outpatient orthopedic and physical rehabilitation clinic, the center continuously expanded into an advanced tertiary facility equipped with fully digital radiology, sterile theaters, and pathology diagnostics.
+                </p>
+
+                {/* 3 Executive Pillar Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                  <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-sky-300 transition-colors">
+                    <div className="w-8 h-8 rounded-xl bg-sky-50 text-[#013777] flex items-center justify-center mb-2">
+                      <Activity className="w-4 h-4 text-[#0284c7]" />
+                    </div>
+                    <div className="text-xs font-bold text-[#092545]">Outpatient to Tertiary</div>
+                    <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">Full-spectrum orthopedic & rehabilitation hospital</div>
+                  </div>
+
+                  <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-sky-300 transition-colors">
+                    <div className="w-8 h-8 rounded-xl bg-sky-50 text-[#013777] flex items-center justify-center mb-2">
+                      <Microscope className="w-4 h-4 text-[#0284c7]" />
+                    </div>
+                    <div className="text-xs font-bold text-[#092545]">Diagnostic Radiology</div>
+                    <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">High-resolution digital X-ray & automated lab</div>
+                  </div>
+
+                  <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-sky-300 transition-colors">
+                    <div className="w-8 h-8 rounded-xl bg-sky-50 text-[#013777] flex items-center justify-center mb-2">
+                      <ShieldCheck className="w-4 h-4 text-[#0284c7]" />
+                    </div>
+                    <div className="text-xs font-bold text-[#092545]">CRC Heritage</div>
+                    <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">Specialist physician and orthopedic team in Abuja</div>
+                  </div>
                 </div>
               </div>
-              <p className="text-xs sm:text-sm text-[#1e293b] font-medium leading-relaxed">
-                Cairo Hospital is the first Egyptian-led hospital founded in Abuja in 2019, emerging from the shared vision of dedicated Egyptian medical professionals and administrators. Commencing operations as an outpatient orthopedic and physical rehabilitation clinic, our center has continually expanded into a comprehensive multi-specialties hospital equipped with diagnostic radiology and clinical laboratories.
-              </p>
             </div>
 
-            <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200 space-y-4 bg-white shadow-sm">
-              <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
-                <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-800 border border-teal-200 flex items-center justify-center font-black text-lg">
-                  1971
+            {/* Card 2: 1971 - Over 5 Decades */}
+            <div className="group relative overflow-hidden rounded-[2rem] border border-slate-200/90 bg-gradient-to-b from-white via-white/95 to-teal-50/25 p-7 sm:p-9 shadow-md hover:shadow-2xl hover:border-teal-400/50 transition-all duration-300 hover:-translate-y-1.5">
+              {/* Top Accent Gradient Line */}
+              <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-teal-800 via-emerald-600 to-teal-500" />
+              
+              {/* Subtle Luminous Ambient Glow */}
+              <div className="absolute -top-20 -right-20 w-44 h-44 rounded-full bg-teal-200/40 blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
+
+              <div className="relative z-10 space-y-5">
+                {/* Header Row */}
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-900 via-emerald-800 to-teal-700 text-white flex flex-col items-center justify-center font-black shadow-lg shadow-teal-900/25 shrink-0 group-hover:scale-105 transition-transform duration-300">
+                      <span className="text-[10px] font-bold text-teal-200 tracking-widest leading-none">SINCE</span>
+                      <span className="text-xl leading-none mt-0.5">1971</span>
+                    </div>
+                    <div>
+                      <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#fdc33e]/15 text-[11px] font-bold text-[#8c6000] border border-[#fdc33e]/40 mb-1">
+                        <Award className="w-3.5 h-3.5 text-[#b87c08]" />
+                        <span>Half-Century Clinical Heritage</span>
+                      </div>
+                      <h3 className="text-2xl sm:text-[1.7rem] font-black text-[#061a33] tracking-tight leading-tight">
+                        Over 5 Decades of Medical Presence
+                      </h3>
+                    </div>
+                  </div>
+                  <span className="px-3.5 py-1.5 rounded-xl bg-[#fdc33e]/15 text-xs font-bold text-[#8c6000] border border-[#fdc33e]/40 shadow-xs">
+                    50+ Years Legacy
+                  </span>
                 </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-black text-[#092545]">Over 5 Decades of Medical Presence</h3>
-                  <div className="text-xs text-teal-800 font-black">Deep heritage across Nigerian healthcare systems</div>
+
+                {/* Subtitle with emblem */}
+                <div className="flex items-center gap-2 text-xs font-bold text-teal-800">
+                  <span className="w-2 h-2 rounded-full bg-teal-600 ring-4 ring-teal-100 shrink-0" />
+                  <span>Deep heritage across Nigerian healthcare and specialized clinical systems</span>
+                </div>
+
+                {/* Highlighted Quote Callout */}
+                <div className="p-3.5 sm:p-4 rounded-2xl bg-teal-50/60 border-l-4 border-teal-700 border-y border-r border-teal-100/80">
+                  <p className="text-xs sm:text-sm font-semibold text-teal-950 leading-relaxed italic">
+                    "Over 50 years of clinical stewardship in Nigeria, culminating in major hospital expansions and cutting-edge surgical facilities in 2021."
+                  </p>
+                </div>
+
+                {/* Narrative Paragraph */}
+                <p className="text-xs sm:text-sm text-[#334155] leading-relaxed font-normal">
+                  Our founders have provided exemplary medical stewardship in Nigeria since 1971. In 2021, Cairo Hospital completed a major expansion, commissioning a state-of-the-art sterile operating theater with laminar flow, luxury inpatient suites, an automated laboratory, and pharmaceutical integration via Alexandria Pharmacy Ltd.
+                </p>
+
+                {/* 3 Executive Pillar Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                  <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-teal-300 transition-colors">
+                    <div className="w-8 h-8 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center mb-2">
+                      <History className="w-4 h-4 text-teal-600" />
+                    </div>
+                    <div className="text-xs font-bold text-[#092545]">50+ Years Stewardship</div>
+                    <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">Egyptian surgical leaders serving in Nigeria since 1971</div>
+                  </div>
+
+                  <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-teal-300 transition-colors">
+                    <div className="w-8 h-8 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center mb-2">
+                      <Sparkles className="w-4 h-4 text-teal-600" />
+                    </div>
+                    <div className="text-xs font-bold text-[#092545]">2021 Major Expansion</div>
+                    <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">Sterile HEPA operating theaters & private inpatient suites</div>
+                  </div>
+
+                  <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-teal-300 transition-colors">
+                    <div className="w-8 h-8 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center mb-2">
+                      <BadgeCheck className="w-4 h-4 text-teal-600" />
+                    </div>
+                    <div className="text-xs font-bold text-[#092545]">Alexandria Pharmacy</div>
+                    <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">Guaranteed genuine medications & clinical supply</div>
+                  </div>
                 </div>
               </div>
-              <p className="text-xs sm:text-sm text-[#1e293b] font-medium leading-relaxed">
-                Our founders have provided medical stewardship in Nigeria since 1971. In 2021, Cairo Hospital underwent a major upgrade, adding a fully sterile operating theater, inpatient suites, an automated laboratory, digital X-ray, and pharmaceutical distribution through Alexandria Pharmacy Ltd.
-              </p>
             </div>
           </div>
 

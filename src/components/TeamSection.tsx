@@ -24,11 +24,11 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
   const executiveMembers = TEAM_MEMBERS.slice(1);
 
   return (
-    <section id="team" className="py-24 relative overflow-hidden">
+    <section id="team" className="py-10 sm:py-16 lg:py-20 relative overflow-hidden">
       <div className="ambient-glow-navy top-40 left-10 pointer-events-none" />
       <div className="ambient-glow-cyan bottom-20 right-10 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-10 sm:space-y-16">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
@@ -55,7 +55,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                   className="w-full h-full object-cover object-top"
                 />
               </div>
-              <div className="mt-3 text-xs font-black px-3.5 py-1 rounded-full bg-sky-500/25 text-sky-200 border border-sky-400/40">
+              <div className="mt-3 text-xs font-black px-3.5 py-1 rounded-full bg-[#fdc33e]/20 text-[#fdc33e] border border-[#fdc33e]/40 shadow-xs">
                 Five Decades in Healthcare Leadership
               </div>
             </div>
@@ -82,7 +82,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
               <div className="space-y-1.5 pt-2 text-xs text-sky-100">
                 {chairman.qualifications.slice(0, 3).map((q, i) => (
                   <div key={i} className="flex items-center gap-2">
-                    <Award className="w-3.5 h-3.5 text-sky-300 flex-shrink-0" />
+                    <Award className="w-3.5 h-3.5 text-[#fdc33e] flex-shrink-0" />
                     <span>{q}</span>
                   </div>
                 ))}

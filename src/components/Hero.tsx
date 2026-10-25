@@ -5,15 +5,13 @@ import {
   ShieldCheck,
   Award,
   Sparkles,
-  PhoneCall,
   Activity,
-  HeartPulse,
   MapPin,
   BadgeCheck,
   Plane,
   Stethoscope,
 } from 'lucide-react';
-import { HOSPITAL_CONTACT, HOSPITAL_STATS } from '../data/cairoHospitalData';
+import { HOSPITAL_STATS } from '../data/cairoHospitalData';
 
 interface HeroProps {
   onOpenWhatsAppBooking: () => void;
@@ -214,7 +212,16 @@ export const Hero: React.FC<HeroProps> = ({
   const tiltRef = useRef<HTMLDivElement>(null);
   const { ref: statsRef, inView: statsInView } = useInView<HTMLDivElement>(0.25);
 
-  const telHref = `tel:${String(HOSPITAL_CONTACT.phone1).replace(/[^\d+]/g, '')}`;
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {
+        // Autoplay policy handled gracefully
+      });
+    }
+  }, []);
 
   const handleSectionMove = (e: React.MouseEvent<HTMLElement>) => {
     if (reduced || !sectionRef.current) return;
@@ -246,7 +253,34 @@ export const Hero: React.FC<HeroProps> = ({
     >
       <style>{HERO_CSS}</style>
 
-      {/* ---------- Background layers ---------- */}
+      {/* ---------- Background Video & Seamless Visual Layers ---------- */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0" aria-hidden="true">
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          tabIndex={-1}
+          className="w-full h-full object-cover opacity-40 filter contrast-105 brightness-95"
+        >
+          <source
+            src="https://res.cloudinary.com/dvikey3wc/video/upload/v1792926627/6998173-hd_1080_1920_25fps_abd3nd.mp4"
+            type="video/mp4"
+          />
+        </video>
+        {/* Soft transparent overlays blending video smoothly into the navy background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#061a33]/70 via-transparent to-[#061a33]/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061a33]/60 via-transparent to-[#013777]/50" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse at center, transparent 40%, rgba(6, 26, 51, 0.65) 100%)',
+          }}
+        />
+      </div>
+
       <div className="ambient-glow-navy top-10 -left-20" aria-hidden="true" />
       <div className="ambient-glow-cyan top-40 -right-20" aria-hidden="true" />
       <div aria-hidden="true" className="ch-orb absolute -top-32 left-1/3 w-[28rem] h-[28rem] rounded-full bg-sky-500/10 blur-3xl pointer-events-none" />
@@ -271,8 +305,8 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-7 space-y-7">
             {/* Kicker */}
             <div className="ch-reveal flex flex-wrap items-center gap-2" style={delay(0)}>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-xs font-bold text-amber-300">
-                <BadgeCheck className="w-3.5 h-3.5" aria-hidden="true" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#fdc33e]/15 border border-[#fdc33e]/40 text-xs font-bold text-[#fdc33e]">
+                <BadgeCheck className="w-3.5 h-3.5 text-[#fdc33e]" aria-hidden="true" />
                 NHIS Accredited
               </span>
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-pill text-xs font-semibold text-sky-200">
@@ -330,26 +364,6 @@ export const Hero: React.FC<HeroProps> = ({
               </button>
             </div>
 
-            {/* Emergency line — high visibility */}
-            <a
-              href={telHref}
-              className="ch-reveal group inline-flex items-center gap-3 rounded-2xl pr-5 pl-2 py-2 bg-rose-500/10 border border-rose-500/30 hover:bg-rose-500/15 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
-              style={delay(560)}
-            >
-              <span className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-rose-500/20">
-                <span className="ch-ring absolute inset-0 rounded-xl bg-rose-500/40" />
-                <PhoneCall className="relative w-4.5 h-4.5 w-5 h-5 text-rose-300" aria-hidden="true" />
-              </span>
-              <span className="leading-tight">
-                <span className="block text-[11px] sm:text-xs uppercase tracking-wider font-bold text-rose-300">
-                  24/7 Emergency & Ambulance
-                </span>
-                <span className="block font-mono text-base sm:text-lg font-bold text-white group-hover:text-rose-100">
-                  {HOSPITAL_CONTACT.phone1}
-                </span>
-              </span>
-            </a>
-
             {/* Trust marquee */}
             <div className="ch-reveal pt-3" style={delay(660)}>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 mb-3">
@@ -398,17 +412,13 @@ export const Hero: React.FC<HeroProps> = ({
                     <div aria-hidden="true" className="ch-scan absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-transparent via-sky-300/10 to-transparent" />
 
                     {/* Live status */}
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/70 backdrop-blur-md border border-white/10 text-xs font-bold text-white">
-                        <HeartPulse className="ch-heartbeat w-4 h-4 text-rose-400" aria-hidden="true" />
-                        Emergency · Open now
-                      </div>
-                      {abujaTime && (
+                    {abujaTime && (
+                      <div className="absolute top-4 right-4 flex items-center justify-end">
                         <div className="px-3 py-1.5 rounded-xl bg-slate-950/70 backdrop-blur-md border border-white/10 text-xs font-mono text-sky-300">
                           Abuja {abujaTime} WAT
                         </div>
-                      )}
-                    </div>
+                      </div>
+                    )}
 
                     {/* Bottom caption + ECG */}
                     <div className="photo-caption absolute bottom-0 inset-x-0 p-5 text-white">
@@ -424,23 +434,22 @@ export const Hero: React.FC<HeroProps> = ({
                     </div>
                   </div>
 
-                  {/* Action tiles */}
-                  <div className="grid grid-cols-2 gap-px bg-white/10 border-t border-white/10">
-                    <a
-                      href={telHref}
-                      className="group p-4 bg-slate-950 hover:bg-rose-500/10 transition-colors focus-visible:outline-none focus-visible:bg-rose-500/10"
-                    >
-                      <PhoneCall className="w-5 h-5 text-rose-400 mb-2 transition-transform group-hover:scale-110" aria-hidden="true" />
-                      <div className="text-sm font-bold text-white">Emergency Call</div>
-                      <div className="text-xs text-slate-400">Ambulance dispatch</div>
-                    </a>
+                  {/* Action tile */}
+                  <div className="bg-white/10 border-t border-white/10">
                     <button
                       onClick={onExploreTourism}
-                      className="group p-4 text-left bg-slate-950 hover:bg-sky-500/10 transition-colors focus-visible:outline-none focus-visible:bg-sky-500/10 cursor-pointer"
+                      className="w-full group p-4 flex items-center justify-between text-left bg-slate-950 hover:bg-sky-500/10 transition-colors focus-visible:outline-none focus-visible:bg-sky-500/10 cursor-pointer"
                     >
-                      <Plane className="w-5 h-5 text-sky-400 mb-2 transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5" aria-hidden="true" />
-                      <div className="text-sm font-bold text-white">Medical Tourism</div>
-                      <div className="text-xs text-slate-400">Egypt · UK · UAE · USA</div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-sky-500/15 border border-sky-400/30 flex items-center justify-center shrink-0">
+                          <Plane className="w-5 h-5 text-sky-400 transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5" aria-hidden="true" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-bold text-white">Medical Tourism Office</div>
+                          <div className="text-xs text-slate-400">Referrals & Specialized Care Abroad · Egypt · UK · UAE · USA</div>
+                        </div>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-sky-400 transition-transform group-hover:translate-x-1" />
                     </button>
                   </div>
                 </div>
@@ -451,8 +460,8 @@ export const Hero: React.FC<HeroProps> = ({
                 className="ch-float hidden sm:flex absolute -left-10 top-1/3 items-center gap-3 px-4 py-3 rounded-2xl bg-slate-900/80 backdrop-blur-xl border border-white/15 shadow-2xl"
                 style={{ transform: 'translateZ(60px)' }}
               >
-                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400/30 to-amber-600/10 border border-amber-400/30">
-                  <Award className="w-5 h-5 text-amber-300" aria-hidden="true" />
+                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[#fdc33e]/30 to-[#fdc33e]/10 border border-[#fdc33e]/40 shadow-sm">
+                  <Award className="w-5 h-5 text-[#fdc33e]" aria-hidden="true" />
                 </span>
                 <span className="leading-tight">
                   <span className="block text-sm font-bold text-white">Orthopaedic Excellence</span>
@@ -487,8 +496,8 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="hero-stat-value text-3xl sm:text-5xl font-black tabular-nums">
                 <CountUp value={String(stat.value)} start={statsInView} reduced={reduced} />
               </div>
-              <div className="mt-2 text-sm sm:text-base font-bold text-white">{stat.label}</div>
-              <div className="text-xs sm:text-sm text-slate-400">{stat.sublabel}</div>
+              <div className="hero-stat-label mt-2 text-sm sm:text-base font-bold text-[#092545]">{stat.label}</div>
+              <div className="hero-stat-sublabel text-xs sm:text-sm font-medium text-[#475569]">{stat.sublabel}</div>
             </div>
           ))}
         </div>

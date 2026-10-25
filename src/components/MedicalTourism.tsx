@@ -41,11 +41,11 @@ export const MedicalTourism: React.FC<MedicalTourismProps> = ({
   };
 
   return (
-    <section id="tourism" className="py-24 relative overflow-hidden">
+    <section id="tourism" className="py-10 sm:py-16 lg:py-20 relative overflow-hidden">
       <div className="ambient-glow-navy top-1/4 -right-20 pointer-events-none" />
       <div className="ambient-glow-cyan bottom-10 left-10 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-10 sm:space-y-16">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">

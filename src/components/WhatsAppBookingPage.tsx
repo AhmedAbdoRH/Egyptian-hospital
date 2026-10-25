@@ -369,7 +369,7 @@ _Sent via Cairo Hospital Official Website_`;
 
   // If rendered as an inline page section
   return (
-    <section id="booking" className="py-24 relative overflow-hidden">
+    <section id="booking" className="py-8 sm:py-14 relative overflow-hidden">
       <div className="ambient-glow-navy top-20 right-20 pointer-events-none" />
       <div className="ambient-glow-cyan bottom-10 left-10 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">

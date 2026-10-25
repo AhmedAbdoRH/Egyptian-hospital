@@ -7,13 +7,13 @@ export const AccreditationSection: React.FC = () => {
   const enrolledOrgs = ACCREDITATIONS_DATA.filter((a) => a.type === 'enrolled');
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-10 sm:py-16 lg:py-20 relative overflow-hidden">
       <div className="ambient-glow-navy top-10 right-10 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-8 sm:space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
-            <Award className="w-4 h-4 text-[#013777]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#fdc33e]/15 border border-[#fdc33e]/40 text-xs font-bold text-[#8c6000] uppercase tracking-wider">
+            <Award className="w-4 h-4 text-[#b87c08]" />
             <span>Official Recognition & Regulatory Trust</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-black text-[#092545] tracking-tight">

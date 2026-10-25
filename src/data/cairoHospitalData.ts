@@ -20,6 +20,7 @@ export const HOSPITAL_CONTACT = {
   phone2: '+2349129799999',
   whatsappNumber: '2349098656437',
   whatsappSecondary: '2349129799999',
+  whatsappDisplay: '+234 909 865 6437',
   email: 'nigeria.crc@gmail.com',
   workingHours: '24/7 Emergency & Inpatient Services | Outpatient Clinics: 8:00 AM - 9:00 PM',
 };

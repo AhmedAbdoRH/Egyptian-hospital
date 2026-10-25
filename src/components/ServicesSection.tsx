@@ -80,10 +80,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   });
 
   return (
-    <section id="services" className="py-20 sm:py-24 relative overflow-hidden">
+    <section id="services" className="py-10 sm:py-16 lg:py-20 relative overflow-hidden">
       <div className="ambient-glow-cyan top-40 left-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-10 sm:space-y-14">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">

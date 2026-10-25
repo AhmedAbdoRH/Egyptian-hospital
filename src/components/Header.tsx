@@ -54,27 +54,10 @@ export const Header: React.FC<HeaderProps> = ({
               <span>24/7 Level-1 Emergency & Inpatient Care</span>
             </div>
             <span className="text-sky-600 hidden md:inline">|</span>
-            <div className="hidden md:flex items-center gap-1.5 text-amber-300 font-medium">
-              <Shield className="w-3.5 h-3.5 text-amber-400" />
+            <div className="hidden md:flex items-center gap-1.5 text-[#fdc33e] font-semibold">
+              <Shield className="w-3.5 h-3.5 text-[#fdc33e]" />
               <span>NHIS, AU & UN Enrolled Hospital</span>
             </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <a
-              href={`tel:${HOSPITAL_CONTACT.phone1}`}
-              className="inline-flex items-center gap-1.5 text-white hover:text-sky-300 transition-colors font-bold"
-            >
-              <Phone className="w-3 h-3 text-sky-400" />
-              <span className="font-mono">{HOSPITAL_CONTACT.phone1}</span>
-            </a>
-            <button
-              onClick={onOpenWhatsAppBooking}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 text-[11px] font-extrabold hover:bg-emerald-500 hover:text-slate-950 transition-all cursor-pointer shadow-xs"
-            >
-              <MessageCircle className="w-3.5 h-3.5 fill-current" />
-              <span>WhatsApp Desk</span>
-            </button>
           </div>
         </div>
       </div>

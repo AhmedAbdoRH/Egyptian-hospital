@@ -67,7 +67,7 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
           {/* Qualifications & Board Certifications */}
           <div className="space-y-2">
             <h4 className="text-xs font-black text-[#013777] uppercase tracking-wider flex items-center gap-1.5">
-              <Award className="w-4 h-4 text-[#0b5599]" />
+              <Award className="w-4 h-4 text-[#b87c08]" />
               <span>Credentials & Memberships</span>
             </h4>
             <div className="space-y-2">

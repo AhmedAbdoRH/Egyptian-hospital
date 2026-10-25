@@ -141,8 +141,8 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs border-t border-white/10">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="flex items-center gap-1.5 text-white font-bold">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <span className="flex items-center gap-1.5 text-[#fdc33e] font-bold">
+              <ShieldCheck className="w-4 h-4 text-[#fdc33e]" />
               NHIS Accredited
             </span>
             <span className="text-sky-400">·</span>

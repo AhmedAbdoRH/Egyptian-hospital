@@ -19,6 +19,13 @@
     --brand-text-muted: #334155;
     --brand-emerald: #059669;
     --brand-whatsapp: #25d366;
+
+    /* Secondary Accent Gold (#fdc33e) for secondary elements & tags */
+    --brand-secondary: #fdc33e;
+    --brand-secondary-hover: #e5ad32;
+    --brand-secondary-dark: #8c6000;
+    --brand-secondary-bg: rgba(253, 195, 62, 0.14);
+    --brand-secondary-border: rgba(253, 195, 62, 0.38);
   }
 
   html {
@@ -29,7 +36,7 @@
     font-family: var(--font-sans);
     background-color: var(--brand-canvas);
     color: var(--brand-text-body);
-    overflow-x: hidden;
+    overflow-x: clip;
     min-height: 100vh;
     background-image: 
       radial-gradient(ellipse at 10% 5%, rgba(1, 55, 119, 0.06), transparent 45%),
@@ -166,21 +173,39 @@
   background: #718fad;
 }
 
-/* WhatsApp Ripple & Pulse */
-@keyframes whatsapp-ripple {
+@keyframes call-ripple {
   0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6), 0 0 0 0 rgba(37, 211, 102, 0.3);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.75), 0 0 0 0 rgba(18, 140, 126, 0.45);
   }
   70% {
-    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0), 0 0 0 34px rgba(37, 211, 102, 0);
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0), 0 0 0 32px rgba(18, 140, 126, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 0 0 0 rgba(37, 211, 102, 0);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 0 0 0 rgba(18, 140, 126, 0);
   }
 }
 
-.animate-whatsapp-pulse {
-  animation: whatsapp-ripple 2.4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+.animate-call-pulse {
+  animation: call-ripple 2.2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes phone-ring {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  10%, 30% {
+    transform: rotate(-14deg) scale(1.08);
+  }
+  20%, 40% {
+    transform: rotate(14deg) scale(1.08);
+  }
+  50% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.animate-phone-ring {
+  animation: phone-ring 3s infinite ease-in-out;
 }
 
 /* Subtle Floating Animation */
@@ -207,6 +232,13 @@
 .scroll-reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -271,7 +303,7 @@ body { background: var(--brand-canvas, #f4f8fc) !important; color: #1e293b; }
 .hero-shell .text-emerald-300, .hero-shell .text-emerald-400,
 .contrast-dark .text-emerald-300, .contrast-dark .text-emerald-400 { color: #a7f3d0 !important; }
 .hero-shell .text-amber-300, .hero-shell .text-amber-400,
-.contrast-dark .text-amber-300, .contrast-dark .text-amber-400 { color: #fde68a !important; }
+.contrast-dark .text-amber-300, .contrast-dark .text-amber-400 { color: #fdc33e !important; }
 .hero-shell .text-rose-300, .hero-shell .text-rose-400,
 .contrast-dark .text-rose-300, .contrast-dark .text-rose-400 { color: #fecdd3 !important; }
 .hero-shell .text-slate-200 { color: #e2e8f0 !important; }
@@ -280,14 +312,37 @@ body { background: var(--brand-canvas, #f4f8fc) !important; color: #1e293b; }
 .hero-shell .glass-panel { background: rgba(255,255,255,.96) !important; }
 .hero-shell .hero-explore { background: rgba(255,255,255,.10) !important; border-color: rgba(255,255,255,.26) !important; color: #fff !important; }
 .hero-shell .hero-explore * { color: #fff !important; }
-.hero-shell .hero-stat-card { background: rgba(255,255,255,.97) !important; }
+.hero-shell .hero-stat-card {
+  background: rgba(255, 255, 255, 0.97) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 12px 32px -8px rgba(0, 20, 50, 0.28) !important;
+}
 .hero-shell .hero-stat-value { color: #013777 !important; }
+.hero-shell .hero-stat-card .hero-stat-label,
+.hero-shell .hero-stat-label { color: #092545 !important; }
+.hero-shell .hero-stat-card .hero-stat-sublabel,
 .hero-shell .hero-stat-card .text-slate-400 { color: #475569 !important; }
 .contrast-dark { color: #f8fafc; }
 .contrast-dark p, .contrast-dark li { color: #e2e8f0; }
 .contrast-dark .text-white { color: #fff !important; }
 .header-utility { color: #e2e8f0; }
 .header-utility .text-sky-300, .header-utility .text-sky-400 { color: #bae6fd !important; }
-.header-utility .text-amber-300, .header-utility .text-amber-400 { color: #fde68a !important; }
+.header-utility .text-amber-300, .header-utility .text-amber-400 { color: #fdc33e !important; }
 .header-utility .text-emerald-300 { color: #a7f3d0 !important; }
 .header-utility .text-white { color: #fff !important; }
+
+/* Secondary Gold (#fdc33e) Accent System */
+.text-gold-accent { color: #fdc33e !important; }
+.text-gold-readable { color: #8c6000 !important; }
+.bg-gold-soft { background-color: rgba(253, 195, 62, 0.14) !important; }
+.border-gold-soft { border-color: rgba(253, 195, 62, 0.38) !important; }
+.badge-gold-dark {
+  background-color: rgba(253, 195, 62, 0.15) !important;
+  border: 1px solid rgba(253, 195, 62, 0.45) !important;
+  color: #fdc33e !important;
+}
+.badge-gold-light {
+  background-color: rgba(253, 195, 62, 0.14) !important;
+  border: 1px solid rgba(253, 195, 62, 0.40) !important;
+  color: #8c6000 !important;
+}
