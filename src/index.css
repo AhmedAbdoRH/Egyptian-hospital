@@ -375,11 +375,11 @@ body { background: var(--brand-canvas, #f4f8fc) !important; color: #1e293b; }
   width: 100%;
   height: auto;
   overflow: visible;
-  filter: drop-shadow(0 16px 30px rgba(7, 80, 181, .12));
+  filter: drop-shadow(0 16px 30px rgba(2, 56, 121, .12));
 }
 .brand-logo__arc {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
   animation: brand-arc-draw 900ms cubic-bezier(.22, 1, .36, 1) forwards;
 }
 .brand-logo__arc--top { animation-delay: 160ms; }
@@ -410,8 +410,8 @@ body { background: var(--brand-canvas, #f4f8fc) !important; color: #1e293b; }
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #0750b5;
-  box-shadow: 0 0 0 0 rgba(7, 80, 181, .28);
+  background: #023879;
+  box-shadow: 0 0 0 0 rgba(2, 56, 121, .28);
   animation: brand-loader-pulse 1.5s ease-out infinite;
 }
 .brand-loader__track {
@@ -419,18 +419,18 @@ body { background: var(--brand-canvas, #f4f8fc) !important; color: #1e293b; }
   height: 3px;
   overflow: hidden;
   border-radius: 999px;
-  background: rgba(7, 80, 181, .13);
+  background: rgba(2, 56, 121, .13);
 }
 .brand-loader__track span {
   display: block;
   width: 42%;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #0750b5, #5290e5);
+  background: linear-gradient(90deg, #023879, #5375a0);
   animation: brand-loader-progress 1.25s ease-in-out infinite;
 }
 @keyframes brand-arc-draw {
-  to { stroke-dashoffset: 0; }
+  to { opacity: 1; clip-path: inset(0 0 0 0); }
 }
 @keyframes brand-mark-arrive {
   0% { opacity: 0; transform: scale(.92) translateY(7px); }
@@ -443,8 +443,8 @@ body { background: var(--brand-canvas, #f4f8fc) !important; color: #1e293b; }
   100% { opacity: 1; transform: scale(1); }
 }
 @keyframes brand-loader-pulse {
-  0% { box-shadow: 0 0 0 0 rgba(7, 80, 181, .32); }
-  75%, 100% { box-shadow: 0 0 0 10px rgba(7, 80, 181, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(2, 56, 121, .32); }
+  75%, 100% { box-shadow: 0 0 0 10px rgba(2, 56, 121, 0); }
 }
 @keyframes brand-loader-progress {
   0% { transform: translateX(-120%); }
@@ -456,7 +456,7 @@ body { background: var(--brand-canvas, #f4f8fc) !important; color: #1e293b; }
 }
 @media (prefers-reduced-motion: reduce) {
   .brand-loader, .brand-loader * { transition: none !important; animation: none !important; }
-  .brand-logo__arc { stroke-dashoffset: 0; }
+  .brand-logo__arc { clip-path: none; opacity: 1; }
   .brand-logo__figure, .brand-logo__node { opacity: 1; transform: none; }
   .brand-loader__track span { width: 100%; transform: none; }
 }
