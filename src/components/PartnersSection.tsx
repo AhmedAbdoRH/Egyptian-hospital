@@ -75,7 +75,7 @@ export const PartnersSection: React.FC<PartnersSectionProps> = ({
               </div>
 
               <p className="text-xs sm:text-sm text-[#2d435e] leading-relaxed">
-                We resource and distribute pharmaceutical products from Egypt to Nigeria, as well as collaborating with prominent international pharmaceutical manufacturers. Led by Mrs. Elizabeth Blomqvist, this partnership secures certified genuine therapeutics for our hospital patients.
+                We resource and distribute pharmaceutical products from Egypt to Nigeria, as well as collaborating with prominent international pharmaceutical manufacturers. This partnership secures certified genuine therapeutics for our hospital patients.
               </p>
 
               <div className="flex flex-wrap gap-2 pt-1">

@@ -64,7 +64,7 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
     },
     {
       dept: 'Pharmaceutical Distribution',
-      lead: 'Mrs. Elizabeth Blomqvist',
+      lead: 'Alexandria Pharmacy Ltd.',
       specialty: 'Alexandria Pharmacy Ltd. & Skinic Clinic',
       procedures: ['Egyptian & European Formulations', 'Aseptic Compounding', 'Specialty Therapeutics'],
     },

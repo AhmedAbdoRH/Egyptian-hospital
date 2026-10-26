@@ -16,11 +16,11 @@ export const HOSPITAL_CONTACT = {
   city: 'Abuja',
   state: 'FCTA',
   country: 'Nigeria',
-  phone1: '+2349098656437',
-  phone2: '+2349129799999',
-  whatsappNumber: '2349098656437',
-  whatsappSecondary: '2349129799999',
-  whatsappDisplay: '+234 909 865 6437',
+  phone1: '+2349129799999',
+  phone2: '+2349098656437',
+  whatsappNumber: '2349129799999',
+  whatsappSecondary: '2349098656437',
+  whatsappDisplay: '+234 912 979 9999',
   email: 'nigeria.crc@gmail.com',
   workingHours: '24/7 Emergency & Inpatient Services | Outpatient Clinics: 8:00 AM - 9:00 PM',
 };
@@ -141,27 +141,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: '/images/team/mr-bassem-makhlouf.png',
     fullBio:
       'Dr. Bassam Makhlouf is part of Cairo Hospital’s clinical team, providing physiotherapy, cupping, and acupuncture services.',
-  },
-  {
-    id: 'mrs-elizabeth-blomqvist',
-    isDoctor: false,
-    name: 'Mrs. Elizabeth Blomqvist',
-    role: 'Executive Team Member',
-    title: 'Director of Strategic Partnerships & Healthcare Operations',
-    education: 'Executive Healthcare Administration',
-    qualifications: [
-      'Director in Skinic Dermatology Clinic, Nigeria',
-      'Specialist in International Healthcare Partnerships',
-      'Expert in Healthcare Operations & Strategic Development',
-    ],
-    careerHighlights: [
-      'Leads strategic partnerships that support hospital operations and patient services',
-      'Co-founded strategic partnerships with Skinic Dermatology Centre for advanced aesthetic and clinical care',
-      'Contributes to institutional development and multidisciplinary collaboration',
-    ],
-    image: '/images/team/mrs-elizabeth-blomqvist.png',
-    fullBio:
-      'Mrs. Elizabeth Blomqvist is a member of Cairo Hospital’s executive team, contributing to strategic partnerships and healthcare operations. She also serves as a Director at Skinic Dermatology Clinic, supporting cross-organizational collaboration and patient-focused service development.',
   },
   {
     id: 'dr-wael',
@@ -424,7 +403,6 @@ export const PARTNERS_DATA = [
       'We resource and distribute pharmaceutical products from Egypt to Nigeria, as well as collaborating with reputable international pharmaceutical manufacturers to ensure authentic, high-efficacy medications are readily available.',
     image: '/images/partners/alexandria-pharmacy.png',
     shelvesImage: '/images/partners/alexandria-pharmacy-shelves.png',
-    leadership: 'Led by Mrs. Elizabeth Blomqvist (CEO)',
     badges: ['Egyptian Pharmaceutical Supply', 'Quality Assured Logistics', 'Direct Clinical Sourcing'],
   },
   {
