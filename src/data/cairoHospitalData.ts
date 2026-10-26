@@ -146,22 +146,22 @@ export const TEAM_MEMBERS: TeamMember[] = [
     id: 'mrs-elizabeth-blomqvist',
     isDoctor: false,
     name: 'Mrs. Elizabeth Blomqvist',
-    role: 'HR & Pharmacy Manager',
-    title: 'Director of Human Resources & Pharmaceutical Distribution',
-    education: 'Executive Healthcare Administration & Pharmaceutical Logistics',
+    role: 'Executive Team Member',
+    title: 'Director of Strategic Partnerships & Healthcare Operations',
+    education: 'Executive Healthcare Administration',
     qualifications: [
-      'CEO of Alexandria Pharmacy Ltd.',
       'Director in Skinic Dermatology Clinic, Nigeria',
-      'Specialist in International Pharmaceutical Resourcing & Distribution',
+      'Specialist in International Healthcare Partnerships',
+      'Expert in Healthcare Operations & Strategic Development',
     ],
     careerHighlights: [
-      'Directs pharmaceutical supply chains sourcing premium Egyptian and international medications into Nigeria',
+      'Leads strategic partnerships that support hospital operations and patient services',
       'Co-founded strategic partnerships with Skinic Dermatology Centre for advanced aesthetic and clinical care',
-      'Manages multidisciplinary clinical staffing and talent development at Cairo Hospital',
+      'Contributes to institutional development and multidisciplinary collaboration',
     ],
     image: '/images/team/mrs-elizabeth-blomqvist.png',
     fullBio:
-      'Mrs. Elizabeth Blomqvist serves as the HR Manager and Pharmacy Manager at Cairo Hospital. As the CEO of Alexandria Pharmacy Ltd. and a Director at Skinic Dermatology Clinic, Mrs. Blomqvist plays an indispensable role in securing essential pharmaceutical lines from Egypt and global partners, while nurturing a high-performing medical staff committed to patient-first service.',
+      'Mrs. Elizabeth Blomqvist is a member of Cairo Hospital’s executive team, contributing to strategic partnerships and healthcare operations. She also serves as a Director at Skinic Dermatology Clinic, supporting cross-organizational collaboration and patient-focused service development.',
   },
 ];
 
