@@ -81,8 +81,8 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
                 <h4 className="text-sm font-bold text-white tracking-wide">
                   Cairo Hospital Helpline
                 </h4>
-                <div className="text-[11px] text-emerald-400 flex items-center gap-1.5 font-bold">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <div className="text-[11px] !text-[#fdc33e] flex items-center gap-1.5 font-bold">
+                  <span className="w-2 h-2 rounded-full !bg-[#fdc33e] animate-pulse" />
                   <span>24/7 Direct Patient Line · Abuja</span>
                 </div>
               </div>

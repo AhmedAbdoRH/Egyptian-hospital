@@ -6,6 +6,7 @@ import {
   MessageCircle,
   ArrowRight,
   ExternalLink,
+  Stethoscope,
 } from 'lucide-react';
 import { TEAM_MEMBERS } from '../data/cairoHospitalData';
 import { TeamMember } from '../types/hospital';
@@ -122,11 +123,18 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
               <div>
                 {/* Photo */}
                 <div className="relative h-60 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 mb-4 shadow-inner">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
-                  />
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#e6f0fa] to-[#c9dced] text-[#013777]" aria-label={`${member.name} profile image unavailable`}>
+                      <Stethoscope className="w-12 h-12" />
+                      <span className="text-3xl font-black">{member.name.split(' ').slice(-1)[0].charAt(0)}</span>
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#012654]/85 via-transparent to-transparent" />
                   <div className="photo-caption absolute bottom-2.5 left-3 right-3 text-white">
                     <span className="text-[10px] font-black !text-white uppercase tracking-wider block">
@@ -142,10 +150,12 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                   <div className="text-[#013777] font-black line-clamp-1">
                     {member.title}
                   </div>
-                  <div className="text-[#0f172a] flex items-center gap-1.5 font-semibold">
-                    <GraduationCap className="w-3.5 h-3.5 text-[#013777] flex-shrink-0" />
-                    <span className="truncate">{member.education}</span>
-                  </div>
+                  {member.education && (
+                    <div className="text-[#0f172a] flex items-center gap-1.5 font-semibold">
+                      <GraduationCap className="w-3.5 h-3.5 text-[#013777] flex-shrink-0" />
+                      <span className="truncate">{member.education}</span>
+                    </div>
+                  )}
                 </div>
               </div>
 

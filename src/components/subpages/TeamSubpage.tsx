@@ -52,9 +52,15 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
     },
     {
       dept: 'Kinetic Rehabilitation & Physiotherapy',
-      lead: 'Cairo Rehabilitation Centre Faculty',
+      lead: 'Dr. Bassam Makhlouf',
       specialty: 'Specialized Neuromuscular & Post-Surgical Recovery',
-      procedures: ['BEMER Vascular Therapy', 'Spinal Decompression', 'Gait Training & Rehab Gym'],
+      procedures: ['Physiotherapy', 'Cupping', 'Acupuncture', 'BEMER Vascular Therapy'],
+    },
+    {
+      dept: 'General, Endoscopic & Laparoscopic Surgery',
+      lead: 'Dr. Wael',
+      specialty: 'General Surgeon',
+      procedures: ['General Surgery', 'Endoscopic Surgery', 'Laparoscopic Surgery', 'Bariatric & Plastic Surgery'],
     },
     {
       dept: 'Pharmaceutical Distribution',
@@ -114,11 +120,18 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                 <div>
                   {/* Photo Container */}
                   <div className="relative h-72 w-full bg-slate-100 overflow-hidden">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                    />
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#e6f0fa] to-[#c9dced] text-[#013777]" aria-label={`${member.name} profile image unavailable`}>
+                        <Stethoscope className="w-14 h-14" />
+                        <span className="text-4xl font-black">{member.name.split(' ').slice(-1)[0].charAt(0)}</span>
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#012654] via-transparent to-transparent opacity-85" />
 
                     <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -135,10 +148,12 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                   <div className="p-6 space-y-4">
                     <div>
                       <div className="text-xs font-black text-[#013777]">{member.title}</div>
-                      <div className="flex items-center gap-1.5 text-xs text-slate-700 font-semibold mt-1">
-                        <GraduationCap className="w-3.5 h-3.5 text-slate-600 shrink-0" />
-                        <span>{member.education}</span>
-                      </div>
+                      {member.education && (
+                        <div className="flex items-center gap-1.5 text-xs text-slate-700 font-semibold mt-1">
+                          <GraduationCap className="w-3.5 h-3.5 text-slate-600 shrink-0" />
+                          <span>{member.education}</span>
+                        </div>
+                      )}
                     </div>
 
                     <p className="text-xs sm:text-sm text-[#1e293b] font-medium leading-relaxed line-clamp-3">

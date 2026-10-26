@@ -4,10 +4,10 @@ export interface TeamMember {
   name: string;
   role: string;
   title: string;
-  education: string;
+  education?: string;
   qualifications: string[];
   careerHighlights: string[];
-  image: string;
+  image?: string;
   fullBio: string;
 }
 

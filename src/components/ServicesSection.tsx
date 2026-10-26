@@ -56,13 +56,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         return <Scan className="w-6 h-6 text-teal-600" />;
       case 'Pill':
         return <Pill className="w-6 h-6 text-purple-600" />;
+      case 'Sparkles':
+        return <Sparkles className="w-6 h-6 text-amber-600" />;
       default:
         return <Activity className="w-6 h-6 text-[#013777]" />;
     }
   };
 
   const categories = [
-    { id: 'all', label: 'All 22 Specialties' },
+    { id: 'all', label: `All ${MEDICAL_SERVICES.length} Specialties` },
     { id: 'surgical', label: 'Surgeries & Orthopedics' },
     { id: 'regenerative', label: 'Orthobiologics & Rehab' },
     { id: 'clinical', label: 'Clinical Medicine' },

@@ -6,6 +6,7 @@ import {
   Briefcase,
   CheckCircle,
   MessageCircle,
+  Stethoscope,
 } from 'lucide-react';
 import { TeamMember } from '../types/hospital';
 
@@ -46,18 +47,26 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
           {/* Member Hero Photo & Title */}
           <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left">
             <div className="w-28 h-32 rounded-2xl overflow-hidden border-2 border-[#013777]/30 flex-shrink-0 bg-slate-100 shadow-md">
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-full object-cover object-top"
-              />
+              {member.image ? (
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover object-top"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#e6f0fa] to-[#c9dced] text-[#013777]" aria-label={`${member.name} profile image unavailable`}>
+                  <Stethoscope className="w-12 h-12" />
+                </div>
+              )}
             </div>
             <div className="space-y-1.5">
               <div className="text-sm font-extrabold text-[#013777]">{member.title}</div>
-              <div className="text-xs text-slate-700 flex items-center justify-center sm:justify-start gap-1.5 font-bold">
-                <GraduationCap className="w-4 h-4 text-[#013777] flex-shrink-0" />
-                <span>{member.education}</span>
-              </div>
+              {member.education && (
+                <div className="text-xs text-slate-700 flex items-center justify-center sm:justify-start gap-1.5 font-bold">
+                  <GraduationCap className="w-4 h-4 text-[#013777] flex-shrink-0" />
+                  <span>{member.education}</span>
+                </div>
+              )}
               <p className="text-xs text-[#0f172a] font-medium pt-1 leading-relaxed">
                 {member.fullBio}
               </p>

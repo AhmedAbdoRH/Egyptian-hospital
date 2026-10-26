@@ -204,6 +204,12 @@ _Sent via Cairo Hospital Official Website_`;
                 <option value="Dr. Mohammed Hesham (CMD - Orthopedic Surgery)" className="text-[#092545]">
                   Dr. Mohammed Hesham (CMD - Orthopedic Surgery)
                 </option>
+                <option value="Dr. Bassam Makhlouf (Physiotherapy)" className="text-[#092545]">
+                  Dr. Bassam Makhlouf (Physiotherapy)
+                </option>
+                <option value="Dr. Wael (General Surgery)" className="text-[#092545]">
+                  Dr. Wael (General Surgery)
+                </option>
                 <option value="Chief Medical Director Clinical Team" className="text-[#092545]">
                   Chief Medical Director Clinical Team
                 </option>

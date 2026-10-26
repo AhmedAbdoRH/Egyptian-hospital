@@ -227,6 +227,12 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
                       <option value="Dr. Ahmed Shaker (Chairman - MRCOG Obs & Gyn)">
                         Dr. Ahmed Shaker (Chairman - MRCOG Obs & Gyn)
                       </option>
+                      <option value="Dr. Bassam Makhlouf (Physiotherapy)">
+                        Dr. Bassam Makhlouf (Physiotherapy)
+                      </option>
+                      <option value="Dr. Wael (General Surgery)">
+                        Dr. Wael (General Surgery)
+                      </option>
                       <option value="First Available Senior Consultant">
                         First Available Senior Consultant
                       </option>
