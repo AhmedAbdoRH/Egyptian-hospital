@@ -15,13 +15,6 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLeaving }) => (
   >
     <div className="brand-loader__content">
       <BrandLogo className="brand-loader__logo" title="الشعار الطبي" />
-      <div className="brand-loader__caption">
-        <span className="brand-loader__caption-dot" aria-hidden="true" />
-        <span>جارٍ تجهيز الموقع</span>
-      </div>
-      <div className="brand-loader__track" aria-hidden="true">
-        <span />
-      </div>
     </div>
   </div>
 );

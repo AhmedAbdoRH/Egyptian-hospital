@@ -28,7 +28,7 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
         {/* Header */}
         <div className="p-6 bg-[#012654] border-b border-white/10 flex items-center justify-between text-white">
           <div>
-            <div className="text-xs font-bold text-sky-300 uppercase tracking-wider">
+            <div className="text-xs font-bold !text-[#fdc33e] uppercase tracking-wider">
               {member.role}
             </div>
             <h3 className="text-xl font-black text-white mt-0.5">{member.name}</h3>
@@ -112,17 +112,19 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
             Close Profile
           </button>
 
-          <button
-            onClick={() => {
-              const name = member.name;
-              onClose();
-              onOpenWhatsAppBooking(name);
-            }}
-            className="glass-button-whatsapp px-5 py-2.5 rounded-xl text-white font-extrabold text-xs inline-flex items-center gap-2 hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-md"
-          >
-            <MessageCircle className="w-4 h-4 fill-current" />
-            <span>Book Consultation with {member.name.split(' ')[0]}</span>
-          </button>
+          {member.isDoctor && (
+            <button
+              onClick={() => {
+                const name = member.name;
+                onClose();
+                onOpenWhatsAppBooking(name);
+              }}
+              className="glass-button-whatsapp px-5 py-2.5 rounded-xl text-white font-extrabold text-xs inline-flex items-center gap-2 hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-md"
+            >
+              <MessageCircle className="w-4 h-4 fill-current" />
+              <span>Book Consultation with {member.name.split(' ')[0]}</span>
+            </button>
+          )}
         </div>
       </div>
     </div>

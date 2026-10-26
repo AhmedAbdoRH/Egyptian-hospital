@@ -119,8 +119,8 @@ export const MedicalTourism: React.FC<MedicalTourismProps> = ({
         {/* Post-Care Reassurance Banner */}
         <div className="glass-panel-dark p-8 sm:p-10 rounded-3xl border border-sky-400/40 bg-gradient-to-r from-[#012654] via-[#013777] to-[#041d3d] flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl text-white">
           <div className="space-y-3 max-w-2xl">
-            <div className="flex items-center gap-2 text-xs font-bold text-teal-300 uppercase tracking-wider">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <div className="flex items-center gap-2 text-xs font-bold !text-[#fdc33e] uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4 !text-[#fdc33e]" />
               <span>Full Continuity of Care (Pre & Post Travel)</span>
             </div>
             <h4 className="text-xl sm:text-2xl font-black text-white">

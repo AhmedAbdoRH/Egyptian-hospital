@@ -58,6 +58,7 @@ export const PILLARS_OF_CARE = [
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'dr-ahmed-shaker',
+    isDoctor: true,
     name: 'Dr. Ahmed Shaker',
     role: 'Chairman',
     title: 'Consultant in Obstetrics & Gynaecology',
@@ -80,6 +81,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 'dr-mohammed-hesham',
+    isDoctor: true,
     name: 'Dr. Mohammed Hesham',
     role: 'Chief Medical Director (CMD)',
     title: 'Consultant Orthopedic & Joint Reconstruction Surgeon',
@@ -100,6 +102,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 'mr-mohammed-fadl',
+    isDoctor: false,
     name: 'Mr. Mohammed Fadl',
     role: 'Finance Director',
     title: 'Director of Financial Operations & Strategic Partnerships',
@@ -120,6 +123,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 'mr-bassem-makhlouf',
+    isDoctor: false,
     name: 'Mr. Bassem Makhlouf',
     role: 'Business Development Director',
     title: 'Head of Strategic Growth & Sustainable Infrastructure',
@@ -140,6 +144,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 'mrs-elizabeth-blomqvist',
+    isDoctor: false,
     name: 'Mrs. Elizabeth Blomqvist',
     role: 'HR & Pharmacy Manager',
     title: 'Director of Human Resources & Pharmaceutical Distribution',

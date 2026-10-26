@@ -3,8 +3,6 @@ import {
   MessageCircle,
   ArrowRight,
   ShieldCheck,
-  Award,
-  Sparkles,
   Activity,
   MapPin,
   BadgeCheck,
@@ -455,28 +453,6 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
               </div>
 
-              {/* Floating card: Orthopedics */}
-              <div
-                className="ch-float hidden sm:flex absolute -left-10 top-1/3 items-center gap-3 px-4 py-3 rounded-2xl bg-slate-900/80 backdrop-blur-xl border border-white/15 shadow-2xl"
-                style={{ transform: 'translateZ(60px)' }}
-              >
-                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[#fdc33e]/30 to-[#fdc33e]/10 border border-[#fdc33e]/40 shadow-sm">
-                  <Award className="w-5 h-5 text-[#fdc33e]" aria-hidden="true" />
-                </span>
-                <span className="leading-tight">
-                  <span className="block text-sm font-bold text-white">Orthopaedic Excellence</span>
-                  <span className="block text-xs text-slate-400">Arthroplasty · Orthobiologics</span>
-                </span>
-              </div>
-
-              {/* Floating card: Specialist-led */}
-              <div
-                className="ch-float-delayed hidden md:flex absolute -right-6 top-20 items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-slate-900/80 backdrop-blur-xl border border-white/15 shadow-2xl"
-                style={{ transform: 'translateZ(40px)' }}
-              >
-                <Sparkles className="w-4 h-4 text-teal-300" aria-hidden="true" />
-                <span className="text-xs font-bold text-white">Specialist-led care</span>
-              </div>
             </div>
           </div>
         </div>

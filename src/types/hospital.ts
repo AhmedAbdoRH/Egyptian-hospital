@@ -1,5 +1,6 @@
 export interface TeamMember {
   id: string;
+  isDoctor: boolean;
   name: string;
   role: string;
   title: string;

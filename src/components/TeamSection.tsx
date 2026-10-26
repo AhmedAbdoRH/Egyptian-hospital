@@ -63,13 +63,13 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
             {/* Information */}
             <div className="lg:col-span-8 space-y-4">
               <div>
-                <div className="text-xs font-extrabold text-sky-300 uppercase tracking-widest">
+                <div className="text-xs font-extrabold !text-white uppercase tracking-widest">
                   {chairman.role}
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-black text-white mt-1">
                   {chairman.name}
                 </h3>
-                <div className="text-sm font-bold text-teal-300">
+                <div className="text-sm font-bold !text-white">
                   {chairman.title} · {chairman.education}
                 </div>
               </div>
@@ -98,13 +98,15 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                   <ExternalLink className="w-3.5 h-3.5 text-sky-300" />
                 </button>
 
-                <button
-                  onClick={() => onOpenWhatsAppBooking(chairman.name)}
-                  className="glass-button-whatsapp px-5 py-2.5 rounded-xl text-white font-extrabold text-xs inline-flex items-center gap-2 transition-transform hover:scale-105 active:scale-95 cursor-pointer shadow-lg"
-                >
-                  <MessageCircle className="w-4 h-4 fill-current" />
-                  <span>Consult Dr. Shaker on WhatsApp</span>
-                </button>
+                {chairman.isDoctor && (
+                  <button
+                    onClick={() => onOpenWhatsAppBooking(chairman.name)}
+                    className="glass-button-whatsapp px-5 py-2.5 rounded-xl text-white font-extrabold text-xs inline-flex items-center gap-2 transition-transform hover:scale-105 active:scale-95 cursor-pointer shadow-lg"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-current" />
+                    <span>Consult Dr. Shaker on WhatsApp</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -127,7 +129,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#012654]/85 via-transparent to-transparent" />
                   <div className="photo-caption absolute bottom-2.5 left-3 right-3 text-white">
-                    <span className="text-[10px] font-black text-sky-300 uppercase tracking-wider block">
+                    <span className="text-[10px] font-black !text-white uppercase tracking-wider block">
                       {member.role}
                     </span>
                     <h4 className="text-base font-black text-white leading-tight">
@@ -155,13 +157,15 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                 >
                   Read Credentials
                 </button>
-                <button
-                  onClick={() => onOpenWhatsAppBooking(member.name)}
-                  className="w-full glass-button-whatsapp py-2.5 rounded-xl text-white font-black text-xs flex items-center justify-center gap-1.5 transition-transform hover:scale-102 active:scale-98 cursor-pointer shadow-md"
-                >
-                  <MessageCircle className="w-3.5 h-3.5 fill-current" />
-                  <span>Chat on WhatsApp</span>
-                </button>
+                {member.isDoctor && (
+                  <button
+                    onClick={() => onOpenWhatsAppBooking(member.name)}
+                    className="w-full glass-button-whatsapp py-2.5 rounded-xl text-white font-black text-xs flex items-center justify-center gap-1.5 transition-transform hover:scale-102 active:scale-98 cursor-pointer shadow-md"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                    <span>Chat on WhatsApp</span>
+                  </button>
+                )}
               </div>
             </div>
           ))}

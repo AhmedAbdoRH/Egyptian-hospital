@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { EmergencyBanner } from './components/EmergencyBanner';
@@ -27,17 +27,30 @@ export default function App() {
   const [isLoaderLeaving, setIsLoaderLeaving] = useState(false);
   const [preselectedSpecialty, setPreselectedSpecialty] = useState('');
   const [preselectedDoctor, setPreselectedDoctor] = useState('');
+  const loaderTimers = useRef<number[]>([]);
 
   useEffect(() => {
+    return () => {
+      loaderTimers.current.forEach(window.clearTimeout);
+    };
+  }, []);
+
+  const showLoader = () => {
+    loaderTimers.current.forEach(window.clearTimeout);
+    setIsLoaderVisible(true);
+    setIsLoaderLeaving(false);
+
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const leaveDelay = reducedMotion ? 450 : 1850;
     const removeDelay = reducedMotion ? 500 : 2240;
-    const leaveTimer = window.setTimeout(() => setIsLoaderLeaving(true), leaveDelay);
-    const removeTimer = window.setTimeout(() => setIsLoaderVisible(false), removeDelay);
-    return () => {
-      window.clearTimeout(leaveTimer);
-      window.clearTimeout(removeTimer);
-    };
+    loaderTimers.current = [
+      window.setTimeout(() => setIsLoaderLeaving(true), leaveDelay),
+      window.setTimeout(() => setIsLoaderVisible(false), removeDelay),
+    ];
+  };
+
+  useEffect(() => {
+    showLoader();
   }, []);
 
   useEffect(() => {
@@ -48,14 +61,18 @@ export default function App() {
   const handleOpenBooking = (doctorName?: string, specialtyName?: string) => {
     if (doctorName) setPreselectedDoctor(doctorName);
     if (specialtyName) setPreselectedSpecialty(specialtyName);
-    setActiveTab('booking');
+    navigateTo('booking');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleNavigate = (tabId: string) => {
+  const navigateTo = (tabId: string) => {
+    if (tabId === activeTab) return;
+    showLoader();
     setActiveTab(tabId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const handleNavigate = (tabId: string) => navigateTo(tabId);
 
   return (
     <div className="min-h-screen flex flex-col bg-transparent text-[#2d435e] selection:bg-[#013777] selection:text-white">

@@ -122,7 +122,7 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                     <div className="absolute inset-0 bg-gradient-to-t from-[#012654] via-transparent to-transparent opacity-85" />
 
                     <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <div className="text-[11px] font-black text-sky-300 uppercase tracking-wider">
+                      <div className="text-[11px] font-black !text-white uppercase tracking-wider">
                         {member.role}
                       </div>
                       <h3 className="text-xl font-black tracking-tight text-white drop-shadow-xs">
@@ -163,13 +163,15 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
 
                 {/* Card Action Buttons */}
                 <div className="p-6 pt-0 space-y-2">
-                  <button
-                    onClick={() => onOpenWhatsAppBooking(member.name)}
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-xs shadow-xs transition-colors cursor-pointer"
-                  >
-                    <MessageCircle className="w-4 h-4 fill-current" />
-                    <span>Book Appointment with {member.name.split(' ')[1] || member.name}</span>
-                  </button>
+                  {member.isDoctor && (
+                    <button
+                      onClick={() => onOpenWhatsAppBooking(member.name)}
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-xs shadow-xs transition-colors cursor-pointer"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-current" />
+                      <span>Book Appointment with {member.name.split(' ')[1] || member.name}</span>
+                    </button>
+                  )}
 
                   <button
                     onClick={() => setSelectedDoctor(member)}
@@ -277,7 +279,7 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
             <span className="text-xs font-black uppercase tracking-widest text-sky-300">
               Personalized Consultation
             </span>
-            <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
+            <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight !text-[#fdc33e]">
               Consult with Our Chief Medical Director or Chairman Directly
             </h3>
             <p className="text-xs sm:text-sm text-sky-100/90 leading-relaxed max-w-2xl">

@@ -5,6 +5,11 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    css: {
+      postcss: {
+        plugins: [],
+      },
+    },
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

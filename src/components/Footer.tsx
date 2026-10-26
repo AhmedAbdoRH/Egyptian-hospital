@@ -39,7 +39,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <span className="text-xl font-black text-white tracking-tight">
                   Cairo Hospital
                 </span>
-                <div className="text-xs font-bold text-sky-300">
+                <div className="text-xs font-bold text-white">
                   Cairo Rehabilitation Centre (CRC)
                 </div>
               </div>
@@ -51,11 +51,11 @@ export const Footer: React.FC<FooterProps> = ({
 
             <div className="space-y-1.5 text-xs text-sky-100 pt-1 font-medium">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-sky-300 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
                 <span>{HOSPITAL_CONTACT.address}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <Clock className="w-4 h-4 text-white flex-shrink-0" />
                 <span>{HOSPITAL_CONTACT.workingHours}</span>
               </div>
             </div>
@@ -116,7 +116,7 @@ export const Footer: React.FC<FooterProps> = ({
               </button>
 
               <div className="p-3 rounded-xl bg-white/10 border border-white/20 space-y-1 text-white">
-                <div className="text-[11px] text-sky-300 font-bold">Emergency Ambulance Hotline</div>
+                <div className="text-[11px] text-white font-bold">Emergency Ambulance Hotline</div>
                 <a
                   href={`tel:${HOSPITAL_CONTACT.phone1}`}
                   className="text-white font-mono font-black hover:text-sky-300 text-sm block"
@@ -126,7 +126,7 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
 
               <div className="p-3 rounded-xl bg-white/10 border border-white/20 space-y-1 text-white">
-                <div className="text-[11px] text-sky-300 font-bold">Hospital Inquiries & Referrals</div>
+                <div className="text-[11px] text-white font-bold">Hospital Inquiries & Referrals</div>
                 <a
                   href={`mailto:${HOSPITAL_CONTACT.email}`}
                   className="text-sky-100 text-xs font-mono hover:text-white hover:underline block font-semibold"

@@ -386,7 +386,7 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
             <span className="text-xs font-black uppercase tracking-widest text-sky-300">
               Immediate Clinical Support
             </span>
-            <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
+            <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight !text-[#fdc33e]">
               Need Help Deciding Which Specialty Is Right for You?
             </h3>
             <p className="text-xs sm:text-sm text-sky-100/90 leading-relaxed max-w-2xl">

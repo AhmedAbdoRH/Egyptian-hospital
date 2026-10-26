@@ -170,7 +170,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                   <img
                     src="/images/team/dr-ahmed-shaker.png"
                     alt="Dr. Ahmed Shaker"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
                 <div>
@@ -372,7 +372,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
             <span className="text-xs font-black uppercase tracking-widest text-sky-300">
               Personalized Patient Assistance
             </span>
-            <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
+            <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight !text-[#fdc33e]">
               Have Questions About Our Doctors, Treatments, or Inpatient Care?
             </h3>
             <p className="text-xs sm:text-sm text-sky-100/90 leading-relaxed max-w-2xl">

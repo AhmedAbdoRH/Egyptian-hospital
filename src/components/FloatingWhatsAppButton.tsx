@@ -71,10 +71,10 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
     >
       {/* Expanded Quick Contact Drawer */}
       {drawerOpen && (
-        <div className="p-5 rounded-3xl border-2 border-emerald-400/40 shadow-2xl w-84 max-w-[calc(100vw-2.5rem)] space-y-4 bg-slate-950/98 backdrop-blur-2xl animate-in fade-in slide-in-from-bottom-4 duration-150 text-white">
+        <div className="p-5 rounded-3xl border border-white/15 shadow-[0_24px_80px_-20px_rgba(0,0,0,0.85)] ring-1 ring-black/20 w-84 max-w-[calc(100vw-2.5rem)] space-y-4 bg-slate-950/75 backdrop-blur-2xl animate-in fade-in slide-in-from-bottom-4 duration-150 text-white">
           <div className="flex items-center justify-between pb-3 border-b border-white/15">
             <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white flex items-center justify-center shadow-md border border-emerald-300/40">
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-400 via-[#25D366] to-[#087f68] text-white flex items-center justify-center shadow-lg shadow-emerald-950/40 border border-white/25">
                 <PhoneCall className="w-5 h-5 animate-phone-ring text-white" />
               </div>
               <div>
@@ -100,10 +100,10 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
             {/* Action 1: Instant Emergency Call 24/7 */}
             <a
               href={`tel:${HOSPITAL_CONTACT.phone1}`}
-              className="w-full text-left p-3.5 rounded-2xl bg-gradient-to-r from-rose-500/30 via-red-500/20 to-rose-600/30 hover:from-rose-500/40 hover:to-rose-600/40 border border-rose-400/50 transition-all flex items-center justify-between block group shadow-sm hover:scale-[1.01]"
+              className="w-full text-left p-3.5 rounded-2xl bg-white/[0.06] hover:bg-rose-500/15 border border-rose-300/25 hover:border-rose-300/50 transition-all flex items-center justify-between block group shadow-sm hover:-translate-y-0.5"
             >
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-rose-500 text-white flex items-center justify-center shrink-0 shadow-md">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-rose-400 to-rose-700 text-white flex items-center justify-center shrink-0 shadow-lg shadow-rose-950/40 border border-white/20">
                   <PhoneCall className="w-4 h-4 group-hover:scale-110 transition-transform animate-phone-ring" />
                 </div>
                 <div>
@@ -111,16 +111,16 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
                   <div className="text-[11px] text-rose-200 font-mono font-bold tracking-wider">{HOSPITAL_CONTACT.phone1}</div>
                 </div>
               </div>
-              <span className="text-[10px] font-black text-white px-2.5 py-1 rounded-lg bg-rose-600 shadow-sm uppercase tracking-wider animate-pulse">CALL 24/7</span>
+              <span className="text-[10px] font-black text-white px-2.5 py-1 rounded-lg bg-rose-500/80 border border-rose-200/25 shadow-sm uppercase tracking-wider">CALL 24/7</span>
             </a>
 
             {/* Action 2: Secondary Ambulatory Call */}
             <a
               href={`tel:${HOSPITAL_CONTACT.phone2}`}
-              className="w-full text-left p-3 rounded-2xl bg-sky-500/20 hover:bg-sky-500/30 border border-sky-400/40 transition-colors flex items-center justify-between block group"
+              className="w-full text-left p-3 rounded-2xl bg-white/[0.05] hover:bg-sky-400/10 border border-white/10 hover:border-sky-300/30 transition-all flex items-center justify-between block group hover:-translate-y-0.5"
             >
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-sky-600 text-white flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-sky-300 to-blue-700 text-white flex items-center justify-center shrink-0 shadow-md shadow-blue-950/40 border border-white/20">
                   <Phone className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
                 </div>
                 <div>
@@ -128,17 +128,17 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
                   <div className="text-[11px] text-sky-200 font-mono font-semibold">{HOSPITAL_CONTACT.phone2}</div>
                 </div>
               </div>
-              <span className="text-[10px] font-bold text-sky-100 px-2 py-0.5 rounded-md bg-sky-600">DIAL</span>
+              <span className="text-[10px] font-bold text-sky-100 px-2 py-0.5 rounded-md bg-sky-500/20 border border-sky-300/20">DIAL</span>
             </a>
 
             {/* Action 3: WhatsApp Chat Consultation */}
             <button
               type="button"
               onClick={() => handleDirectWhatsApp('General Inquiry & Appointment')}
-              className="w-full text-left p-3 rounded-2xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/40 transition-colors cursor-pointer flex items-center justify-between group"
+              className="w-full text-left p-3 rounded-2xl bg-white/[0.05] hover:bg-emerald-400/10 border border-white/10 hover:border-emerald-300/30 transition-all cursor-pointer flex items-center justify-between group hover:-translate-y-0.5"
             >
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-300 to-emerald-700 text-white flex items-center justify-center shrink-0 shadow-md shadow-emerald-950/40 border border-white/20">
                   <MessageSquare className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
                 </div>
                 <div>
@@ -156,10 +156,10 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
                 setDrawerOpen(false);
                 onOpenBookingModal();
               }}
-              className="w-full text-left p-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 transition-colors cursor-pointer flex items-center justify-between group"
+              className="w-full text-left p-3 rounded-2xl bg-white/[0.05] hover:bg-sky-400/10 border border-white/10 hover:border-sky-300/30 transition-all cursor-pointer flex items-center justify-between group hover:-translate-y-0.5"
             >
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-white/15 text-sky-300 flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-sky-300/30 to-blue-500/20 text-sky-200 flex items-center justify-center shrink-0 shadow-inner border border-sky-200/20">
                   <Calendar className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
                 </div>
                 <div>
@@ -174,10 +174,10 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
             <button
               type="button"
               onClick={() => handleDirectWhatsApp('Overseas Medical Tourism (Egypt / UK / UAE)')}
-              className="w-full text-left p-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 transition-colors cursor-pointer flex items-center justify-between group"
+              className="w-full text-left p-3 rounded-2xl bg-white/[0.05] hover:bg-teal-400/10 border border-white/10 hover:border-teal-300/30 transition-all cursor-pointer flex items-center justify-between group hover:-translate-y-0.5"
             >
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-teal-500/20 text-teal-300 flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-teal-300/30 to-emerald-500/20 text-teal-200 flex items-center justify-center shrink-0 shadow-inner border border-teal-200/20">
                   <Sparkles className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
                 </div>
                 <div>
