@@ -397,7 +397,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="relative z-10 rounded-[1.7rem] overflow-hidden bg-slate-950">
                   <div className="relative h-[22rem] sm:h-[26rem]">
                     <img
-                      src="/images/facility/building.png"
+                      src="/images/facility/building-2026.jpg"
                       alt="Cairo Hospital & Rehabilitation Centre campus in Garki 2, Abuja"
                       width={800}
                       height={1000}

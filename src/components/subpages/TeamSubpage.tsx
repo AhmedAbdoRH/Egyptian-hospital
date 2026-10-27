@@ -97,6 +97,34 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-20">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch" aria-labelledby="care-team-photo-title">
+          <figure className="lg:col-span-7 relative min-h-[18rem] sm:min-h-[22rem] overflow-hidden rounded-[2rem] border border-slate-200 shadow-xl bg-slate-100">
+            <img
+              src="/images/team/care-team-2026.jpg"
+              alt="Cairo Hospital care team standing together at the hospital"
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#011633]/65 via-transparent to-transparent" />
+            <figcaption className="absolute bottom-4 left-4 right-4 text-white text-sm font-bold drop-shadow-md">
+              The people behind your care
+            </figcaption>
+          </figure>
+          <div className="lg:col-span-5 glass-panel rounded-[2rem] border border-white/80 bg-white/90 p-7 sm:p-9 flex flex-col justify-center gap-4 shadow-sm">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-sky-50 border border-sky-100 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.16em] text-[#013777]">
+              <Users className="w-3.5 h-3.5" aria-hidden="true" />
+              Cairo Hospital Care Team
+            </span>
+            <h2 id="care-team-photo-title" className="text-2xl sm:text-3xl font-black tracking-tight text-[#092545]">
+              A team patients can meet and trust.
+            </h2>
+            <p className="text-sm leading-relaxed text-[#2d435e]">
+              A recent look inside Cairo Hospital, where our care team welcomes patients in Abuja. Explore the individual profiles below to learn more about our clinical leadership.
+            </p>
+          </div>
+        </section>
+
         {/* Executive Board Showcase */}
         <section className="space-y-10">
           <div className="text-center max-w-3xl mx-auto space-y-3">

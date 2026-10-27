@@ -15,7 +15,7 @@ export const FacilityGallery: React.FC = () => {
   const [selectedFacility, setSelectedFacility] = useState<HospitalFacilityItem | null>(null);
   const [filterCategory, setFilterCategory] = useState<string>('All');
 
-  const categories = ['All', 'Facility', 'Surgical', 'Rehabilitation', 'Inpatient', 'Emergency'];
+  const categories = ['All', ...Array.from(new Set(FACILITY_GALLERY.map((item) => item.category)))];
 
   const filteredItems = FACILITY_GALLERY.filter((item) => {
     if (filterCategory === 'All') return true;
