@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   History,
   Target,
@@ -22,6 +22,253 @@ import { Reveal } from './ScrollReveal';
 interface AboutUsProps {
   onOpenWhatsAppBooking: () => void;
 }
+
+const normalizeLoopOffset = (val: number, width: number): number => {
+  if (width <= 0) return 0;
+  return ((((val + width) % width) + width) % width) - width;
+};
+
+const renderPillarIcon = (title: string) => {
+  switch (title) {
+    case 'HYGIENE':
+      return <ShieldCheck className="w-5 h-5" />;
+    case 'COMFORT':
+      return <HeartHandshake className="w-5 h-5" />;
+    case 'CARE':
+      return <Stethoscope className="w-5 h-5" />;
+    case 'REASSURANCE':
+    default:
+      return <Activity className="w-5 h-5" />;
+  }
+};
+
+const FundamentalAimScroller: React.FC = () => {
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const firstGroupRef = useRef<HTMLDivElement | null>(null);
+  const offsetRef = useRef<number>(0);
+  const groupWidthRef = useRef<number>(0);
+  const initializedRef = useRef<boolean>(false);
+  const isHoveredRef = useRef<boolean>(false);
+  const isPointerDownRef = useRef<boolean>(false);
+  const isDraggingRef = useRef<boolean>(false);
+  const activePointerIdRef = useRef<number | null>(null);
+  const dragStartXRef = useRef<number>(0);
+  const dragStartOffsetRef = useRef<number>(0);
+  const resumeAtRef = useRef<number>(0);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let reducedMotion = reducedMotionQuery.matches;
+    const handleReducedMotionChange = (e: MediaQueryListEvent) => {
+      reducedMotion = e.matches;
+    };
+    reducedMotionQuery.addEventListener('change', handleReducedMotionChange);
+
+    const applyTransform = () => {
+      if (trackRef.current) {
+        trackRef.current.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`;
+      }
+    };
+
+    const measureGroup = () => {
+      const groupEl = firstGroupRef.current;
+      if (!groupEl) return;
+      const width = groupEl.getBoundingClientRect().width;
+      if (width <= 0) return;
+
+      groupWidthRef.current = width;
+      if (!initializedRef.current) {
+        offsetRef.current = -width;
+        initializedRef.current = true;
+      } else {
+        offsetRef.current = normalizeLoopOffset(offsetRef.current, width);
+      }
+      applyTransform();
+    };
+
+    measureGroup();
+
+    let resizeObserver: ResizeObserver | null = null;
+    if ('ResizeObserver' in window && firstGroupRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        measureGroup();
+      });
+      resizeObserver.observe(firstGroupRef.current);
+    } else {
+      window.addEventListener('resize', measureGroup);
+    }
+
+    let rafId = 0;
+    let lastTime = performance.now();
+    const SPEED_PX_PER_SEC = 44; // Negative X -> smooth glide from Right to Left
+
+    const tick = (now: number) => {
+      const dt = Math.min((now - lastTime) / 1000, 0.05);
+      lastTime = now;
+
+      const width = groupWidthRef.current;
+      if (
+        width > 0 &&
+        !reducedMotion &&
+        !isHoveredRef.current &&
+        !isPointerDownRef.current &&
+        now >= resumeAtRef.current
+      ) {
+        offsetRef.current = normalizeLoopOffset(
+          offsetRef.current - SPEED_PX_PER_SEC * dt,
+          width
+        );
+        applyTransform();
+      }
+
+      rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      reducedMotionQuery.removeEventListener('change', handleReducedMotionChange);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      } else {
+        window.removeEventListener('resize', measureGroup);
+      }
+    };
+  }, []);
+
+  const handlePointerEnter = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === 'mouse') {
+      isHoveredRef.current = true;
+    }
+  };
+
+  const handlePointerLeave = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === 'mouse') {
+      isHoveredRef.current = false;
+    }
+  };
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    isPointerDownRef.current = true;
+    isDraggingRef.current = false;
+    activePointerIdRef.current = e.pointerId;
+    dragStartXRef.current = e.clientX;
+    dragStartOffsetRef.current = offsetRef.current;
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isPointerDownRef.current || e.pointerId !== activePointerIdRef.current) return;
+
+    const dx = e.clientX - dragStartXRef.current;
+    if (!isDraggingRef.current && Math.abs(dx) > 5) {
+      isDraggingRef.current = true;
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId);
+      } catch {
+        // Ignore capture errors on unsupported devices
+      }
+    }
+
+    if (isDraggingRef.current && groupWidthRef.current > 0) {
+      offsetRef.current = normalizeLoopOffset(
+        dragStartOffsetRef.current + dx,
+        groupWidthRef.current
+      );
+      if (trackRef.current) {
+        trackRef.current.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`;
+      }
+    }
+  };
+
+  const endPointerInteraction = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerId !== activePointerIdRef.current) return;
+    if (isDraggingRef.current) {
+      resumeAtRef.current = performance.now() + 450;
+      try {
+        if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+          e.currentTarget.releasePointerCapture(e.pointerId);
+        }
+      } catch {
+        // Ignore release errors
+      }
+    }
+    isPointerDownRef.current = false;
+    isDraggingRef.current = false;
+    activePointerIdRef.current = null;
+  };
+
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 1 && groupWidthRef.current > 0) {
+      offsetRef.current = normalizeLoopOffset(
+        offsetRef.current - e.deltaX,
+        groupWidthRef.current
+      );
+      resumeAtRef.current = performance.now() + 600;
+      if (trackRef.current) {
+        trackRef.current.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`;
+      }
+    }
+  };
+
+  return (
+    <div
+      dir="ltr"
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={endPointerInteraction}
+      onPointerCancel={endPointerInteraction}
+      onWheel={handleWheel}
+      className="relative overflow-hidden py-3 -my-3 touch-pan-y select-none cursor-grab active:cursor-grabbing [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] sm:[mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]"
+      aria-label="Our Fundamental Aim Pillars"
+    >
+      <div
+        ref={trackRef}
+        className="flex flex-nowrap items-stretch w-max will-change-transform"
+      >
+        {[0, 1, 2].map((groupIndex) => (
+          <div
+            key={groupIndex}
+            ref={groupIndex === 0 ? firstGroupRef : undefined}
+            aria-hidden={groupIndex > 0}
+            className="flex flex-nowrap items-stretch shrink-0 gap-4 sm:gap-5 pr-4 sm:pr-5"
+          >
+            {PILLARS_OF_CARE.map((pillar, idx) => (
+              <div
+                key={`${groupIndex}-${pillar.title}`}
+                className="w-[260px] sm:w-[295px] md:w-[310px] shrink-0 glass-panel glass-panel-hover p-5 rounded-2xl sm:rounded-3xl border border-slate-200 bg-white flex flex-col justify-between gap-2.5 shadow-sm"
+              >
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-[#013777]/10 border border-[#013777]/20 text-[#013777] flex items-center justify-center shrink-0">
+                      {renderPillarIcon(pillar.title)}
+                    </div>
+                    <span className="px-2.5 py-1 rounded-lg bg-sky-50 border border-sky-200/80 text-[10px] font-black text-[#013777] tracking-wider">
+                      PILLAR 0{idx + 1}
+                    </span>
+                  </div>
+
+                  <h4 className="text-base sm:text-lg font-black text-[#092545] tracking-wide leading-tight">
+                    {pillar.title}
+                  </h4>
+
+                  <p className="text-xs text-[#1e293b] font-medium leading-relaxed">
+                    {pillar.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export const AboutUs: React.FC<AboutUsProps> = ({ onOpenWhatsAppBooking }) => {
   return (
@@ -260,8 +507,8 @@ export const AboutUs: React.FC<AboutUsProps> = ({ onOpenWhatsAppBooking }) => {
           </div>
         </div>
 
-        {/* The 4 Core Pillars of Aim */}
-        <div className="space-y-8">
+        {/* The 4 Core Pillars of Aim - Single-Row Left-to-Right Horizontal Scroller */}
+        <div className="space-y-5 sm:space-y-6">
           <Reveal variant="up">
             <div className="text-center max-w-2xl mx-auto space-y-2">
               <div className="text-xs font-bold text-[#013777] uppercase tracking-wider">
@@ -273,34 +520,9 @@ export const AboutUs: React.FC<AboutUsProps> = ({ onOpenWhatsAppBooking }) => {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PILLARS_OF_CARE.map((pillar, idx) => (
-              <Reveal key={idx} variant="up" delay={idx * 90} className="h-full">
-                <div className="h-full glass-panel glass-panel-hover p-6 rounded-3xl border border-slate-200 bg-white flex flex-col justify-between space-y-4 shadow-sm">
-                  <div className="space-y-3">
-                    <div className="w-12 h-12 rounded-2xl bg-[#013777]/10 border border-[#013777]/20 text-[#013777] flex items-center justify-center">
-                      {pillar.title === 'HYGIENE' && <ShieldCheck className="w-6 h-6" />}
-                      {pillar.title === 'COMFORT' && <HeartHandshake className="w-6 h-6" />}
-                      {pillar.title === 'CARE' && <Stethoscope className="w-6 h-6" />}
-                      {pillar.title === 'REASSURANCE' && <Activity className="w-6 h-6" />}
-                    </div>
-
-                    <h4 className="text-lg font-black text-[#092545] tracking-wide">
-                      {pillar.title}
-                    </h4>
-
-                    <p className="text-xs text-[#1e293b] font-medium leading-relaxed">
-                      {pillar.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-slate-100 text-[10px] font-black text-[#013777] tracking-wider">
-                    PILLAR 0{idx + 1}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal variant="fade" delay={80}>
+            <FundamentalAimScroller />
+          </Reveal>
         </div>
 
         {/* Mission & Motive Comparison Block */}
