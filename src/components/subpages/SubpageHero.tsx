@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChevronRight, Home, MessageCircle, Phone, Sparkles } from 'lucide-react';
 import { HOSPITAL_CONTACT } from '../../data/cairoHospitalData';
+import { Reveal } from '../ScrollReveal';
 
 interface SubpageHeroProps {
   badge: string;
@@ -33,32 +34,34 @@ export const SubpageHero: React.FC<SubpageHeroProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-8">
         {/* Breadcrumb Navigation with High-Contrast Typography */}
-        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-bold text-slate-700">
-          <button
-            onClick={onNavigateHome}
-            className="inline-flex items-center gap-1.5 text-slate-700 hover:text-[#013777] transition-colors cursor-pointer"
-          >
-            <Home className="w-3.5 h-3.5 text-slate-600" />
-            <span>Home</span>
-          </button>
-          {breadcrumbs.map((crumb, idx) => (
-            <React.Fragment key={idx}>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-              <span
-                className={
-                  idx === breadcrumbs.length - 1
-                    ? 'text-[#013777] font-black'
-                    : 'text-slate-700 hover:text-[#013777] transition-colors'
-                }
-              >
-                {crumb.label}
-              </span>
-            </React.Fragment>
-          ))}
-        </nav>
+        <Reveal variant="down" duration={520}>
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-bold text-slate-700">
+            <button
+              onClick={onNavigateHome}
+              className="inline-flex items-center gap-1.5 text-slate-700 hover:text-[#013777] transition-colors cursor-pointer"
+            >
+              <Home className="w-3.5 h-3.5 text-slate-600" />
+              <span>Home</span>
+            </button>
+            {breadcrumbs.map((crumb, idx) => (
+              <React.Fragment key={idx}>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                <span
+                  className={
+                    idx === breadcrumbs.length - 1
+                      ? 'text-[#013777] font-black'
+                      : 'text-slate-700 hover:text-[#013777] transition-colors'
+                  }
+                >
+                  {crumb.label}
+                </span>
+              </React.Fragment>
+            ))}
+          </nav>
+        </Reveal>
 
         {/* Hero Headline & Intro */}
-        <div className="max-w-4xl space-y-5">
+        <Reveal variant="up" delay={70} className="max-w-4xl space-y-5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-300 shadow-xs text-xs font-black text-[#013777] uppercase tracking-wider">
             {badgeIcon || <Sparkles className="w-4 h-4 text-[#013777]" />}
             <span>{badge}</span>
@@ -76,10 +79,14 @@ export const SubpageHero: React.FC<SubpageHeroProps> = ({
           <p className="text-base sm:text-lg text-[#1e293b] font-medium leading-relaxed max-w-3xl">
             {description}
           </p>
-        </div>
+        </Reveal>
 
         {/* Action Controls & Key Metrics */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-4 border-t border-slate-200/80">
+        <Reveal
+          variant="up"
+          delay={150}
+          className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-4 border-t border-slate-200/80"
+        >
           <div className="flex flex-wrap items-center gap-3">
             {onOpenWhatsAppBooking && (
               <button
@@ -109,7 +116,7 @@ export const SubpageHero: React.FC<SubpageHeroProps> = ({
               ))}
             </div>
           )}
-        </div>
+        </Reveal>
       </div>
     </div>
   );

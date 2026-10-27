@@ -25,6 +25,7 @@ import { SubpageHero } from './SubpageHero';
 import { PILLARS_OF_CARE, HOSPITAL_CONTACT } from '../../data/cairoHospitalData';
 import { AccreditationSection } from '../AccreditationSection';
 import { FacilityGallery } from '../FacilityGallery';
+import { Reveal } from '../ScrollReveal';
 
 interface AboutSubpageProps {
   onNavigateHome: () => void;
@@ -126,7 +127,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-20">
         {/* Executive Statement & Institutional Overview */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 space-y-6">
+          <Reveal variant="left" className="lg:col-span-7 space-y-6">
             <div className="space-y-3">
               <span className="text-xs font-black uppercase tracking-widest text-[#013777]">
                 Institutional Mission & Vision
@@ -160,9 +161,9 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                 <span>Meet Medical Leadership</span>
               </button>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="lg:col-span-5">
+          <Reveal variant="right" delay={100} className="lg:col-span-5">
             <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-lg bg-white space-y-6 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-sky-100 rounded-full blur-2xl -z-10" />
               <div className="flex items-center gap-4">
@@ -195,12 +196,12 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* Interactive Founding Timeline */}
         <section className="space-y-10">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <Reveal variant="up" className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-black uppercase tracking-widest text-[#013777]">
               Historical Evolution
             </span>
@@ -210,50 +211,49 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
             <p className="text-sm text-[#1e293b] font-medium">
               Trace our journey from early national health management in Nigeria to the establishment of Abuja's most trusted Egyptian multi-specialties hospital.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {timelineMilestones.map((milestone, idx) => (
-              <div
-                key={idx}
-                className="glass-panel p-6 rounded-3xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between hover:shadow-md hover:border-[#013777]/30 transition-all duration-300 relative group"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-3xl font-black text-[#013777] tracking-tight">
-                      {milestone.year}
-                    </span>
-                    <span className="text-[10px] font-black text-slate-800 uppercase tracking-wider bg-slate-200 px-2.5 py-1 rounded-lg">
-                      {milestone.tag}
-                    </span>
-                  </div>
-
-                  <div className="space-y-1">
-                    <h3 className="text-base font-black text-[#092545] leading-snug">
-                      {milestone.title}
-                    </h3>
-                    <div className="text-xs font-black text-[#013777]">
-                      {milestone.subtitle}
+              <Reveal key={idx} variant="up" delay={idx * 75} className="h-full">
+                <div className="h-full glass-panel p-6 rounded-3xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between hover:shadow-md hover:border-[#013777]/30 transition-all duration-300 relative group">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-3xl font-black text-[#013777] tracking-tight">
+                        {milestone.year}
+                      </span>
+                      <span className="text-[10px] font-black text-slate-800 uppercase tracking-wider bg-slate-200 px-2.5 py-1 rounded-lg">
+                        {milestone.tag}
+                      </span>
                     </div>
+
+                    <div className="space-y-1">
+                      <h3 className="text-base font-black text-[#092545] leading-snug">
+                        {milestone.title}
+                      </h3>
+                      <div className="text-xs font-black text-[#013777]">
+                        {milestone.subtitle}
+                      </div>
+                    </div>
+
+                    <p className="text-xs text-[#1e293b] font-medium leading-relaxed">
+                      {milestone.description}
+                    </p>
                   </div>
 
-                  <p className="text-xs text-[#1e293b] font-medium leading-relaxed">
-                    {milestone.description}
-                  </p>
+                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-black text-[#013777]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span>{milestone.highlight}</span>
+                  </div>
                 </div>
-
-                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-black text-[#013777]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>{milestone.highlight}</span>
-                </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
 
         {/* The 4 Pillars of Clinical Practice */}
         <section className="space-y-10">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <Reveal variant="up" className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-black uppercase tracking-widest text-[#013777]">
               The Core Philosophy
             </span>
@@ -263,10 +263,10 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
             <p className="text-sm text-[#1e293b] font-medium">
               Every clinical decision at Cairo Hospital is anchored in four uncompromising values.
             </p>
-          </div>
+          </Reveal>
 
           {/* Interactive Pillar Selector */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
+          <Reveal variant="up" delay={60} className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
             {PILLARS_OF_CARE.map((pillar, idx) => (
               <button
                 key={idx}
@@ -280,10 +280,11 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                 <span>{pillar.title}</span>
               </button>
             ))}
-          </div>
+          </Reveal>
 
           {/* Active Pillar Deep Dive */}
-          <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200/90 bg-white shadow-lg max-w-4xl mx-auto space-y-6">
+          <Reveal variant="scale" delay={110}>
+            <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200/90 bg-white shadow-lg max-w-4xl mx-auto space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-2xl bg-sky-50 border border-sky-300 text-[#013777] flex items-center justify-center font-black text-2xl">
@@ -324,12 +325,13 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                 <div className="text-xs text-slate-700 font-medium">Aligned with Egyptian Ministry of Health & Nigerian FCTA standards</div>
               </div>
             </div>
-          </div>
+            </div>
+          </Reveal>
         </section>
 
         {/* Clinical Safety & Infection Prevention Grid */}
         <section className="space-y-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <Reveal variant="up" className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-black uppercase tracking-widest text-[#013777]">
               Safety First
             </span>
@@ -339,22 +341,21 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
             <p className="text-sm text-[#1e293b] font-medium">
               Stringent environmental and microbiological protocols safeguarding patients across all inpatient and surgical journeys.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {clinicalStandards.map((std, idx) => (
-              <div
-                key={idx}
-                className="glass-panel p-6 sm:p-7 rounded-3xl border border-slate-200/90 bg-white shadow-sm flex items-start gap-4 hover:border-[#013777]/30 transition-all"
-              >
-                <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0">
-                  {std.icon}
+              <Reveal key={idx} variant="up" delay={idx * 75} className="h-full">
+                <div className="h-full glass-panel p-6 sm:p-7 rounded-3xl border border-slate-200/90 bg-white shadow-sm flex items-start gap-4 hover:border-[#013777]/30 transition-all">
+                  <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0">
+                    {std.icon}
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-base font-black text-[#092545]">{std.title}</h3>
+                    <p className="text-xs sm:text-sm text-[#1e293b] font-medium leading-relaxed">{std.desc}</p>
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <h3 className="text-base font-black text-[#092545]">{std.title}</h3>
-                  <p className="text-xs sm:text-sm text-[#1e293b] font-medium leading-relaxed">{std.desc}</p>
-                </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -366,36 +367,38 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
         <AccreditationSection />
 
         {/* Direct WhatsApp Call to Action Banner */}
-        <section className="contrast-dark relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#012654] via-[#013777] to-[#044a9e] p-8 sm:p-12 text-white shadow-xl">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="max-w-3xl space-y-4 relative z-10">
-            <span className="text-xs font-black uppercase tracking-widest text-sky-300">
-              Personalized Patient Assistance
-            </span>
-            <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight !text-[#fdc33e]">
-              Have Questions About Our Doctors, Treatments, or Inpatient Care?
-            </h3>
-            <p className="text-xs sm:text-sm text-sky-100/90 leading-relaxed max-w-2xl">
-              Our clinical coordination desk is available 24/7 on WhatsApp to explain our treatments, schedule consultations with Dr. Ahmed Shaker or Dr. Mohammed Hesham, and assist your family.
-            </p>
-            <div className="pt-2 flex flex-wrap gap-4">
-              <button
-                onClick={onOpenWhatsAppBooking}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow-lg shadow-[#25D366]/30 transition-all transform active:scale-95 cursor-pointer"
-              >
-                <MessageCircle className="w-4 h-4 fill-current" />
-                <span>Chat with Clinical Desk on WhatsApp</span>
-              </button>
-              <a
-                href={`tel:${HOSPITAL_CONTACT.phone1}`}
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm transition-colors cursor-pointer"
-              >
-                <Clock className="w-4 h-4 text-sky-300" />
-                <span>Call Emergency: {HOSPITAL_CONTACT.phone1}</span>
-              </a>
+        <Reveal variant="scale">
+          <section className="contrast-dark relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#012654] via-[#013777] to-[#044a9e] p-8 sm:p-12 text-white shadow-xl">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="max-w-3xl space-y-4 relative z-10">
+              <span className="text-xs font-black uppercase tracking-widest text-sky-300">
+                Personalized Patient Assistance
+              </span>
+              <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight !text-[#fdc33e]">
+                Have Questions About Our Doctors, Treatments, or Inpatient Care?
+              </h3>
+              <p className="text-xs sm:text-sm text-sky-100/90 leading-relaxed max-w-2xl">
+                Our clinical coordination desk is available 24/7 on WhatsApp to explain our treatments, schedule consultations with Dr. Ahmed Shaker or Dr. Mohammed Hesham, and assist your family.
+              </p>
+              <div className="pt-2 flex flex-wrap gap-4">
+                <button
+                  onClick={onOpenWhatsAppBooking}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow-lg shadow-[#25D366]/30 transition-all transform active:scale-95 cursor-pointer"
+                >
+                  <MessageCircle className="w-4 h-4 fill-current" />
+                  <span>Chat with Clinical Desk on WhatsApp</span>
+                </button>
+                <a
+                  href={`tel:${HOSPITAL_CONTACT.phone1}`}
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm transition-colors cursor-pointer"
+                >
+                  <Clock className="w-4 h-4 text-sky-300" />
+                  <span>Call Emergency: {HOSPITAL_CONTACT.phone1}</span>
+                </a>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </Reveal>
       </div>
     </div>
   );

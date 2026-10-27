@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import {
   MessageCircle,
   ArrowRight,
@@ -10,6 +10,7 @@ import {
   Stethoscope,
 } from 'lucide-react';
 import { HOSPITAL_STATS } from '../data/cairoHospitalData';
+import { RevealReadyContext } from './ScrollReveal';
 
 interface HeroProps {
   onOpenWhatsAppBooking: () => void;
@@ -204,11 +205,13 @@ export const Hero: React.FC<HeroProps> = ({
   onExploreServices,
   onExploreTourism,
 }) => {
+  const isReady = useContext(RevealReadyContext);
   const reduced = useReducedMotion();
   const abujaTime = useAbujaTime();
   const sectionRef = useRef<HTMLElement>(null);
   const tiltRef = useRef<HTMLDivElement>(null);
-  const { ref: statsRef, inView: statsInView } = useInView<HTMLDivElement>(0.25);
+  const { ref: statsRef, inView: statsInView } = useInView<HTMLDivElement>(0.2);
+  const statsShouldReveal = statsInView && isReady;
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -463,14 +466,14 @@ export const Hero: React.FC<HeroProps> = ({
             <div
               key={idx}
               className={`hero-stat-card group relative overflow-hidden glass-panel p-5 sm:p-6 rounded-2xl border border-white/10 transition-all duration-500 hover:border-sky-400/40 hover:-translate-y-1 ${
-                statsInView ? 'ch-reveal' : 'opacity-0'
+                statsShouldReveal ? 'ch-reveal' : 'opacity-0'
               }`}
               style={delay(idx * 120)}
             >
               <div aria-hidden="true" className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-sky-400/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div aria-hidden="true" className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-sky-400/60 to-transparent" />
               <div className="hero-stat-value text-3xl sm:text-5xl font-black tabular-nums">
-                <CountUp value={String(stat.value)} start={statsInView} reduced={reduced} />
+                <CountUp value={String(stat.value)} start={statsShouldReveal} reduced={reduced} />
               </div>
               <div className="hero-stat-label mt-2 text-sm sm:text-base font-bold text-[#092545]">{stat.label}</div>
               <div className="hero-stat-sublabel text-xs sm:text-sm font-medium text-[#475569]">{stat.sublabel}</div>

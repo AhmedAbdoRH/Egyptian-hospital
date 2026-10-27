@@ -23,6 +23,7 @@ import {
 import { SubpageHero } from './SubpageHero';
 import { HOSPITAL_CONTACT, MEDICAL_SERVICES, TEAM_MEMBERS } from '../../data/cairoHospitalData';
 import { WhatsAppBookingPayload } from '../../types/hospital';
+import { Reveal } from '../ScrollReveal';
 
 interface BookingSubpageProps {
   onNavigateHome: () => void;
@@ -132,7 +133,7 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
         {/* Main Booking Interface: Split Form & Live Preview */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Intake Form */}
-          <div className="lg:col-span-7">
+          <Reveal variant="left" className="lg:col-span-7">
             <form
               onSubmit={handleDispatchWhatsApp}
               className="glass-panel p-6 sm:p-10 rounded-3xl border border-slate-200/90 bg-white/95 shadow-lg space-y-6"
@@ -372,10 +373,10 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
                 </div>
               </div>
             </form>
-          </div>
+          </Reveal>
 
           {/* Right Column: Live Formatted WhatsApp Smartphone Preview */}
-          <div className="lg:col-span-5 space-y-6">
+          <Reveal variant="right" delay={120} className="lg:col-span-5 space-y-6">
             <div className="glass-panel p-6 sm:p-7 rounded-3xl border border-sky-400/40 bg-[#071324] text-white shadow-xl space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-white/20">
                 <div className="flex items-center gap-2">
@@ -414,29 +415,28 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
                 .
               </p>
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* Booking FAQs Accordion */}
         <section className="space-y-6 max-w-4xl mx-auto">
-          <div className="text-center space-y-2">
+          <Reveal variant="up" className="text-center space-y-2">
             <span className="text-xs font-black uppercase tracking-widest text-[#013777]">
               Help & Information
             </span>
             <h2 className="text-2xl font-black text-[#092545]">
               Frequently Asked Questions About Booking
             </h2>
-          </div>
+          </Reveal>
 
           <div className="space-y-3">
             {bookingFaqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="glass-panel p-5 rounded-2xl border border-slate-200/90 bg-white/95 shadow-xs space-y-2"
-              >
-                <div className="text-sm font-black text-[#092545]">{faq.q}</div>
-                <p className="text-xs sm:text-sm text-[#2d435e] leading-relaxed">{faq.a}</p>
-              </div>
+              <Reveal key={idx} variant="up" delay={idx * 70}>
+                <div className="glass-panel p-5 rounded-2xl border border-slate-200/90 bg-white/95 shadow-xs space-y-2">
+                  <div className="text-sm font-black text-[#092545]">{faq.q}</div>
+                  <p className="text-xs sm:text-sm text-[#2d435e] leading-relaxed">{faq.a}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </section>

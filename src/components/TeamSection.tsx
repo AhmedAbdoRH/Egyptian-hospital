@@ -11,6 +11,7 @@ import {
 import { TEAM_MEMBERS } from '../data/cairoHospitalData';
 import { TeamMember } from '../types/hospital';
 import { DoctorModal } from './DoctorModal';
+import { Reveal } from './ScrollReveal';
 
 interface TeamSectionProps {
   onOpenWhatsAppBooking: (doctorName?: string) => void;
@@ -31,21 +32,24 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-10 sm:space-y-16">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
-            <Users className="w-4 h-4 text-[#013777]" />
-            <span>Clinical Leadership & Governance</span>
+        <Reveal variant="up">
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
+              <Users className="w-4 h-4 text-[#013777]" />
+              <span>Clinical Leadership & Governance</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black text-[#092545] tracking-tight">
+              Meet Our Executive Medical Team
+            </h2>
+            <p className="text-sm sm:text-base text-[#1e293b] font-medium leading-relaxed">
+              Distinguished Egyptian consultants and healthcare administrators guiding Cairo Hospital with international clinical acumen and deep Nigerian healthcare experience.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-[#092545] tracking-tight">
-            Meet Our Executive Medical Team
-          </h2>
-          <p className="text-sm sm:text-base text-[#1e293b] font-medium leading-relaxed">
-            Distinguished Egyptian consultants and healthcare administrators guiding Cairo Hospital with international clinical acumen and deep Nigerian healthcare experience.
-          </p>
-        </div>
+        </Reveal>
 
         {/* Chairman Feature Card (Dr. Ahmed Shaker) */}
-        <div className="glass-panel-dark p-6 sm:p-10 rounded-3xl border border-sky-400/40 shadow-2xl relative overflow-hidden bg-gradient-to-br from-[#012654] via-[#013777] to-[#041d3d] text-white">
+        <Reveal variant="scale">
+          <div className="glass-panel-dark p-6 sm:p-10 rounded-3xl border border-sky-400/40 shadow-2xl relative overflow-hidden bg-gradient-to-br from-[#012654] via-[#013777] to-[#041d3d] text-white">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             {/* Portrait */}
             <div className="lg:col-span-4 flex flex-col items-center text-center">
@@ -111,73 +115,78 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </Reveal>
 
         {/* Executive Directors Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {executiveMembers.map((member) => (
-            <div
+          {executiveMembers.map((member, idx) => (
+            <Reveal
               key={member.id}
-              className="glass-panel p-5 rounded-3xl border border-slate-200 glass-panel-hover flex flex-col justify-between space-y-4 bg-white shadow-sm"
+              variant="up"
+              delay={(idx % 4) * 90}
+              className="h-full"
             >
-              <div>
-                {/* Photo */}
-                <div className="relative h-60 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 mb-4 shadow-inner">
-                  {member.image ? (
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#e6f0fa] to-[#c9dced] text-[#013777]" aria-label={`${member.name} profile image unavailable`}>
-                      <Stethoscope className="w-12 h-12" />
-                      <span className="text-3xl font-black">{member.name.split(' ').slice(-1)[0].charAt(0)}</span>
+              <div className="h-full glass-panel p-5 rounded-3xl border border-slate-200 glass-panel-hover flex flex-col justify-between space-y-4 bg-white shadow-sm">
+                <div>
+                  {/* Photo */}
+                  <div className="relative h-60 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 mb-4 shadow-inner">
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#e6f0fa] to-[#c9dced] text-[#013777]" aria-label={`${member.name} profile image unavailable`}>
+                        <Stethoscope className="w-12 h-12" />
+                        <span className="text-3xl font-black">{member.name.split(' ').slice(-1)[0].charAt(0)}</span>
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#012654]/85 via-transparent to-transparent" />
+                    <div className="photo-caption absolute bottom-2.5 left-3 right-3 text-white">
+                      <span className="text-[10px] font-black !text-white uppercase tracking-wider block">
+                        {member.role}
+                      </span>
+                      <h4 className="text-base font-black text-white leading-tight">
+                        {member.name}
+                      </h4>
                     </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#012654]/85 via-transparent to-transparent" />
-                  <div className="photo-caption absolute bottom-2.5 left-3 right-3 text-white">
-                    <span className="text-[10px] font-black !text-white uppercase tracking-wider block">
-                      {member.role}
-                    </span>
-                    <h4 className="text-base font-black text-white leading-tight">
-                      {member.name}
-                    </h4>
+                  </div>
+
+                  <div className="space-y-2 text-xs">
+                    <div className="text-[#013777] font-black line-clamp-1">
+                      {member.title}
+                    </div>
+                    {member.education && (
+                      <div className="text-[#0f172a] flex items-center gap-1.5 font-semibold">
+                        <GraduationCap className="w-3.5 h-3.5 text-[#013777] flex-shrink-0" />
+                        <span className="truncate">{member.education}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
 
-                <div className="space-y-2 text-xs">
-                  <div className="text-[#013777] font-black line-clamp-1">
-                    {member.title}
-                  </div>
-                  {member.education && (
-                    <div className="text-[#0f172a] flex items-center gap-1.5 font-semibold">
-                      <GraduationCap className="w-3.5 h-3.5 text-[#013777] flex-shrink-0" />
-                      <span className="truncate">{member.education}</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Actions */}
-              <div className="pt-3 border-t border-slate-100 space-y-2">
-                <button
-                  onClick={() => setSelectedMember(member)}
-                  className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-[#013777] font-black text-xs text-center transition-colors cursor-pointer"
-                >
-                  Read Credentials
-                </button>
-                {member.isDoctor && (
+                {/* Actions */}
+                <div className="pt-3 border-t border-slate-100 space-y-2">
                   <button
-                    onClick={() => onOpenWhatsAppBooking(member.name)}
-                    className="w-full glass-button-whatsapp py-2.5 rounded-xl text-white font-black text-xs flex items-center justify-center gap-1.5 transition-transform hover:scale-102 active:scale-98 cursor-pointer shadow-md"
+                    onClick={() => setSelectedMember(member)}
+                    className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-[#013777] font-black text-xs text-center transition-colors cursor-pointer"
                   >
-                    <MessageCircle className="w-3.5 h-3.5 fill-current" />
-                    <span>Chat on WhatsApp</span>
+                    Read Credentials
                   </button>
-                )}
+                  {member.isDoctor && (
+                    <button
+                      onClick={() => onOpenWhatsAppBooking(member.name)}
+                      className="w-full glass-button-whatsapp py-2.5 rounded-xl text-white font-black text-xs flex items-center justify-center gap-1.5 transition-transform hover:scale-102 active:scale-98 cursor-pointer shadow-md"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                      <span>Chat on WhatsApp</span>
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

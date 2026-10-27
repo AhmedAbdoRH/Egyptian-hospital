@@ -9,6 +9,7 @@ import {
   MessageCircle,
 } from 'lucide-react';
 import { PARTNERS_DATA } from '../data/cairoHospitalData';
+import { Reveal } from './ScrollReveal';
 
 interface PartnersSectionProps {
   onOpenWhatsAppBooking: () => void;
@@ -23,23 +24,26 @@ export const PartnersSection: React.FC<PartnersSectionProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-10 sm:space-y-16">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
-            <Building2 className="w-4 h-4 text-[#013777]" />
-            <span>Institutional Alliances & Specialized Clinics</span>
+        <Reveal variant="up">
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
+              <Building2 className="w-4 h-4 text-[#013777]" />
+              <span>Institutional Alliances & Specialized Clinics</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black text-[#092545] tracking-tight">
+              Strategic Affiliations & Clinical Partners
+            </h2>
+            <p className="text-sm sm:text-base text-[#2d435e] leading-relaxed">
+              Collaborating with leading pharmaceutical distributors and specialized aesthetic dermatology clinics to provide holistic medical support in Nigeria.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-[#092545] tracking-tight">
-            Strategic Affiliations & Clinical Partners
-          </h2>
-          <p className="text-sm sm:text-base text-[#2d435e] leading-relaxed">
-            Collaborating with leading pharmaceutical distributors and specialized aesthetic dermatology clinics to provide holistic medical support in Nigeria.
-          </p>
-        </div>
+        </Reveal>
 
         {/* 2 Partner Showcases */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* 1. Alexandria Pharmacy Ltd. */}
-          <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 space-y-6 flex flex-col justify-between bg-white/90 shadow-sm">
+          <Reveal variant="left" className="h-full">
+            <div className="h-full glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 space-y-6 flex flex-col justify-between bg-white/90 shadow-sm">
             <div className="space-y-5">
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-3">
@@ -100,10 +104,12 @@ export const PartnersSection: React.FC<PartnersSectionProps> = ({
                 <MessageCircle className="w-3.5 h-3.5" />
               </button>
             </div>
-          </div>
+            </div>
+          </Reveal>
 
           {/* 2. Skinic Dermatology Clinic */}
-          <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 space-y-6 flex flex-col justify-between bg-white/90 shadow-sm">
+          <Reveal variant="right" delay={120} className="h-full">
+            <div className="h-full glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 space-y-6 flex flex-col justify-between bg-white/90 shadow-sm">
             <div className="space-y-5">
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-3">
@@ -164,7 +170,8 @@ export const PartnersSection: React.FC<PartnersSectionProps> = ({
                 <MessageCircle className="w-3.5 h-3.5" />
               </button>
             </div>
-          </div>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

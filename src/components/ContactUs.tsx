@@ -11,6 +11,7 @@ import {
   Ambulance,
 } from 'lucide-react';
 import { HOSPITAL_CONTACT } from '../data/cairoHospitalData';
+import { Reveal } from './ScrollReveal';
 
 export const ContactUs: React.FC = () => {
   const [name, setName] = useState('');
@@ -38,7 +39,7 @@ Message: ${message}`;
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-10 sm:space-y-16">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <Reveal variant="up" className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
             <MapPin className="w-4 h-4 text-[#013777]" />
             <span>Connect with Us · Abuja Healthcare Hub</span>
@@ -49,119 +50,130 @@ Message: ${message}`;
           <p className="text-sm sm:text-base text-[#2d435e] leading-relaxed">
             Conveniently located in the central healthcare hub of Garki 2, Abuja. Our clinical reception, emergency ambulance dispatch, and patient coordinators are accessible 24/7.
           </p>
-        </div>
+        </Reveal>
 
         {/* Contact Info Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Address */}
-          <div className="glass-panel p-6 rounded-3xl border border-slate-200/90 space-y-3 glass-panel-hover bg-white/90 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#013777] border border-sky-100 flex items-center justify-center">
-              <MapPin className="w-6 h-6 text-[#013777]" />
+          <Reveal variant="up" delay={0} className="h-full">
+            <div className="h-full glass-panel p-6 rounded-3xl border border-slate-200/90 space-y-3 glass-panel-hover bg-white/90 shadow-sm">
+              <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#013777] border border-sky-100 flex items-center justify-center">
+                <MapPin className="w-6 h-6 text-[#013777]" />
+              </div>
+              <h3 className="text-base font-black text-[#092545]">Physical Address</h3>
+              <p className="text-xs text-[#2d435e] leading-relaxed">
+                {HOSPITAL_CONTACT.address}
+              </p>
+              <div className="pt-2 text-[11px] font-bold text-[#013777]">
+                Garki 2 · Abuja · FCTA
+              </div>
             </div>
-            <h3 className="text-base font-black text-[#092545]">Physical Address</h3>
-            <p className="text-xs text-[#2d435e] leading-relaxed">
-              {HOSPITAL_CONTACT.address}
-            </p>
-            <div className="pt-2 text-[11px] font-bold text-[#013777]">
-              Garki 2 · Abuja · FCTA
-            </div>
-          </div>
+          </Reveal>
 
           {/* Emergency Phones */}
-          <div className="glass-panel p-6 rounded-3xl border border-rose-200 space-y-3 glass-panel-hover bg-white/90 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 border border-rose-100 flex items-center justify-center">
-              <Phone className="w-6 h-6 text-rose-600" />
-            </div>
-            <h3 className="text-base font-black text-[#092545]">Direct Phone Lines</h3>
-            <div className="space-y-1 text-xs text-[#2d435e] font-mono font-bold">
-              <div>
-                <a href={`tel:${HOSPITAL_CONTACT.phone1}`} className="hover:text-[#013777] hover:underline">
-                  {HOSPITAL_CONTACT.phone1}
-                </a>
+          <Reveal variant="up" delay={70} className="h-full">
+            <div className="h-full glass-panel p-6 rounded-3xl border border-rose-200 space-y-3 glass-panel-hover bg-white/90 shadow-sm">
+              <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 border border-rose-100 flex items-center justify-center">
+                <Phone className="w-6 h-6 text-rose-600" />
               </div>
-              <div>
-                <a href={`tel:${HOSPITAL_CONTACT.phone2}`} className="hover:text-[#013777] hover:underline">
-                  {HOSPITAL_CONTACT.phone2}
-                </a>
+              <h3 className="text-base font-black text-[#092545]">Direct Phone Lines</h3>
+              <div className="space-y-1 text-xs text-[#2d435e] font-mono font-bold">
+                <div>
+                  <a href={`tel:${HOSPITAL_CONTACT.phone1}`} className="hover:text-[#013777] hover:underline">
+                    {HOSPITAL_CONTACT.phone1}
+                  </a>
+                </div>
+                <div>
+                  <a href={`tel:${HOSPITAL_CONTACT.phone2}`} className="hover:text-[#013777] hover:underline">
+                    {HOSPITAL_CONTACT.phone2}
+                  </a>
+                </div>
+              </div>
+              <div className="pt-2 text-[11px] font-bold text-rose-700">
+                24/7 Immediate Clinical Response
               </div>
             </div>
-            <div className="pt-2 text-[11px] font-bold text-rose-700">
-              24/7 Immediate Clinical Response
-            </div>
-          </div>
+          </Reveal>
 
           {/* WhatsApp Coordination */}
-          <div className="glass-panel p-6 rounded-3xl border border-emerald-200 space-y-3 glass-panel-hover bg-white/90 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center">
-              <MessageCircle className="w-6 h-6 text-emerald-600 fill-current" />
+          <Reveal variant="up" delay={140} className="h-full">
+            <div className="h-full glass-panel p-6 rounded-3xl border border-emerald-200 space-y-3 glass-panel-hover bg-white/90 shadow-sm">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center">
+                <MessageCircle className="w-6 h-6 text-emerald-600 fill-current" />
+              </div>
+              <h3 className="text-base font-black text-[#092545]">WhatsApp Desk</h3>
+              <p className="text-xs text-[#2d435e] leading-relaxed">
+                Instant patient booking, report follow-ups, and overseas medical travel inquiries.
+              </p>
+              <div className="pt-2">
+                <a
+                  href={`https://wa.me/${HOSPITAL_CONTACT.whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-bold text-emerald-700 hover:text-emerald-800 underline flex items-center gap-1"
+                >
+                  <span>Chat on WhatsApp (+234 909 865 6437)</span>
+                </a>
+              </div>
             </div>
-            <h3 className="text-base font-black text-[#092545]">WhatsApp Desk</h3>
-            <p className="text-xs text-[#2d435e] leading-relaxed">
-              Instant patient booking, report follow-ups, and overseas medical travel inquiries.
-            </p>
-            <div className="pt-2">
-              <a
-                href={`https://wa.me/${HOSPITAL_CONTACT.whatsappNumber}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-bold text-emerald-700 hover:text-emerald-800 underline flex items-center gap-1"
-              >
-                <span>Chat on WhatsApp (+234 909 865 6437)</span>
-              </a>
-            </div>
-          </div>
+          </Reveal>
 
           {/* Email & Administration */}
-          <div className="glass-panel p-6 rounded-3xl border border-slate-200/90 space-y-3 glass-panel-hover bg-white/90 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 border border-teal-100 flex items-center justify-center">
-              <Mail className="w-6 h-6 text-teal-700" />
+          <Reveal variant="up" delay={210} className="h-full">
+            <div className="h-full glass-panel p-6 rounded-3xl border border-slate-200/90 space-y-3 glass-panel-hover bg-white/90 shadow-sm">
+              <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 border border-teal-100 flex items-center justify-center">
+                <Mail className="w-6 h-6 text-teal-700" />
+              </div>
+              <h3 className="text-base font-black text-[#092545]">Official Email</h3>
+              <p className="text-xs text-[#2d435e] font-mono font-medium">
+                <a href={`mailto:${HOSPITAL_CONTACT.email}`} className="hover:text-[#013777] hover:underline">
+                  {HOSPITAL_CONTACT.email}
+                </a>
+              </p>
+              <div className="pt-2 text-[11px] font-bold text-teal-700">
+                Administrative & Referral Enquiries
+              </div>
             </div>
-            <h3 className="text-base font-black text-[#092545]">Official Email</h3>
-            <p className="text-xs text-[#2d435e] font-mono font-medium">
-              <a href={`mailto:${HOSPITAL_CONTACT.email}`} className="hover:text-[#013777] hover:underline">
-                {HOSPITAL_CONTACT.email}
-              </a>
-            </p>
-            <div className="pt-2 text-[11px] font-bold text-teal-700">
-              Administrative & Referral Enquiries
-            </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* Map & Inquiry Form Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Interactive Google Map Embed */}
-          <div className="lg:col-span-7 glass-panel rounded-3xl overflow-hidden border border-slate-200/90 p-2.5 flex flex-col justify-between bg-white shadow-sm">
-            <div className="relative w-full h-80 sm:h-[400px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner">
-              <iframe
-                title="Cairo Hospital Abuja Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.3546736237256!2d7.487841375822394!3d9.031388089069792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0ba1dc0c634d%3A0xbce5c777e5e34789!2sGarki%202%2C%20Abuja!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-            <div className="p-4 flex flex-wrap items-center justify-between text-xs text-[#2d435e] gap-2">
-              <div className="flex items-center gap-2">
-                <Navigation className="w-4 h-4 text-[#013777]" />
-                <span className="font-semibold">16 Oke Agbe Street, Garki 2, Abuja</span>
+          <Reveal variant="left" delay={60} className="lg:col-span-7 flex">
+            <div className="w-full glass-panel rounded-3xl overflow-hidden border border-slate-200/90 p-2.5 flex flex-col justify-between bg-white shadow-sm">
+              <div className="relative w-full h-80 sm:h-[400px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner">
+                <iframe
+                  title="Cairo Hospital Abuja Location Map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.3546736237256!2d7.487841375822394!3d9.031388089069792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0ba1dc0c634d%3A0xbce5c777e5e34789!2sGarki%202%2C%20Abuja!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
-              <a
-                href="https://maps.google.com/?q=16+Oke+Agbe+Street+Garki+2+Abuja"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-bold text-[#013777] hover:underline"
-              >
-                Open in Maps App
-              </a>
+              <div className="p-4 flex flex-wrap items-center justify-between text-xs text-[#2d435e] gap-2">
+                <div className="flex items-center gap-2">
+                  <Navigation className="w-4 h-4 text-[#013777]" />
+                  <span className="font-semibold">16 Oke Agbe Street, Garki 2, Abuja</span>
+                </div>
+                <a
+                  href="https://maps.google.com/?q=16+Oke+Agbe+Street+Garki+2+Abuja"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-bold text-[#013777] hover:underline"
+                >
+                  Open in Maps App
+                </a>
+              </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Quick Inquiry Form */}
-          <div className="lg:col-span-5 glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 space-y-5 bg-white/95 shadow-sm">
+          <Reveal variant="right" delay={140} className="lg:col-span-5 flex">
+            <div className="w-full glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 space-y-5 bg-white/95 shadow-sm">
             <div>
               <h3 className="text-xl font-black text-[#092545]">Send Direct Inquiry</h3>
               <p className="text-xs text-[#2d435e] mt-1">
@@ -234,7 +246,8 @@ Message: ${message}`;
                 <span>Send via WhatsApp Coordinator</span>
               </button>
             </form>
-          </div>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

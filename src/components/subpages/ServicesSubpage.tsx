@@ -28,6 +28,7 @@ import { SubpageHero } from './SubpageHero';
 import { MEDICAL_SERVICES, HOSPITAL_CONTACT } from '../../data/cairoHospitalData';
 import { OrthobiologicsHighlight } from '../OrthobiologicsHighlight';
 import { MedicalTourism } from '../MedicalTourism';
+import { Reveal } from '../ScrollReveal';
 
 interface ServicesSubpageProps {
   onNavigateHome: () => void;
@@ -161,63 +162,68 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-20">
         {/* Search & Category Filter Navigation */}
         <section className="space-y-6">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div className="space-y-1">
-              <h2 className="text-2xl sm:text-3xl font-black text-[#092545]">
-                Specialized Clinical Departments
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-700 font-bold">
-                Showing {filteredServices.length} of {MEDICAL_SERVICES.length} hospital services
-              </p>
+          <Reveal variant="up" className="space-y-6">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="space-y-1">
+                <h2 className="text-2xl sm:text-3xl font-black text-[#092545]">
+                  Specialized Clinical Departments
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-700 font-bold">
+                  Showing {filteredServices.length} of {MEDICAL_SERVICES.length} hospital services
+                </p>
+              </div>
+
+              {/* Live Search Input */}
+              <div className="relative w-full md:w-80">
+                <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search specialty, surgery, symptom..."
+                  className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-white border border-slate-300 text-xs sm:text-sm text-[#092545] font-semibold placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#013777] shadow-xs"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-600 hover:text-slate-900 cursor-pointer"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
             </div>
 
-            {/* Live Search Input */}
-            <div className="relative w-full md:w-80">
-              <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search specialty, surgery, symptom..."
-                className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-white border border-slate-300 text-xs sm:text-sm text-[#092545] font-semibold placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#013777] shadow-xs"
-              />
-              {searchQuery && (
+            {/* Interactive Category Segmented Tabs */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs font-bold">
+              {categories.map((cat) => (
                 <button
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-600 hover:text-slate-900 cursor-pointer"
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`px-4 py-2.5 rounded-xl whitespace-nowrap transition-all cursor-pointer ${
+                    activeCategory === cat.id
+                      ? 'bg-[#013777] text-white shadow-md shadow-[#013777]/25 font-black scale-102'
+                      : 'bg-white border border-slate-300 text-slate-800 hover:bg-slate-50 hover:text-[#013777]'
+                  }`}
                 >
-                  Clear
+                  {cat.label}
                 </button>
-              )}
+              ))}
             </div>
-          </div>
-
-          {/* Interactive Category Segmented Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs font-bold">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2.5 rounded-xl whitespace-nowrap transition-all cursor-pointer ${
-                  activeCategory === cat.id
-                    ? 'bg-[#013777] text-white shadow-md shadow-[#013777]/25 font-black scale-102'
-                    : 'bg-white border border-slate-300 text-slate-800 hover:bg-slate-50 hover:text-[#013777]'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
+          </Reveal>
 
           {/* Services Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
-            {filteredServices.map((service) => {
+            {filteredServices.map((service, index) => {
               const isExpanded = expandedCardId === service.id;
               return (
-                <div
-                  key={service.id}
-                  className="glass-panel glass-panel-hover p-6 sm:p-7 rounded-3xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between space-y-5 hover:border-[#013777]/30 transition-all duration-300"
+                <Reveal
+                  key={`${activeCategory}-${service.id}`}
+                  variant="up"
+                  delay={(index % 6) * 65}
+                  className="h-full"
                 >
+                  <div className="h-full glass-panel glass-panel-hover p-6 sm:p-7 rounded-3xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between space-y-5 hover:border-[#013777]/30 transition-all duration-300">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center shadow-xs">
@@ -272,7 +278,8 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
                       </button>
                     )}
                   </div>
-                </div>
+                  </div>
+                </Reveal>
               );
             })}
           </div>
@@ -306,7 +313,7 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
 
         {/* The 4-Step Clinical Care Pathway */}
         <section className="space-y-10">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <Reveal variant="up" className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-black uppercase tracking-widest text-[#013777]">
               The Patient Experience
             </span>
@@ -316,20 +323,19 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
             <p className="text-sm text-[#1e293b] font-medium">
               From triage to long-term kinetic mobility, your treatment is coordinated seamlessly by our multidisciplinary medical faculty.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {clinicalPathway.map((path, idx) => (
-              <div
-                key={idx}
-                className="glass-panel p-6 rounded-3xl border border-slate-200/90 bg-white shadow-sm space-y-3 relative group hover:border-[#013777]/30 transition-all"
-              >
-                <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-300 text-[#013777] flex items-center justify-center font-black text-lg">
-                  {path.step}
+              <Reveal key={idx} variant="up" delay={idx * 75} className="h-full">
+                <div className="h-full glass-panel p-6 rounded-3xl border border-slate-200/90 bg-white shadow-sm space-y-3 relative group hover:border-[#013777]/30 transition-all">
+                  <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-300 text-[#013777] flex items-center justify-center font-black text-lg">
+                    {path.step}
+                  </div>
+                  <h3 className="text-base font-black text-[#092545]">{path.title}</h3>
+                  <p className="text-xs text-[#1e293b] font-medium leading-relaxed">{path.desc}</p>
                 </div>
-                <h3 className="text-base font-black text-[#092545]">{path.title}</h3>
-                <p className="text-xs text-[#1e293b] font-medium leading-relaxed">{path.desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -343,75 +349,76 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
 
         {/* Services FAQ Accordion */}
         <section className="space-y-8 max-w-4xl mx-auto">
-          <div className="text-center space-y-3">
+          <Reveal variant="up" className="text-center space-y-3">
             <span className="text-xs font-black uppercase tracking-widest text-[#013777]">
               Clinical Clarity
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-[#092545] tracking-tight">
               Frequently Asked Clinical Questions
             </h2>
-          </div>
+          </Reveal>
 
           <div className="space-y-3">
             {serviceFaqs.map((faq, idx) => {
               const isOpen = openFaqIndex === idx;
               return (
-                <div
-                  key={idx}
-                  className="glass-panel rounded-2xl border border-slate-200/90 bg-white overflow-hidden shadow-xs transition-all"
-                >
-                  <button
-                    onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-black text-sm text-[#092545] hover:text-[#013777] transition-colors cursor-pointer"
-                  >
-                    <span>{faq.q}</span>
-                    {isOpen ? (
-                      <ChevronUp className="w-4 h-4 text-[#013777] shrink-0" />
-                    ) : (
-                      <ChevronDown className="w-4 h-4 text-slate-500 shrink-0" />
+                <Reveal key={idx} variant="up" delay={idx * 65}>
+                  <div className="glass-panel rounded-2xl border border-slate-200/90 bg-white overflow-hidden shadow-xs transition-all">
+                    <button
+                      onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                      className="w-full p-5 text-left flex items-center justify-between gap-4 font-black text-sm text-[#092545] hover:text-[#013777] transition-colors cursor-pointer"
+                    >
+                      <span>{faq.q}</span>
+                      {isOpen ? (
+                        <ChevronUp className="w-4 h-4 text-[#013777] shrink-0" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4 text-slate-500 shrink-0" />
+                      )}
+                    </button>
+                    {isOpen && (
+                      <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#1e293b] font-medium leading-relaxed border-t border-slate-100">
+                        {faq.a}
+                      </div>
                     )}
-                  </button>
-                  {isOpen && (
-                    <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#1e293b] font-medium leading-relaxed border-t border-slate-100">
-                      {faq.a}
-                    </div>
-                  )}
-                </div>
+                  </div>
+                </Reveal>
               );
             })}
           </div>
         </section>
 
         {/* Direct WhatsApp Call to Action Banner */}
-        <section className="contrast-dark relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#012654] via-[#013777] to-[#044a9e] p-8 sm:p-12 text-white shadow-xl">
-          <div className="max-w-3xl space-y-4 relative z-10">
-            <span className="text-xs font-black uppercase tracking-widest text-sky-300">
-              Immediate Clinical Support
-            </span>
-            <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight !text-[#fdc33e]">
-              Need Help Deciding Which Specialty Is Right for You?
-            </h3>
-            <p className="text-xs sm:text-sm text-sky-100/90 leading-relaxed max-w-2xl">
-              Connect directly with our Chief Medical Director's triage desk on WhatsApp. Share your symptoms or existing reports, and we will route you to the appropriate consultant immediately.
-            </p>
-            <div className="pt-2 flex flex-wrap gap-4">
-              <button
-                onClick={onOpenWhatsAppBooking}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow-lg shadow-[#25D366]/30 transition-all transform active:scale-95 cursor-pointer"
-              >
-                <MessageCircle className="w-4 h-4 fill-current" />
-                <span>Chat with Clinical Desk on WhatsApp</span>
-              </button>
-              <a
-                href={`tel:${HOSPITAL_CONTACT.phone1}`}
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm transition-colors cursor-pointer"
-              >
-                <Activity className="w-4 h-4 text-sky-300" />
-                <span>Call Emergency Triage: {HOSPITAL_CONTACT.phone1}</span>
-              </a>
+        <Reveal variant="scale">
+          <section className="contrast-dark relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#012654] via-[#013777] to-[#044a9e] p-8 sm:p-12 text-white shadow-xl">
+            <div className="max-w-3xl space-y-4 relative z-10">
+              <span className="text-xs font-black uppercase tracking-widest text-sky-300">
+                Immediate Clinical Support
+              </span>
+              <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight !text-[#fdc33e]">
+                Need Help Deciding Which Specialty Is Right for You?
+              </h3>
+              <p className="text-xs sm:text-sm text-sky-100/90 leading-relaxed max-w-2xl">
+                Connect directly with our Chief Medical Director's triage desk on WhatsApp. Share your symptoms or existing reports, and we will route you to the appropriate consultant immediately.
+              </p>
+              <div className="pt-2 flex flex-wrap gap-4">
+                <button
+                  onClick={onOpenWhatsAppBooking}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow-lg shadow-[#25D366]/30 transition-all transform active:scale-95 cursor-pointer"
+                >
+                  <MessageCircle className="w-4 h-4 fill-current" />
+                  <span>Chat with Clinical Desk on WhatsApp</span>
+                </button>
+                <a
+                  href={`tel:${HOSPITAL_CONTACT.phone1}`}
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm transition-colors cursor-pointer"
+                >
+                  <Activity className="w-4 h-4 text-sky-300" />
+                  <span>Call Emergency Triage: {HOSPITAL_CONTACT.phone1}</span>
+                </a>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </Reveal>
       </div>
     </div>
   );

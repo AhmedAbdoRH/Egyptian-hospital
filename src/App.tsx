@@ -20,6 +20,7 @@ import { TeamSubpage } from './components/subpages/TeamSubpage';
 import { ContactSubpage } from './components/subpages/ContactSubpage';
 import { BookingSubpage } from './components/subpages/BookingSubpage';
 import { LoadingScreen } from './components/LoadingScreen';
+import { RevealReadyContext } from './components/ScrollReveal';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -73,102 +74,108 @@ export default function App() {
   };
 
   const handleNavigate = (tabId: string) => navigateTo(tabId);
+  const isRevealReady = !isLoaderVisible || isLoaderLeaving;
 
   return (
-    <div className="min-h-screen flex flex-col bg-transparent text-[#2d435e] selection:bg-[#013777] selection:text-white">
-      {isLoaderVisible && <LoadingScreen isLeaving={isLoaderLeaving} />}
-      <Header
-        activeTab={activeTab}
-        onNavigate={handleNavigate}
-        onOpenWhatsAppBooking={() => handleOpenBooking()}
-      />
+    <RevealReadyContext.Provider value={isRevealReady}>
+      <div
+        data-loader-active={isLoaderVisible && !isLoaderLeaving ? 'true' : 'false'}
+        className="min-h-screen flex flex-col bg-transparent text-[#2d435e] selection:bg-[#013777] selection:text-white"
+      >
+        {isLoaderVisible && <LoadingScreen isLeaving={isLoaderLeaving} />}
+        <Header
+          activeTab={activeTab}
+          onNavigate={handleNavigate}
+          onOpenWhatsAppBooking={() => handleOpenBooking()}
+        />
 
-      <main className="flex-1">
-        {/* HOMEPAGE: The complete, rich clinical showcase */}
-        {activeTab === 'home' && (
-          <>
-            <Hero
-              onOpenWhatsAppBooking={() => handleOpenBooking()}
-              onExploreServices={() => handleNavigate('services')}
-              onExploreTourism={() => handleNavigate('about')}
-            />
-            <EmergencyBanner onOpenWhatsAppBooking={() => handleOpenBooking()} />
-            <AboutUs onOpenWhatsAppBooking={() => handleOpenBooking()} />
-            <ServicesSection
-              onSelectServiceForBooking={(service) => handleOpenBooking(undefined, service)}
-            />
-            <OrthobiologicsHighlight
-              onOpenWhatsAppBooking={() =>
-                handleOpenBooking(undefined, 'Orthobiologics & Stem Cell Therapy')
-              }
-            />
-            <FacilityGallery />
-            <TeamSection onOpenWhatsAppBooking={(doctor) => handleOpenBooking(doctor)} />
-            <MedicalTourism
-              onOpenWhatsAppBooking={() =>
-                handleOpenBooking(undefined, 'Medical Tourism Overseas Referral')
-              }
-            />
-            <PartnersSection onOpenWhatsAppBooking={() => handleOpenBooking()} />
-            <AccreditationSection />
-            <div className="contrast-dark py-8 sm:py-14 bg-gradient-to-b from-[#001d40] via-[#012654] to-[#001d40] text-white relative">
-              <WhatsAppBookingPage
-                isDarkBg={true}
-                preselectedSpecialty={preselectedSpecialty}
-                preselectedDoctor={preselectedDoctor}
+        <main className="flex-1">
+          {/* HOMEPAGE: The complete, rich clinical showcase */}
+          {activeTab === 'home' && (
+            <>
+              <Hero
+                onOpenWhatsAppBooking={() => handleOpenBooking()}
+                onExploreServices={() => handleNavigate('services')}
+                onExploreTourism={() => handleNavigate('about')}
               />
-            </div>
-            <ContactUs />
-          </>
-        )}
+              <EmergencyBanner onOpenWhatsAppBooking={() => handleOpenBooking()} />
+              <AboutUs onOpenWhatsAppBooking={() => handleOpenBooking()} />
+              <ServicesSection
+                onSelectServiceForBooking={(service) => handleOpenBooking(undefined, service)}
+              />
+              <OrthobiologicsHighlight
+                onOpenWhatsAppBooking={() =>
+                  handleOpenBooking(undefined, 'Orthobiologics & Stem Cell Therapy')
+                }
+              />
+              <FacilityGallery />
+              <TeamSection onOpenWhatsAppBooking={(doctor) => handleOpenBooking(doctor)} />
+              <MedicalTourism
+                onOpenWhatsAppBooking={() =>
+                  handleOpenBooking(undefined, 'Medical Tourism Overseas Referral')
+                }
+              />
+              <PartnersSection onOpenWhatsAppBooking={() => handleOpenBooking()} />
+              <AccreditationSection />
+              <div className="contrast-dark py-8 sm:py-14 bg-gradient-to-b from-[#001d40] via-[#012654] to-[#001d40] text-white relative">
+                <WhatsAppBookingPage
+                  isDarkBg={true}
+                  preselectedSpecialty={preselectedSpecialty}
+                  preselectedDoctor={preselectedDoctor}
+                />
+              </div>
+              <ContactUs />
+            </>
+          )}
 
-        {/* DEDICATED ABOUT TAB */}
-        {activeTab === 'about' && (
-          <AboutSubpage
-            onNavigateHome={() => handleNavigate('home')}
-            onOpenWhatsAppBooking={() => handleOpenBooking()}
-            onNavigateServices={() => handleNavigate('services')}
-            onNavigateTeam={() => handleNavigate('team')}
-          />
-        )}
+          {/* DEDICATED ABOUT TAB */}
+          {activeTab === 'about' && (
+            <AboutSubpage
+              onNavigateHome={() => handleNavigate('home')}
+              onOpenWhatsAppBooking={() => handleOpenBooking()}
+              onNavigateServices={() => handleNavigate('services')}
+              onNavigateTeam={() => handleNavigate('team')}
+            />
+          )}
 
-        {/* DEDICATED SERVICES TAB */}
-        {activeTab === 'services' && (
-          <ServicesSubpage
-            onNavigateHome={() => handleNavigate('home')}
-            onSelectServiceForBooking={(service) => handleOpenBooking(undefined, service)}
-            onOpenWhatsAppBooking={() => handleOpenBooking()}
-          />
-        )}
+          {/* DEDICATED SERVICES TAB */}
+          {activeTab === 'services' && (
+            <ServicesSubpage
+              onNavigateHome={() => handleNavigate('home')}
+              onSelectServiceForBooking={(service) => handleOpenBooking(undefined, service)}
+              onOpenWhatsAppBooking={() => handleOpenBooking()}
+            />
+          )}
 
-        {/* DEDICATED TEAM TAB */}
-        {activeTab === 'team' && (
-          <TeamSubpage
-            onNavigateHome={() => handleNavigate('home')}
-            onOpenWhatsAppBooking={(doctor) => handleOpenBooking(doctor)}
-          />
-        )}
+          {/* DEDICATED TEAM TAB */}
+          {activeTab === 'team' && (
+            <TeamSubpage
+              onNavigateHome={() => handleNavigate('home')}
+              onOpenWhatsAppBooking={(doctor) => handleOpenBooking(doctor)}
+            />
+          )}
 
-        {/* DEDICATED CONTACT TAB */}
-        {activeTab === 'contact' && (
-          <ContactSubpage
-            onNavigateHome={() => handleNavigate('home')}
-            onOpenWhatsAppBooking={() => handleOpenBooking()}
-          />
-        )}
+          {/* DEDICATED CONTACT TAB */}
+          {activeTab === 'contact' && (
+            <ContactSubpage
+              onNavigateHome={() => handleNavigate('home')}
+              onOpenWhatsAppBooking={() => handleOpenBooking()}
+            />
+          )}
 
-        {/* DEDICATED WHATSAPP BOOKING TAB */}
-        {activeTab === 'booking' && (
-          <BookingSubpage
-            onNavigateHome={() => handleNavigate('home')}
-            preselectedSpecialty={preselectedSpecialty}
-            preselectedDoctor={preselectedDoctor}
-          />
-        )}
-      </main>
+          {/* DEDICATED WHATSAPP BOOKING TAB */}
+          {activeTab === 'booking' && (
+            <BookingSubpage
+              onNavigateHome={() => handleNavigate('home')}
+              preselectedSpecialty={preselectedSpecialty}
+              preselectedDoctor={preselectedDoctor}
+            />
+          )}
+        </main>
 
-      <Footer onNavigate={handleNavigate} onOpenWhatsAppBooking={() => handleOpenBooking()} />
-      <FloatingWhatsAppButton onOpenBookingModal={() => handleOpenBooking()} />
-    </div>
+        <Footer onNavigate={handleNavigate} onOpenWhatsAppBooking={() => handleOpenBooking()} />
+        <FloatingWhatsAppButton onOpenBookingModal={() => handleOpenBooking()} />
+      </div>
+    </RevealReadyContext.Provider>
   );
 }

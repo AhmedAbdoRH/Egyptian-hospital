@@ -9,6 +9,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { HOSPITAL_CONTACT, MEDICAL_SERVICES } from '../data/cairoHospitalData';
+import { Reveal } from './ScrollReveal';
 
 interface FooterProps {
   onNavigate: (tabId: string) => void;
@@ -26,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Logo & Overview */}
-          <div className="lg:col-span-4 space-y-4">
+          <Reveal variant="up" delay={0} className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-white p-1 shadow-md border border-white/20 flex-shrink-0">
                 <img
@@ -59,10 +60,10 @@ export const Footer: React.FC<FooterProps> = ({
                 <span>{HOSPITAL_CONTACT.workingHours}</span>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Quick Links */}
-          <div className="lg:col-span-3 space-y-3">
+          <Reveal variant="up" delay={70} className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-black uppercase tracking-wider text-white">Explore Cairo Hospital</h4>
             <ul className="space-y-2 text-xs">
               {[
@@ -82,10 +83,10 @@ export const Footer: React.FC<FooterProps> = ({
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
           {/* Key Specialties Preview */}
-          <div className="lg:col-span-2 space-y-3">
+          <Reveal variant="up" delay={140} className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-black uppercase tracking-wider text-white">
               Centers of Excellence
             </h4>
@@ -99,10 +100,10 @@ export const Footer: React.FC<FooterProps> = ({
               <li>• Alexandria Pharmacy Ltd.</li>
               <li>• Skinic Dermatology Clinic</li>
             </ul>
-          </div>
+          </Reveal>
 
           {/* WhatsApp & Emergency Helpline */}
-          <div className="lg:col-span-3 space-y-3">
+          <Reveal variant="up" delay={210} className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-black uppercase tracking-wider text-white">
               Patient Helplines
             </h4>
@@ -135,11 +136,11 @@ export const Footer: React.FC<FooterProps> = ({
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs border-t border-white/10">
+        <Reveal variant="fade" delay={180} className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs border-t border-white/10">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="flex items-center gap-1.5 text-[#fdc33e] font-bold">
               <ShieldCheck className="w-4 h-4 text-[#fdc33e]" />
@@ -154,7 +155,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="text-sky-100 font-medium">
             © {new Date().getFullYear()} Cairo Hospital Abuja. All rights reserved.
           </div>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );

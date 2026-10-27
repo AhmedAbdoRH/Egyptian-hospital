@@ -11,6 +11,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { ORTHOBIOLOGICS_DATA } from '../data/cairoHospitalData';
+import { Reveal } from './ScrollReveal';
 
 interface OrthobiologicsHighlightProps {
   onOpenWhatsAppBooking: () => void;
@@ -28,67 +29,72 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-10 sm:space-y-16">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
-            <Dna className="w-4 h-4 text-[#013777]" />
-            <span>Pioneering Regenerative Orthopedics</span>
+        <Reveal variant="up">
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
+              <Dna className="w-4 h-4 text-[#013777]" />
+              <span>Pioneering Regenerative Orthopedics</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black text-[#092545] tracking-tight">
+              Orthobiologics & BEMER Therapy
+            </h2>
+            <p className="text-sm sm:text-base text-[#2d435e] leading-relaxed">
+              Leading the paradigm shift from invasive joint replacement to biological joint preservation. Cairo Hospital offers cutting-edge Stem Cell Therapy, Prolotherapy, PRP, and BMAC under Senior Egyptian Orthopedic Surgeons.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-[#092545] tracking-tight">
-            Orthobiologics & BEMER Therapy
-          </h2>
-          <p className="text-sm sm:text-base text-[#2d435e] leading-relaxed">
-            Leading the paradigm shift from invasive joint replacement to biological joint preservation. Cairo Hospital offers cutting-edge Stem Cell Therapy, Prolotherapy, PRP, and BMAC under Senior Egyptian Orthopedic Surgeons.
-          </p>
-        </div>
+        </Reveal>
 
         {/* Orthopedic Surgeries Banner */}
-        <div className="glass-panel-dark p-6 sm:p-8 rounded-3xl border border-sky-400/40 shadow-xl bg-gradient-to-r from-[#012f66] via-[#013777] to-[#08284d]">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-white/10">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 text-xs font-bold text-sky-300 uppercase tracking-wider">
-                <Bone className="w-4 h-4" />
-                <span>Specialized Surgical Division</span>
+        <Reveal variant="scale">
+          <div className="glass-panel-dark p-6 sm:p-8 rounded-3xl border border-sky-400/40 shadow-xl bg-gradient-to-r from-[#012f66] via-[#013777] to-[#08284d]">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-white/10">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 text-xs font-bold text-sky-300 uppercase tracking-wider">
+                  <Bone className="w-4 h-4" />
+                  <span>Specialized Surgical Division</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-black text-white">
+                  Orthopedic Surgeries & Joint Arthroplasty
+                </h3>
               </div>
-              <h3 className="text-xl sm:text-2xl font-black text-white">
-                Orthopedic Surgeries & Joint Arthroplasty
-              </h3>
+              <button
+                onClick={onOpenWhatsAppBooking}
+                className="glass-button-whatsapp px-5 py-3 rounded-xl text-white font-extrabold text-xs inline-flex items-center gap-2 transition-transform hover:scale-105 active:scale-95 cursor-pointer shadow-md"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>Consult Chief Surgeon on WhatsApp</span>
+              </button>
             </div>
-            <button
-              onClick={onOpenWhatsAppBooking}
-              className="glass-button-whatsapp px-5 py-3 rounded-xl text-white font-extrabold text-xs inline-flex items-center gap-2 transition-transform hover:scale-105 active:scale-95 cursor-pointer shadow-md"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>Consult Chief Surgeon on WhatsApp</span>
-            </button>
-          </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
-            <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
-              <div className="text-sm font-black text-white">Arthroplasty</div>
-              <div className="text-xs text-sky-100">Total knee & hip joint reconstruction</div>
-            </div>
-            <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
-              <div className="text-sm font-black text-white">Hand Surgeries</div>
-              <div className="text-xs text-sky-100">Carpal tunnel, tendon repair & microsurgery</div>
-            </div>
-            <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
-              <div className="text-sm font-black text-white">Foot & Ankle</div>
-              <div className="text-xs text-sky-100">Deformity correction & ankle stabilization</div>
-            </div>
-            <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
-              <div className="text-sm font-black text-white">External Fixation</div>
-              <div className="text-xs text-sky-100">Complex fracture union & realignment</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
+              <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
+                <div className="text-sm font-black text-white">Arthroplasty</div>
+                <div className="text-xs text-sky-100">Total knee & hip joint reconstruction</div>
+              </div>
+              <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
+                <div className="text-sm font-black text-white">Hand Surgeries</div>
+                <div className="text-xs text-sky-100">Carpal tunnel, tendon repair & microsurgery</div>
+              </div>
+              <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
+                <div className="text-sm font-black text-white">Foot & Ankle</div>
+                <div className="text-xs text-sky-100">Deformity correction & ankle stabilization</div>
+              </div>
+              <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
+                <div className="text-sm font-black text-white">External Fixation</div>
+                <div className="text-xs text-sky-100">Complex fracture union & realignment</div>
+              </div>
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* Orthobiologics Interactive Showcase */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Procedure Navigation Selector */}
-          <div className="lg:col-span-5 space-y-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#64748b] mb-2">
-              Select Regenerative Modality:
-            </div>
+          <div className="lg:col-span-5">
+            <Reveal variant="left" className="space-y-3">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#64748b] mb-2">
+                Select Regenerative Modality:
+              </div>
             {ORTHOBIOLOGICS_DATA.map((proc, idx) => (
               <button
                 key={proc.abbr}
@@ -123,11 +129,13 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
                 Bio-Electro-Magnetic Energy Regulation technology stimulates microcirculation in capillary vessels, accelerating post-injury cellular repair and mobility.
               </p>
             </div>
+            </Reveal>
           </div>
 
           {/* Procedure Detail & Clinical Photo Card */}
           <div className="lg:col-span-7">
-            <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/80 shadow-xl space-y-6 bg-white/90">
+            <Reveal variant="right" delay={120}>
+              <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/80 shadow-xl space-y-6 bg-white/90">
               {/* Clinical procedure image from presentation */}
               <div className="relative h-60 rounded-2xl overflow-hidden border border-slate-200 shadow-inner">
                 <img
@@ -200,7 +208,8 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
                   <span>Inquire on WhatsApp</span>
                 </button>
               </div>
-            </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </div>

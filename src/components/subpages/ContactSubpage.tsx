@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { SubpageHero } from './SubpageHero';
 import { HOSPITAL_CONTACT } from '../../data/cairoHospitalData';
+import { Reveal } from '../ScrollReveal';
 
 interface ContactSubpageProps {
   onNavigateHome: () => void;
@@ -126,119 +127,127 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
         {/* Core Contact Cards Grid */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Card 1: Emergency & Hotline */}
-          <div className="glass-panel p-6 rounded-3xl border border-rose-300 bg-rose-50/70 shadow-sm space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold">
-                <Ambulance className="w-6 h-6" />
+          <Reveal variant="up" delay={0} className="h-full">
+            <div className="h-full glass-panel p-6 rounded-3xl border border-rose-300 bg-rose-50/70 shadow-sm space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold">
+                  <Ambulance className="w-6 h-6" />
+                </div>
+                <div className="space-y-1">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-rose-700 bg-rose-100 px-2 py-0.5 rounded-md">
+                    Emergency Line 24/7
+                  </span>
+                  <h3 className="text-base font-black text-[#092545]">Acute Trauma Desk</h3>
+                </div>
+                <p className="text-xs text-[#1e293b] font-medium">
+                  Immediate triage, medical personnel on-site, and dedicated ambulance call-out.
+                </p>
               </div>
-              <div className="space-y-1">
-                <span className="text-[10px] font-black uppercase tracking-wider text-rose-700 bg-rose-100 px-2 py-0.5 rounded-md">
-                  Emergency Line 24/7
-                </span>
-                <h3 className="text-base font-black text-[#092545]">Acute Trauma Desk</h3>
-              </div>
-              <p className="text-xs text-[#1e293b] font-medium">
-                Immediate triage, medical personnel on-site, and dedicated ambulance call-out.
-              </p>
+              <a
+                href={`tel:${HOSPITAL_CONTACT.phone1}`}
+                className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-black text-xs shadow-xs transition-colors cursor-pointer"
+              >
+                <Phone className="w-4 h-4" />
+                <span>{HOSPITAL_CONTACT.phone1}</span>
+              </a>
             </div>
-            <a
-              href={`tel:${HOSPITAL_CONTACT.phone1}`}
-              className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-black text-xs shadow-xs transition-colors cursor-pointer"
-            >
-              <Phone className="w-4 h-4" />
-              <span>{HOSPITAL_CONTACT.phone1}</span>
-            </a>
-          </div>
+          </Reveal>
 
           {/* Card 2: Campus Address */}
-          <div className="glass-panel p-6 rounded-3xl border border-slate-300 bg-white shadow-sm space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#013777] flex items-center justify-center font-bold border border-sky-200">
-                <MapPin className="w-6 h-6" />
+          <Reveal variant="up" delay={70} className="h-full">
+            <div className="h-full glass-panel p-6 rounded-3xl border border-slate-300 bg-white shadow-sm space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#013777] flex items-center justify-center font-bold border border-sky-200">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div className="space-y-1">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-[#013777] bg-sky-100 px-2 py-0.5 rounded-md">
+                    Hospital Campus
+                  </span>
+                  <h3 className="text-base font-black text-[#092545]">Physical Address</h3>
+                </div>
+                <p className="text-xs text-[#092545] font-bold">
+                  {HOSPITAL_CONTACT.address}
+                </p>
               </div>
-              <div className="space-y-1">
-                <span className="text-[10px] font-black uppercase tracking-wider text-[#013777] bg-sky-100 px-2 py-0.5 rounded-md">
-                  Hospital Campus
-                </span>
-                <h3 className="text-base font-black text-[#092545]">Physical Address</h3>
-              </div>
-              <p className="text-xs text-[#092545] font-bold">
-                {HOSPITAL_CONTACT.address}
-              </p>
+              <button
+                onClick={handleCopyAddress}
+                className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-[#092545] font-black text-xs transition-colors cursor-pointer"
+              >
+                {copiedAddress ? (
+                  <>
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <span className="text-emerald-700">Address Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4 text-[#013777]" />
+                    <span>Copy Campus Address</span>
+                  </>
+                )}
+              </button>
             </div>
-            <button
-              onClick={handleCopyAddress}
-              className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-[#092545] font-black text-xs transition-colors cursor-pointer"
-            >
-              {copiedAddress ? (
-                <>
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  <span className="text-emerald-700">Address Copied!</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-4 h-4 text-[#013777]" />
-                  <span>Copy Campus Address</span>
-                </>
-              )}
-            </button>
-          </div>
+          </Reveal>
 
           {/* Card 3: WhatsApp Desk */}
-          <div className="glass-panel p-6 rounded-3xl border border-emerald-300 bg-emerald-50/70 shadow-sm space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
-                <MessageCircle className="w-6 h-6" />
+          <Reveal variant="up" delay={140} className="h-full">
+            <div className="h-full glass-panel p-6 rounded-3xl border border-emerald-300 bg-emerald-50/70 shadow-sm space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+                  <MessageCircle className="w-6 h-6" />
+                </div>
+                <div className="space-y-1">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md">
+                    Instant Messaging
+                  </span>
+                  <h3 className="text-base font-black text-[#092545]">WhatsApp Portal</h3>
+                </div>
+                <p className="text-xs text-[#1e293b] font-medium">
+                  Fastest way to book consultations, verify doctor schedules, and ask clinical questions.
+                </p>
               </div>
-              <div className="space-y-1">
-                <span className="text-[10px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md">
-                  Instant Messaging
-                </span>
-                <h3 className="text-base font-black text-[#092545]">WhatsApp Portal</h3>
-              </div>
-              <p className="text-xs text-[#1e293b] font-medium">
-                Fastest way to book consultations, verify doctor schedules, and ask clinical questions.
-              </p>
+              <a
+                href={`https://wa.me/${HOSPITAL_CONTACT.whatsappNumber}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-xs shadow-xs transition-colors cursor-pointer"
+              >
+                <MessageCircle className="w-4 h-4 fill-current" />
+                <span>Chat +{HOSPITAL_CONTACT.whatsappNumber}</span>
+              </a>
             </div>
-            <a
-              href={`https://wa.me/${HOSPITAL_CONTACT.whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-xs shadow-xs transition-colors cursor-pointer"
-            >
-              <MessageCircle className="w-4 h-4 fill-current" />
-              <span>Chat +{HOSPITAL_CONTACT.whatsappNumber}</span>
-            </a>
-          </div>
+          </Reveal>
 
           {/* Card 4: Operating Hours */}
-          <div className="glass-panel p-6 rounded-3xl border border-slate-300 bg-white shadow-sm space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-slate-100 text-[#092545] flex items-center justify-center font-bold border border-slate-200">
-                <Clock className="w-6 h-6" />
+          <Reveal variant="up" delay={210} className="h-full">
+            <div className="h-full glass-panel p-6 rounded-3xl border border-slate-300 bg-white shadow-sm space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-2xl bg-slate-100 text-[#092545] flex items-center justify-center font-bold border border-slate-200">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <div className="space-y-1">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-slate-700 bg-slate-100 px-2 py-0.5 rounded-md">
+                    Working Hours
+                  </span>
+                  <h3 className="text-base font-black text-[#092545]">Hospital Schedule</h3>
+                </div>
+                <div className="text-xs text-[#1e293b] space-y-1 font-medium">
+                  <div><span className="font-bold text-[#092545]">Emergency & Inpatient:</span> 24/7/365</div>
+                  <div><span className="font-bold text-[#092545]">Outpatient Clinics:</span> 8am - 9pm</div>
+                  <div><span className="font-bold text-[#092545]">Pharmacy & Lab:</span> Open 24 Hours</div>
+                </div>
               </div>
-              <div className="space-y-1">
-                <span className="text-[10px] font-black uppercase tracking-wider text-slate-700 bg-slate-100 px-2 py-0.5 rounded-md">
-                  Working Hours
-                </span>
-                <h3 className="text-base font-black text-[#092545]">Hospital Schedule</h3>
-              </div>
-              <div className="text-xs text-[#1e293b] space-y-1 font-medium">
-                <div><span className="font-bold text-[#092545]">Emergency & Inpatient:</span> 24/7/365</div>
-                <div><span className="font-bold text-[#092545]">Outpatient Clinics:</span> 8am - 9pm</div>
-                <div><span className="font-bold text-[#092545]">Pharmacy & Lab:</span> Open 24 Hours</div>
+              <div className="py-2.5 px-3 rounded-xl bg-slate-100 text-center text-xs font-black text-slate-800 border border-slate-200">
+                Always Open for Critical Care
               </div>
             </div>
-            <div className="py-2.5 px-3 rounded-xl bg-slate-100 text-center text-xs font-black text-slate-800 border border-slate-200">
-              Always Open for Critical Care
-            </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* Map & Inquiry Form Split Grid */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left: Interactive Interactive Map & Campus Orientation */}
-          <div className="lg:col-span-7 space-y-6">
+          <Reveal variant="left" delay={60} className="lg:col-span-7 space-y-6">
             <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 bg-white/95 shadow-md space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
                 <div>
@@ -294,10 +303,10 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right: Instant WhatsApp Patient Inquiry Form */}
-          <div className="lg:col-span-5 space-y-6">
+          <Reveal variant="right" delay={140} className="lg:col-span-5 space-y-6">
             <form
               onSubmit={handleSendMessage}
               className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 bg-white/95 shadow-md space-y-5"
@@ -390,12 +399,12 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                 </div>
               )}
             </form>
-          </div>
+          </Reveal>
         </section>
 
         {/* Detailed Department Hotlines Directory */}
         <section className="space-y-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <Reveal variant="up" className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-black uppercase tracking-widest text-[#013777]">
               Internal Lines
             </span>
@@ -405,42 +414,43 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
             <p className="text-sm text-[#2d435e]">
               Direct contact numbers for specialized wards, labs, pharmacy, and corporate inquiries.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {departments.map((dept, idx) => (
-              <div
-                key={idx}
-                className={`glass-panel p-6 rounded-3xl border shadow-sm space-y-4 flex flex-col justify-between ${
-                  dept.urgent
-                    ? 'border-rose-200 bg-rose-50/30'
-                    : 'border-slate-200/90 bg-white/95'
-                }`}
-              >
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-[#013777]">{dept.hours}</span>
-                    {dept.urgent && (
-                      <span className="text-[10px] font-bold text-rose-700 bg-rose-100 px-2 py-0.5 rounded-md">
-                        24/7 Priority
-                      </span>
-                    )}
+              <Reveal key={idx} variant="up" delay={(idx % 3) * 75} className="h-full">
+                <div
+                  className={`h-full glass-panel p-6 rounded-3xl border shadow-sm space-y-4 flex flex-col justify-between ${
+                    dept.urgent
+                      ? 'border-rose-200 bg-rose-50/30'
+                      : 'border-slate-200/90 bg-white/95'
+                  }`}
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-[#013777]">{dept.hours}</span>
+                      {dept.urgent && (
+                        <span className="text-[10px] font-bold text-rose-700 bg-rose-100 px-2 py-0.5 rounded-md">
+                          24/7 Priority
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="text-base font-black text-[#092545]">{dept.name}</h3>
+                    <p className="text-xs text-[#2d435e]">{dept.desc}</p>
                   </div>
-                  <h3 className="text-base font-black text-[#092545]">{dept.name}</h3>
-                  <p className="text-xs text-[#2d435e]">{dept.desc}</p>
-                </div>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-slate-600">{dept.phone}</span>
-                  <a
-                    href={`tel:${dept.phone}`}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-[#013777] hover:text-white text-[#092545] text-xs font-bold transition-colors cursor-pointer"
-                  >
-                    <Phone className="w-3 h-3" />
-                    <span>Call Now</span>
-                  </a>
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold text-slate-600">{dept.phone}</span>
+                    <a
+                      href={`tel:${dept.phone}`}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-[#013777] hover:text-white text-[#092545] text-xs font-bold transition-colors cursor-pointer"
+                    >
+                      <Phone className="w-3 h-3" />
+                      <span>Call Now</span>
+                    </a>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>

@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { HOSPITAL_CONTACT, MEDICAL_SERVICES, TEAM_MEMBERS } from '../data/cairoHospitalData';
 import { WhatsAppBookingPayload } from '../types/hospital';
+import { Reveal } from './ScrollReveal';
 
 interface WhatsAppBookingPageProps {
   isOpenModal?: boolean;
@@ -89,38 +90,37 @@ _Sent via Cairo Hospital Official Website_`;
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const content = (
-    <div className="space-y-8">
-      {/* Header Info with High-Contrast Text */}
-      <div className="text-center max-w-2xl mx-auto space-y-3">
-        <div
-          className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider ${
-            isDarkBg
-              ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 shadow-xs'
-              : 'bg-emerald-50 border border-emerald-300 text-emerald-800'
-          }`}
-        >
-          <MessageCircle className="w-4 h-4 fill-current" />
-          <span>Direct WhatsApp Patient Scheduling</span>
-        </div>
-        <h2
-          className={`text-2xl sm:text-4xl font-black tracking-tight ${
-            isDarkBg ? 'text-white' : 'text-[#061a33]'
-          }`}
-        >
-          Instant WhatsApp Appointment Booking
-        </h2>
-        <p
-          className={`text-xs sm:text-sm leading-relaxed ${
-            isDarkBg ? 'text-sky-100 font-medium' : 'text-[#1e293b]'
-          }`}
-        >
-          Book directly with Cairo Hospital's clinical coordination desk in Abuja. Your message is formatted professionally and sent directly to our on-duty patient coordinator on WhatsApp.
-        </p>
+  const headerBlock = (
+    <div className="text-center max-w-2xl mx-auto space-y-3">
+      <div
+        className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider ${
+          isDarkBg
+            ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 shadow-xs'
+            : 'bg-emerald-50 border border-emerald-300 text-emerald-800'
+        }`}
+      >
+        <MessageCircle className="w-4 h-4 fill-current" />
+        <span>Direct WhatsApp Patient Scheduling</span>
       </div>
+      <h2
+        className={`text-2xl sm:text-4xl font-black tracking-tight ${
+          isDarkBg ? 'text-white' : 'text-[#061a33]'
+        }`}
+      >
+        Instant WhatsApp Appointment Booking
+      </h2>
+      <p
+        className={`text-xs sm:text-sm leading-relaxed ${
+          isDarkBg ? 'text-sky-100 font-medium' : 'text-[#1e293b]'
+        }`}
+      >
+        Book directly with Cairo Hospital's clinical coordination desk in Abuja. Your message is formatted professionally and sent directly to our on-duty patient coordinator on WhatsApp.
+      </p>
+    </div>
+  );
 
-      {!bookingConfirmed ? (
-        <form
+  const formOrConfirmedBlock = !bookingConfirmed ? (
+    <form
           onSubmit={handleSubmit}
           className="glass-panel p-6 sm:p-10 rounded-3xl border border-slate-200/90 shadow-xl max-w-3xl mx-auto space-y-6 bg-white/95"
         >
@@ -352,7 +352,19 @@ _Sent via Cairo Hospital Official Website_`;
             </button>
           </div>
         </div>
-      )}
+      );
+
+  const content = isOpenModal ? (
+    <div className="space-y-8">
+      {headerBlock}
+      {formOrConfirmedBlock}
+    </div>
+  ) : (
+    <div className="space-y-8">
+      <Reveal variant="up">{headerBlock}</Reveal>
+      <Reveal variant="scale" delay={100}>
+        {formOrConfirmedBlock}
+      </Reveal>
     </div>
   );
 
