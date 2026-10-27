@@ -46,7 +46,7 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
 
         {/* Orthopedic Surgeries Banner */}
         <Reveal variant="scale">
-          <div className="glass-panel-dark p-6 sm:p-8 rounded-3xl border border-sky-400/40 shadow-xl bg-gradient-to-r from-[#012f66] via-[#013777] to-[#08284d]">
+          <div className="contrast-dark glass-panel-dark p-6 sm:p-8 rounded-3xl border border-sky-400/40 shadow-xl bg-gradient-to-r from-[#012f66] via-[#013777] to-[#08284d]">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-white/10">
               <div className="space-y-1">
                 <div className="flex items-center gap-2 text-xs font-bold text-sky-300 uppercase tracking-wider">
@@ -143,17 +143,17 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
                   alt="Prolotherapy Injections at Cairo Hospital"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#012654] via-transparent to-transparent opacity-90" />
-                <div className="absolute bottom-3 left-4 right-4 text-white flex items-end justify-between">
-                  <div>
-                    <div className="text-[11px] font-bold text-sky-300 uppercase tracking-wider">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#021329]/95 via-[#021329]/45 to-transparent" />
+                <div className="contrast-dark photo-caption absolute bottom-3.5 left-4 right-4 text-white flex items-end justify-between gap-3">
+                  <div className="space-y-0.5">
+                    <div className="text-[11px] font-extrabold !text-[#bae6fd] uppercase tracking-wider drop-shadow-sm">
                       Clinical In-House Procedure
                     </div>
-                    <h3 className="text-base sm:text-lg font-bold">
+                    <h3 className="text-base sm:text-lg font-black !text-white drop-shadow-md">
                       {activeProc.title}
                     </h3>
                   </div>
-                  <span className="text-xs font-bold px-2.5 py-1 rounded-lg bg-sky-500/20 text-sky-200 border border-sky-400/40">
+                  <span className="shrink-0 text-xs font-extrabold px-3 py-1 rounded-lg bg-white/20 backdrop-blur-md !text-white border border-white/40 shadow-sm">
                     {activeProc.abbr}
                   </span>
                 </div>

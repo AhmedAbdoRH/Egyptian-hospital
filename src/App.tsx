@@ -132,7 +132,7 @@ export default function App() {
           {activeTab === 'about' && (
             <AboutSubpage
               onNavigateHome={() => handleNavigate('home')}
-              onOpenWhatsAppBooking={() => handleOpenBooking()}
+              onOpenWhatsAppBooking={(doctor) => handleOpenBooking(doctor)}
               onNavigateServices={() => handleNavigate('services')}
               onNavigateTeam={() => handleNavigate('team')}
             />

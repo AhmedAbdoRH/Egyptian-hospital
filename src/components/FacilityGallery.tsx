@@ -84,7 +84,7 @@ export const FacilityGallery: React.FC = () => {
                     className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#012654]/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-                  <span className="absolute top-3 left-3 text-[10px] font-black px-2.5 py-1 rounded-lg bg-white/95 text-[#013777] border border-slate-200 shadow-xs">
+                  <span className="absolute top-3 left-3 text-[10px] font-extrabold tracking-wide px-2.5 py-1 rounded-lg bg-[#061a33]/75 backdrop-blur-md !text-white border border-white/25 shadow-md shadow-black/25">
                     {item.category}
                   </span>
                   <div className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-[#013777] opacity-0 group-hover:opacity-100 transition-opacity shadow-md">

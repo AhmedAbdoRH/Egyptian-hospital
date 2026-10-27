@@ -22,14 +22,14 @@ import {
   Cpu,
 } from 'lucide-react';
 import { SubpageHero } from './SubpageHero';
-import { PILLARS_OF_CARE, HOSPITAL_CONTACT } from '../../data/cairoHospitalData';
+import { PILLARS_OF_CARE, HOSPITAL_CONTACT, TEAM_MEMBERS } from '../../data/cairoHospitalData';
 import { AccreditationSection } from '../AccreditationSection';
 import { FacilityGallery } from '../FacilityGallery';
 import { Reveal } from '../ScrollReveal';
 
 interface AboutSubpageProps {
   onNavigateHome: () => void;
-  onOpenWhatsAppBooking: () => void;
+  onOpenWhatsAppBooking: (doctorName?: string) => void;
   onNavigateServices: () => void;
   onNavigateTeam: () => void;
 }
@@ -41,6 +41,9 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
   onNavigateTeam,
 }) => {
   const [activePillar, setActivePillar] = useState(0);
+
+  const chairmanDirector =
+    TEAM_MEMBERS.find((m) => m.id === 'dr-ahmed-shaker') || TEAM_MEMBERS[0];
 
   const timelineMilestones = [
     {
@@ -115,7 +118,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
         description="Cairo Hospital represents the union of world-class Egyptian surgical expertise, groundbreaking orthobiologics, and compassionate healthcare stewardship dedicated to the people of Nigeria and the West African region."
         breadcrumbs={[{ label: 'About Us' }]}
         onNavigateHome={onNavigateHome}
-        onOpenWhatsAppBooking={onOpenWhatsAppBooking}
+        onOpenWhatsAppBooking={() => onOpenWhatsAppBooking()}
         stats={[
           { label: 'Nigerian Heritage', value: 'Since 1971' },
           { label: 'Hospital Founded', value: '2019' },
@@ -164,35 +167,88 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
           </Reveal>
 
           <Reveal variant="right" delay={100} className="lg:col-span-5">
-            <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-lg bg-white space-y-6 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-sky-100 rounded-full blur-2xl -z-10" />
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-[#013777] shadow-sm shrink-0">
-                  <img
-                    src="/images/team/dr-ahmed-shaker.png"
-                    alt="Dr. Ahmed Shaker"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                <div>
-                  <h4 className="text-base font-black text-[#092545]">Dr. Ahmed Shaker</h4>
-                  <p className="text-xs font-bold text-[#013777]">Chairman & Founder · MRCOG Dublin</p>
-                  <p className="text-xs text-slate-700 font-semibold">50+ Years Medical Leadership in Nigeria</p>
-                </div>
-              </div>
+            <div className="glass-panel-dark contrast-dark rounded-3xl border border-[#fdc33e]/40 shadow-2xl bg-gradient-to-br from-[#041830] via-[#012859] to-[#013777] overflow-hidden">
+              <div className="h-1.5 w-full bg-gradient-to-r from-[#fdc33e] via-[#38bdf8] to-transparent" />
 
-              <blockquote className="text-xs sm:text-sm text-[#0f172a] font-medium italic leading-relaxed border-l-2 border-[#013777] pl-4">
-                "Our guiding creed has never wavered: when a patient enters Cairo Hospital, they must experience unwavering clinical rigor, absolute hygienic safety, and deep human empathy. We brought Egypt’s most accomplished surgical traditions to Abuja to serve with honor."
-              </blockquote>
-
-              <div className="grid grid-cols-2 gap-3 pt-2 text-xs">
-                <div className="p-3 rounded-xl bg-sky-50/80 border border-sky-200">
-                  <div className="font-black text-[#092545]">Ain Shams & Royal College</div>
-                  <div className="text-slate-700 font-semibold text-[11px]">Academic Heritage</div>
+              <div className="p-6 sm:p-8 space-y-6">
+                {/* Chairman Header Label */}
+                <div className="flex items-center justify-between gap-2 text-xs font-bold !text-[#fdc33e] tracking-wide">
+                  <span>Founder & Chairman of the Board</span>
+                  <ShieldCheck className="w-4 h-4 !text-[#fdc33e] shrink-0" />
                 </div>
-                <div className="p-3 rounded-xl bg-teal-50/80 border border-teal-200">
-                  <div className="font-black text-[#092545]">National Network</div>
-                  <div className="text-slate-700 font-semibold text-[11px]">130+ Hospitals Experience</div>
+
+                {/* Portrait + Identity */}
+                <div className="flex items-center gap-4">
+                  <div className="w-24 h-28 sm:w-28 sm:h-32 rounded-2xl overflow-hidden border-2 border-[#fdc33e]/65 bg-[#061a33] shadow-xl shrink-0">
+                    <img
+                      src={chairmanDirector.image}
+                      alt={chairmanDirector.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="text-xs font-bold !text-[#fdc33e]">
+                      MRCOG Dublin · Ain Shams University
+                    </div>
+                    <h4 className="text-xl sm:text-2xl font-black !text-white leading-tight">
+                      {chairmanDirector.name}
+                    </h4>
+                    <p className="text-xs !text-[#bae6fd] font-medium leading-snug">
+                      {chairmanDirector.title}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Chairman's Creed Statement */}
+                <blockquote className="py-4 border-y border-white/15 text-xs sm:text-sm !text-sky-100 font-medium italic leading-relaxed">
+                  “Our guiding creed has never wavered: when a patient enters Cairo Hospital, they must experience unwavering clinical rigor, absolute hygienic safety, and deep human empathy. We brought Egypt’s most accomplished surgical traditions to Abuja to serve with honor.”
+                </blockquote>
+
+                {/* Key Tabular Highlights */}
+                <div className="grid grid-cols-3 gap-3 divide-x divide-white/15">
+                  <div>
+                    <div className="text-base font-black !text-[#fdc33e] tabular-nums">
+                      1970
+                    </div>
+                    <div className="text-[11px] !text-sky-100 font-medium">
+                      Nigerian Legacy
+                    </div>
+                  </div>
+                  <div className="pl-3">
+                    <div className="text-base font-black !text-[#fdc33e] tabular-nums">
+                      130+
+                    </div>
+                    <div className="text-[11px] !text-sky-100 font-medium">
+                      Hospitals Directed
+                    </div>
+                  </div>
+                  <div className="pl-3">
+                    <div className="text-base font-black !text-[#fdc33e] tabular-nums">
+                      MRCOG
+                    </div>
+                    <div className="text-[11px] !text-sky-100 font-medium">
+                      Royal College
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-1 flex flex-wrap items-center gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => onOpenWhatsAppBooking(chairmanDirector.name)}
+                    className="flex-1 glass-button-whatsapp py-2.5 px-4 rounded-xl text-white font-extrabold text-xs inline-flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                    <span>Consult Dr. Ahmed Shaker</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={onNavigateTeam}
+                    className="py-2.5 px-4 rounded-xl bg-white/12 hover:bg-white/20 border border-white/20 !text-white font-bold text-xs inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                  >
+                    <span>Medical Team</span>
+                    <ChevronRight className="w-3.5 h-3.5 !text-[#fdc33e]" />
+                  </button>
                 </div>
               </div>
             </div>
@@ -299,7 +355,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
               </div>
 
               <button
-                onClick={onOpenWhatsAppBooking}
+                onClick={() => onOpenWhatsAppBooking()}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-black shadow-xs transition-colors cursor-pointer self-start sm:self-auto"
               >
                 <MessageCircle className="w-3.5 h-3.5 fill-current" />
@@ -366,35 +422,62 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
         {/* Accreditations Section */}
         <AccreditationSection />
 
-        {/* Direct WhatsApp Call to Action Banner */}
+        {/* Direct Chairman & Clinical Desk Call to Action Banner */}
         <Reveal variant="scale">
-          <section className="contrast-dark relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#012654] via-[#013777] to-[#044a9e] p-8 sm:p-12 text-white shadow-xl">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="max-w-3xl space-y-4 relative z-10">
-              <span className="text-xs font-black uppercase tracking-widest text-sky-300">
-                Personalized Patient Assistance
-              </span>
-              <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight !text-[#fdc33e]">
-                Have Questions About Our Doctors, Treatments, or Inpatient Care?
-              </h3>
-              <p className="text-xs sm:text-sm text-sky-100/90 leading-relaxed max-w-2xl">
-                Our clinical coordination desk is available 24/7 on WhatsApp to explain our treatments, schedule consultations with Dr. Ahmed Shaker or Dr. Mohammed Hesham, and assist your family.
-              </p>
-              <div className="pt-2 flex flex-wrap gap-4">
-                <button
-                  onClick={onOpenWhatsAppBooking}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow-lg shadow-[#25D366]/30 transition-all transform active:scale-95 cursor-pointer"
-                >
-                  <MessageCircle className="w-4 h-4 fill-current" />
-                  <span>Chat with Clinical Desk on WhatsApp</span>
-                </button>
-                <a
-                  href={`tel:${HOSPITAL_CONTACT.phone1}`}
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm transition-colors cursor-pointer"
-                >
-                  <Clock className="w-4 h-4 text-sky-300" />
-                  <span>Call Emergency: {HOSPITAL_CONTACT.phone1}</span>
-                </a>
+          <section className="contrast-dark relative overflow-hidden rounded-3xl border border-[#fdc33e]/35 bg-gradient-to-br from-[#041830] via-[#012859] to-[#013777] p-8 sm:p-12 text-white shadow-2xl">
+            <div className="h-1.5 absolute inset-x-0 top-0 bg-gradient-to-r from-[#fdc33e] via-[#38bdf8] to-transparent" />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+              <div className="lg:col-span-8 space-y-4">
+                <span className="text-xs font-bold !text-[#fdc33e] tracking-wide">
+                  Direct Access to Founder & Chairman
+                </span>
+                <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight !text-white [text-wrap:balance]">
+                  Schedule a Consultation with Dr. Ahmed Shaker or Our Specialist Clinics
+                </h3>
+                <p className="text-xs sm:text-sm !text-sky-100/95 leading-relaxed max-w-2xl">
+                  Our clinical coordination desk is available 24/7 on WhatsApp to schedule appointments directly with our Founder & Chairman, Dr. Ahmed Shaker, or any of our hospital clinics in Abuja.
+                </p>
+                <div className="pt-2 flex flex-wrap gap-3.5">
+                  <button
+                    onClick={() => onOpenWhatsAppBooking(chairmanDirector.name)}
+                    className="glass-button-whatsapp inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-white font-extrabold text-sm shadow-lg transition-transform hover:scale-102 active:scale-98 cursor-pointer"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-current" />
+                    <span>Consult Dr. Ahmed Shaker on WhatsApp</span>
+                  </button>
+                  <a
+                    href={`tel:${HOSPITAL_CONTACT.phone1}`}
+                    className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white/12 hover:bg-white/20 border border-white/25 !text-white font-bold text-sm transition-colors cursor-pointer"
+                  >
+                    <Clock className="w-4 h-4 !text-[#fdc33e]" />
+                    <span>24/7 Desk: {HOSPITAL_CONTACT.phone1}</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Chairman Portrait Seal */}
+              <div className="lg:col-span-4 lg:border-l lg:border-white/15 lg:pl-8">
+                <div className="flex items-center gap-4">
+                  <img
+                    src={chairmanDirector.image}
+                    alt={chairmanDirector.name}
+                    className="w-20 h-24 rounded-2xl object-cover object-top border-2 border-[#fdc33e]/60 bg-[#061a33] shadow-lg shrink-0"
+                  />
+                  <div className="space-y-1">
+                    <div className="text-xs font-bold !text-[#fdc33e]">
+                      Founder & Chairman
+                    </div>
+                    <div className="text-lg font-black !text-white leading-tight">
+                      {chairmanDirector.name}
+                    </div>
+                    <div className="text-xs !text-[#bae6fd]">
+                      MRCOG Dublin · Ain Shams University
+                    </div>
+                    <div className="text-[11px] !text-sky-100/90">
+                      50+ Years Leadership in Nigeria
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>

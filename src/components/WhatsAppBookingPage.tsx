@@ -36,10 +36,11 @@ export const WhatsAppBookingPage: React.FC<WhatsAppBookingPageProps> = ({
   const [formData, setFormData] = useState<WhatsAppBookingPayload>({
     patientName: '',
     patientPhone: '',
-    specialty: preselectedSpecialty || 'Orthopedic Surgery & Arthroplasty',
-    doctorPreference: preselectedDoctor || 'Dr. Mohammed Hesham (CMD - Orthopedic Surgery)',
+    specialty: preselectedSpecialty || 'Obstetrics, Gynaecology & Infertility',
+    doctorPreference:
+      preselectedDoctor || 'Dr. Ahmed Shaker (Chairman - Obstetrics & Gyn)',
     preferredDate: '',
-    preferredTime: '10:00 AM',
+    preferredTime: '09:00 AM - Morning',
     visitType: 'consultation',
     complaint: '',
   });
@@ -53,7 +54,31 @@ export const WhatsAppBookingPage: React.FC<WhatsAppBookingPageProps> = ({
       setFormData((prev) => ({ ...prev, specialty: preselectedSpecialty }));
     }
     if (preselectedDoctor) {
-      setFormData((prev) => ({ ...prev, doctorPreference: preselectedDoctor }));
+      const normalized = preselectedDoctor.toLowerCase();
+      let matchedOption = preselectedDoctor;
+      let matchedSpecialty: string | undefined;
+
+      if (normalized.includes('shaker')) {
+        matchedOption = 'Dr. Ahmed Shaker (Chairman - Obstetrics & Gyn)';
+        if (!preselectedSpecialty)
+          matchedSpecialty = 'Obstetrics, Gynaecology & Infertility';
+      } else if (normalized.includes('hesham')) {
+        matchedOption = 'Dr. Mohammed Hesham (CMD - Orthopedic Surgery)';
+        if (!preselectedSpecialty) matchedSpecialty = 'Orthopedic Surgery & Arthroplasty';
+      } else if (normalized.includes('makhlouf') || normalized.includes('bassam')) {
+        matchedOption = 'Dr. Bassam Makhlouf (Physiotherapy)';
+        if (!preselectedSpecialty)
+          matchedSpecialty = 'Physiotherapy & Cairo Rehabilitation Centre';
+      } else if (normalized.includes('wael')) {
+        matchedOption = 'Dr. Wael (General Surgery)';
+        if (!preselectedSpecialty) matchedSpecialty = 'General Surgery & Urosurgery';
+      }
+
+      setFormData((prev) => ({
+        ...prev,
+        doctorPreference: matchedOption,
+        ...(matchedSpecialty ? { specialty: matchedSpecialty } : {}),
+      }));
     }
   }, [preselectedSpecialty, preselectedDoctor]);
 
