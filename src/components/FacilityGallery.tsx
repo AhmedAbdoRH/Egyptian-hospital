@@ -77,13 +77,25 @@ export const FacilityGallery: React.FC = () => {
                 onClick={() => setSelectedFacility(item)}
                 className="h-full glass-panel rounded-3xl overflow-hidden border border-slate-200/90 group cursor-pointer glass-panel-hover flex flex-col justify-between bg-white/90 shadow-sm"
               >
-                <div className="relative h-52 overflow-hidden bg-slate-100">
+                <div
+                  className={`relative h-52 overflow-hidden ${
+                    item.image.endsWith('.svg')
+                      ? 'bg-gradient-to-br from-[#edf4fc] to-[#c9dced]'
+                      : 'bg-slate-100'
+                  }`}
+                >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                    className={`w-full h-full ${
+                      item.image.endsWith('.svg')
+                        ? 'object-contain group-hover:scale-105'
+                        : 'object-cover group-hover:scale-108'
+                    } transition-transform duration-500`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#012654]/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                  {!item.image.endsWith('.svg') && (
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#012654]/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                  )}
                   <span className="absolute top-3 left-3 text-[10px] font-extrabold tracking-wide px-2.5 py-1 rounded-lg bg-[#061a33]/75 backdrop-blur-md !text-white border border-white/25 shadow-md shadow-black/25">
                     {item.category}
                   </span>
@@ -127,11 +139,19 @@ export const FacilityGallery: React.FC = () => {
               </button>
             </div>
 
-            <div className="relative h-80 sm:h-[420px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner">
+            <div
+              className={`relative h-80 sm:h-[420px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner ${
+                selectedFacility.image.endsWith('.svg')
+                  ? 'bg-gradient-to-br from-[#edf4fc] via-[#dceaf7] to-[#c9dced]'
+                  : ''
+              }`}
+            >
               <img
                 src={selectedFacility.image}
                 alt={selectedFacility.title}
-                className="w-full h-full object-cover"
+                className={`w-full h-full ${
+                  selectedFacility.image.endsWith('.svg') ? 'object-contain' : 'object-cover'
+                }`}
               />
             </div>
 

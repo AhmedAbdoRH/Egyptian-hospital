@@ -815,7 +815,7 @@ export const FACILITY_GALLERY: HospitalFacilityItem[] = [
     id: 'fac-8',
     title: 'Orthopedic Surgery in Progress',
     category: 'Surgical',
-    image: '/images/facility/orthopedic-surgery.png',
+    image: '/images/facility/orthopedic-surgery-vector.svg',
     description: 'Consultant surgeons performing complex joint and extremity interventions.',
   },
   {
