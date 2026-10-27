@@ -471,9 +471,9 @@ export const AboutUs: React.FC<AboutUsProps> = ({ onOpenWhatsAppBooking }) => {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#012654] via-transparent to-transparent opacity-90" />
-                  <div className="absolute bottom-3 left-4 right-4 text-white">
-                    <div className="text-[11px] font-bold text-sky-300 uppercase tracking-wider">Hospital Governance</div>
-                    <div className="text-sm font-bold text-white">Executive Medical Board in Abuja</div>
+                  <div className="photo-caption absolute bottom-3 left-4 right-4 text-white">
+                    <div className="text-[11px] font-bold !text-[#fdc33e] uppercase tracking-wider">Hospital Governance</div>
+                    <div className="text-sm font-bold !text-white">Executive Medical Board in Abuja</div>
                   </div>
                 </div>
 

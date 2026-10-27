@@ -1,6 +1,7 @@
 import {
   TeamMember,
   MedicalService,
+  ServiceDepartmentId,
   OrthobiologicProcedure,
   HospitalFacilityItem,
   AccreditationOrg,
@@ -122,25 +123,46 @@ export const TEAM_MEMBERS: TeamMember[] = [
       'Mr. Mohammed Fadl brings vast corporate finance and medical logistics expertise to Cairo Hospital. A graduate of Al-Azhar University and Director of Rahma Travel Agency, he ensures smooth fiscal operations, seamless corporate enrolments with multinational organizations, and transparent medical tourism travel arrangements for patients seeking specialized care abroad.',
   },
   {
-    id: 'mr-bassem-makhlouf',
+    id: 'mr-basem-makhlouf',
+    isDoctor: false,
+    name: 'Mr. Basem Makhlouf',
+    role: 'Business Development Director',
+    title: 'Director of Business Development & Strategic Growth',
+    education: 'Faculty of Science, Cairo University',
+    qualifications: [
+      'Faculty of Science, Cairo University',
+      'Founder & Owner of Red Sea Green Solutions for Solar Energy',
+      'Strategic Healthcare Partnerships & Institutional Growth',
+    ],
+    careerHighlights: [
+      'Directs business development, corporate relations, and strategic partnerships at Cairo Hospital Abuja',
+      'Founder & Owner of Red Sea Green Solutions for Solar Energy, advancing sustainable healthcare infrastructure',
+      'Expands corporate and institutional healthcare outreach across Abuja and West Africa',
+    ],
+    image: '/images/team/mr-bassem-makhlouf.png',
+    fullBio:
+      'Mr. Basem Makhlouf serves as Business Development Director at Cairo Hospital in Abuja. A graduate of the Faculty of Science at Cairo University and Founder & Owner of Red Sea Green Solutions for Solar Energy, he leads strategic partnerships, corporate outreach, and sustainable operational growth for the hospital.',
+  },
+  {
+    id: 'dr-bassam',
     isDoctor: true,
-    name: 'Dr. Bassam Makhlouf',
+    name: 'Dr. Bassam',
     role: 'Physiotherapist',
     title: 'Physiotherapy, Cupping & Acupuncture',
     education: '',
     qualifications: [
       'Physiotherapy',
-      'Cupping Therapy',
+      'Cupping',
       'Acupuncture',
     ],
     careerHighlights: [
-      'Provides physiotherapy and rehabilitation services',
-      'Provides cupping therapy',
-      'Provides acupuncture',
+      'Comprehensive physiotherapy and neuromuscular rehabilitation programs',
+      'Therapeutic cupping sessions for pain relief and recovery',
+      'Clinical acupuncture for targeted pain management and mobility',
     ],
-    image: '/images/team/mr-bassem-makhlouf.png',
+    image: '',
     fullBio:
-      'Dr. Bassam Makhlouf is part of Cairo Hospital’s clinical team, providing physiotherapy, cupping, and acupuncture services.',
+      'Dr. Bassam is part of Cairo Hospital’s clinical rehabilitation team in Abuja, providing specialized physiotherapy, cupping, and acupuncture treatments tailored to patient recovery, mobility restoration, and pain management.',
   },
   {
     id: 'dr-wael',
@@ -168,152 +190,440 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
 ];
 
-export const MEDICAL_SERVICES: MedicalService[] = [
+export const SERVICE_DEPARTMENTS: {
+  id: ServiceDepartmentId;
+  label: string;
+  shortLabel: string;
+}[] = [
   {
-    id: 'emergency-ambulance',
-    title: 'Emergency Department & Ambulance Service',
-    category: 'clinical',
-    description: '24/7 acute trauma response, rapid triage, and dedicated fully equipped emergency ambulance fleet ready for immediate dispatch.',
-    iconName: 'Ambulance',
-    details: ['Immediate acute resuscitation', 'Dedicated ambulance dispatch vehicle', 'Continuous 24-hour on-duty medical personnel'],
-    featured: true,
+    id: 'orthopedics',
+    label: 'Orthopedics',
+    shortLabel: 'Orthopedics',
   },
   {
-    id: 'orthopedics-surgery',
-    title: 'Orthopedic Surgery & Arthroplasty',
+    id: 'physiotherapy',
+    label: 'Physiotherapy',
+    shortLabel: 'Physiotherapy',
+  },
+  {
+    id: 'obgyn',
+    label: 'Obstetrics & Gynaecology',
+    shortLabel: 'Obstetrics & Gynaecology',
+  },
+  {
+    id: 'general-surgery',
+    label: 'General Surgery',
+    shortLabel: 'General Surgery',
+  },
+  {
+    id: 'medicine-herbal',
+    label: 'Family, Tropical & Herbal Medicine',
+    shortLabel: 'Family · Tropical · Herbal',
+  },
+  {
+    id: 'diagnostics-support',
+    label: 'Diagnostics, Support & Medical Tourism',
+    shortLabel: 'Diagnostics · Pharmacy · Ambulance · Tourism',
+  },
+];
+
+export const MEDICAL_SERVICES: MedicalService[] = [
+  // 1. Orthopedics
+  {
+    id: 'orthopedic-surgery',
+    title: 'Orthopedic Surgery',
+    departmentId: 'orthopedics',
+    departmentLabel: 'Orthopedics',
     category: 'surgical',
-    description: 'Specialized joint replacements, hand and foot surgeries, complex trauma reconstructions, and external fixation for deformities.',
+    description:
+      'Specialized joint replacements, hand and foot surgeries, complex trauma reconstructions, and external fixation for deformities.',
     iconName: 'Bone',
-    details: ['Total knee and hip arthroplasty', 'Hand and microsurgical reconstructions', 'Foot and ankle deformities correction', 'External fixation of non-union fractures'],
+    details: [
+      'Total knee and hip arthroplasty',
+      'Hand and microsurgical reconstructions',
+      'Foot and ankle deformities correction',
+      'External fixation of non-union fractures',
+    ],
     featured: true,
   },
   {
     id: 'orthobiologics',
-    title: 'Orthobiologics & Regenerative Therapy',
+    title: 'Orthobiologics (Stem Cells Regenerative Therapy)',
+    departmentId: 'orthopedics',
+    departmentLabel: 'Orthopedics',
     category: 'regenerative',
-    description: 'State-of-the-art non-surgical joint restoration utilizing Stem Cell therapy, Prolotherapy, PRP, and BMAC concentrates.',
+    description:
+      'State-of-the-art non-surgical joint restoration utilizing Stem Cell regenerative therapy, Prolotherapy, PRP, and BMAC concentrates.',
     iconName: 'Dna',
-    details: ['Stem Cell Regenerative Therapy', 'Prolotherapy injections', 'Platelet-Rich Plasma (PRP)', 'Bone Marrow Aspirate Concentrate (BMAC)'],
-    featured: true,
-  },
-  {
-    id: 'bemer-therapy',
-    title: 'BEMER Physical Vascular Therapy',
-    category: 'regenerative',
-    description: 'Bio-Electro-Magnetic Energy Regulation technology stimulating microcirculation, cellular oxygenation, and tissue healing.',
-    iconName: 'Zap',
-    details: ['Enhanced microcirculation in capillaries', 'Accelerated muscle and wound recovery', 'Complementary therapy for chronic joint pain'],
+    details: [
+      'Stem Cell Regenerative Therapy',
+      'Prolotherapy injections',
+      'Platelet-Rich Plasma (PRP)',
+      'Bone Marrow Aspirate Concentrate (BMAC)',
+    ],
     featured: true,
   },
   {
     id: 'diabetic-foot',
     title: 'Diabetic Foot Clinic',
+    departmentId: 'orthopedics',
+    departmentLabel: 'Orthopedics',
     category: 'clinical',
-    description: 'Comprehensive diabetic neuropathy management, wound debridement, infection prevention, and limb salvage protocols.',
+    description:
+      'Comprehensive diabetic neuropathy management, wound debridement, infection prevention, and limb salvage protocols.',
     iconName: 'Footprints',
-    details: ['Advanced specialized dressings', 'Ulcer prevention and off-loading therapy', 'Limb preservation multidisciplinary team'],
-    featured: true,
-  },
-  {
-    id: 'physiotherapy',
-    title: 'Physiotherapy & Cairo Rehabilitation Centre',
-    category: 'clinical',
-    description: 'Full-spectrum physical rehabilitation gym with modern kinetic equipment, therapeutic exercise, and post-operative mobility recovery.',
-    iconName: 'Activity',
-    details: ['Targeted kinetic rehabilitation', 'Post-orthopedic surgery physical therapy', 'Pediatric neuromuscular rehabilitation', 'Spinal decompressive therapy'],
+    details: [
+      'Advanced specialized dressings',
+      'Ulcer prevention and off-loading therapy',
+      'Limb preservation multidisciplinary team',
+    ],
     featured: true,
   },
   {
     id: 'pain-management',
     title: 'Pain Management Clinic',
+    departmentId: 'orthopedics',
+    departmentLabel: 'Orthopedics',
     category: 'clinical',
-    description: 'Assessment and care for acute and chronic pain as part of coordinated clinical treatment.',
+    description:
+      'Specialized clinical assessment and targeted interventional relief for acute and chronic joint, spinal, and musculoskeletal pain.',
     iconName: 'HeartPulse',
-    details: ['Pain assessment', 'Coordinated treatment planning', 'Rehabilitation support'],
+    details: [
+      'Acute and chronic pain assessment',
+      'Targeted joint and spine pain protocols',
+      'Coordinated rehabilitation planning',
+    ],
+  },
+  {
+    id: 'bemer-therapy',
+    title: 'BEMER Therapy',
+    departmentId: 'orthopedics',
+    departmentLabel: 'Orthopedics',
+    category: 'regenerative',
+    description:
+      'Bio-Electro-Magnetic Energy Regulation vascular therapy stimulating microcirculation, cellular oxygenation, and tissue healing.',
+    iconName: 'Zap',
+    details: [
+      'Enhanced microcirculation in capillaries',
+      'Accelerated muscle and wound recovery',
+      'Complementary therapy for chronic joint pain',
+    ],
+    featured: true,
+  },
+
+  // 2. Physiotherapy
+  {
+    id: 'physiotherapy',
+    title: 'Physiotherapy',
+    departmentId: 'physiotherapy',
+    departmentLabel: 'Physiotherapy',
+    category: 'clinical',
+    description:
+      'Full-spectrum physical rehabilitation gym at Cairo Rehabilitation Centre with modern kinetic equipment and post-operative mobility recovery.',
+    iconName: 'Activity',
+    details: [
+      'Targeted kinetic rehabilitation',
+      'Post-orthopedic surgery physical therapy',
+      'Pediatric neuromuscular rehabilitation',
+      'Spinal decompressive therapy',
+    ],
+    featured: true,
   },
   {
     id: 'cupping-therapy',
-    title: 'Cupping Therapy',
+    title: 'Cupping',
+    departmentId: 'physiotherapy',
+    departmentLabel: 'Physiotherapy',
     category: 'clinical',
-    description: 'Cupping therapy provided as part of the hospital’s complementary rehabilitation services.',
+    description:
+      'Clinical cupping therapy sessions integrated into physical rehabilitation for myofascial release, circulation, and recovery.',
     iconName: 'Sparkles',
+    details: [
+      'Therapeutic myofascial decompression',
+      'Localized circulation enhancement',
+      'Integrated physical therapy support',
+    ],
   },
   {
     id: 'acupuncture',
     title: 'Acupuncture',
+    departmentId: 'physiotherapy',
+    departmentLabel: 'Physiotherapy',
     category: 'clinical',
-    description: 'Acupuncture offered as part of complementary care and rehabilitation services.',
+    description:
+      'Precision clinical acupuncture offered as part of complementary neuromuscular care, pain modulation, and rehabilitation.',
     iconName: 'Activity',
+    details: [
+      'Neuromuscular pain modulation',
+      'Post-injury functional recovery',
+      'Sterile single-use clinical protocols',
+    ],
   },
+
+  // 3. Obstetrics & Gynaecology
   {
-    id: 'obstetrics-gyn',
-    title: 'Obstetrics, Gynaecology & Infertility',
+    id: 'obstetrics-gynaecology',
+    title: 'Obstetrics & Gynaecology',
+    departmentId: 'obgyn',
+    departmentLabel: 'Obstetrics & Gynaecology',
     category: 'clinical',
-    description: 'Maternal-fetal health, antenatal care, safe delivery suites, and fertility evaluations led by senior Fellows of Royal Colleges.',
+    description:
+      'Comprehensive women’s healthcare, safe delivery suites, and surgical gynaecology led by senior Royal College Fellows (MRCOG).',
     iconName: 'Baby',
-    details: ['Comprehensive antenatal and postnatal care', 'Infertility assessment & hormonal therapy', 'High-risk pregnancy monitoring', 'Dedicated maternity inpatient ward'],
+    details: [
+      'Comprehensive clinical & surgical gynaecology',
+      'Safe delivery suites & maternity inpatient ward',
+      'Consultant MRCOG clinical supervision',
+    ],
     featured: true,
   },
   {
+    id: 'antenatal-care',
+    title: 'Antenatal Care',
+    departmentId: 'obgyn',
+    departmentLabel: 'Obstetrics & Gynaecology',
+    category: 'clinical',
+    description:
+      'Structured pregnancy follow-up, maternal-fetal ultrasound monitoring, high-risk pregnancy care, and postnatal guidance.',
+    iconName: 'Baby',
+    details: [
+      'Scheduled trimester screenings & fetal imaging',
+      'High-risk pregnancy monitoring',
+      'Safe delivery planning & postnatal support',
+    ],
+  },
+  {
+    id: 'infertility',
+    title: 'Infertility',
+    departmentId: 'obgyn',
+    departmentLabel: 'Obstetrics & Gynaecology',
+    category: 'clinical',
+    description:
+      'Dedicated fertility assessments, hormonal profiling, ovulation induction, and tailored reproductive care for couples.',
+    iconName: 'Baby',
+    details: [
+      'Male & female fertility evaluations',
+      'Reproductive hormonal profiling',
+      'Personalized conception treatment plans',
+    ],
+  },
+
+  // 4. General Surgery
+  {
     id: 'general-surgery',
-    title: 'General Surgery & Urosurgery',
+    title: 'General Surgery',
+    departmentId: 'general-surgery',
+    departmentLabel: 'General Surgery',
     category: 'surgical',
-    description: 'General surgical services including endoscopic and laparoscopic procedures, alongside urological and prostate surgery.',
+    description:
+      'Comprehensive abdominal, soft-tissue, and urological surgical procedures performed inside HEPA-filtered sterile operating theaters.',
     iconName: 'Scissors',
-    details: ['Endoscopic surgery', 'Laparoscopic and open abdominal procedures', 'Urological surgical interventions', 'Aseptic operating suite standards'],
+    details: [
+      'Open & minimally invasive general procedures',
+      'Hernia, gallbladder & gastrointestinal surgery',
+      'Strict positive-pressure aseptic theater standards',
+    ],
+  },
+  {
+    id: 'endoscopic-surgery',
+    title: 'Endoscopic Surgery',
+    departmentId: 'general-surgery',
+    departmentLabel: 'General Surgery',
+    category: 'surgical',
+    description:
+      'Diagnostic and therapeutic endoscopic surgical interventions offering high visual precision and rapid patient recovery.',
+    iconName: 'Scissors',
+    details: [
+      'Minimally invasive endoscopic interventions',
+      'High-definition visualization',
+      'Reduced recovery time & hospital stay',
+    ],
+  },
+  {
+    id: 'laparoscopic-surgery',
+    title: 'Laparoscopic Surgery',
+    departmentId: 'general-surgery',
+    departmentLabel: 'General Surgery',
+    category: 'surgical',
+    description:
+      'Advanced keyhole abdominal and pelvic surgeries minimizing post-operative discomfort, scarring, and inpatient convalescence.',
+    iconName: 'Scissors',
+    details: [
+      'Laparoscopic cholecystectomy & appendectomy',
+      'Minimally invasive abdominal repairs',
+      'Accelerated post-surgical mobilization',
+    ],
   },
   {
     id: 'bariatric-surgery',
     title: 'Bariatric Surgery',
+    departmentId: 'general-surgery',
+    departmentLabel: 'General Surgery',
     category: 'surgical',
-    description: 'Surgical weight-management services provided by the general surgery team.',
+    description:
+      'Specialized surgical weight-management procedures supported by comprehensive pre-operative evaluation and nutritional follow-up.',
     iconName: 'Scissors',
+    details: [
+      'Metabolic & weight-reduction surgery',
+      'Pre-operative multidisciplinary assessment',
+      'Long-term post-bariatric clinical follow-up',
+    ],
   },
   {
     id: 'plastic-surgery',
     title: 'Plastic Surgery',
+    departmentId: 'general-surgery',
+    departmentLabel: 'General Surgery',
     category: 'surgical',
-    description: 'Plastic surgery services provided by the general surgery team.',
+    description:
+      'Reconstructive and aesthetic surgical procedures delivered with meticulous surgical technique and private inpatient recovery.',
     iconName: 'Sparkles',
+    details: [
+      'Post-trauma & scar reconstruction',
+      'Contouring & aesthetic surgical care',
+      'Dedicated surgical aftercare',
+    ],
   },
   {
     id: 'dermatology-cosmetics',
     title: 'Dermatology & Cosmetics',
+    departmentId: 'general-surgery',
+    departmentLabel: 'General Surgery',
     category: 'clinical',
-    description: 'Clinical and cosmetic dermatology services, in collaboration with the hospital’s dermatology partner.',
+    description:
+      'Clinical and cosmetic dermatology services including mesotherapy and skin rejuvenation in collaboration with Skinic Dermatology Clinic.',
     iconName: 'Sparkles',
+    details: [
+      'Medical skin diagnosis & therapeutics',
+      'Mesotherapy & aesthetic rejuvenation',
+      'All-natural dermatological care protocols',
+    ],
   },
+
+  // 5. Family Medicine, Tropical Medicine & Herbal Medicine
   {
-    id: 'internal-specialties',
-    title: 'Cardiology, Neurology, Nephrology & Endocrinology',
+    id: 'family-medicine',
+    title: 'Family Medicine',
+    departmentId: 'medicine-herbal',
+    departmentLabel: 'Family, Tropical & Herbal Medicine',
     category: 'clinical',
-    description: 'Expert diagnostic evaluations for cardiovascular conditions, stroke management, diabetes, kidney function, and endocrine disorders.',
-    iconName: 'HeartPulse',
-    details: ['Cardiovascular ECG and risk management', 'Neurological evaluations and neuropathy care', 'Kidney disease screening and metabolic profiling'],
-  },
-  {
-    id: 'family-tropical',
-    title: 'Family Medicine & Tropical Medicine',
-    category: 'clinical',
-    description: 'Primary community healthcare, preventative health screenings, and expert management of endemic tropical infections.',
+    description:
+      'Primary healthcare for children, adults, and seniors, encompassing preventative checkups, chronic disease care, and health screenings.',
     iconName: 'Users',
-    details: ['Preventative family checkups', 'Malaria, typhoid, and tropical disease therapeutics', 'Pediatric and adult vaccinations'],
+    details: [
+      'Comprehensive family health checkups',
+      'Hypertension, diabetes & chronic care',
+      'Preventative screenings & vaccinations',
+    ],
   },
   {
-    id: 'diagnostics-lab-xray',
-    title: 'Diagnostic Laboratory, Digital X-Ray & Ultrasound',
+    id: 'tropical-medicine',
+    title: 'Tropical Medicine',
+    departmentId: 'medicine-herbal',
+    departmentLabel: 'Family, Tropical & Herbal Medicine',
+    category: 'clinical',
+    description:
+      'Rapid laboratory-backed diagnosis and evidence-based treatment of malaria, typhoid, and endemic infectious diseases.',
+    iconName: 'Stethoscope',
+    details: [
+      'Acute febrile & endemic infection protocols',
+      'Malaria & typhoid targeted therapeutics',
+      'Preventative travel & tropical medicine advice',
+    ],
+  },
+  {
+    id: 'herbal-medicine',
+    title: 'Herbal Medicine',
+    departmentId: 'medicine-herbal',
+    departmentLabel: 'Family, Tropical & Herbal Medicine',
+    category: 'clinical',
+    description:
+      'Clinically supervised natural and botanical therapeutic formulations supporting holistic wellness and complementary care.',
+    iconName: 'Leaf',
+    details: [
+      'Standardized natural botanical support',
+      'Clinician-guided complementary protocols',
+      'Integrated wellness & recovery care',
+    ],
+  },
+
+  // 6. Diagnostics, Pharmacy, Ambulance & Medical Tourism
+  {
+    id: 'xray-ultrasound',
+    title: 'X-Ray & Ultrasound Department',
+    departmentId: 'diagnostics-support',
+    departmentLabel: 'Diagnostics, Support & Medical Tourism',
     category: 'diagnostic',
-    description: 'Fully equipped in-house automated clinical laboratory, high-frequency digital radiography, and ultrasonography.',
+    description:
+      'High-frequency digital radiography and high-resolution 2D/3D diagnostic ultrasonography for accurate, immediate clinical imaging.',
     iconName: 'Scan',
-    details: ['Instant blood chemistry and hematology', 'Digital bone and chest X-rays', 'High-resolution abdominal and pelvic ultrasound'],
+    details: [
+      'Digital orthopedic, chest & trauma X-rays',
+      'Abdominal, pelvic & obstetric ultrasound',
+      'Rapid radiologic reporting for clinicians',
+    ],
   },
   {
-    id: 'inpatient-pharmacy',
-    title: 'Inpatient Suites & Alexandria Pharmacy',
+    id: 'laboratory-services',
+    title: 'Laboratory Services',
+    departmentId: 'diagnostics-support',
+    departmentLabel: 'Diagnostics, Support & Medical Tourism',
+    category: 'diagnostic',
+    description:
+      'Fully automated in-house clinical pathology, hematology, biochemistry, and microbiology laboratory delivering rapid diagnostic results.',
+    iconName: 'Microscope',
+    details: [
+      'Automated hematology & blood chemistry',
+      'Hormonal, metabolic & infection panels',
+      'Dual-verified diagnostic quality control',
+    ],
+  },
+  {
+    id: 'pharmacy',
+    title: 'Pharmacy',
+    departmentId: 'diagnostics-support',
+    departmentLabel: 'Diagnostics, Support & Medical Tourism',
     category: 'support',
-    description: 'Comfortable private and semi-private recovery rooms paired with an accredited on-site pharmacy distributing international medications.',
+    description:
+      'Accredited on-site hospital pharmacy powered by Alexandria Pharmacy Ltd., dispensing genuine Egyptian and international medications.',
     iconName: 'Pill',
-    details: ['24/7 inpatient clinical nursing', 'Direct resourcing from Alexandria Pharmacy Ltd.', 'Certified genuine pharmaceuticals'],
+    details: [
+      'Authentic Egyptian & European formulations',
+      'Direct sourcing via Alexandria Pharmacy Ltd.',
+      'Clinical pharmacist medication counseling',
+    ],
+  },
+  {
+    id: 'ambulance-services',
+    title: 'Ambulance Services',
+    departmentId: 'diagnostics-support',
+    departmentLabel: 'Diagnostics, Support & Medical Tourism',
+    category: 'support',
+    description:
+      '24/7 emergency ambulance dispatch and mobile resuscitation unit staffed by trained acute-care personnel across Abuja.',
+    iconName: 'Ambulance',
+    details: [
+      '24-hour emergency ambulance dispatch',
+      'On-board resuscitation & trauma monitoring',
+      ' Safe inter-facility & airport patient transfers',
+    ],
+    featured: true,
+  },
+  {
+    id: 'medical-tourism',
+    title: 'Medical Tourism',
+    departmentId: 'diagnostics-support',
+    departmentLabel: 'Diagnostics, Support & Medical Tourism',
+    category: 'support',
+    description:
+      'End-to-end international patient referrals to premier hospitals in Egypt, the UK, UAE, USA, and Turkey, with visa, travel, and Abuja follow-up.',
+    iconName: 'Globe2',
+    details: [
+      'Expedited medical visas & flight logistics',
+      'Direct referral to Cairo & international centers',
+      'Pre-travel review & post-return care in Abuja',
+    ],
+    featured: true,
   },
 ];
 

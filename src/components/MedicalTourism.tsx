@@ -42,7 +42,7 @@ export const MedicalTourism: React.FC<MedicalTourismProps> = ({
   };
 
   return (
-    <section id="tourism" className="py-10 sm:py-16 lg:py-20 relative overflow-hidden">
+    <section id="tourism" className="scroll-mt-28 py-10 sm:py-16 lg:py-20 relative overflow-hidden">
       <div className="ambient-glow-navy top-1/4 -right-20 pointer-events-none" />
       <div className="ambient-glow-cyan bottom-10 left-10 pointer-events-none" />
 

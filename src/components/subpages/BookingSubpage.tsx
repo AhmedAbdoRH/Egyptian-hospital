@@ -56,7 +56,29 @@ export const BookingSubpage: React.FC<BookingSubpageProps> = ({
       setFormData((prev) => ({ ...prev, specialty: preselectedSpecialty }));
     }
     if (preselectedDoctor) {
-      setFormData((prev) => ({ ...prev, doctorPreference: preselectedDoctor }));
+      const normalized = preselectedDoctor.toLowerCase();
+      let matchedOption = preselectedDoctor;
+      let matchedSpecialty: string | undefined;
+
+      if (normalized.includes('shaker')) {
+        matchedOption = 'Dr. Ahmed Shaker (Chairman - MRCOG Obs & Gyn)';
+        if (!preselectedSpecialty) matchedSpecialty = 'Obstetrics & Gynaecology';
+      } else if (normalized.includes('hesham')) {
+        matchedOption = 'Dr. Mohammed Hesham (CMD - Orthopedic Surgery)';
+        if (!preselectedSpecialty) matchedSpecialty = 'Orthopedic Surgery';
+      } else if (normalized.includes('bassam')) {
+        matchedOption = 'Dr. Bassam (Physiotherapy, Cupping & Acupuncture)';
+        if (!preselectedSpecialty) matchedSpecialty = 'Physiotherapy';
+      } else if (normalized.includes('wael')) {
+        matchedOption = 'Dr. Wael (General Surgery)';
+        if (!preselectedSpecialty) matchedSpecialty = 'General Surgery';
+      }
+
+      setFormData((prev) => ({
+        ...prev,
+        doctorPreference: matchedOption,
+        ...(matchedSpecialty ? { specialty: matchedSpecialty } : {}),
+      }));
     }
   }, [preselectedSpecialty, preselectedDoctor]);
 
@@ -228,8 +250,8 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
                       <option value="Dr. Ahmed Shaker (Chairman - MRCOG Obs & Gyn)">
                         Dr. Ahmed Shaker (Chairman - MRCOG Obs & Gyn)
                       </option>
-                      <option value="Dr. Bassam Makhlouf (Physiotherapy)">
-                        Dr. Bassam Makhlouf (Physiotherapy)
+                      <option value="Dr. Bassam (Physiotherapy, Cupping & Acupuncture)">
+                        Dr. Bassam (Physiotherapy, Cupping & Acupuncture)
                       </option>
                       <option value="Dr. Wael (General Surgery)">
                         Dr. Wael (General Surgery)

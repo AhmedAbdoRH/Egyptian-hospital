@@ -11,9 +11,19 @@ export interface TeamMember {
   fullBio: string;
 }
 
+export type ServiceDepartmentId =
+  | 'orthopedics'
+  | 'physiotherapy'
+  | 'obgyn'
+  | 'general-surgery'
+  | 'medicine-herbal'
+  | 'diagnostics-support';
+
 export interface MedicalService {
   id: string;
   title: string;
+  departmentId: ServiceDepartmentId;
+  departmentLabel: string;
   category: 'clinical' | 'surgical' | 'diagnostic' | 'regenerative' | 'support';
   description: string;
   iconName: string;

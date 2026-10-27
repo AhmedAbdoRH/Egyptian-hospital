@@ -14,7 +14,11 @@ import {
   AlertCircle,
   X,
 } from 'lucide-react';
-import { HOSPITAL_CONTACT, MEDICAL_SERVICES, TEAM_MEMBERS } from '../data/cairoHospitalData';
+import {
+  HOSPITAL_CONTACT,
+  MEDICAL_SERVICES,
+  SERVICE_DEPARTMENTS,
+} from '../data/cairoHospitalData';
 import { WhatsAppBookingPayload } from '../types/hospital';
 import { Reveal } from './ScrollReveal';
 
@@ -36,7 +40,7 @@ export const WhatsAppBookingPage: React.FC<WhatsAppBookingPageProps> = ({
   const [formData, setFormData] = useState<WhatsAppBookingPayload>({
     patientName: '',
     patientPhone: '',
-    specialty: preselectedSpecialty || 'Obstetrics, Gynaecology & Infertility',
+    specialty: preselectedSpecialty || 'Orthopedic Surgery',
     doctorPreference:
       preselectedDoctor || 'Dr. Ahmed Shaker (Chairman - Obstetrics & Gyn)',
     preferredDate: '',
@@ -60,18 +64,16 @@ export const WhatsAppBookingPage: React.FC<WhatsAppBookingPageProps> = ({
 
       if (normalized.includes('shaker')) {
         matchedOption = 'Dr. Ahmed Shaker (Chairman - Obstetrics & Gyn)';
-        if (!preselectedSpecialty)
-          matchedSpecialty = 'Obstetrics, Gynaecology & Infertility';
+        if (!preselectedSpecialty) matchedSpecialty = 'Obstetrics & Gynaecology';
       } else if (normalized.includes('hesham')) {
         matchedOption = 'Dr. Mohammed Hesham (CMD - Orthopedic Surgery)';
-        if (!preselectedSpecialty) matchedSpecialty = 'Orthopedic Surgery & Arthroplasty';
-      } else if (normalized.includes('makhlouf') || normalized.includes('bassam')) {
-        matchedOption = 'Dr. Bassam Makhlouf (Physiotherapy)';
-        if (!preselectedSpecialty)
-          matchedSpecialty = 'Physiotherapy & Cairo Rehabilitation Centre';
+        if (!preselectedSpecialty) matchedSpecialty = 'Orthopedic Surgery';
+      } else if (normalized.includes('bassam')) {
+        matchedOption = 'Dr. Bassam (Physiotherapy, Cupping & Acupuncture)';
+        if (!preselectedSpecialty) matchedSpecialty = 'Physiotherapy';
       } else if (normalized.includes('wael')) {
         matchedOption = 'Dr. Wael (General Surgery)';
-        if (!preselectedSpecialty) matchedSpecialty = 'General Surgery & Urosurgery';
+        if (!preselectedSpecialty) matchedSpecialty = 'General Surgery';
       }
 
       setFormData((prev) => ({
@@ -197,17 +199,17 @@ _Sent via Cairo Hospital Official Website_`;
                 onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}
                 className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-[#092545] text-sm focus:outline-none focus:ring-2 focus:ring-[#013777] focus:bg-white transition-all font-medium"
               >
-                {MEDICAL_SERVICES.map((srv) => (
-                  <option key={srv.id} value={srv.title} className="text-[#092545]">
-                    {srv.title}
-                  </option>
+                {SERVICE_DEPARTMENTS.map((dept) => (
+                  <optgroup key={dept.id} label={dept.label}>
+                    {MEDICAL_SERVICES.filter((srv) => srv.departmentId === dept.id).map(
+                      (srv) => (
+                        <option key={srv.id} value={srv.title} className="text-[#092545]">
+                          {srv.title}
+                        </option>
+                      )
+                    )}
+                  </optgroup>
                 ))}
-                <option value="Orthobiologics & Stem Cell Therapy" className="text-[#092545]">
-                  Orthobiologics & Stem Cell Therapy
-                </option>
-                <option value="Medical Tourism Overseas Referral" className="text-[#092545]">
-                  Medical Tourism Overseas Referral
-                </option>
               </select>
             </div>
 
@@ -229,8 +231,8 @@ _Sent via Cairo Hospital Official Website_`;
                 <option value="Dr. Mohammed Hesham (CMD - Orthopedic Surgery)" className="text-[#092545]">
                   Dr. Mohammed Hesham (CMD - Orthopedic Surgery)
                 </option>
-                <option value="Dr. Bassam Makhlouf (Physiotherapy)" className="text-[#092545]">
-                  Dr. Bassam Makhlouf (Physiotherapy)
+                <option value="Dr. Bassam (Physiotherapy, Cupping & Acupuncture)" className="text-[#092545]">
+                  Dr. Bassam (Physiotherapy, Cupping & Acupuncture)
                 </option>
                 <option value="Dr. Wael (General Surgery)" className="text-[#092545]">
                   Dr. Wael (General Surgery)

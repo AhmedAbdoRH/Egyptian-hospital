@@ -137,10 +137,10 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
 
         {/* Scrollable Dossier Content */}
         <div className="p-6 sm:p-8 overflow-y-auto space-y-7">
-          {/* Executive Biography */}
+          {/* Executive / Clinical Biography */}
           <div className="space-y-2">
             <div className="text-xs font-bold text-[#013777] tracking-wide">
-              Clinical Mandate & Biography
+              {member.isDoctor ? 'Clinical Mandate & Biography' : 'Executive Mandate & Biography'}
             </div>
             <p className="text-sm text-[#1e293b] font-medium leading-relaxed">
               {member.fullBio}

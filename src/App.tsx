@@ -74,6 +74,23 @@ export default function App() {
   };
 
   const handleNavigate = (tabId: string) => navigateTo(tabId);
+
+  const handleScrollToSection = (sectionId: string) => {
+    const scrollNow = () => {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    if (activeTab !== 'home') {
+      setActiveTab('home');
+      window.setTimeout(scrollNow, 120);
+    } else {
+      scrollNow();
+    }
+  };
+
   const isRevealReady = !isLoaderVisible || isLoaderLeaving;
 
   return (
@@ -96,7 +113,7 @@ export default function App() {
               <Hero
                 onOpenWhatsAppBooking={() => handleOpenBooking()}
                 onExploreServices={() => handleNavigate('services')}
-                onExploreTourism={() => handleNavigate('about')}
+                onExploreTourism={() => handleScrollToSection('tourism')}
               />
               <EmergencyBanner onOpenWhatsAppBooking={() => handleOpenBooking()} />
               <AboutUs onOpenWhatsAppBooking={() => handleOpenBooking()} />
@@ -105,14 +122,17 @@ export default function App() {
               />
               <OrthobiologicsHighlight
                 onOpenWhatsAppBooking={() =>
-                  handleOpenBooking(undefined, 'Orthobiologics & Stem Cell Therapy')
+                  handleOpenBooking(
+                    undefined,
+                    'Orthobiologics (Stem Cells Regenerative Therapy)'
+                  )
                 }
               />
               <FacilityGallery />
               <TeamSection onOpenWhatsAppBooking={(doctor) => handleOpenBooking(doctor)} />
               <MedicalTourism
                 onOpenWhatsAppBooking={() =>
-                  handleOpenBooking(undefined, 'Medical Tourism Overseas Referral')
+                  handleOpenBooking(undefined, 'Medical Tourism')
                 }
               />
               <PartnersSection onOpenWhatsAppBooking={() => handleOpenBooking()} />

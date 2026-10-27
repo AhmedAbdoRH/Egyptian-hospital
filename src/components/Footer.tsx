@@ -88,17 +88,17 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Key Specialties Preview */}
           <Reveal variant="up" delay={140} className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-black uppercase tracking-wider text-white">
-              Centers of Excellence
+              Medical Services
             </h4>
             <ul className="space-y-1.5 text-xs text-sky-100 font-medium">
-              <li>• Orthopedic Surgery</li>
-              <li>• Prolotherapy & Stem Cells</li>
-              <li>• Diabetic Foot Center</li>
-              <li>• Obstetrics & Infertility</li>
-              <li>• General & Urosurgery</li>
-              <li>• Digital X-Ray & Ultrasound</li>
-              <li>• Alexandria Pharmacy Ltd.</li>
-              <li>• Skinic Dermatology Clinic</li>
+              <li>• Orthopedics & Orthobiologics</li>
+              <li>• Physiotherapy, Cupping & Acupuncture</li>
+              <li>• Obstetrics, Antenatal & Infertility</li>
+              <li>• General, Endoscopic & Laparoscopic Surgery</li>
+              <li>• Family, Tropical & Herbal Medicine</li>
+              <li>• X-Ray, Ultrasound & Laboratory</li>
+              <li>• Pharmacy & Ambulance Services</li>
+              <li>• Medical Tourism</li>
             </ul>
           </Reveal>
 

@@ -16,8 +16,12 @@ import {
   MessageCircle,
   Search,
   Sparkles,
+  Stethoscope,
+  Leaf,
+  Microscope,
+  Globe2,
 } from 'lucide-react';
-import { MEDICAL_SERVICES } from '../data/cairoHospitalData';
+import { MEDICAL_SERVICES, SERVICE_DEPARTMENTS } from '../data/cairoHospitalData';
 import { MedicalService } from '../types/hospital';
 import { Reveal } from './ScrollReveal';
 
@@ -28,7 +32,7 @@ interface ServicesSectionProps {
 export const ServicesSection: React.FC<ServicesSectionProps> = ({
   onSelectServiceForBooking,
 }) => {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [activeDepartment, setActiveDepartment] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const getServiceIcon = (iconName: string) => {
@@ -53,10 +57,18 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         return <HeartPulse className="w-6 h-6 text-red-600" />;
       case 'Users':
         return <Users className="w-6 h-6 text-cyan-600" />;
+      case 'Stethoscope':
+        return <Stethoscope className="w-6 h-6 text-[#013777]" />;
+      case 'Leaf':
+        return <Leaf className="w-6 h-6 text-emerald-600" />;
       case 'Scan':
         return <Scan className="w-6 h-6 text-teal-600" />;
+      case 'Microscope':
+        return <Microscope className="w-6 h-6 text-sky-600" />;
       case 'Pill':
         return <Pill className="w-6 h-6 text-purple-600" />;
+      case 'Globe2':
+        return <Globe2 className="w-6 h-6 text-[#013777]" />;
       case 'Sparkles':
         return <Sparkles className="w-6 h-6 text-amber-600" />;
       default:
@@ -64,23 +76,35 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
     }
   };
 
-  const categories = [
-    { id: 'all', label: `All ${MEDICAL_SERVICES.length} Specialties` },
-    { id: 'surgical', label: 'Surgeries & Orthopedics' },
-    { id: 'regenerative', label: 'Orthobiologics & Rehab' },
-    { id: 'clinical', label: 'Clinical Medicine' },
-    { id: 'diagnostic', label: 'Diagnostics & Lab' },
-    { id: 'support', label: 'Pharmacy & Support' },
+  const departmentTabs = [
+    { id: 'all', label: 'All Services' },
+    ...SERVICE_DEPARTMENTS.map((dept) => ({
+      id: dept.id,
+      label: dept.shortLabel,
+    })),
   ];
 
-  const filteredServices = MEDICAL_SERVICES.filter((srv) => {
-    const matchesCategory = activeCategory === 'all' || srv.category === activeCategory;
-    const matchesSearch =
-      !searchQuery ||
-      srv.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      srv.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const matchesQuery = (srv: MedicalService) => {
+    if (!searchQuery.trim()) return true;
+    const q = searchQuery.toLowerCase();
+    return (
+      srv.title.toLowerCase().includes(q) ||
+      srv.departmentLabel.toLowerCase().includes(q) ||
+      srv.description.toLowerCase().includes(q)
+    );
+  };
+
+  const visibleDepartments = SERVICE_DEPARTMENTS.filter(
+    (dept) => activeDepartment === 'all' || dept.id === activeDepartment
+  )
+    .map((dept, deptIdx) => ({
+      ...dept,
+      orderIndex: SERVICE_DEPARTMENTS.findIndex((d) => d.id === dept.id) + 1 || deptIdx + 1,
+      services: MEDICAL_SERVICES.filter(
+        (srv) => srv.departmentId === dept.id && matchesQuery(srv)
+      ),
+    }))
+    .filter((group) => group.services.length > 0);
 
   return (
     <section id="services" className="py-10 sm:py-16 lg:py-20 relative overflow-hidden">
@@ -95,17 +119,17 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               <span>Comprehensive Tertiary Healthcare</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-[#092545] tracking-tight">
-              Our Medical Specialties & Centers
+              Our Medical Services & Specialties
             </h2>
             <p className="text-sm sm:text-base text-[#1e293b] font-medium leading-relaxed">
-              From emergency trauma triage and complex joint reconstructions to non-surgical orthobiologics and dedicated maternal-fetal suites, Cairo Hospital offers complete specialized care in Abuja.
+              From orthopedic surgery, stem cell orthobiologics, and physiotherapy to obstetrics & gynaecology, minimally invasive surgeries, diagnostics, and medical tourism.
             </p>
           </div>
         </Reveal>
 
-        {/* Search & Category Filter Pills */}
+        {/* Search & Department Filter Tabs */}
         <Reveal variant="up" delay={100}>
-          <div className="max-w-4xl mx-auto space-y-4">
+          <div className="max-w-5xl mx-auto space-y-4">
             {/* Search Bar */}
             <div className="relative">
               <Search className="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -113,87 +137,127 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by specialty, surgery, or clinical condition..."
+                placeholder="Search by service, department, or procedure..."
                 className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white border border-slate-300 text-[#092545] font-semibold placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-[#013777] shadow-sm"
               />
             </div>
 
-            {/* Category Tabs */}
+            {/* Department Filter Tabs */}
             <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs font-bold">
-              {categories.map((cat) => (
+              {departmentTabs.map((tab) => (
                 <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
+                  key={tab.id}
+                  onClick={() => setActiveDepartment(tab.id)}
                   className={`px-4 py-2.5 rounded-xl whitespace-nowrap transition-all cursor-pointer ${
-                    activeCategory === cat.id
+                    activeDepartment === tab.id
                       ? 'bg-[#013777] text-white shadow-md shadow-[#013777]/25 font-black scale-102'
                       : 'bg-white border border-slate-300 text-slate-800 hover:bg-slate-50 hover:text-[#013777]'
                   }`}
                 >
-                  {cat.label}
+                  {tab.label}
                 </button>
               ))}
             </div>
           </div>
         </Reveal>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredServices.map((service, idx) => (
-            <Reveal
-              key={`${activeCategory}-${service.id}`}
-              variant="up"
-              delay={(idx % 3) * 85}
-              className="h-full"
-            >
-              <div className="h-full glass-panel glass-panel-hover p-6 sm:p-7 rounded-3xl border border-slate-200 bg-white shadow-sm flex flex-col justify-between space-y-5">
-                <div className="space-y-4">
-                  {/* Icon & Category Badge */}
-                  <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center shadow-xs">
-                      {getServiceIcon(service.iconName)}
-                    </div>
-                    <span className="text-[11px] font-black uppercase tracking-wider text-[#013777] px-2.5 py-1 rounded-lg bg-sky-50 border border-sky-300">
-                      {service.category}
+        {/* Ordered Department Groups */}
+        <div className="space-y-12">
+          {visibleDepartments.map((group) => (
+            <div key={group.id} className="space-y-5">
+              <Reveal variant="up">
+                <div className="flex items-baseline justify-between gap-4 pb-3 border-b border-slate-200/90">
+                  <div className="flex items-baseline gap-2.5">
+                    <span className="text-xs font-black text-[#013777] tabular-nums">
+                      0{group.orderIndex}.
                     </span>
-                  </div>
-
-                  {/* Title & Description */}
-                  <div>
-                    <h3 className="text-lg font-black text-[#092545] group-hover:text-[#013777] transition-colors">
-                      {service.title}
+                    <h3 className="text-xl sm:text-2xl font-black text-[#061a33] tracking-tight">
+                      {group.label}
                     </h3>
-                    <p className="mt-2 text-xs text-[#1e293b] font-medium leading-relaxed">
-                      {service.description}
-                    </p>
                   </div>
-
-                  {/* Bullet Points */}
-                  {service.details && (
-                    <div className="space-y-1.5 pt-2 border-t border-slate-100 text-xs text-[#0f172a] font-semibold">
-                      {service.details.map((item, i) => (
-                        <div key={i} className="flex items-start gap-2">
-                          <CheckCircle className="w-3.5 h-3.5 text-[#013777] flex-shrink-0 mt-0.5" />
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                  <span className="text-xs font-semibold text-slate-500 tabular-nums">
+                    {group.services.length}{' '}
+                    {group.services.length === 1 ? 'Service' : 'Services'}
+                  </span>
                 </div>
+              </Reveal>
 
-                {/* Card Action */}
-                <div className="pt-4 border-t border-slate-100">
-                  <button
-                    onClick={() => onSelectServiceForBooking(service.title)}
-                    className="w-full glass-button-whatsapp py-2.5 rounded-xl text-white font-bold text-xs flex items-center justify-center gap-2 hover:brightness-105 transition-all cursor-pointer shadow-md"
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {group.services.map((service, idx) => (
+                  <Reveal
+                    key={`${activeDepartment}-${service.id}`}
+                    variant="up"
+                    delay={(idx % 3) * 80}
+                    className="h-full"
                   >
-                    <MessageCircle className="w-3.5 h-3.5" />
-                    <span>Book {service.title.split(' ')[0]} on WhatsApp</span>
-                  </button>
-                </div>
+                    <div className="h-full glass-panel glass-panel-hover p-6 sm:p-7 rounded-3xl border border-slate-200 bg-white shadow-sm flex flex-col justify-between space-y-5">
+                      <div className="space-y-4">
+                        {/* Icon & Department Kicker */}
+                        <div className="flex items-center justify-between gap-3">
+                          <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center shadow-xs shrink-0">
+                            {getServiceIcon(service.iconName)}
+                          </div>
+                          <span className="text-[11px] font-bold text-[#013777] text-right">
+                            {service.departmentLabel}
+                          </span>
+                        </div>
+
+                        {/* Title & Description */}
+                        <div>
+                          <h4 className="text-lg font-black text-[#092545] leading-snug">
+                            {service.title}
+                          </h4>
+                          <p className="mt-2 text-xs text-[#1e293b] font-medium leading-relaxed">
+                            {service.description}
+                          </p>
+                        </div>
+
+                        {/* Bullet Points */}
+                        {service.details && (
+                          <div className="space-y-1.5 pt-2 border-t border-slate-100 text-xs text-[#0f172a] font-semibold">
+                            {service.details.map((item, i) => (
+                              <div key={i} className="flex items-start gap-2">
+                                <CheckCircle className="w-3.5 h-3.5 text-[#013777] flex-shrink-0 mt-0.5" />
+                                <span>{item}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Card Action */}
+                      <div className="pt-4 border-t border-slate-100">
+                        <button
+                          onClick={() => onSelectServiceForBooking(service.title)}
+                          className="w-full glass-button-whatsapp py-2.5 px-4 rounded-xl text-white font-bold text-xs flex items-center justify-center gap-2 hover:brightness-105 transition-all cursor-pointer shadow-md"
+                        >
+                          <MessageCircle className="w-3.5 h-3.5" />
+                          <span className="truncate">Book {service.title}</span>
+                        </button>
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
               </div>
-            </Reveal>
+            </div>
           ))}
+
+          {visibleDepartments.length === 0 && (
+            <div className="p-10 text-center rounded-3xl bg-white border border-slate-200 space-y-3">
+              <div className="text-base font-bold text-[#092545]">
+                No services matched “{searchQuery}”
+              </div>
+              <button
+                onClick={() => {
+                  setSearchQuery('');
+                  setActiveDepartment('all');
+                }}
+                className="inline-flex items-center px-4 py-2 rounded-xl bg-[#013777] text-white text-xs font-bold cursor-pointer"
+              >
+                Reset Filters
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -200,12 +200,12 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {teamMembers.map((member, idx) => (
               <Reveal
                 key={member.id}
                 variant="up"
-                delay={(idx % 4) * 85}
+                delay={(idx % 3) * 85}
                 className="h-full"
               >
                 <div className="h-full glass-panel p-5 rounded-3xl border border-slate-200/90 glass-panel-hover flex flex-col justify-between space-y-4 bg-white shadow-sm">
@@ -251,7 +251,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                         </div>
                       )}
                       <div className="pt-2 border-t border-slate-100 space-y-1">
-                        {member.qualifications.slice(0, 2).map((q, qIdx) => (
+                        {member.qualifications.slice(0, 3).map((q, qIdx) => (
                           <div
                             key={qIdx}
                             className="flex items-start gap-1.5 text-slate-700 font-medium"

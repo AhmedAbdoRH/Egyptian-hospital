@@ -59,7 +59,7 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
     },
     {
       dept: 'Kinetic Rehabilitation & Physiotherapy',
-      lead: 'Dr. Bassam Makhlouf',
+      lead: 'Dr. Bassam',
       specialty: 'Specialized Neuromuscular & Post-Surgical Recovery',
       procedures: ['Physiotherapy', 'Cupping', 'Acupuncture', 'BEMER Vascular Therapy'],
     },
@@ -283,9 +283,9 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {teamMembers.map((member, idx) => (
-              <Reveal key={member.id} variant="up" delay={(idx % 4) * 85} className="h-full">
+              <Reveal key={member.id} variant="up" delay={(idx % 3) * 85} className="h-full">
                 <div className="h-full glass-panel glass-panel-hover rounded-3xl border border-slate-200/90 bg-white overflow-hidden shadow-sm flex flex-col justify-between hover:border-[#013777]/30 transition-all duration-300 group">
                   <div>
                     {/* Photo Container */}
@@ -339,7 +339,7 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
 
                       <div className="space-y-1.5 pt-2.5 border-t border-slate-100">
                         <ul className="space-y-1">
-                          {member.qualifications.slice(0, 2).map((q, qIdx) => (
+                          {member.qualifications.slice(0, 3).map((q, qIdx) => (
                             <li
                               key={qIdx}
                               className="flex items-start gap-1.5 text-xs text-[#0f172a] font-medium"
