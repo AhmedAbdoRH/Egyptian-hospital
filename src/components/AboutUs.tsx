@@ -529,28 +529,28 @@ export const AboutUs: React.FC<AboutUsProps> = ({ onOpenWhatsAppBooking }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Mission */}
           <Reveal variant="left" className="h-full">
-            <div className="h-full glass-panel p-8 rounded-3xl border border-sky-300 space-y-5 bg-white shadow-lg">
-              <div className="flex items-center gap-3 pb-3 border-b border-sky-100">
-                <div className="w-10 h-10 rounded-xl bg-[#013777] text-white flex items-center justify-center">
+            <div className="h-full glass-panel p-8 rounded-3xl border border-teal-300/60 space-y-5 bg-gradient-to-br from-white via-teal-50/40 to-white shadow-lg">
+              <div className="flex items-center gap-3 pb-3 border-b border-teal-100">
+                <div className="w-10 h-10 rounded-xl bg-teal-800 text-white flex items-center justify-center">
                   <Target className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-black text-[#092545]">Our Mission</h3>
-                  <div className="text-xs text-[#013777] font-black">Guiding daily clinical excellence</div>
+                  <h3 className="text-xl font-black text-teal-800">Our Mission</h3>
+                  <div className="text-xs text-teal-800 font-bold">Guiding daily clinical excellence</div>
                 </div>
               </div>
 
-              <ul className="space-y-3 text-xs sm:text-sm text-[#1e293b] font-medium">
+              <ul className="space-y-3 text-xs sm:text-sm text-[#2d435e]">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#013777] mt-0.5 flex-shrink-0" />
-                  <span><strong className="text-[#092545]">International Standard Multi-Specialties:</strong> Implementing evidence-based clinical protocols in Abuja.</span>
+                  <CheckCircle2 className="w-4 h-4 text-teal-700 mt-0.5 flex-shrink-0" />
+                  <span><strong className="text-teal-900">International Standard Multi-Specialties:</strong> Implementing evidence-based clinical protocols in Abuja.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#013777] mt-0.5 flex-shrink-0" />
-                  <span><strong className="text-[#092545]">Referral Hospital in Nigeria & West Africa:</strong> Serving as the preferred destination for complex surgical and orthobiologic cases.</span>
+                  <CheckCircle2 className="w-4 h-4 text-teal-700 mt-0.5 flex-shrink-0" />
+                  <span><strong className="text-teal-900">Referral Hospital in Nigeria & West Africa:</strong> Serving as the preferred destination for complex surgical and orthobiologic cases.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#013777] mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-teal-700 mt-0.5 flex-shrink-0" />
                   <span><strong className="text-[#092545]">Cutting-Edge Technology:</strong> Integrating digital radiography, BEMER vascular therapy, and minimally invasive surgeries.</span>
                 </li>
               </ul>
@@ -565,7 +565,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ onOpenWhatsAppBooking }) => {
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-black text-[#092545]">Our Motive</h3>
+                  <h3 className="text-xl font-black text-teal-800">Our Motive</h3>
                   <div className="text-xs text-teal-800 font-bold">Dedicated to regional patient well-being</div>
                 </div>
               </div>
@@ -573,15 +573,15 @@ export const AboutUs: React.FC<AboutUsProps> = ({ onOpenWhatsAppBooking }) => {
               <ul className="space-y-3 text-xs sm:text-sm text-[#2d435e]">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-teal-700 mt-0.5 flex-shrink-0" />
-                  <span><strong>Solving Health Challenges Across West Africa:</strong> Elevating access to specialized medicine without overseas barriers.</span>
+                  <span><strong className="text-teal-900">Solving Health Challenges Across West Africa:</strong> Elevating access to specialized medicine without overseas barriers.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-teal-700 mt-0.5 flex-shrink-0" />
-                  <span><strong>Prompt & Accurate Treatment:</strong> Delivering rapid laboratory testing and prompt interventions.</span>
+                  <span><strong className="text-teal-900">Prompt & Accurate Treatment:</strong> Delivering rapid laboratory testing and prompt interventions.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-teal-700 mt-0.5 flex-shrink-0" />
-                  <span><strong>Healthcare Optimization:</strong> Continuously expanding clinical specialties and academic partnerships.</span>
+                  <span><strong className="text-teal-900">Healthcare Optimization:</strong> Continuously expanding clinical specialties and academic partnerships.</span>
                 </li>
               </ul>
             </div>
