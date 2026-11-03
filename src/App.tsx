@@ -23,8 +23,15 @@ import { MedicalTourismSubpage } from './components/subpages/MedicalTourismSubpa
 import { LoadingScreen } from './components/LoadingScreen';
 import { RevealReadyContext } from './components/ScrollReveal';
 
+const PAGE_IDS = ['home', 'about', 'services', 'tourism', 'team', 'contact', 'booking'];
+
+const getPageFromLocation = () => {
+  const page = new URLSearchParams(window.location.search).get('page');
+  return page && PAGE_IDS.includes(page) ? page : 'home';
+};
+
 export default function App() {
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTab] = useState(getPageFromLocation);
   const [isLoaderVisible, setIsLoaderVisible] = useState(true);
   const [isLoaderLeaving, setIsLoaderLeaving] = useState(false);
   const [preselectedSpecialty, setPreselectedSpecialty] = useState('');
@@ -56,6 +63,12 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const syncPageFromHistory = () => setActiveTab(getPageFromLocation());
+    window.addEventListener('popstate', syncPageFromHistory);
+    return () => window.removeEventListener('popstate', syncPageFromHistory);
+  }, []);
+
+  useEffect(() => {
     // Smooth scroll to top on tab change
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   }, [activeTab]);
@@ -68,7 +81,13 @@ export default function App() {
   };
 
   const navigateTo = (tabId: string) => {
-    if (tabId === activeTab) return;
+    if (!PAGE_IDS.includes(tabId)) return;
+    if (tabId === activeTab) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const nextUrl = tabId === 'home' ? window.location.pathname : `${window.location.pathname}?page=${tabId}`;
+    window.history.pushState({ page: tabId }, '', nextUrl);
     showLoader();
     setActiveTab(tabId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
