@@ -29,13 +29,24 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
 
   const chairman =
     TEAM_MEMBERS.find((m) => m.id === 'dr-ahmed-shaker') || TEAM_MEMBERS[0];
-  const teamMembers = TEAM_MEMBERS.filter((m) => m.id !== chairman.id);
+  const ceo =
+    TEAM_MEMBERS.find((m) => m.id === 'dr-mohammed-hesham') || TEAM_MEMBERS[1];
+  const teamMembers = TEAM_MEMBERS.filter(
+    (m) => m.id !== chairman.id && m.id !== ceo.id
+  );
 
   const chairmanMetrics = [
     { value: '1970', label: 'Worked in Nigeria since 1970' },
     { value: '130+', label: 'Hospitals managed' },
     { value: '2019', label: 'Cairo Hospital established' },
     { value: 'MRCOG', label: 'Qualification as listed in profile' },
+  ];
+
+  const ceoMetrics = [
+    { value: '1997', label: 'Ain Shams University Medical School' },
+    { value: '25+ Yrs', label: 'Orthopedic surgical leadership' },
+    { value: '10 Yrs', label: 'Stuttgart German orthopedic team (Kuwait)' },
+    { value: '10 Yrs', label: 'Nozha International Hospital (Cairo)' },
   ];
 
   const clinicalDepartments = [
@@ -273,7 +284,170 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
           </Reveal>
         </section>
 
-        {/* Regular Medical & Administrative Team Grid (Includes Dr. Mohammed Hesham normally) */}
+        {/* Founder, CEO & CMD Dr. Mohammed Hesham Shaker */}
+        <section className="space-y-8">
+          <Reveal variant="up" className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-xs font-bold text-[#013777] tracking-wide">
+              Office of the Founder, CEO & CMD
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-black text-[#061a33] tracking-tight [text-wrap:balance]">
+              Founder, CEO & Chief Medical Director
+            </h2>
+            <p className="text-sm text-[#1e293b] font-medium">
+              Consultant Orthopedic & Arthroplasty Surgeon · Pioneering Arthroplasty, Trauma Surgeries, and Orthobiologics Stem Cells Regenerative Therapy in Nigeria.
+            </p>
+          </Reveal>
+
+          <Reveal variant="scale">
+            <article className="glass-panel-dark contrast-dark relative rounded-[2rem] border border-[#fdc33e]/45 bg-gradient-to-br from-[#041830] via-[#012859] to-[#013777] shadow-2xl overflow-hidden">
+              <div className="h-1.5 w-full bg-gradient-to-r from-[#fdc33e] via-[#38bdf8] to-transparent" />
+
+              <div className="p-6 sm:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                {/* CEO Portrait Column */}
+                <div className="lg:col-span-4 space-y-4">
+                  <div className="relative mx-auto max-w-[300px] sm:max-w-[340px] aspect-[4/5] rounded-2xl overflow-hidden border-2 border-[#fdc33e]/65 bg-[#061a33] shadow-2xl">
+                    <img
+                      src={ceo.image}
+                      alt={ceo.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#031124] via-[#031124]/75 to-transparent" />
+                    <div className="photo-caption absolute bottom-0 inset-x-0 p-4 sm:p-5 flex items-end justify-between gap-3">
+                      <div>
+                        <div className="text-[11px] font-bold !text-[#fdc33e] tracking-wide">
+                          {ceo.role}
+                        </div>
+                        <div className="text-lg sm:text-xl font-black !text-white leading-snug">
+                          {ceo.name}
+                        </div>
+                      </div>
+                      <ShieldCheck className="w-5 h-5 !text-[#fdc33e] shrink-0" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* CEO Comprehensive Dossier */}
+                <div className="lg:col-span-8 space-y-6">
+                  <div className="space-y-2">
+                    <div className="flex flex-wrap items-center gap-2 text-xs font-bold tracking-wide !text-[#fdc33e]">
+                      <span>Founder, CEO & CMD · Cairo Hospital Abuja</span>
+                      <span className="text-white/40" aria-hidden="true">
+                        ·
+                      </span>
+                      <span className="!text-[#bae6fd]">Ain Shams University (1997) · ASRIC African Union</span>
+                    </div>
+
+                    <h3 className="text-3xl sm:text-4xl font-black !text-white tracking-tight leading-tight">
+                      {ceo.name}
+                    </h3>
+
+                    <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs sm:text-sm font-semibold !text-[#bae6fd]">
+                      <span>{ceo.title}</span>
+                      {ceo.education && (
+                        <>
+                          <span className="text-white/40" aria-hidden="true">
+                            ·
+                          </span>
+                          <span className="inline-flex items-center gap-1.5 !text-white/95">
+                            <GraduationCap className="w-4 h-4 !text-[#fdc33e] shrink-0" />
+                            <span>{ceo.education}</span>
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+
+                  <p className="text-xs sm:text-sm !text-sky-100 leading-relaxed">
+                    {ceo.fullBio}
+                  </p>
+
+                  {/* 4-Column Tabular Metrics */}
+                  <div className="py-4 border-y border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-0 sm:divide-x sm:divide-white/15">
+                    {ceoMetrics.map((m, mIdx) => (
+                      <div
+                        key={mIdx}
+                        className={`${
+                          mIdx === 0
+                            ? 'sm:pr-4'
+                            : mIdx === ceoMetrics.length - 1
+                            ? 'sm:pl-4'
+                            : 'sm:px-4'
+                        }`}
+                      >
+                        <div className="text-lg sm:text-xl font-black !text-[#fdc33e] tabular-nums">
+                          {m.value}
+                        </div>
+                        <div className="text-[11px] sm:text-xs !text-sky-100 mt-0.5 leading-snug">
+                          {m.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Credentials & Leadership Milestones Side-by-Side */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2.5">
+                      <div className="text-xs font-bold !text-[#fdc33e] flex items-center gap-1.5">
+                        <Award className="w-4 h-4 !text-[#fdc33e] shrink-0" />
+                        <span>Specializations & Academic Appointments</span>
+                      </div>
+                      <ul className="space-y-2">
+                        {ceo.qualifications.map((q, qIdx) => (
+                          <li
+                            key={qIdx}
+                            className="flex items-start gap-2 text-xs !text-sky-100 leading-snug"
+                          >
+                            <CheckCircle2 className="w-3.5 h-3.5 !text-[#fdc33e] mt-0.5 shrink-0" />
+                            <span>{q}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="space-y-2.5">
+                      <div className="text-xs font-bold !text-[#bae6fd] flex items-center gap-1.5">
+                        <Briefcase className="w-4 h-4 !text-[#bae6fd] shrink-0" />
+                        <span>Clinical Leadership & International Milestones</span>
+                      </div>
+                      <ul className="space-y-2">
+                        {ceo.careerHighlights.map((h, hIdx) => (
+                          <li
+                            key={hIdx}
+                            className="flex items-start gap-2 text-xs !text-sky-100 leading-snug"
+                          >
+                            <CheckCircle2 className="w-3.5 h-3.5 !text-[#bae6fd] mt-0.5 shrink-0" />
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* CEO Actions */}
+                  <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                    <button
+                      onClick={() => onOpenWhatsAppBooking(ceo.name)}
+                      className="glass-button-whatsapp px-6 py-3 rounded-xl text-white font-extrabold text-xs sm:text-sm inline-flex items-center gap-2 transition-transform hover:scale-102 active:scale-98 cursor-pointer shadow-lg"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-current" />
+                      <span>Book Consultation with Dr. Mohammed Hesham</span>
+                    </button>
+
+                    <button
+                      onClick={() => setSelectedDoctor(ceo)}
+                      className="px-5 py-3 rounded-xl bg-white/12 hover:bg-white/20 border border-white/25 !text-white font-bold text-xs sm:text-sm inline-flex items-center gap-2 transition-colors cursor-pointer"
+                    >
+                      <span>Open CEO & CMD’s Official Dossier</span>
+                      <ExternalLink className="w-3.5 h-3.5 !text-[#fdc33e]" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </Reveal>
+        </section>
+
+        {/* Regular Medical & Administrative Team Grid */}
         <section className="space-y-8">
           <Reveal variant="up" className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-4 border-b border-slate-200/90">
             <div>
@@ -508,40 +682,40 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
           </section>
         </Reveal>
 
-        {/* Direct Chairman Consultation Suite */}
+        {/* Direct Executive Consultation Suite */}
         <Reveal variant="scale">
           <section className="contrast-dark relative overflow-hidden rounded-3xl border border-[#fdc33e]/40 bg-gradient-to-br from-[#041830] via-[#012859] to-[#013777] p-8 sm:p-12 text-white shadow-2xl">
             <div className="h-1.5 absolute inset-x-0 top-0 bg-gradient-to-r from-[#fdc33e] via-[#38bdf8] to-transparent" />
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-              <div className="lg:col-span-8 space-y-4">
+              <div className="lg:col-span-6 space-y-4">
                 <span className="text-xs font-bold !text-[#fdc33e] tracking-wide">
-                  Chairman’s Clinical Consultation
+                  Executive Clinical Consultations
                 </span>
-                <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight !text-white [text-wrap:balance]">
-                  Request a Consultation with Dr. Ahmed Shaker
+                <h3 className="text-2xl sm:text-3xl font-black tracking-tight leading-tight !text-white [text-wrap:balance]">
+                  Consult Directly with Cairo Hospital Leadership
                 </h3>
-                <p className="text-xs sm:text-sm !text-sky-100/95 leading-relaxed max-w-2xl">
-                  Send an appointment request to arrange an in-person consultation in Garki 2, Abuja or ask the coordination desk to confirm clinic availability.
+                <p className="text-xs sm:text-sm !text-sky-100/95 leading-relaxed max-w-xl">
+                  Arrange an in-person appointment at our Garki 2 hospital in Abuja with Dr. Ahmed Shaker (Obstetrics & Gynaecology) or Dr. Mohammed Hesham Shaker (Orthopedics, Arthroplasty & Stem Cells Therapy).
                 </p>
-                <div className="pt-2 flex flex-wrap gap-3.5">
+                <div className="pt-2 flex flex-wrap gap-3">
                   <button
                     onClick={() => onOpenWhatsAppBooking(chairman.name)}
-                    className="glass-button-whatsapp inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-white font-extrabold text-sm shadow-lg transition-transform hover:scale-102 active:scale-98 cursor-pointer"
+                    className="glass-button-whatsapp inline-flex items-center gap-2 px-5 py-3 rounded-2xl text-white font-extrabold text-xs sm:text-sm shadow-lg transition-transform hover:scale-102 active:scale-98 cursor-pointer"
                   >
                     <MessageCircle className="w-4 h-4 fill-current" />
                     <span>Book with Dr. Ahmed Shaker</span>
                   </button>
                   <button
-                    onClick={() => setSelectedDoctor(chairman)}
-                    className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white/12 hover:bg-white/20 border border-white/25 !text-white font-bold text-sm transition-colors cursor-pointer"
+                    onClick={() => onOpenWhatsAppBooking(ceo.name)}
+                    className="glass-button-whatsapp inline-flex items-center gap-2 px-5 py-3 rounded-2xl text-white font-extrabold text-xs sm:text-sm shadow-lg transition-transform hover:scale-102 active:scale-98 cursor-pointer"
                   >
-                    <Stethoscope className="w-4 h-4 !text-[#fdc33e]" />
-                    <span>View Chairman’s Full Dossier</span>
+                    <MessageCircle className="w-4 h-4 fill-current" />
+                    <span>Book with Dr. Mohammed Hesham</span>
                   </button>
                 </div>
               </div>
 
-              <div className="lg:col-span-4 lg:border-l lg:border-white/15 lg:pl-8">
+              <div className="lg:col-span-6 lg:border-l lg:border-white/15 lg:pl-8 space-y-3">
                 <button
                   type="button"
                   onClick={() => setSelectedDoctor(chairman)}
@@ -550,7 +724,7 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                   <img
                     src={chairman.image}
                     alt={chairman.name}
-                    className="w-16 h-20 rounded-xl object-cover object-top border-2 border-[#fdc33e]/60 bg-[#061a33] shrink-0"
+                    className="w-14 h-16 rounded-xl object-cover object-top border-2 border-[#fdc33e]/60 bg-[#061a33] shrink-0"
                   />
                   <div className="min-w-0 space-y-0.5">
                     <div className="text-[11px] font-bold !text-[#fdc33e]">
@@ -561,6 +735,32 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                     </div>
                     <div className="text-[11px] !text-[#bae6fd] truncate">
                       MRCOG · Ain Shams University
+                    </div>
+                    <div className="text-[11px] !text-sky-100 truncate">
+                      Open Official Dossier →
+                    </div>
+                  </div>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setSelectedDoctor(ceo)}
+                  className="w-full text-left flex items-center gap-4 p-3.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-[#fdc33e]/35 transition-colors cursor-pointer"
+                >
+                  <img
+                    src={ceo.image}
+                    alt={ceo.name}
+                    className="w-14 h-16 rounded-xl object-cover object-top border-2 border-[#fdc33e]/60 bg-[#061a33] shrink-0"
+                  />
+                  <div className="min-w-0 space-y-0.5">
+                    <div className="text-[11px] font-bold !text-[#fdc33e]">
+                      Founder, CEO & CMD
+                    </div>
+                    <div className="text-base font-black !text-white truncate">
+                      {ceo.name}
+                    </div>
+                    <div className="text-[11px] !text-[#bae6fd] truncate">
+                      Orthopedic Consultant · Arthroplasty & Stem Cells
                     </div>
                     <div className="text-[11px] !text-sky-100 truncate">
                       Open Official Dossier →

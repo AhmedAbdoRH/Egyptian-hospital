@@ -51,10 +51,8 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
         {/* Top Architectural Hairline Accent */}
         <div
           className={`h-1.5 w-full shrink-0 ${
-            isChairman
+            isChairman || isCmd
               ? 'bg-gradient-to-r from-[#fdc33e] via-[#38bdf8] to-[#013777]'
-              : isCmd
-              ? 'bg-gradient-to-r from-teal-400 via-sky-400 to-[#013777]'
               : 'bg-gradient-to-r from-[#013777] via-[#0284c7] to-[#38bdf8]'
           }`}
         />
@@ -73,10 +71,8 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
             {/* Portrait Frame */}
             <div
               className={`w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden shrink-0 bg-[#061a33] shadow-xl ${
-                isChairman
+                isChairman || isCmd
                   ? 'border-2 border-[#fdc33e]/65'
-                  : isCmd
-                  ? 'border-2 border-teal-400/80 shadow-teal-500/20'
                   : 'border-2 border-white/25'
               }`}
             >
@@ -99,8 +95,8 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
             {/* Identity & Pedigree */}
             <div className="space-y-2.5">
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 text-xs font-bold tracking-wide">
-                <span className={isChairman ? '!text-[#fdc33e]' : isCmd ? '!text-teal-300' : '!text-[#bae6fd]'}>
-                  {isChairman ? 'Chairman' : member.role}
+                <span className={isChairman || isCmd ? '!text-[#fdc33e]' : '!text-[#bae6fd]'}>
+                  {isChairman ? 'Chairman · Cairo Hospital' : isCmd ? 'Founder, CEO & CMD · Cairo Hospital' : member.role}
                 </span>
                 {isChairman && (
                   <>
@@ -118,9 +114,9 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
                     <span className="text-white/40" aria-hidden="true">
                       ·
                     </span>
-                    <span className="inline-flex items-center gap-1 !text-teal-200">
-                      <ShieldCheck className="w-3.5 h-3.5 text-teal-400" />
-                      <span>Ain Shams '97 · African Union ASRIC Member</span>
+                    <span className="inline-flex items-center gap-1 !text-[#bae6fd]">
+                      <ShieldCheck className="w-3.5 h-3.5 !text-[#fdc33e]" />
+                      <span>Ain Shams '97 · African Union ASRIC</span>
                     </span>
                   </>
                 )}
