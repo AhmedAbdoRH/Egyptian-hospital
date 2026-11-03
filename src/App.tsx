@@ -26,17 +26,19 @@ import { RevealReadyContext } from './components/ScrollReveal';
 const PAGE_IDS = ['home', 'about', 'services', 'tourism', 'team', 'contact', 'booking'];
 
 const getPageFromLocation = () => {
+  if (typeof window === 'undefined') return 'home';
   const page = new URLSearchParams(window.location.search).get('page');
   return page && PAGE_IDS.includes(page) ? page : 'home';
 };
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState(getPageFromLocation);
+  const [activeTab, setActiveTab] = useState(() => getPageFromLocation());
   const [isLoaderVisible, setIsLoaderVisible] = useState(true);
   const [isLoaderLeaving, setIsLoaderLeaving] = useState(false);
   const [preselectedSpecialty, setPreselectedSpecialty] = useState('');
   const [preselectedDoctor, setPreselectedDoctor] = useState('');
   const loaderTimers = useRef<number[]>([]);
+  const lastProcessedPage = useRef(getPageFromLocation());
 
   useEffect(() => {
     return () => {
@@ -63,7 +65,14 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const syncPageFromHistory = () => setActiveTab(getPageFromLocation());
+    const syncPageFromHistory = () => {
+      const newPage = getPageFromLocation();
+      if (newPage !== lastProcessedPage.current) {
+        lastProcessedPage.current = newPage;
+        setActiveTab(newPage);
+        window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+      }
+    };
     window.addEventListener('popstate', syncPageFromHistory);
     return () => window.removeEventListener('popstate', syncPageFromHistory);
   }, []);
@@ -86,6 +95,7 @@ export default function App() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
+    lastProcessedPage.current = tabId;
     const nextUrl = tabId === 'home' ? window.location.pathname : `${window.location.pathname}?page=${tabId}`;
     window.history.pushState({ page: tabId }, '', nextUrl);
     showLoader();
