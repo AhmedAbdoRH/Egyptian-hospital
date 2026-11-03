@@ -95,7 +95,7 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
             <div className="space-y-2.5">
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 text-xs font-bold tracking-wide">
                 <span className={isChairman ? '!text-[#fdc33e]' : '!text-[#bae6fd]'}>
-                  {isChairman ? 'Founder & Chairman of the Board' : member.role}
+                  {isChairman ? 'Chairman' : member.role}
                 </span>
                 {isChairman && (
                   <>
@@ -104,7 +104,7 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
                     </span>
                     <span className="inline-flex items-center gap-1 !text-[#bae6fd]">
                       <ShieldCheck className="w-3.5 h-3.5 !text-[#fdc33e]" />
-                      <span>50+ Years Healthcare Stewardship</span>
+                      <span>Worked in Nigeria since 1970</span>
                     </span>
                   </>
                 )}
@@ -152,7 +152,7 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
             <div className="space-y-3">
               <h4 className="text-sm font-black text-[#061a33] flex items-center gap-2">
                 <Award className="w-4 h-4 text-[#b87c08] shrink-0" />
-                <span>Credentials & Fellowships</span>
+                <span>{member.isDoctor ? 'Clinical Scope & Qualifications' : 'Professional Qualifications'}</span>
               </h4>
               <ul className="space-y-2.5">
                 {member.qualifications.map((q, i) => (

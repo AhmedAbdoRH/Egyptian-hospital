@@ -102,7 +102,7 @@ export const SubpageHero: React.FC<SubpageHeroProps> = ({
               className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-white hover:bg-slate-50 border border-slate-300 text-[#092545] font-black text-sm shadow-xs transition-colors cursor-pointer"
             >
               <Phone className="w-4 h-4 text-[#013777]" />
-              <span>24/7 Desk: {HOSPITAL_CONTACT.phone1}</span>
+              <span>Call: {HOSPITAL_CONTACT.phone1}</span>
             </a>
           </div>
 

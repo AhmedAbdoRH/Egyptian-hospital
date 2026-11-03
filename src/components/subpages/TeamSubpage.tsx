@@ -32,54 +32,60 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
   const teamMembers = TEAM_MEMBERS.filter((m) => m.id !== chairman.id);
 
   const chairmanMetrics = [
-    { value: '1970', label: 'Healthcare Legacy in Nigeria' },
-    { value: '130+', label: 'National Hospitals Directed' },
-    { value: '2019', label: 'Founded Cairo Hospital Abuja' },
-    { value: 'MRCOG', label: 'Royal College Fellow · Dublin' },
+    { value: '1970', label: 'Worked in Nigeria since 1970' },
+    { value: '130+', label: 'Hospitals managed' },
+    { value: '2019', label: 'Cairo Hospital established' },
+    { value: 'MRCOG', label: 'Qualification as listed in profile' },
   ];
 
   const clinicalDepartments = [
     {
-      dept: 'Obstetrics, Gynaecology & Infertility',
-      lead: 'Dr. Ahmed Shaker (Chairman)',
-      specialty: 'MRCOG Dublin, 50-Year Heritage across Nigeria',
-      procedures: ['High-Risk Maternal Care', 'Advanced Laparoscopic Gyn', 'Fertility Profiling'],
+      dept: 'Obstetrics & Gynaecology',
+      lead: 'Dr. Ahmed Shaker · Chairman',
+      specialty: 'Consultant Obstetrics & Gynaecology',
+      procedures: ['Obstetrics & Gynaecology', 'Infertility'],
     },
     {
-      dept: 'Orthopedics & Arthroplasty',
-      lead: 'Dr. Mohammed Hesham (CMD)',
-      specialty: 'Ain Shams University, Arthroplasty & Stem Cell BMAC',
-      procedures: ['Total Knee & Hip Replacement', 'Stem Cell Injections', 'Complex Trauma Reconstruction'],
+      dept: 'Orthopedic Surgery',
+      lead: 'Dr. Mohammed Hesham · CMD',
+      specialty: 'Consultant Orthopedic Surgery · Ain Shams University',
+      procedures: ['Arthroplasty', 'Hand surgeries', 'Foot and ankle surgeries', 'External fixation & deformities'],
     },
     {
-      dept: 'Emergency & Acute Trauma Care',
-      lead: 'Clinical Resuscitation Team',
-      specialty: '24/7 Rapid Triage & Dedicated Ambulance Unit',
-      procedures: ['Cardiopulmonary Resuscitation', 'Acute Trauma Stabilization', '24/7 Critical Triage'],
+      dept: 'Surgical Scope Listed for Dr. Wael Khalil',
+      lead: 'Dr. Wael Khalil · Bariatric Surgeon',
+      specialty: 'Scope listed in the supplied profile',
+      procedures: ['Laparoscopic surgeries', 'Bariatric surgeries', 'Oncology surgeries'],
     },
     {
-      dept: 'Kinetic Rehabilitation & Physiotherapy',
+      dept: 'Physical Therapy',
       lead: 'Dr. Bassam',
-      specialty: 'Specialized Neuromuscular & Post-Surgical Recovery',
-      procedures: ['Physiotherapy', 'Cupping', 'Acupuncture', 'BEMER Vascular Therapy'],
+      specialty: 'Scope listed in the supplied profile',
+      procedures: ['Physical therapy', 'Myofascial therapy', 'Cupping', 'Acupuncture', 'Neurological & musculoskeletal disorders'],
     },
     {
-      dept: 'General, Endoscopic & Laparoscopic Surgery',
-      lead: 'Dr. Wael',
-      specialty: 'General Surgeon',
-      procedures: ['General Surgery', 'Endoscopic Surgery', 'Laparoscopic Surgery', 'Bariatric & Plastic Surgery'],
+      dept: 'Outpatient Specialist Clinics',
+      lead: 'Services listed in the profile',
+      specialty: 'Contact the hospital to confirm current clinic availability',
+      procedures: ['Cardiology', 'Neurology', 'Nephrology', 'Gastroenterology', 'Endocrinology', 'Family Medicine', 'Tropical Medicine'],
     },
     {
-      dept: 'Pharmaceutical Distribution',
-      lead: 'Alexandria Pharmacy Ltd.',
-      specialty: 'Alexandria Pharmacy Ltd. & Skinic Clinic',
-      procedures: ['Egyptian & European Formulations', 'Aseptic Compounding', 'Specialty Therapeutics'],
+      dept: 'Emergency & Ambulance',
+      lead: 'Services listed in the profile',
+      specialty: 'Call to confirm current availability',
+      procedures: ['Emergency Department', 'Ambulance Service'],
     },
     {
-      dept: 'Medical Tourism & International Liaison',
-      lead: 'Mr. Mohammed Fadl',
-      specialty: 'Rahma Travel & Al-Azhar Financial Strategy',
-      procedures: ['Direct Cairo Hospital Pipelines', 'Medical Travel Coordination', 'Consular Expedited Visas'],
+      dept: 'Diagnostics & Pharmacy',
+      lead: 'Services listed in the profile',
+      specialty: 'Contact the hospital to confirm availability',
+      procedures: ['Laboratory', 'X-Ray', 'Ultrasound', 'Pharmacy'],
+    },
+    {
+      dept: 'Medical Tourism',
+      lead: 'Support services listed in the profile',
+      specialty: 'Contact the hospital to confirm current arrangements',
+      procedures: ['Visa provision', 'Tickets', 'Accommodation', 'Transport', 'Medical plan', 'Representative follow-up'],
     },
   ];
 
@@ -87,34 +93,34 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
     <div className="space-y-16 sm:space-y-24 pb-20">
       {/* Subpage Hero */}
       <SubpageHero
-        badge="Distinguished Medical Board"
+        badge="Medical & Administrative Team"
         badgeIcon={<Users className="w-4 h-4 text-[#013777]" />}
-        title="Decades of Surgical Mastery,"
-        highlightedText="International Accreditation."
-        description="Led by Founder & Chairman Dr. Ahmed Shaker and our specialist clinical team, Cairo Hospital in Abuja unites Royal College fellowships with over fifty years of dedicated healthcare stewardship in Nigeria."
+        title="Clinical & Administrative Team,"
+        highlightedText="Cairo Hospital Abuja."
+        description="The supplied profile lists Dr. Ahmed Shaker as Chairman, Dr. Mohammed Hesham as CMD and Consultant Orthopedic Surgery, Dr. Wael Khalil as Bariatric Surgeon, and Dr. Bassam under Physical Therapy. Confirm current clinician and appointment availability directly with Cairo Hospital."
         breadcrumbs={[{ label: 'Our Medical Team' }]}
         onNavigateHome={onNavigateHome}
         onOpenWhatsAppBooking={() => onOpenWhatsAppBooking()}
         stats={[
-          { label: 'Nigerian Presence', value: '50+ Yrs' },
-          { label: 'Royal College MRCOG', value: 'Fellows' },
-          { label: 'Specialist Theaters', value: '100% Sterile' },
-          { label: 'Patient Reviews', value: '5-Star' },
+          { label: 'Chairman’s work in Nigeria', value: 'Since 1970' },
+          { label: 'Hospitals managed', value: '130+' },
+          { label: 'Cairo Hospital established', value: '2019' },
+          { label: 'Services listed in profile', value: '22' },
         ]}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-20">
-        {/* Exclusive Flagship Section #1: Founder & Chairman Dr. Ahmed Shaker */}
+        {/* Chairman Dr. Ahmed Shaker */}
         <section className="space-y-8">
           <Reveal variant="up" className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-bold text-[#013777] tracking-wide">
-              Office of the Founder & Chairman
+              Office of the Chairman
             </span>
             <h2 className="text-2xl sm:text-4xl font-black text-[#061a33] tracking-tight [text-wrap:balance]">
-              Hospital Founder & Chairman of the Board
+              Chairman of Cairo Hospital
             </h2>
             <p className="text-sm text-[#1e293b] font-medium">
-              Over half a century of visionary healthcare leadership in Nigeria, anchoring Cairo Hospital’s clinical ethics and international surgical standards.
+              The supplied profile notes that Dr. Ahmed Shaker worked in Nigeria from 1970 and served as NEPA Medical Director from 1970 to 1991.
             </p>
           </Reveal>
 
@@ -135,7 +141,7 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                     <div className="photo-caption absolute bottom-0 inset-x-0 p-4 sm:p-5 flex items-end justify-between gap-3">
                       <div>
                         <div className="text-[11px] font-bold !text-[#fdc33e] tracking-wide">
-                          Founder & {chairman.role}
+                          {chairman.role}
                         </div>
                         <div className="text-lg sm:text-xl font-black !text-white leading-snug">
                           {chairman.name}
@@ -150,11 +156,11 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                 <div className="lg:col-span-8 space-y-6">
                   <div className="space-y-2">
                     <div className="flex flex-wrap items-center gap-2 text-xs font-bold tracking-wide !text-[#fdc33e]">
-                      <span>Founder & Chairman of the Board</span>
+                      <span>Chairman · Cairo Hospital</span>
                       <span className="text-white/40" aria-hidden="true">
                         ·
                       </span>
-                      <span className="!text-[#bae6fd]">MRCOG Fellow · Dublin</span>
+                      <span className="!text-[#bae6fd]">MRCOG · Ain Shams University</span>
                     </div>
 
                     <h3 className="text-3xl sm:text-4xl font-black !text-white tracking-tight leading-tight">
@@ -387,15 +393,15 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
             className="lg:col-span-7 relative min-h-[18rem] sm:min-h-[22rem] overflow-hidden rounded-[2rem] border border-slate-200 shadow-xl bg-slate-100"
           >
             <img
-              src="/images/team/care-team-2026.jpg"
-              alt="Cairo Hospital care team standing together at the hospital"
+              src="/images/delegation/cairo-hospital-team-visit.jpg"
+              alt="Cairo Hospital team photo from the supplied profile"
               loading="lazy"
               decoding="async"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#011633]/65 via-transparent to-transparent" />
             <figcaption className="photo-caption absolute bottom-4 left-4 right-4 !text-white text-sm font-bold drop-shadow-md">
-              The people behind your care at Cairo Hospital Abuja
+              Team photograph from the supplied hospital profile
             </figcaption>
           </Reveal>
           <Reveal variant="right" delay={100} className="lg:col-span-5 flex">
@@ -405,10 +411,10 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                 <span>Cairo Hospital Care Team</span>
               </span>
               <h2 id="care-team-photo-title" className="text-2xl sm:text-3xl font-black tracking-tight text-[#092545]">
-                A team patients can meet and trust.
+                Team and Institutional Photographs
               </h2>
               <p className="text-sm leading-relaxed text-[#2d435e]">
-                Inside Cairo Hospital in Garki 2, Abuja, our physicians, rehabilitation specialists, and nursing staff coordinate every inpatient and outpatient journey with attentive care.
+                The supplied profile includes photographs of hospital representatives and the team. Contact Cairo Hospital to confirm current departments, clinicians, and appointment availability.
               </p>
             </div>
           </Reveal>
@@ -418,13 +424,13 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
         <section className="space-y-10">
           <Reveal variant="up" className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-black uppercase tracking-widest text-[#013777]">
-              Specialist Governance
+              Profile-Listed Departments & Scope
             </span>
             <h2 className="text-2xl sm:text-4xl font-black text-[#092545] tracking-tight">
-              Clinical Departments & Specialist Leads
+              Services & Named Clinical Scopes
             </h2>
             <p className="text-sm text-[#2d435e]">
-              Our specialized divisions operate under synchronized protocols ensuring comprehensive inpatient and outpatient continuity.
+              The entries below reproduce departments, clinician names, and service scopes listed in the supplied profile. Contact the hospital to confirm current availability.
             </p>
           </Reveal>
 
@@ -437,7 +443,7 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                       0{idx + 1}
                     </div>
                     <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
-                      Active Unit
+                      Profile Listing
                     </span>
                   </div>
 
@@ -449,7 +455,7 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
 
                   <div className="space-y-1.5 pt-2 border-t border-slate-100">
                     <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                      Core Procedures:
+                      Services & Scope Listed:
                     </div>
                     <ul className="space-y-1">
                       {dept.procedures.map((proc, pIdx) => (
@@ -471,32 +477,32 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
           <section className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200/90 bg-gradient-to-br from-white via-sky-50/40 to-slate-50 shadow-lg space-y-8">
             <div className="max-w-3xl space-y-3">
               <span className="text-xs font-black uppercase tracking-widest text-[#013777]">
-                Academic Pedigree
+                Backgrounds Named in the Profile
               </span>
               <h2 className="text-2xl sm:text-3xl font-black text-[#092545] tracking-tight">
-                Trained in the Finest Medical Faculties of Egypt & The UK
+                Education & Professional Background
               </h2>
               <p className="text-xs sm:text-sm text-[#2d435e] leading-relaxed">
-                Our clinicians hold degrees and fellowships from historic medical institutions renowned worldwide for surgical innovation, academic rigor, and patient ethics.
+                The supplied profile names Ain Shams University, the entry “ACC. AZHAR UNIVERSITY,” Cairo University, and Dr. Ahmed Shaker’s MRCOG qualification. Descriptions below retain the source wording where relevant.
               </p>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-1">
-                <div className="text-sm font-black text-[#092545]">MRCOG Dublin</div>
-                <div className="text-[11px] text-slate-500">Royal College of Obstetricians & Gynaecologists</div>
+                <div className="text-sm font-black text-[#092545]">MRCOG</div>
+                <div className="text-[11px] text-slate-500">Profile wording: “member of the Royal College of Surgeons in Dublin”</div>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-1">
                 <div className="text-sm font-black text-[#092545]">Ain Shams University</div>
-                <div className="text-[11px] text-slate-500">Faculty of Medicine, Cairo, Egypt</div>
+                <div className="text-[11px] text-slate-500">Named in the profiles of Dr. Ahmed Shaker and Dr. Mohammed Hesham</div>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-1">
-                <div className="text-sm font-black text-[#092545]">Al-Azhar University</div>
-                <div className="text-[11px] text-slate-500">Faculty of Commerce & Health Management</div>
+                <div className="text-sm font-black text-[#092545]">“ACC. AZHAR UNIVERSITY”</div>
+                <div className="text-[11px] text-slate-500">Source wording shown for Mr. Mohammed Fadl</div>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-1">
                 <div className="text-sm font-black text-[#092545]">Cairo University</div>
-                <div className="text-[11px] text-slate-500">Faculty of Science & Sustainable Energy</div>
+                <div className="text-[11px] text-slate-500">Faculty of Science · Mr. Bassem Makhlouf</div>
               </div>
             </div>
           </section>
@@ -512,10 +518,10 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                   Chairman’s Clinical Consultation
                 </span>
                 <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight !text-white [text-wrap:balance]">
-                  Consult Directly with Founder & Chairman Dr. Ahmed Shaker
+                  Request a Consultation with Dr. Ahmed Shaker
                 </h3>
                 <p className="text-xs sm:text-sm !text-sky-100/95 leading-relaxed max-w-2xl">
-                  Schedule an in-person consultation in Garki 2, Abuja or a preliminary clinical review via WhatsApp with our Founder & Chairman, Dr. Ahmed Shaker, or connect with our 24/7 clinical desk.
+                  Send an appointment request to arrange an in-person consultation in Garki 2, Abuja or ask the coordination desk to confirm clinic availability.
                 </p>
                 <div className="pt-2 flex flex-wrap gap-3.5">
                   <button
@@ -548,13 +554,13 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                   />
                   <div className="min-w-0 space-y-0.5">
                     <div className="text-[11px] font-bold !text-[#fdc33e]">
-                      Founder & Chairman
+                      Chairman
                     </div>
                     <div className="text-base font-black !text-white truncate">
                       {chairman.name}
                     </div>
                     <div className="text-[11px] !text-[#bae6fd] truncate">
-                      MRCOG Dublin · Ain Shams
+                      MRCOG · Ain Shams University
                     </div>
                     <div className="text-[11px] !text-sky-100 truncate">
                       Open Official Dossier →

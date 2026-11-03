@@ -47,7 +47,7 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
 
             <p className="text-xs text-sky-100 leading-relaxed font-medium">
-              The first Egyptian-led hospital founded in Abuja in 2019, carrying forward five decades of healthcare leadership in Nigeria since 1971. International multi-specialties care, advanced orthopedic surgery, and global medical tourism.
+              Cairo Hospital was established in Abuja in 2019 by a group of Egyptian doctors and administrators. Its current profile lists multispecialty care, surgery, rehabilitation, diagnostics, pharmacy, and medical-tourism services.
             </p>
 
             <div className="space-y-1.5 text-xs text-sky-100 pt-1 font-medium">
@@ -68,7 +68,7 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-2 text-xs">
               {[
                 ['about', 'About Us & 4 Pillars'],
-                ['services', '22 Medical Specialties'],
+                ['services', 'Medical Services Directory'],
                 ['team', 'Executive Medical Team'],
                 ['contact', 'Campus Location & Contact'],
                 ['booking', 'Direct WhatsApp Scheduling'],
@@ -92,12 +92,14 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             <ul className="space-y-1.5 text-xs text-sky-100 font-medium">
               <li>• Orthopedics & Orthobiologics</li>
-              <li>• Physiotherapy, Cupping & Acupuncture</li>
-              <li>• Obstetrics, Antenatal & Infertility</li>
-              <li>• General, Endoscopic & Laparoscopic Surgery</li>
-              <li>• Family, Tropical & Herbal Medicine</li>
-              <li>• X-Ray, Ultrasound & Laboratory</li>
-              <li>• Pharmacy & Ambulance Services</li>
+              <li>• Physical & Myofascial Therapy, Cupping, Acupuncture</li>
+              <li>• Obstetrics, Gynaecology & Infertility</li>
+              <li>• General, Bariatric, Laparoscopic, Oncology & Urosurgery</li>
+              <li>• Cardiology, Neurology & Nephrology</li>
+              <li>• Gastroenterology & Endocrinology</li>
+              <li>• Family & Tropical Medicine</li>
+              <li>• Outpatient Clinics, Emergency & Ambulance</li>
+              <li>• X-Ray, Laboratory & Pharmacy</li>
               <li>• Medical Tourism</li>
             </ul>
           </Reveal>
@@ -142,18 +144,14 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom Bar */}
         <Reveal variant="fade" delay={180} className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs border-t border-white/10">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="flex items-center gap-1.5 text-[#fdc33e] font-bold">
-              <ShieldCheck className="w-4 h-4 text-[#fdc33e]" />
-              NHIS Accredited
-            </span>
+            <span className="text-sky-100 font-semibold">Accreditation: NHIS · FCDA Health Department · African Union</span>
             <span className="text-sky-400">·</span>
-            <span className="text-sky-100 font-semibold">FCDA Certified</span>
-            <span className="text-sky-400">·</span>
-            <span className="text-sky-100 font-semibold">African Union, UN & UNICEF Enrolled</span>
+            <span className="text-sky-100 font-semibold">Enrolled: Alamida · Zenith Medica · Cleopatra · NNPH · Push Africa NGO · ASRIC</span>
           </div>
 
           <div className="text-sky-100 font-medium">
-            © {new Date().getFullYear()} Cairo Hospital Abuja. All rights reserved.
+            <span>© {new Date().getFullYear()} Cairo Hospital Abuja. All rights reserved.</span>
+            <span className="text-sky-300">Version 0.0.1</span>
           </div>
         </Reveal>
       </div>

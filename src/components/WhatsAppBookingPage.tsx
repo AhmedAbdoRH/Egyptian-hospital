@@ -41,10 +41,9 @@ export const WhatsAppBookingPage: React.FC<WhatsAppBookingPageProps> = ({
     patientName: '',
     patientPhone: '',
     specialty: preselectedSpecialty || 'Orthopedic Surgery',
-    doctorPreference:
-      preselectedDoctor || 'Dr. Ahmed Shaker (Chairman - Obstetrics & Gyn)',
+    doctorPreference: preselectedDoctor || 'First Available Consultant',
     preferredDate: '',
-    preferredTime: '09:00 AM - Morning',
+    preferredTime: 'No preference',
     visitType: 'consultation',
     complaint: '',
   });
@@ -69,10 +68,10 @@ export const WhatsAppBookingPage: React.FC<WhatsAppBookingPageProps> = ({
         matchedOption = 'Dr. Mohammed Hesham (CMD - Orthopedic Surgery)';
         if (!preselectedSpecialty) matchedSpecialty = 'Orthopedic Surgery';
       } else if (normalized.includes('bassam')) {
-        matchedOption = 'Dr. Bassam (Physiotherapy, Cupping & Acupuncture)';
+        matchedOption = 'Dr. Bassam (Physical Therapy, Myofascial Therapy, Cupping & Acupuncture)';
         if (!preselectedSpecialty) matchedSpecialty = 'Physiotherapy';
       } else if (normalized.includes('wael')) {
-        matchedOption = 'Dr. Wael (General Surgery)';
+        matchedOption = 'Dr. Wael Khalil (Bariatric, Laparoscopic & Oncology Surgeries)';
         if (!preselectedSpecialty) matchedSpecialty = 'General Surgery';
       }
 
@@ -231,17 +230,17 @@ _Sent via Cairo Hospital Official Website_`;
                 <option value="Dr. Mohammed Hesham (CMD - Orthopedic Surgery)" className="text-[#092545]">
                   Dr. Mohammed Hesham (CMD - Orthopedic Surgery)
                 </option>
-                <option value="Dr. Bassam (Physiotherapy, Cupping & Acupuncture)" className="text-[#092545]">
-                  Dr. Bassam (Physiotherapy, Cupping & Acupuncture)
+                <option value="Dr. Bassam (Physical Therapy, Myofascial Therapy, Cupping & Acupuncture)" className="text-[#092545]">
+                  Dr. Bassam (Physical Therapy, Myofascial Therapy, Cupping & Acupuncture)
                 </option>
-                <option value="Dr. Wael (General Surgery)" className="text-[#092545]">
-                  Dr. Wael (General Surgery)
+                <option value="Dr. Wael Khalil (Bariatric, Laparoscopic & Oncology Surgeries)" className="text-[#092545]">
+                  Dr. Wael Khalil (Bariatric, Laparoscopic & Oncology Surgeries)
                 </option>
                 <option value="Chief Medical Director Clinical Team" className="text-[#092545]">
                   Chief Medical Director Clinical Team
                 </option>
-                <option value="Alexandria Pharmacy Consultation" className="text-[#092545]">
-                  Alexandria Pharmacy Consultation
+                <option value="Cairo Hospital Pharmacy Department Inquiry" className="text-[#092545]">
+                  Cairo Hospital Pharmacy Department Inquiry
                 </option>
               </select>
             </div>
@@ -270,14 +269,12 @@ _Sent via Cairo Hospital Official Website_`;
                 onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
                 className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-[#092545] text-sm focus:outline-none focus:ring-2 focus:ring-[#013777] focus:bg-white transition-all font-medium"
               >
-                <option value="09:00 AM - Morning">09:00 AM - Morning</option>
-                <option value="11:00 AM - Morning">11:00 AM - Morning</option>
-                <option value="01:00 PM - Afternoon">01:00 PM - Afternoon</option>
-                <option value="03:30 PM - Afternoon">03:30 PM - Afternoon</option>
-                <option value="05:30 PM - Evening">05:30 PM - Evening</option>
-                <option value="07:30 PM - Evening">07:30 PM - Evening</option>
-                <option value="Urgent - Today">Urgent - Today</option>
+                <option value="No preference">No preference</option>
+                <option value="Morning preference">Morning preference</option>
+                <option value="Afternoon preference">Afternoon preference</option>
+                <option value="Evening preference">Evening preference</option>
               </select>
+              <p className="mt-1.5 text-[11px] text-slate-500">This is a time preference only; the hospital will confirm availability.</p>
             </div>
 
             <div>

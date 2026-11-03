@@ -129,42 +129,42 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
   const clinicalPathway = [
     {
       step: '01',
-      title: 'Triage & Specialist Consultation',
-      desc: 'Rapid intake by medical officers followed by in-depth evaluation with Royal College & Ain Shams specialist consultants.',
+      title: 'Contact & Availability',
+      desc: 'Call or message the hospital to confirm the service, clinic schedule, and consultant availability.',
     },
     {
       step: '02',
-      title: 'High-Resolution Diagnostics',
-      desc: 'Digital X-ray imaging, 2D/3D ultrasonography, and rapid clinical lab panels performed on-site within minutes.',
+      title: 'Diagnostics Listed in the Profile',
+      desc: 'The profile lists a fully equipped laboratory diagnostic department, digital X-ray, and ultrasound. Contact the hospital to confirm arrangements.',
     },
     {
       step: '03',
-      title: 'Tailored Intervention Protocol',
-      desc: 'Formulation of targeted surgical interventions, regenerative orthobiologic cell therapy, or focused medical management.',
+      title: 'Clinical Consultation',
+      desc: 'The treating clinician can discuss appropriate options after reviewing the patient’s individual needs. The service list does not guarantee suitability or availability.',
     },
     {
       step: '04',
-      title: 'Kinetic Rehabilitation & Follow-up',
-      desc: 'Structured physiotherapy in our Cairo Rehabilitation Centre gym, continuous follow-up, and dedicated WhatsApp patient support.',
+      title: 'Next Steps & Follow-up',
+      desc: 'Confirm the agreed plan and any follow-up arrangements with the hospital team before travel or treatment.',
     },
   ];
 
   const serviceFaqs = [
     {
       q: 'How quickly can I book a specialist consultation?',
-      a: 'Through our dedicated WhatsApp booking desk, appointments are scheduled within minutes for either same-day emergency reviews or preferred specialist consultation clinic days.',
+      a: 'Use the hospital phone or WhatsApp contact to request an appointment. The coordination team must confirm current clinic and consultant availability; no response or booking time is stated in the profile.',
     },
     {
       q: 'Do you offer non-surgical alternatives for knee and joint arthritis?',
-      a: 'Yes. Our advanced Orthobiologics unit provides Stem Cell Regenerative Therapy, Bone Marrow Aspirate Concentrate (BMAC), Platelet-Rich Plasma (PRP), and Prolotherapy injections designed to regenerate cartilage and defer or prevent joint replacement.',
+      a: 'The profile lists stem-cell regenerative therapy, prolotherapy, PRP, and BMAC under orthobiologics for musculoskeletal degenerative or traumatic disorders. Discuss suitability, evidence, alternatives, and risks with a qualified clinician.',
     },
     {
       q: 'What should I bring for my first medical consultation?',
-      a: 'Please bring any prior MRI/X-ray films, lab results, current medication lists, and your national ID or HMO card if enrolled under a partner health maintenance organization.',
+      a: 'The profile does not specify a required document list. Contact the hospital before your visit to confirm what to bring and whether existing medical records can be shared.',
     },
     {
       q: 'How does Cairo Hospital facilitate medical tourism to Egypt?',
-      a: 'Under the coordination of our Medical Tourism office and Rahma Travel Agency, we arrange complete overseas clinical referrals to premier teaching hospitals and specialty centers in Cairo and worldwide, managing medical visas, travel, and follow-up back in Abuja.',
+      a: 'The hospital profile lists Dubai, the UK, Nigeria, Egypt, the USA, and Turkey as medical-tourism destinations, with support for visas, flights, accommodation, transportation, a medical plan, and representative follow-up until the patient returns to Nigeria.',
     },
   ];
 
@@ -172,19 +172,19 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
     <div className="space-y-16 sm:space-y-24 pb-20">
       {/* Subpage Hero */}
       <SubpageHero
-        badge="Tertiary Healthcare Directory"
+        badge="Services in the Supplied Profile"
         badgeIcon={<Activity className="w-4 h-4 text-[#013777]" />}
-        title="Comprehensive Medical Services,"
-        highlightedText="Pioneering Care in Abuja."
-        description="Explore our full directory of clinical specialties—ordered from Orthopedics, Orthobiologics, and Physiotherapy to Obstetrics & Gynaecology, General Surgery, Family & Herbal Medicine, Diagnostics, and Medical Tourism."
+        title="Medical Services & Specialties,"
+        highlightedText="As Listed in Abuja."
+        description="Explore the services listed in the current hospital profile, including outpatient clinics, cardiology, neurology, nephrology, gastroenterology, endocrinology, orthopedics, surgery, physical therapy, diagnostics, pharmacy, and medical tourism."
         breadcrumbs={[{ label: 'Services & Specialties' }]}
         onNavigateHome={onNavigateHome}
         onOpenWhatsAppBooking={onOpenWhatsAppBooking}
         stats={[
-          { label: 'Medical Specialties', value: '22+' },
-          { label: 'Emergency & Ambulance', value: '24/7' },
-          { label: 'Diagnostic Lab', value: '100% In-House' },
-          { label: 'Consultant Ratio', value: '100% Senior' },
+          { label: 'Core Services (p.16)', value: '22' },
+          { label: 'Emergency & Ambulance', value: 'Listed' },
+          { label: 'Diagnostics', value: '3 listed' },
+          { label: 'Booking Requests', value: 'WhatsApp' },
         ]}
       />
 

@@ -15,13 +15,13 @@ export const AccreditationSection: React.FC = () => {
         <Reveal variant="up" className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#fdc33e]/15 border border-[#fdc33e]/40 text-xs font-bold text-[#8c6000] uppercase tracking-wider">
             <Award className="w-4 h-4 text-[#b87c08]" />
-            <span>Official Recognition & Regulatory Trust</span>
+            <span>As Listed in the Supplied Profile</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-black text-[#092545] tracking-tight">
-            Accreditations & Enrolled Global Organizations
+            Accreditations & Enrolled Organizations
           </h2>
           <p className="text-xs sm:text-sm text-[#2d435e]">
-            Cairo Hospital meets rigorous national regulatory health standards and is the medical partner of choice for diplomatic missions, global organizations, and international corporate groups in Nigeria.
+            The profile separates the organisations listed under “Accreditation” from those listed under “Enrolled Organisations”. The names below follow those categories.
           </p>
         </Reveal>
 
@@ -35,7 +35,7 @@ export const AccreditationSection: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-black text-[#092545]">Accredited By</h3>
-                  <div className="text-xs text-[#013777] font-bold">National Healthcare Authorities</div>
+                  <div className="text-xs text-[#013777] font-bold">Names under “Accreditation”</div>
                 </div>
               </div>
 
@@ -67,7 +67,7 @@ export const AccreditationSection: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-black text-[#092545]">Enrolled Organizations</h3>
-                  <div className="text-xs text-teal-700 font-bold">International Agencies & Public Sector</div>
+                  <div className="text-xs text-teal-700 font-bold">Names under “Enrolled Organisations”</div>
                 </div>
               </div>
 

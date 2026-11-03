@@ -17,7 +17,7 @@ import {
   AlertTriangle,
 } from 'lucide-react';
 import { SubpageHero } from './SubpageHero';
-import { HOSPITAL_CONTACT } from '../../data/cairoHospitalData';
+import { HOSPITAL_CONTACT, MEDICAL_SERVICES } from '../../data/cairoHospitalData';
 import { Reveal } from '../ScrollReveal';
 
 interface ContactSubpageProps {
@@ -65,41 +65,59 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
 
   const departments = [
     {
-      name: 'Emergency & Ambulance Dispatch',
+      name: 'Emergency Department & Ambulance Services',
       phone: HOSPITAL_CONTACT.phone1,
-      hours: '24 Hours / 7 Days',
-      desc: 'Immediate resuscitation, acute trauma intake, and mobile ambulance call-out.',
+      hours: 'Call to confirm current availability',
+      desc: 'Emergency Department and ambulance services are listed in the hospital profile. Call the hospital to confirm immediate access and response arrangements.',
       urgent: true,
+    },
+    {
+      name: 'Specialist Outpatient Clinics',
+      phone: HOSPITAL_CONTACT.phone1,
+      hours: 'By appointment · confirm schedule',
+      desc: 'Contact the hospital to confirm current clinic and consultant availability.',
     },
     {
       name: 'Orthopedic & Arthroplasty Clinic',
       phone: HOSPITAL_CONTACT.phone1,
-      hours: 'Mon - Sat: 8:00 AM - 8:00 PM',
-      desc: 'Consultations with Dr. Mohammed Hesham and senior surgical team.',
+      hours: 'By appointment · confirm schedule',
+      desc: 'Contact the hospital to confirm consultation availability with Dr. Mohammed Hesham.',
     },
     {
       name: 'Obstetrics & Gynaecology Clinic',
-      phone: HOSPITAL_CONTACT.phone2,
-      hours: 'Mon - Sat: 9:00 AM - 6:00 PM',
-      desc: 'Antenatal reviews, fertility assessments with Dr. Ahmed Shaker (MRCOG).',
+      phone: HOSPITAL_CONTACT.phone1,
+      hours: 'By appointment · confirm schedule',
+      desc: 'Contact the hospital to arrange an appointment with Dr. Ahmed Shaker.',
+    },
+    {
+      name: 'Dr. Wael Khalil · Bariatric, Laparoscopic & Oncology Surgery',
+      phone: HOSPITAL_CONTACT.phone1,
+      hours: 'By appointment · confirm availability',
+      desc: 'Clinical scope listed in the current hospital profile; case-specific services are confirmed by the clinical team.',
+    },
+    {
+      name: 'Dr. Bassam · Physical Therapy & Myofascial Therapy',
+      phone: HOSPITAL_CONTACT.phone1,
+      hours: 'By appointment · confirm availability',
+      desc: 'Physical therapy, myofascial therapy, cupping, and acupuncture are listed in the hospital profile.',
     },
     {
       name: 'Diagnostic Laboratory & Digital X-Ray',
       phone: HOSPITAL_CONTACT.phone1,
-      hours: '24 Hours Daily',
-      desc: 'Urgent biochemistry, hematology, and emergency musculoskeletal imaging.',
+      hours: 'Call to confirm availability',
+      desc: 'Laboratory and digital X-ray services are listed in the hospital profile.',
     },
     {
-      name: 'Alexandria Pharmacy Ltd. Dispensary',
-      phone: HOSPITAL_CONTACT.phone2,
-      hours: '24 Hours Daily',
-      desc: 'Specialized inpatient and outpatient pharmaceutical resourcing.',
-    },
-    {
-      name: 'Medical Tourism & Overseas Liaison',
+      name: 'Cairo Hospital Pharmacy Department',
       phone: HOSPITAL_CONTACT.phone1,
-      hours: 'Mon - Fri: 9:00 AM - 5:00 PM',
-      desc: 'International hospital transfers and specialized referrals to Egypt.',
+      hours: 'Call to confirm opening hours',
+      desc: 'A pharmacy department is listed in the profile; contact the hospital to confirm hours and product availability.',
+    },
+    {
+      name: 'Medical Tourism',
+      phone: HOSPITAL_CONTACT.phone1,
+      hours: 'Contact the hospital for inquiries',
+      desc: 'Support for the destinations listed in the profile: Dubai, the UK, Nigeria, Egypt, the USA, and Turkey.',
     },
   ];
 
@@ -107,19 +125,19 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
     <div className="space-y-16 sm:space-y-24 pb-20">
       {/* Subpage Hero */}
       <SubpageHero
-        badge="Hospital Campus & 24/7 Triage Desk"
+        badge="Hospital Campus & Patient Coordination"
         badgeIcon={<MapPin className="w-4 h-4 text-[#013777]" />}
         title="Connect with Cairo Hospital,"
         highlightedText="Garki 2, Abuja."
-        description="Whether you require 24/7 emergency trauma dispatch, wish to schedule an outpatient consultation with our medical board, or need directions to our modern hospital campus, our coordination team is ready to assist you."
+        description="Contact Cairo Hospital for outpatient appointments, information about the Emergency Department and ambulance services, or directions to the hospital campus in Garki 2, Abuja."
         breadcrumbs={[{ label: 'Contact Us' }]}
         onNavigateHome={onNavigateHome}
         onOpenWhatsAppBooking={onOpenWhatsAppBooking}
         stats={[
-          { label: 'Emergency Response', value: '24/7' },
-          { label: 'Ambulance Ready', value: 'Instant' },
+          { label: 'Emergency Department', value: 'Listed' },
+          { label: 'Ambulance Services', value: 'Listed' },
           { label: 'Garki 2 Campus', value: '16 Oke Agbe' },
-          { label: 'WhatsApp Desk', value: 'Under 15m' },
+          { label: 'Appointment Requests', value: 'WhatsApp' },
         ]}
       />
 
@@ -135,12 +153,12 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                 </div>
                 <div className="space-y-1">
                   <span className="text-[10px] font-black uppercase tracking-wider text-rose-700 bg-rose-100 px-2 py-0.5 rounded-md">
-                    Emergency Line 24/7
+                    Emergency & Ambulance Services
                   </span>
-                  <h3 className="text-base font-black text-[#092545]">Acute Trauma Desk</h3>
+                  <h3 className="text-base font-black text-[#092545]">Emergency Department</h3>
                 </div>
                 <p className="text-xs text-[#1e293b] font-medium">
-                  Immediate triage, medical personnel on-site, and dedicated ambulance call-out.
+                  Emergency Department and ambulance services are listed in the hospital profile. Call to confirm current access and availability.
                 </p>
               </div>
               <a
@@ -198,12 +216,12 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                 </div>
                 <div className="space-y-1">
                   <span className="text-[10px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md">
-                    Instant Messaging
+                    WhatsApp Inquiry
                   </span>
                   <h3 className="text-base font-black text-[#092545]">WhatsApp Portal</h3>
                 </div>
                 <p className="text-xs text-[#1e293b] font-medium">
-                  Fastest way to book consultations, verify doctor schedules, and ask clinical questions.
+                  Use WhatsApp to request an appointment or ask a general service question. Response times may vary.
                 </p>
               </div>
               <a
@@ -227,18 +245,19 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                 </div>
                 <div className="space-y-1">
                   <span className="text-[10px] font-black uppercase tracking-wider text-slate-700 bg-slate-100 px-2 py-0.5 rounded-md">
-                    Working Hours
+                    Service Availability
                   </span>
-                  <h3 className="text-base font-black text-[#092545]">Hospital Schedule</h3>
+                  <h3 className="text-base font-black text-[#092545]">Confirm Before Visiting</h3>
                 </div>
                 <div className="text-xs text-[#1e293b] space-y-1 font-medium">
-                  <div><span className="font-bold text-[#092545]">Emergency & Inpatient:</span> 24/7/365</div>
-                  <div><span className="font-bold text-[#092545]">Outpatient Clinics:</span> 8am - 9pm</div>
-                  <div><span className="font-bold text-[#092545]">Pharmacy & Lab:</span> Open 24 Hours</div>
+                  <div><span className="font-bold text-[#092545]">Emergency Department & Ambulance:</span> Call to confirm availability</div>
+                  <div><span className="font-bold text-[#092545]">Outpatient Clinics:</span> Call to confirm schedules</div>
+                  <div><span className="font-bold text-[#092545]">Pharmacy:</span> Call to confirm opening hours</div>
+                  <div><span className="font-bold text-[#092545]">Laboratory & diagnostics:</span> Call to confirm availability</div>
                 </div>
               </div>
               <div className="py-2.5 px-3 rounded-xl bg-slate-100 text-center text-xs font-black text-slate-800 border border-slate-200">
-                Always Open for Critical Care
+                Call ahead to confirm current service availability
               </div>
             </div>
           </Reveal>
@@ -281,24 +300,24 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200/60">
                   <Car className="w-5 h-5 text-[#013777] shrink-0" />
                   <div>
-                    <div className="text-xs font-bold text-[#092545]">Free Parking</div>
-                    <div className="text-[10px] text-slate-500">Secure 24/7 guarded parking</div>
+                    <div className="text-xs font-bold text-[#092545]">Visitor Parking</div>
+                    <div className="text-[10px] text-slate-500">Contact the hospital to confirm arrangements</div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200/60">
                   <Accessibility className="w-5 h-5 text-teal-600 shrink-0" />
                   <div>
-                    <div className="text-xs font-bold text-[#092545]">Wheelchair Ramp</div>
-                    <div className="text-[10px] text-slate-500">Ground-floor step-free access</div>
+                    <div className="text-xs font-bold text-[#092545]">Accessibility Information</div>
+                    <div className="text-[10px] text-slate-500">Contact the hospital to confirm access arrangements</div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200/60">
                   <ShieldCheck className="w-5 h-5 text-indigo-600 shrink-0" />
                   <div>
-                    <div className="text-xs font-bold text-[#092545]">Emergency Bay</div>
-                    <div className="text-[10px] text-slate-500">Dedicated ambulance entrance</div>
+                    <div className="text-xs font-bold text-[#092545]">Emergency & Ambulance</div>
+                    <div className="text-[10px] text-slate-500">Listed in the profile; call to confirm availability</div>
                   </div>
                 </div>
               </div>
@@ -318,7 +337,7 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                 </div>
                 <h3 className="text-xl font-black text-[#092545]">Send an Official Inquiry</h3>
                 <p className="text-xs text-[#2d435e]">
-                  Your message will be formatted and routed straight to our patient coordination desk on WhatsApp for prompt response.
+                  Your message will open in WhatsApp. Response times may vary; call directly for urgent inquiries.
                 </p>
               </div>
 
@@ -361,12 +380,9 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                     className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm text-[#092545] focus:ring-2 focus:ring-[#013777] outline-none bg-white cursor-pointer"
                   >
                     <option value="General Inquiries & Appointments">General Inquiries & Appointments</option>
-                    <option value="Orthopedic Surgery & Arthroplasty">Orthopedic Surgery & Arthroplasty</option>
-                    <option value="Orthobiologics & Stem Cell Therapy">Orthobiologics & Stem Cell Therapy</option>
-                    <option value="Obstetrics & Gynaecology (Dr. Shaker)">Obstetrics & Gynaecology (Dr. Shaker)</option>
-                    <option value="Emergency Ambulance Dispatch">Emergency Ambulance Dispatch</option>
-                    <option value="Alexandria Pharmacy Resourcing">Alexandria Pharmacy Resourcing</option>
-                    <option value="Medical Tourism Referral to Egypt">Medical Tourism Referral to Egypt</option>
+                    {MEDICAL_SERVICES.map((service) => (
+                      <option key={service.id} value={service.title}>{service.title}</option>
+                    ))}
                   </select>
                 </div>
 
@@ -431,7 +447,7 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                       <span className="text-xs font-bold text-[#013777]">{dept.hours}</span>
                       {dept.urgent && (
                         <span className="text-[10px] font-bold text-rose-700 bg-rose-100 px-2 py-0.5 rounded-md">
-                          24/7 Priority
+                          Call to confirm
                         </span>
                       )}
                     </div>

@@ -16,7 +16,8 @@ export type ServiceDepartmentId =
   | 'physiotherapy'
   | 'obgyn'
   | 'general-surgery'
-  | 'medicine-herbal'
+  | 'specialist-clinics'
+  | 'family-tropical'
   | 'diagnostics-support';
 
 export interface MedicalService {

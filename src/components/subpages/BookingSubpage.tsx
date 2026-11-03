@@ -39,10 +39,10 @@ export const BookingSubpage: React.FC<BookingSubpageProps> = ({
   const [formData, setFormData] = useState<WhatsAppBookingPayload>({
     patientName: '',
     patientPhone: '',
-    specialty: preselectedSpecialty || 'Orthopedic Surgery & Arthroplasty',
-    doctorPreference: preselectedDoctor || 'Dr. Mohammed Hesham (CMD - Orthopedic Surgery)',
+    specialty: preselectedSpecialty || 'Orthopedic Surgery',
+    doctorPreference: preselectedDoctor || 'First Available Consultant',
     preferredDate: '',
-    preferredTime: 'Morning (9:00 AM - 12:00 PM)',
+    preferredTime: 'No preference',
     visitType: 'consultation',
     complaint: '',
   });
@@ -67,10 +67,10 @@ export const BookingSubpage: React.FC<BookingSubpageProps> = ({
         matchedOption = 'Dr. Mohammed Hesham (CMD - Orthopedic Surgery)';
         if (!preselectedSpecialty) matchedSpecialty = 'Orthopedic Surgery';
       } else if (normalized.includes('bassam')) {
-        matchedOption = 'Dr. Bassam (Physiotherapy, Cupping & Acupuncture)';
+        matchedOption = 'Dr. Bassam (Physical Therapy, Myofascial Therapy, Cupping & Acupuncture)';
         if (!preselectedSpecialty) matchedSpecialty = 'Physiotherapy';
       } else if (normalized.includes('wael')) {
-        matchedOption = 'Dr. Wael (General Surgery)';
+        matchedOption = 'Dr. Wael Khalil (Bariatric, Laparoscopic & Oncology Surgeries)';
         if (!preselectedSpecialty) matchedSpecialty = 'General Surgery';
       }
 
@@ -120,7 +120,7 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
   const bookingFaqs = [
     {
       q: 'How rapidly will the hospital coordinator reply on WhatsApp?',
-      a: 'Our patient coordination desk is active 24/7. During outpatient clinic hours (8:00 AM – 9:00 PM), response time is typically under 15 minutes to confirm consultant calendar slots.',
+      a: 'Send your request through WhatsApp and the coordination desk can confirm consultant availability, clinic hours, and appointment options. Response times may vary.',
     },
     {
       q: 'Can I send my previous MRI, CT scans, or laboratory reports via WhatsApp?',
@@ -128,7 +128,7 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
     },
     {
       q: 'What if I need immediate emergency medical attention?',
-      a: 'If you or your family member are experiencing acute chest pain, severe trauma, shortness of breath, or heavy bleeding, do not wait for chat replies. Call our 24/7 Emergency Line immediately at +234 909 865 6437 or proceed directly to our Emergency Bay at 16 Oke Agbe Street, Garki 2.',
+      a: 'The hospital profile lists an Emergency Department and ambulance services. For urgent care, contact Cairo Hospital by phone at +234 912 979 9999 or go to 16 Oke Agbe Street, Garki 2, Abuja. Do not wait for a WhatsApp response in a life-threatening emergency.',
     },
   ];
 
@@ -140,7 +140,7 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
         badgeIcon={<MessageCircle className="w-4 h-4 text-emerald-600" />}
         title="Direct Appointment Booking,"
         highlightedText="Straight to WhatsApp."
-        description="Schedule your consultation with Dr. Mohammed Hesham, Dr. Ahmed Shaker, or any of our 22 specialized hospital centers. Your request generates a structured clinical ticket dispatched directly to our on-duty patient coordinator in Abuja."
+        description="Request a consultation with Dr. Ahmed Shaker, Dr. Mohammed Hesham, Dr. Wael Khalil, Dr. Bassam, or one of the hospital’s listed specialist clinics. Your appointment request is formatted for the WhatsApp coordination desk in Abuja."
         breadcrumbs={[{ label: 'Direct WhatsApp Booking' }]}
         onNavigateHome={onNavigateHome}
         stats={[
@@ -250,17 +250,14 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
                       <option value="Dr. Ahmed Shaker (Chairman - MRCOG Obs & Gyn)">
                         Dr. Ahmed Shaker (Chairman - MRCOG Obs & Gyn)
                       </option>
-                      <option value="Dr. Bassam (Physiotherapy, Cupping & Acupuncture)">
-                        Dr. Bassam (Physiotherapy, Cupping & Acupuncture)
+                      <option value="Dr. Bassam (Physical Therapy, Myofascial Therapy, Cupping & Acupuncture)">
+                        Dr. Bassam (Physical Therapy, Myofascial Therapy, Cupping & Acupuncture)
                       </option>
-                      <option value="Dr. Wael (General Surgery)">
-                        Dr. Wael (General Surgery)
+                      <option value="Dr. Wael Khalil (Bariatric, Laparoscopic & Oncology Surgeries)">
+                        Dr. Wael Khalil (Bariatric, Laparoscopic & Oncology Surgeries)
                       </option>
-                      <option value="First Available Senior Consultant">
-                        First Available Senior Consultant
-                      </option>
-                      <option value="Cairo Rehabilitation Centre Physical Therapist">
-                        Cairo Rehabilitation Centre Physical Therapist
+                      <option value="First Available Consultant">
+                        First Available Consultant
                       </option>
                       <option value="Medical Tourism Overseas Coordination Desk">
                         Medical Tourism Overseas Coordination Desk
@@ -277,8 +274,8 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
                     {[
                       { id: 'consultation', label: 'Consultation' },
                       { id: 'surgery', label: 'Surgery / Arthroplasty' },
-                      { id: 'rehabilitation', label: 'Stem Cell / Rehab' },
-                      { id: 'medical-tourism', label: 'Overseas Referral' },
+                      { id: 'rehabilitation', label: 'Physical Therapy / Rehab' },
+                      { id: 'medical-tourism', label: 'Medical Tourism' },
                     ].map((type) => (
                       <button
                         type="button"
@@ -326,11 +323,12 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
                       onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm text-[#092545] focus:ring-2 focus:ring-[#013777] outline-none bg-white cursor-pointer"
                     >
-                      <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM - 12:00 PM)</option>
-                      <option value="Afternoon (12:00 PM - 3:00 PM)">Afternoon (12:00 PM - 3:00 PM)</option>
-                      <option value="Evening (3:00 PM - 7:00 PM)">Evening (3:00 PM - 7:00 PM)</option>
-                      <option value="Emergency / Immediate Triage">Emergency / Immediate Triage</option>
+                      <option value="No preference">No preference</option>
+                      <option value="Morning preference">Morning preference</option>
+                      <option value="Afternoon preference">Afternoon preference</option>
+                      <option value="Evening preference">Evening preference</option>
                     </select>
+                    <p className="mt-1.5 text-[11px] text-slate-500">This is a time preference only; the hospital will confirm availability.</p>
                   </div>
                 </div>
               </div>
@@ -427,10 +425,10 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
             <div className="p-5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 space-y-2">
               <div className="flex items-center gap-2 text-xs font-bold text-amber-800">
                 <AlertCircle className="w-4 h-4 text-amber-600" />
-                <span>Need Emergency Medical Assistance?</span>
+                <span>Emergency Department & Ambulance</span>
               </div>
               <p className="text-xs text-amber-700 leading-relaxed">
-                For life-threatening trauma or emergency resuscitation, call our 24/7 hotline directly at{' '}
+                These services are listed in the supplied profile. Call directly to confirm current access; do not wait for a WhatsApp reply in a life-threatening emergency. Hospital phone:{' '}
                 <a href={`tel:${HOSPITAL_CONTACT.phone1}`} className="font-bold underline text-amber-950">
                   {HOSPITAL_CONTACT.phone1}
                 </a>

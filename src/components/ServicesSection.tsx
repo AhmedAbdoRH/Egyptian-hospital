@@ -122,7 +122,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               Our Medical Services & Specialties
             </h2>
             <p className="text-sm sm:text-base text-[#1e293b] font-medium leading-relaxed">
-              From orthopedic surgery, stem cell orthobiologics, and physiotherapy to obstetrics & gynaecology, minimally invasive surgeries, diagnostics, and medical tourism.
+              Explore orthopedics and orthobiologics, physical therapy, obstetrics and gynaecology, general and urosurgery, cardiology, neurology, nephrology, gastroenterology, endocrinology, diagnostics, pharmacy, emergency services, and medical tourism.
             </p>
           </div>
         </Reveal>

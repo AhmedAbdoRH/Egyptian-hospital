@@ -48,7 +48,7 @@ Message: ${message}`;
             Contact Cairo Hospital Abuja
           </h2>
           <p className="text-sm sm:text-base text-[#2d435e] leading-relaxed">
-            Conveniently located in the central healthcare hub of Garki 2, Abuja. Our clinical reception, emergency ambulance dispatch, and patient coordinators are accessible 24/7.
+            Located in Garki 2, Abuja. The supplied hospital profile lists an Emergency Department and Ambulance Service; call the hospital directly to confirm current access and availability.
           </p>
         </Reveal>
 
@@ -70,27 +70,22 @@ Message: ${message}`;
             </div>
           </Reveal>
 
-          {/* Emergency Phones */}
+              {/* Hospital Phone */}
           <Reveal variant="up" delay={70} className="h-full">
             <div className="h-full glass-panel p-6 rounded-3xl border border-rose-200 space-y-3 glass-panel-hover bg-white/90 shadow-sm">
               <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 border border-rose-100 flex items-center justify-center">
                 <Phone className="w-6 h-6 text-rose-600" />
               </div>
-              <h3 className="text-base font-black text-[#092545]">Direct Phone Lines</h3>
+              <h3 className="text-base font-black text-[#092545]">Hospital Phone</h3>
               <div className="space-y-1 text-xs text-[#2d435e] font-mono font-bold">
                 <div>
                   <a href={`tel:${HOSPITAL_CONTACT.phone1}`} className="hover:text-[#013777] hover:underline">
                     {HOSPITAL_CONTACT.phone1}
                   </a>
                 </div>
-                <div>
-                  <a href={`tel:${HOSPITAL_CONTACT.phone2}`} className="hover:text-[#013777] hover:underline">
-                    {HOSPITAL_CONTACT.phone2}
-                  </a>
-                </div>
               </div>
               <div className="pt-2 text-[11px] font-bold text-rose-700">
-                24/7 Immediate Clinical Response
+                For emergency and ambulance access, call to confirm current availability
               </div>
             </div>
           </Reveal>
@@ -103,7 +98,7 @@ Message: ${message}`;
               </div>
               <h3 className="text-base font-black text-[#092545]">WhatsApp Desk</h3>
               <p className="text-xs text-[#2d435e] leading-relaxed">
-                Instant patient booking, report follow-ups, and overseas medical travel inquiries.
+                Appointment requests, report follow-ups, and medical-travel inquiries. Response times may vary.
               </p>
               <div className="pt-2">
                 <a
@@ -112,7 +107,7 @@ Message: ${message}`;
                   rel="noopener noreferrer"
                   className="text-xs font-bold text-emerald-700 hover:text-emerald-800 underline flex items-center gap-1"
                 >
-                  <span>Chat on WhatsApp (+234 909 865 6437)</span>
+                  <span>Chat on WhatsApp ({HOSPITAL_CONTACT.whatsappDisplay})</span>
                 </a>
               </div>
             </div>

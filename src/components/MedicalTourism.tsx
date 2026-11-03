@@ -52,7 +52,7 @@ export const MedicalTourism: React.FC<MedicalTourismProps> = ({
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
               <Globe2 className="w-4 h-4 text-[#013777]" />
-              <span>International Patient Services & Overseas Referral</span>
+              <span>Medical Travel Support Listed in the Profile</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-[#092545] tracking-tight">
               {MEDICAL_TOURISM_DETAILS.title}
@@ -63,12 +63,12 @@ export const MedicalTourism: React.FC<MedicalTourismProps> = ({
           </div>
         </Reveal>
 
-        {/* Global Destinations Grid */}
+        {/* Destinations listed in the profile */}
         <div className="space-y-4">
           <Reveal variant="up">
             <div className="text-xs font-bold uppercase tracking-wider text-[#013777] text-center flex items-center justify-center gap-2">
               <Plane className="w-4 h-4 text-[#0b5599]" />
-              <span>Key International Medical Destinations & Partner Hospitals</span>
+              <span>Medical-Tourism Destinations Listed in the Profile</span>
             </div>
           </Reveal>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
@@ -84,7 +84,7 @@ export const MedicalTourism: React.FC<MedicalTourismProps> = ({
           </div>
         </div>
 
-        {/* The 6 Turnkey Medical Tourism Services */}
+        {/* The six travel-support services listed in the profile */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {MEDICAL_TOURISM_DETAILS.services.map((srv, idx) => (
             <Reveal key={idx} variant="up" delay={(idx % 3) * 90} className="h-full">
@@ -109,9 +109,9 @@ export const MedicalTourism: React.FC<MedicalTourismProps> = ({
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
-                  <span>Handled by Tourism Desk</span>
+                  <span>Listed in supplied profile</span>
                   <span className="text-emerald-600 font-bold flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> Direct Support
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> Contact to confirm
                   </span>
                 </div>
               </div>
@@ -119,19 +119,19 @@ export const MedicalTourism: React.FC<MedicalTourismProps> = ({
           ))}
         </div>
 
-        {/* Post-Care Reassurance Banner */}
+        {/* Profile-listed travel follow-up */}
         <Reveal variant="scale">
           <div className="glass-panel-dark p-8 sm:p-10 rounded-3xl border border-sky-400/40 bg-gradient-to-r from-[#012654] via-[#013777] to-[#041d3d] flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl text-white">
             <div className="space-y-3 max-w-2xl">
               <div className="flex items-center gap-2 text-xs font-bold !text-[#fdc33e] uppercase tracking-wider">
                 <ShieldCheck className="w-4 h-4 !text-[#fdc33e]" />
-                <span>Full Continuity of Care (Pre & Post Travel)</span>
+                <span>Follow-up described in the profile</span>
               </div>
               <h4 className="text-xl sm:text-2xl font-black text-white">
-                Dedicated Medical Representatives Follow Your Entire Journey
+                Representative Follow-up Until Return to Nigeria
               </h4>
               <p className="text-xs sm:text-sm text-sky-100 leading-relaxed">
-                Our clinical commitment does not conclude when you board the plane. We coordinate your medical history before departure, liaise with overseas surgeons, and direct your post-operative rehabilitation at Cairo Rehabilitation Centre (CRC) in Abuja.
+                The supplied profile states that a representative follows up until the patient returns to Nigeria, with follow-up at Cairo Hospital after the return. Contact the hospital to confirm current arrangements.
               </p>
             </div>
 

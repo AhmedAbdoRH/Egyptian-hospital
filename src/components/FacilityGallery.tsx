@@ -34,13 +34,13 @@ export const FacilityGallery: React.FC = () => {
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
               <Building2 className="w-4 h-4 text-[#013777]" />
-              <span>Campus & Clinical Infrastructure</span>
+              <span>People & Clinical Practice</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-[#092545] tracking-tight">
-              Our Hospital Facilities & Advanced Equipment
+              Images from the Hospital Profile
             </h2>
             <p className="text-sm sm:text-base text-[#2d435e] leading-relaxed">
-              Take a visual tour inside Cairo Hospital and Cairo Rehabilitation Centre (CRC) in Garki 2, Abuja. Modern operating suites, private inpatient recovery rooms, physical therapy gyms, digital imaging, and rapid emergency units.
+              These photographs were extracted from the supplied Cairo Hospital profile. They show hospital representatives, the team, and the clinical scope featured in the profile; they are not a facilities or equipment inventory.
             </p>
           </div>
         </Reveal>

@@ -25,18 +25,20 @@ const SPECIALTIES = [
   'Orthopedic Surgery',
   'Orthobiologics',
   'Physiotherapy',
-  '24/7 Emergency Care',
+  'Emergency Department & Ambulance',
   'Medical Tourism',
 ];
 
 const TRUST_PARTNERS = [
-  'United Nations',
-  'African Union',
-  'UNICEF',
-  'NNPC',
-  'NHIS Accredited',
-  'FCDA Licensed',
-  'Alexandria Pharmacy Ltd.',
+  'Accreditation · NHIS',
+  'Accreditation · FCDA Health Department',
+  'Accreditation · African Union',
+  'Enrolled · Alamida',
+  'Enrolled · Zenith Medica',
+  'Enrolled · Cleopatra',
+  'Enrolled · NNPH',
+  'Enrolled · Push Africa NGO',
+  'Enrolled · ASRIC',
 ];
 
 /* ------------------------------------------------------------------ */
@@ -315,7 +317,7 @@ export const Hero: React.FC<HeroProps> = ({
                   <span className="ch-ring absolute inset-0 rounded-full bg-emerald-400" />
                   <span className="relative w-2 h-2 rounded-full bg-emerald-400" />
                 </span>
-                Egyptian medical heritage since 1971 · Abuja since 2019
+                Chairman’s work in Nigeria since 1970 · Cairo Hospital established in 2019
               </span>
             </div>
 
@@ -446,8 +448,8 @@ export const Hero: React.FC<HeroProps> = ({
                           <Plane className="w-5 h-5 text-sky-400 transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5" aria-hidden="true" />
                         </div>
                         <div>
-                          <div className="text-sm font-bold text-white">Medical Tourism Office</div>
-                          <div className="text-xs text-slate-400">Referrals & Specialized Care Abroad · Egypt · UK · UAE · USA</div>
+                          <div className="text-sm font-bold text-white">Medical Tourism</div>
+                          <div className="text-xs text-slate-400">Destinations listed: Dubai · UK · Nigeria · Egypt · USA · Turkey</div>
                         </div>
                       </div>
                       <ArrowRight className="w-4 h-4 text-sky-400 transition-transform group-hover:translate-x-1" />

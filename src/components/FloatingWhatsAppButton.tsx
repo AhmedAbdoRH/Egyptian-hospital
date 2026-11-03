@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {
   X,
-  Phone,
   PhoneCall,
   Calendar,
   Sparkles,
   ExternalLink,
   ChevronUp,
   MessageSquare,
+  Mail,
 } from 'lucide-react';
 import { HOSPITAL_CONTACT } from '../data/cairoHospitalData';
 
@@ -54,7 +54,7 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
 
   return (
     <aside
-      aria-label="24/7 Hospital Call & Help Desk"
+      aria-label="Cairo Hospital contact options"
       className="fixed bottom-6 left-6 z-[999999] flex flex-col items-start gap-3 select-none pointer-events-auto"
       style={{
         position: 'fixed',
@@ -79,11 +79,11 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
               </div>
               <div>
                 <h4 className="text-sm font-bold text-white tracking-wide">
-                  Cairo Hospital Helpline
+                  Cairo Hospital Contact
                 </h4>
                 <div className="text-[11px] !text-[#fdc33e] flex items-center gap-1.5 font-bold">
-                  <span className="w-2 h-2 rounded-full !bg-[#fdc33e] animate-pulse" />
-                  <span>24/7 Direct Patient Line · Abuja</span>
+                  <span className="w-2 h-2 rounded-full !bg-[#fdc33e]" />
+                  <span>Call to confirm service availability · Abuja</span>
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
           </div>
 
           <div className="space-y-2 text-xs">
-            {/* Action 1: Instant Emergency Call 24/7 */}
+            {/* Emergency Department and ambulance are listed; call to confirm current access. */}
             <a
               href={`tel:${HOSPITAL_CONTACT.phone1}`}
               className="w-full text-left p-3.5 rounded-2xl bg-white/[0.06] hover:bg-rose-500/15 border border-rose-300/25 hover:border-rose-300/50 transition-all flex items-center justify-between block group shadow-sm hover:-translate-y-0.5"
@@ -107,28 +107,28 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
                   <PhoneCall className="w-4 h-4 group-hover:scale-110 transition-transform animate-phone-ring" />
                 </div>
                 <div>
-                  <div className="font-extrabold text-white text-xs sm:text-sm">Emergency & Doctor Hotline</div>
+                  <div className="font-extrabold text-white text-xs sm:text-sm">Emergency Department & Ambulance</div>
                   <div className="text-[11px] text-rose-200 font-mono font-bold tracking-wider">{HOSPITAL_CONTACT.phone1}</div>
                 </div>
               </div>
-              <span className="text-[10px] font-black text-white px-2.5 py-1 rounded-lg bg-rose-500/80 border border-rose-200/25 shadow-sm uppercase tracking-wider">CALL 24/7</span>
+              <span className="text-[10px] font-black text-white px-2.5 py-1 rounded-lg bg-rose-500/80 border border-rose-200/25 shadow-sm uppercase tracking-wider">CALL</span>
             </a>
 
             {/* Action 2: Secondary Ambulatory Call */}
             <a
-              href={`tel:${HOSPITAL_CONTACT.phone2}`}
+              href={`mailto:${HOSPITAL_CONTACT.email}`}
               className="w-full text-left p-3 rounded-2xl bg-white/[0.05] hover:bg-sky-400/10 border border-white/10 hover:border-sky-300/30 transition-all flex items-center justify-between block group hover:-translate-y-0.5"
             >
               <div className="flex items-center gap-2.5">
                 <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-sky-300 to-blue-700 text-white flex items-center justify-center shrink-0 shadow-md shadow-blue-950/40 border border-white/20">
-                  <Phone className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
+                  <Mail className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
                 </div>
                 <div>
-                  <div className="font-bold text-white">Inpatient & Ambulance Desk</div>
-                  <div className="text-[11px] text-sky-200 font-mono font-semibold">{HOSPITAL_CONTACT.phone2}</div>
+                  <div className="font-bold text-white">Hospital Email</div>
+                  <div className="text-[11px] text-sky-200 font-mono font-semibold">{HOSPITAL_CONTACT.email}</div>
                 </div>
               </div>
-              <span className="text-[10px] font-bold text-sky-100 px-2 py-0.5 rounded-md bg-sky-500/20 border border-sky-300/20">DIAL</span>
+              <span className="text-[10px] font-bold text-sky-100 px-2 py-0.5 rounded-md bg-sky-500/20 border border-sky-300/20">EMAIL</span>
             </a>
 
             {/* Action 3: WhatsApp Chat Consultation */}
@@ -142,7 +142,7 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
                   <MessageSquare className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
                 </div>
                 <div>
-                  <div className="font-bold text-white">WhatsApp Consultation Desk</div>
+                  <div className="font-bold text-white">WhatsApp General Inquiry</div>
                   <div className="text-[11px] text-emerald-200 font-semibold">{HOSPITAL_CONTACT.whatsappDisplay}</div>
                 </div>
               </div>
@@ -164,7 +164,7 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
                 </div>
                 <div>
                   <div className="font-bold text-white">Book Doctor Appointment</div>
-                  <div className="text-[11px] text-sky-100 font-medium">Select specialty, doctor & time</div>
+                  <div className="text-[11px] text-sky-100 font-medium">Select specialty, clinician & preferred time</div>
                 </div>
               </div>
               <ChevronUp className="w-3.5 h-3.5 text-sky-300 rotate-90" />
@@ -173,7 +173,7 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
             {/* Action 5: Medical Tourism Inquiry */}
             <button
               type="button"
-              onClick={() => handleDirectWhatsApp('Overseas Medical Tourism (Egypt / UK / UAE)')}
+              onClick={() => handleDirectWhatsApp('Medical Tourism (Dubai / UK / Nigeria / Egypt / USA / Turkey)')}
               className="w-full text-left p-3 rounded-2xl bg-white/[0.05] hover:bg-teal-400/10 border border-white/10 hover:border-teal-300/30 transition-all cursor-pointer flex items-center justify-between group hover:-translate-y-0.5"
             >
               <div className="flex items-center gap-2.5">
@@ -181,8 +181,8 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
                   <Sparkles className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
                 </div>
                 <div>
-                  <div className="font-bold text-white">International Patient Desk</div>
-                  <div className="text-[11px] text-sky-100 font-medium">Egypt · UK · UAE Medical Travel</div>
+                  <div className="font-bold text-white">Medical Tourism Inquiry</div>
+                  <div className="text-[11px] text-sky-100 font-medium">Dubai · UK · Nigeria · Egypt · USA · Turkey</div>
                 </div>
               </div>
               <ExternalLink className="w-3.5 h-3.5 text-sky-200" />
@@ -202,8 +202,8 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
             ? 'px-4 py-3 sm:px-5 sm:py-3.5 rounded-full gap-3'
             : 'p-3.5 sm:p-4 rounded-full gap-0'
         }`}
-        aria-label="Call Hospital 24/7 Helpline"
-        title="Cairo Hospital 24/7 Call Center"
+        aria-label="Call Cairo Hospital"
+        title="Call Cairo Hospital"
       >
         <div className="relative flex items-center justify-center shrink-0">
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
@@ -219,10 +219,10 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
           }`}
         >
           <div className="font-black text-xs sm:text-sm tracking-wide text-white flex items-center gap-1.5">
-            <span>{drawerOpen ? 'Close Desk' : 'Call & Help 24/7'}</span>
+            <span>{drawerOpen ? 'Close Desk' : 'Contact Hospital'}</span>
           </div>
           <div className="text-[10px] text-emerald-50 font-bold tracking-tight">
-            {drawerOpen ? 'Click to minimize' : 'Emergency · Doctor Hotline'}
+            {drawerOpen ? 'Click to minimize' : 'Call to confirm availability'}
           </div>
         </div>
       </button>

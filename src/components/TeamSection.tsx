@@ -28,10 +28,10 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
   const teamMembers = TEAM_MEMBERS.filter((m) => m.id !== chairman.id);
 
   const chairmanMetrics = [
-    { value: '1970', label: 'Healthcare Legacy in Nigeria' },
-    { value: '130+', label: 'National Hospitals Directed' },
-    { value: '2019', label: 'Founded Cairo Hospital Abuja' },
-    { value: 'MRCOG', label: 'Royal College Fellow · Dublin' },
+    { value: '1970', label: 'Worked in Nigeria since 1970' },
+    { value: '130+', label: 'Hospitals managed' },
+    { value: '2019', label: 'Cairo Hospital established' },
+    { value: 'MRCOG', label: 'Qualification as listed in profile' },
   ];
 
   return (
@@ -48,15 +48,15 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
               <span>Clinical Leadership & Medical Team</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-[#061a33] tracking-tight [text-wrap:balance]">
-              Meet Our Founder & Medical Team
+              Meet Our Chairman & Medical Team
             </h2>
             <p className="text-sm sm:text-base text-[#1e293b] font-medium leading-relaxed">
-              Founded and led by Chairman Dr. Ahmed Shaker with over five decades of distinguished medical stewardship in Nigeria, alongside our multidisciplinary clinical and administrative specialists.
+              The supplied profile names Dr. Ahmed Shaker as Chairman and notes that he worked in Nigeria from 1970. Meet the medical and administrative team listed in the profile.
             </p>
           </div>
         </Reveal>
 
-        {/* Exclusive Flagship Spotlight #1: Dr. Ahmed Shaker (Founder & Chairman) */}
+        {/* Chairman Dr. Ahmed Shaker */}
         <Reveal variant="scale">
           <article className="glass-panel-dark contrast-dark relative rounded-[2rem] overflow-hidden border border-[#fdc33e]/40 shadow-2xl bg-gradient-to-br from-[#041830] via-[#012859] to-[#013777]">
             {/* Top Gold & Sky Architectural Rule */}
@@ -76,7 +76,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                   <div className="photo-caption absolute bottom-0 inset-x-0 p-4 sm:p-5 flex items-end justify-between gap-3">
                     <div>
                       <div className="text-[11px] font-bold !text-[#fdc33e] tracking-wide">
-                        Founder & {chairman.role}
+                        {chairman.role}
                       </div>
                       <div className="text-lg sm:text-xl font-black !text-white leading-snug">
                         {chairman.name}
@@ -91,7 +91,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
               <div className="lg:col-span-8 space-y-6">
                 <div className="space-y-2">
                   <div className="flex flex-wrap items-center gap-2 text-xs font-bold tracking-wide !text-[#fdc33e]">
-                    <span>Office of the Founder & Chairman of the Board</span>
+                    <span>Office of the Chairman</span>
                     <span className="text-white/40" aria-hidden="true">
                       ·
                     </span>
@@ -270,7 +270,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                       onClick={() => setSelectedMember(member)}
                       className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-[#013777] font-bold text-xs text-center transition-colors cursor-pointer"
                     >
-                      Read Credentials
+                      View Profile
                     </button>
                     {member.isDoctor && (
                       <button

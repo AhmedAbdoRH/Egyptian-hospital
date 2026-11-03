@@ -33,13 +33,13 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
               <Dna className="w-4 h-4 text-[#013777]" />
-              <span>Pioneering Regenerative Orthopedics</span>
+              <span>Orthobiologics Listed in the Profile</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-[#092545] tracking-tight">
               Orthobiologics & BEMER Therapy
             </h2>
             <p className="text-sm sm:text-base text-[#2d435e] leading-relaxed">
-              Leading the paradigm shift from invasive joint replacement to biological joint preservation. Cairo Hospital offers cutting-edge Stem Cell Therapy, Prolotherapy, PRP, and BMAC under Senior Egyptian Orthopedic Surgeons.
+              Cairo Hospital’s profile lists stem-cell-based orthobiologics, prolotherapy, PRP, and BMAC for musculoskeletal degenerative or traumatic disorders, with applications including sports medicine, spinal care, minimally invasive procedures, and viscosupplementation.
             </p>
           </div>
         </Reveal>
@@ -51,7 +51,7 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
               <div className="space-y-1">
                 <div className="flex items-center gap-2 text-xs font-bold text-sky-300 uppercase tracking-wider">
                   <Bone className="w-4 h-4" />
-                  <span>Specialized Surgical Division</span>
+                  <span>Orthopedic Surgeries Listed in the Profile</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-black text-white">
                   Orthopedic Surgeries & Joint Arthroplasty
@@ -62,26 +62,26 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
                 className="glass-button-whatsapp px-5 py-3 rounded-xl text-white font-extrabold text-xs inline-flex items-center gap-2 transition-transform hover:scale-105 active:scale-95 cursor-pointer shadow-md"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>Consult Chief Surgeon on WhatsApp</span>
+                <span>Request an Orthopedic Appointment</span>
               </button>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
               <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
                 <div className="text-sm font-black text-white">Arthroplasty</div>
-                <div className="text-xs text-sky-100">Total knee & hip joint reconstruction</div>
+                <div className="text-xs text-sky-100">Listed orthopedic surgery</div>
               </div>
               <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
                 <div className="text-sm font-black text-white">Hand Surgeries</div>
-                <div className="text-xs text-sky-100">Carpal tunnel, tendon repair & microsurgery</div>
+                <div className="text-xs text-sky-100">Listed orthopedic surgery</div>
               </div>
               <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
                 <div className="text-sm font-black text-white">Foot & Ankle</div>
-                <div className="text-xs text-sky-100">Deformity correction & ankle stabilization</div>
+                <div className="text-xs text-sky-100">Listed orthopedic surgery</div>
               </div>
               <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
                 <div className="text-sm font-black text-white">External Fixation</div>
-                <div className="text-xs text-sky-100">Complex fracture union & realignment</div>
+                <div className="text-xs text-sky-100">External fixation and deformities</div>
               </div>
             </div>
           </div>
@@ -93,7 +93,7 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
           <div className="lg:col-span-5">
             <Reveal variant="left" className="space-y-3">
               <div className="text-xs font-bold uppercase tracking-wider text-[#64748b] mb-2">
-                Select Regenerative Modality:
+                Profile-listed modalities:
               </div>
             {ORTHOBIOLOGICS_DATA.map((proc, idx) => (
               <button
@@ -110,7 +110,7 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
                     {proc.abbr}
                   </span>
                   <span className="text-[10px] text-emerald-700 font-bold px-2 py-0.5 rounded-md bg-emerald-50">
-                    Non-Surgical
+                      Profile listing
                   </span>
                 </div>
                 <h4 className="text-sm sm:text-base font-black text-[#092545] mt-1">
@@ -123,10 +123,10 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
             <div className="p-5 rounded-2xl glass-panel border border-amber-300 bg-amber-50/60 mt-4 space-y-2">
               <div className="flex items-center gap-2 text-xs font-bold text-amber-900 uppercase tracking-wider">
                 <Zap className="w-4 h-4 text-amber-600" />
-                <span>BEMER Physical Vascular Therapy</span>
+                <span>BEMER Therapy</span>
               </div>
               <p className="text-xs text-[#2d435e] leading-relaxed">
-                Bio-Electro-Magnetic Energy Regulation technology stimulates microcirculation in capillary vessels, accelerating post-injury cellular repair and mobility.
+                The hospital profile describes BEMER as Bio Electro Magnetic Energy Resonance Therapy. Discuss suitability and expected outcomes with the treating team.
               </p>
             </div>
             </Reveal>
@@ -140,14 +140,14 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
               <div className="relative h-60 rounded-2xl overflow-hidden border border-slate-200 shadow-inner">
                 <img
                   src="/images/facility/prolotherapy.png"
-                  alt="Prolotherapy Injections at Cairo Hospital"
+                  alt="Illustrative orthobiologics image"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#021329]/95 via-[#021329]/45 to-transparent" />
                 <div className="contrast-dark photo-caption absolute bottom-3.5 left-4 right-4 text-white flex items-end justify-between gap-3">
                   <div className="space-y-0.5">
                     <div className="text-[11px] font-extrabold !text-[#bae6fd] uppercase tracking-wider drop-shadow-sm">
-                      Clinical In-House Procedure
+                      Orthobiologics listed in profile
                     </div>
                     <h3 className="text-base sm:text-lg font-black !text-white drop-shadow-md">
                       {activeProc.title}
@@ -168,7 +168,7 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                   <div className="text-xs font-black text-[#013777] uppercase tracking-wider">
-                    Target Indications
+                    Profile-Listed Scope
                   </div>
                   <ul className="space-y-1.5 text-xs text-[#334155]">
                     {activeProc.indications.map((ind, i) => (
@@ -182,7 +182,7 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
 
                 <div className="p-4 rounded-xl bg-teal-50/70 border border-teal-200 space-y-2">
                   <div className="text-xs font-black text-teal-800 uppercase tracking-wider">
-                    Clinical Benefits
+                    Clinical Considerations
                   </div>
                   <ul className="space-y-1.5 text-xs text-[#334155]">
                     {activeProc.benefits.map((ben, i) => (
@@ -198,7 +198,7 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
               {/* CTA */}
               <div className="pt-2 flex items-center justify-between border-t border-slate-100">
                 <div className="text-xs text-[#64748b]">
-                  Outpatient Procedure · Zero Hospital Stay
+                  Treatment route depends on clinical assessment
                 </div>
                 <button
                   onClick={onOpenWhatsAppBooking}

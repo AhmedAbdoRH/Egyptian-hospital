@@ -47,63 +47,63 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
 
   const timelineMilestones = [
     {
-      year: '1971',
-      title: 'Five Decades of Medical Stewardship',
-      subtitle: 'Roots in Nigerian National Healthcare',
+      year: '1970',
+      title: 'Dr. Ahmed Shaker Begins Work in Nigeria',
+      subtitle: 'Healthcare Leadership & NEPA Medical Director',
       description:
-        'Dr. Ahmed Shaker and senior Egyptian clinicians began providing transformative medical care across Nigeria. Dr. Shaker served as Medical Director for NEPA, orchestrating care across more than 130 hospitals nationwide.',
-      tag: 'Heritage & Experience',
-      highlight: '50+ Years Legacy',
+        'Dr. Ahmed Shaker worked in Nigeria from 1970. The profile names him NEPA Medical Director from 1970 to 1991 and separately notes that he managed more than 130 hospitals in the government and private sectors. It also lists his later roles at AGUDA Hospital in Lagos, Weaner Hospital in Abuja, and Katameya Hospital until 2019.',
+      tag: 'Chairman’s Experience',
+      highlight: 'More than 130 Hospitals Managed',
     },
     {
       year: '2019',
       title: 'Inception of Cairo Hospital Abuja',
       subtitle: 'Cairo Rehabilitation Centre (CRC)',
       description:
-        'Established by Dr. Ahmed Shaker, Dr. Mohammed Hesham, and leading partners in Abuja to provide specialized outpatient orthopedic and kinetic rehabilitation services at international standards.',
+        'Cairo Hospital was established in Abuja by a group of Egyptian doctors and administrators. It began as an outpatient orthopedics and physiotherapy centre with a fully equipped laboratory and digital X-ray.',
       tag: 'Abuja Inception',
-      highlight: 'First Egyptian Center in FCT',
+      highlight: 'First Egyptian Hospital in Abuja',
     },
     {
       year: '2021',
-      title: 'Tertiary Hospital Major Expansion',
-      subtitle: 'Inpatient Suites, Surgical Theaters & Diagnostics',
+      title: 'Hospital Expansion',
+      subtitle: 'Surgery Room, Inpatient Department & Pharmacy',
       description:
-        'Underwent comprehensive expansion: fully sterile laminar-flow operating theater, dedicated inpatient admission wards, automated laboratory, digital X-ray diagnostics, and partnership with Alexandria Pharmacy Ltd.',
-      tag: 'Tertiary Upgrade',
-      highlight: 'Full Inpatient & Surgical Facility',
+        'The hospital expanded its specialties and added a fully equipped surgery room, an inpatient department, and a pharmacy department.',
+      tag: 'Hospital Expansion',
+      highlight: 'Surgery, Inpatient & Pharmacy',
     },
     {
       year: 'Today',
       title: 'Regional Orthobiologics & Multi-Specialties Hub',
       subtitle: 'Pioneering Regenerative Medicine in West Africa',
       description:
-        'Delivering 22 medical specialties, stem cell therapies, BMAC, prolotherapy, Royal College gynaecology, and international medical tourism connections with leading hospitals across Cairo and Egypt.',
-      tag: 'Future of Medicine',
-      highlight: 'Center of Excellence',
+        'The current profile lists outpatient clinics, cardiology, neurology, nephrology, gastroenterology, endocrinology, family and tropical medicine, surgery, rehabilitation, diagnostics, pharmacy, and medical tourism.',
+      tag: 'Current Services',
+      highlight: 'Multispecialty Hospital Profile',
     },
   ];
 
   const clinicalStandards = [
     {
-      title: 'HEPA Positive-Pressure Theaters',
-      desc: 'Our operating theater operates under strict positive pressure air filtration, eliminating airborne pathogens for zero-infection surgical outcomes.',
-      icon: <ShieldCheck className="w-5 h-5 text-[#013777]" />,
+      title: 'Fully Equipped Laboratory',
+      desc: 'A fully equipped laboratory supported the outpatient services described in the hospital profile.',
+      icon: <Microscope className="w-5 h-5 text-[#013777]" />,
     },
     {
-      title: 'Multidisciplinary Board Review',
-      desc: 'Complex trauma, joint deformities, and high-risk pregnancies are evaluated collectively by Egyptian and Nigerian senior consultants.',
-      icon: <Users className="w-5 h-5 text-teal-600" />,
+      title: 'Digital X-Ray',
+      desc: 'Digital X-ray is listed among the diagnostic services at Cairo Hospital.',
+      icon: <Building2 className="w-5 h-5 text-teal-600" />,
     },
     {
-      title: 'Computerized Autoclave Sterilization',
-      desc: 'Hospital-wide aseptic protocols with Class-B autoclave cycle logging, surgical instrument traceability, and clinical barrier safety.',
-      icon: <Cpu className="w-5 h-5 text-indigo-600" />,
+      title: 'Surgery, Inpatient & Pharmacy',
+      desc: 'The 2021 expansion added a fully equipped surgery room, an inpatient department, and a pharmacy department.',
+      icon: <ShieldCheck className="w-5 h-5 text-indigo-600" />,
     },
     {
-      title: 'Automated Diagnostic Cross-Check',
-      desc: 'All hematology, clinical chemistry, and digital radiographs are verified with dual-sign-off protocols before initiating therapeutic plans.',
-      icon: <Microscope className="w-5 h-5 text-emerald-600" />,
+      title: 'Multispecialty Clinics',
+      desc: 'The profile lists cardiology, neurology, nephrology, gastroenterology, endocrinology, family medicine, and tropical medicine.',
+      icon: <Users className="w-5 h-5 text-emerald-600" />,
     },
   ];
 
@@ -115,15 +115,15 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
         badgeIcon={<History className="w-4 h-4 text-[#013777]" />}
         title="Decades of Medical Distinction,"
         highlightedText="Rooted in Abuja."
-        description="Cairo Hospital represents the union of world-class Egyptian surgical expertise, groundbreaking orthobiologics, and compassionate healthcare stewardship dedicated to the people of Nigeria and the West African region."
+        description="Established in Abuja in 2019 by a group of Egyptian doctors and an administrative team, Cairo Hospital began as an outpatient orthopedics and physical rehabilitation clinic. Its 2021 expansion added more specialties, a fully equipped surgery room, an inpatient department, and a pharmacy."
         breadcrumbs={[{ label: 'About Us' }]}
         onNavigateHome={onNavigateHome}
         onOpenWhatsAppBooking={() => onOpenWhatsAppBooking()}
         stats={[
-          { label: 'Nigerian Heritage', value: 'Since 1971' },
+          { label: 'Chairman’s Experience', value: 'Since 1970' },
           { label: 'Hospital Founded', value: '2019' },
-          { label: 'Specialized Centers', value: '22+' },
-          { label: 'Clinical Response', value: '24/7' },
+          { label: 'Services Listed', value: '22' },
+          { label: 'Emergency & Ambulance', value: 'Listed' },
         ]}
       />
 
@@ -141,11 +141,11 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
             </div>
 
             <p className="text-sm sm:text-base text-[#1e293b] font-medium leading-relaxed">
-              Cairo Hospital in Abuja (operating under Cairo Rehabilitation Centre Ltd.) was conceived with a profound imperative: to provide Nigerian families and regional patients with direct, domestic access to the rigorous standards of Egyptian specialized surgery and regenerative orthopedics.
+              Cairo Hospital was established in Abuja in 2019 by a group of Egyptian doctors and an administrative team. It began as an outpatient orthopedics and physical rehabilitation clinic, with a fully equipped laboratory diagnostic department and digital X-ray.
             </p>
 
             <p className="text-sm sm:text-base text-[#1e293b] font-medium leading-relaxed">
-              Instead of traveling abroad for joint reconstructions, deformity corrections, or regenerative therapies, our patients receive international-grade clinical care right here in Garki 2, Abuja. We combine state-of-the-art diagnostic imaging, computer-assisted therapy, and the seasoned judgment of senior Royal College fellows and Ain Shams consultants.
+              In 2021, Cairo Centre expanded its specialties and added a fully equipped surgery room, an inpatient department, and a pharmacy department. The supplied profile also lists outpatient clinics, emergency and ambulance services, orthobiologics, specialist clinics, diagnostics, and medical tourism.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4">
@@ -153,7 +153,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                 onClick={onNavigateServices}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#013777] hover:bg-[#092545] text-white font-bold text-sm shadow-md transition-all cursor-pointer"
               >
-                <span>Explore Our 22 Specialties</span>
+                <span>Explore Our Medical Services</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
               <button
@@ -173,7 +173,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
               <div className="p-6 sm:p-8 space-y-6">
                 {/* Chairman Header Label */}
                 <div className="flex items-center justify-between gap-2 text-xs font-bold !text-[#fdc33e] tracking-wide">
-                  <span>Founder & Chairman of the Board</span>
+                  <span>Chairman of Cairo Hospital</span>
                   <ShieldCheck className="w-4 h-4 !text-[#fdc33e] shrink-0" />
                 </div>
 
@@ -188,7 +188,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                   </div>
                   <div className="space-y-1.5">
                     <div className="text-xs font-bold !text-[#fdc33e]">
-                      MRCOG Dublin · Ain Shams University
+                      MRCOG · Ain Shams University
                     </div>
                     <h4 className="text-xl sm:text-2xl font-black !text-white leading-tight">
                       {chairmanDirector.name}
@@ -199,9 +199,9 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                   </div>
                 </div>
 
-                {/* Chairman's Creed Statement */}
+                {/* Hospital motive as stated in the profile */}
                 <blockquote className="py-4 border-y border-white/15 text-xs sm:text-sm !text-sky-100 font-medium italic leading-relaxed">
-                  “Our guiding creed has never wavered: when a patient enters Cairo Hospital, they must experience unwavering clinical rigor, absolute hygienic safety, and deep human empathy. We brought Egypt’s most accomplished surgical traditions to Abuja to serve with honor.”
+                  “Solving health challenges across Nigeria and West Africa through accurate diagnosis and prompt treatment.”
                 </blockquote>
 
                 {/* Key Tabular Highlights */}
@@ -211,7 +211,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                       1970
                     </div>
                     <div className="text-[11px] !text-sky-100 font-medium">
-                      Nigerian Legacy
+                      Work in Nigeria since 1970
                     </div>
                   </div>
                   <div className="pl-3">
@@ -219,7 +219,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                       130+
                     </div>
                     <div className="text-[11px] !text-sky-100 font-medium">
-                      Hospitals Directed
+                      Hospitals Managed
                     </div>
                   </div>
                   <div className="pl-3">
@@ -265,7 +265,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
               A Timeline of Continuous Clinical Growth
             </h2>
             <p className="text-sm text-[#1e293b] font-medium">
-              Trace our journey from early national health management in Nigeria to the establishment of Abuja's most trusted Egyptian multi-specialties hospital.
+              Trace Dr. Ahmed Shaker’s medical work in Nigeria from 1970, Cairo Hospital’s establishment in 2019, and the expansion described in the hospital profile.
             </p>
           </Reveal>
 
@@ -369,16 +369,16 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-300 space-y-1">
-                <div className="text-xs font-black text-[#092545]">Clinical Protocol</div>
-                <div className="text-xs text-slate-700 font-medium">Continuous auditing by CMD & Senior Nursing Directorate</div>
+                <div className="text-xs font-black text-[#092545]">Clinical Focus</div>
+                <div className="text-xs text-slate-700 font-medium">The profile emphasizes accurate diagnosis and effective treatment.</div>
               </div>
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-300 space-y-1">
-                <div className="text-xs font-black text-[#092545]">Patient Guarantee</div>
-                <div className="text-xs text-slate-700 font-medium">Transparent consent, respectful care, and zero compromise</div>
+                <div className="text-xs font-black text-[#092545]">Patient Access</div>
+                <div className="text-xs text-slate-700 font-medium">Outpatient, inpatient, diagnostic, and pharmacy services are listed.</div>
               </div>
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-300 space-y-1">
-                <div className="text-xs font-black text-[#092545]">Quality Benchmark</div>
-                <div className="text-xs text-slate-700 font-medium">Aligned with Egyptian Ministry of Health & Nigerian FCTA standards</div>
+                <div className="text-xs font-black text-[#092545]">Departmental Scope</div>
+                <div className="text-xs text-slate-700 font-medium">Specialist clinics and services are coordinated through the hospital.</div>
               </div>
             </div>
             </div>
@@ -389,13 +389,13 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
         <section className="space-y-8">
           <Reveal variant="up" className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-black uppercase tracking-widest text-[#013777]">
-              Safety First
+              Facilities & Clinical Scope
             </span>
             <h2 className="text-2xl sm:text-4xl font-black text-[#092545] tracking-tight">
-              Hospital Governance & Aseptic Excellence
+              Facilities & Services in the Hospital Profile
             </h2>
             <p className="text-sm text-[#1e293b] font-medium">
-              Stringent environmental and microbiological protocols safeguarding patients across all inpatient and surgical journeys.
+              The hospital profile describes diagnostic, outpatient, inpatient, surgical, pharmacy, and specialist-clinic services.
             </p>
           </Reveal>
 
@@ -429,13 +429,13 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
               <div className="lg:col-span-8 space-y-4">
                 <span className="text-xs font-bold !text-[#fdc33e] tracking-wide">
-                  Direct Access to Founder & Chairman
+                  Contact the Chairman & Specialist Clinics
                 </span>
                 <h3 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight !text-white [text-wrap:balance]">
                   Schedule a Consultation with Dr. Ahmed Shaker or Our Specialist Clinics
                 </h3>
                 <p className="text-xs sm:text-sm !text-sky-100/95 leading-relaxed max-w-2xl">
-                  Our clinical coordination desk is available 24/7 on WhatsApp to schedule appointments directly with our Founder & Chairman, Dr. Ahmed Shaker, or any of our hospital clinics in Abuja.
+                  Send an appointment request through WhatsApp. Contact the hospital to confirm consultant availability, current clinic schedules, and next steps.
                 </p>
                 <div className="pt-2 flex flex-wrap gap-3.5">
                   <button
@@ -450,7 +450,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                     className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white/12 hover:bg-white/20 border border-white/25 !text-white font-bold text-sm transition-colors cursor-pointer"
                   >
                     <Clock className="w-4 h-4 !text-[#fdc33e]" />
-                    <span>24/7 Desk: {HOSPITAL_CONTACT.phone1}</span>
+                  <span>Call to confirm availability: {HOSPITAL_CONTACT.phone1}</span>
                   </a>
                 </div>
               </div>
@@ -465,16 +465,16 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                   />
                   <div className="space-y-1">
                     <div className="text-xs font-bold !text-[#fdc33e]">
-                      Founder & Chairman
+                      Chairman
                     </div>
                     <div className="text-lg font-black !text-white leading-tight">
                       {chairmanDirector.name}
                     </div>
                     <div className="text-xs !text-[#bae6fd]">
-                      MRCOG Dublin · Ain Shams University
+                      MRCOG · Ain Shams University
                     </div>
                     <div className="text-[11px] !text-sky-100/90">
-                      50+ Years Leadership in Nigeria
+                      Worked in Nigeria since 1970
                     </div>
                   </div>
                 </div>

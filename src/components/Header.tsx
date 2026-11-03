@@ -51,12 +51,12 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="text-sky-600 hidden sm:inline">|</span>
             <div className="flex items-center gap-1.5 text-sky-100">
               <Clock className="w-3.5 h-3.5 text-emerald-400" />
-              <span>24/7 Level-1 Emergency & Inpatient Care</span>
+              <span>Emergency Department & Ambulance listed · Call to confirm</span>
             </div>
             <span className="text-sky-600 hidden md:inline">|</span>
             <div className="hidden md:flex items-center gap-1.5 text-[#fdc33e] font-semibold">
               <Shield className="w-3.5 h-3.5 text-[#fdc33e]" />
-              <span>NHIS, AU & UN Enrolled Hospital</span>
+              <span>Accreditations & enrolled organisations listed in the profile</span>
             </div>
           </div>
         </div>
