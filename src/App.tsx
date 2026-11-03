@@ -27,8 +27,13 @@ const PAGE_IDS = ['home', 'about', 'services', 'tourism', 'team', 'contact', 'bo
 
 const getPageFromLocation = () => {
   if (typeof window === 'undefined') return 'home';
-  const page = new URLSearchParams(window.location.search).get('page');
-  return page && PAGE_IDS.includes(page) ? page : 'home';
+  try {
+    const url = new URL(window.location.href);
+    const page = url.searchParams.get('page');
+    return page && PAGE_IDS.includes(page) ? page : 'home';
+  } catch {
+    return 'home';
+  }
 };
 
 export default function App() {
@@ -38,7 +43,7 @@ export default function App() {
   const [preselectedSpecialty, setPreselectedSpecialty] = useState('');
   const [preselectedDoctor, setPreselectedDoctor] = useState('');
   const loaderTimers = useRef<number[]>([]);
-  const lastProcessedPage = useRef(getPageFromLocation());
+  const lastProcessedPage = useRef(() => getPageFromLocation());
 
   useEffect(() => {
     return () => {
@@ -79,7 +84,7 @@ export default function App() {
 
   useEffect(() => {
     // Smooth scroll to top on tab change
-    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    window.scrollTo({ top: 0, behavior: 'smooth' as ScrollBehavior });
   }, [activeTab]);
 
   const handleOpenBooking = (doctorName?: string, specialtyName?: string) => {
@@ -100,7 +105,6 @@ export default function App() {
     window.history.pushState({ page: tabId }, '', nextUrl);
     showLoader();
     setActiveTab(tabId);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleNavigate = (tabId: string) => navigateTo(tabId);
