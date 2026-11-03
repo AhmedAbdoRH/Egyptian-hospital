@@ -1,0 +1,159 @@
+═══════════════════════════════════════════════════════════════════
+  CAIRO HOSPITAL ABUJA - WEBSITE UPLOAD INSTRUCTIONS
+  Hostinger Deployment Guide
+═══════════════════════════════════════════════════════════════════
+
+📦 PACKAGE CONTENTS:
+───────────────────────────────────────────────────────────────────
+✅ index.html          - Main HTML file
+✅ .htaccess           - Server configuration (routing & caching)
+✅ logo.png            - Hospital logo
+✅ logo-vector.svg     - Hospital logo (vector)
+✅ assets/             - CSS, JavaScript, and compiled files
+✅ images/             - All website images (facility, team, etc.)
+✅ extracted/          - Extracted images from presentations
+
+Total Size: ~26 MB
+
+═══════════════════════════════════════════════════════════════════
+🚀 HOSTINGER UPLOAD STEPS:
+═══════════════════════════════════════════════════════════════════
+
+STEP 1: Login to Hostinger
+──────────────────────────
+1. Go to: https://hostinger.com
+2. Login to your account
+3. Go to "Hosting" → Select your hosting plan
+
+STEP 2: Open File Manager
+──────────────────────────
+1. Click "File Manager" in your hosting panel
+2. Navigate to "public_html" folder
+   (This is your website root directory)
+
+STEP 3: Clear Old Files (If Any)
+─────────────────────────────────
+⚠️ IMPORTANT: Backup any existing files first!
+
+1. Select all files in "public_html"
+2. Delete them (or move to backup folder)
+3. Make sure "public_html" is empty
+
+STEP 4: Upload All Files
+─────────────────────────
+Method A: Direct Upload (Recommended for small files)
+   1. Click "Upload" button in File Manager
+   2. Select ALL files from this folder
+   3. Wait for upload to complete
+
+Method B: ZIP Upload (Faster for large files)
+   1. ZIP this entire folder on your computer
+   2. Upload the ZIP file to "public_html"
+   3. Right-click the ZIP → "Extract"
+   4. Delete the ZIP file after extraction
+
+STEP 5: Verify Upload
+──────────────────────
+Ensure these files/folders are in "public_html":
+   ✓ index.html
+   ✓ .htaccess
+   ✓ logo.png
+   ✓ assets/ (folder)
+   ✓ images/ (folder)
+   ✓ extracted/ (folder)
+
+STEP 6: Set Permissions
+────────────────────────
+1. Select all folders (assets, images, extracted)
+2. Right-click → "Change Permissions"
+3. Set to: 755 (recommended)
+4. Apply to all subfolders
+
+STEP 7: Test Your Website
+──────────────────────────
+1. Open your browser
+2. Go to: https://yourdomain.com
+3. Test all pages:
+   ✓ Home page loads correctly
+   ✓ Navigation works (About, Services, Team, etc.)
+   ✓ Images display properly
+   ✓ WhatsApp booking works
+   ✓ All sections appear correctly
+
+═══════════════════════════════════════════════════════════════════
+⚙️ TECHNICAL DETAILS:
+═══════════════════════════════════════════════════════════════════
+
+Framework: React + Vite
+Build Type: Static Production Build (Optimized)
+Browser Support: Modern browsers (Chrome, Firefox, Safari, Edge)
+
+The .htaccess file handles:
+• HTTPS redirect (forces secure connection)
+• Single-page routing (React Router)
+• Browser caching (faster page loads)
+• File compression (smaller file sizes)
+• Security headers
+
+═══════════════════════════════════════════════════════════════════
+🔧 TROUBLESHOOTING:
+═══════════════════════════════════════════════════════════════════
+
+Problem: Page shows "404 Not Found"
+Solution: 
+   • Make sure .htaccess file uploaded correctly
+   • Check file permissions (755 for folders, 644 for files)
+   • Ensure mod_rewrite is enabled in hosting panel
+
+Problem: Images not loading
+Solution:
+   • Check images/ and extracted/ folders uploaded correctly
+   • Verify folder permissions are 755
+   • Clear browser cache (Ctrl + F5)
+
+Problem: Styles not working (page looks broken)
+Solution:
+   • Ensure assets/ folder uploaded correctly
+   • Check browser console for errors (F12)
+   • Clear browser cache
+
+Problem: HTTPS not working
+Solution:
+   • Wait 24-48 hours for SSL certificate to activate
+   • Contact Hostinger support to enable SSL
+   • Check .htaccess HTTPS redirect
+
+═══════════════════════════════════════════════════════════════════
+📞 SUPPORT CONTACTS:
+═══════════════════════════════════════════════════════════════════
+
+Hostinger Support:
+   • Email: support@hostinger.com
+   • Live Chat: Available in hosting panel
+   • Knowledge Base: https://support.hostinger.com
+
+Website Developer:
+   • Check with your development team for customizations
+
+═══════════════════════════════════════════════════════════════════
+✅ POST-DEPLOYMENT CHECKLIST:
+═══════════════════════════════════════════════════════════════════
+
+□ All files uploaded to public_html
+□ .htaccess file is in place
+□ File permissions set correctly
+□ Website loads at yourdomain.com
+□ HTTPS working (padlock icon in browser)
+□ All pages navigable (Home, About, Services, Team, etc.)
+□ All images loading correctly
+□ WhatsApp booking button working
+□ Contact form working (if applicable)
+□ Mobile responsive (test on phone)
+□ No console errors (check F12 Developer Tools)
+
+═══════════════════════════════════════════════════════════════════
+
+🎉 DONE! Your website is now live on Hostinger!
+
+Last Updated: November 2026
+Build Version: Production v1.0

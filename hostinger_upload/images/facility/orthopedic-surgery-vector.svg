@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="800" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#edf4fc" />
+      <stop offset="55%" stop-color="#dceaf7" />
+      <stop offset="100%" stop-color="#c9dced" />
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="400" cy="270" r="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="lightBeam" x1="400" y1="92" x2="400" y2="390" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Brand Ice-Blue Canvas -->
+  <rect width="800" height="520" fill="url(#bgGrad)" />
+  <circle cx="400" cy="270" r="210" fill="url(#centerGlow)" />
+
+  <!-- Subtle Clinical Grid Lines -->
+  <line x1="160" y1="270" x2="640" y2="270" stroke="#013777" stroke-opacity="0.07" stroke-width="1.5" stroke-dasharray="6 6" />
+  <line x1="400" y1="110" x2="400" y2="440" stroke="#013777" stroke-opacity="0.07" stroke-width="1.5" stroke-dasharray="6 6" />
+
+  <!-- Minimalist Surgical Theater Light Cone -->
+  <polygon points="356,94 444,94 525,390 275,390" fill="url(#lightBeam)" />
+
+  <!-- Overhead Surgical Lamp Fixture -->
+  <line x1="400" y1="36" x2="400" y2="68" stroke="#013777" stroke-width="4" stroke-linecap="round" />
+  <path d="M348 88C354 72 374 64 400 64C426 64 446 72 452 88H348Z" fill="#ffffff" stroke="#013777" stroke-width="3.5" stroke-linejoin="round" />
+  <rect x="342" y="88" width="116" height="10" rx="5" fill="#013777" />
+  <circle cx="372" cy="93" r="2.5" fill="#fdc33e" />
+  <circle cx="400" cy="93" r="2.5" fill="#fdc33e" />
+  <circle cx="428" cy="93" r="2.5" fill="#fdc33e" />
+
+  <!-- Outer Precision Ring -->
+  <circle cx="400" cy="278" r="126" fill="#ffffff" fill-opacity="0.65" stroke="#013777" stroke-opacity="0.16" stroke-width="2" />
+  <circle cx="400" cy="278" r="102" stroke="#0284c7" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="8 8" />
+
+  <!-- Orthopedic Articulated Joint & Bone Vector (Vertical Femur-Tibia Alignment) -->
+  <!-- Upper Bone Segment -->
+  <path
+    d="M384 150
+       C384 142 416 142 416 150
+       L414 222
+       C414 232 428 240 428 253
+       C428 263 418 270 408 268
+       C403 267 397 267 392 268
+       C382 270 372 263 372 253
+       C372 240 386 232 386 222
+       Z"
+    fill="#ffffff"
+    stroke="#013777"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+
+  <!-- Lower Bone Segment -->
+  <path
+    d="M374 303
+       C374 293 386 288 400 288
+       C414 288 426 293 426 303
+       C426 314 414 322 414 334
+       L416 406
+       C416 414 384 414 384 406
+       L386 334
+       C386 322 374 314 374 303
+       Z"
+    fill="#ffffff"
+    stroke="#013777"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+
+  <!-- Joint Prosthetic / Reconstruction Alignment Arc & Precision Nodes -->
+  <path d="M362 278C375 272 425 272 438 278" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" />
+  <circle cx="400" cy="278" r="7" fill="#fdc33e" stroke="#013777" stroke-width="3" />
+  <circle cx="352" cy="278" r="4.5" fill="#ffffff" stroke="#0284c7" stroke-width="2.5" />
+  <circle cx="448" cy="278" r="4.5" fill="#ffffff" stroke="#0284c7" stroke-width="2.5" />
+
+  <!-- Subtle Fixation / Alignment Ticks on Bone Shafts -->
+  <line x1="392" y1="186" x2="408" y2="186" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="392" y1="200" x2="408" y2="200" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="392" y1="356" x2="408" y2="356" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="392" y1="370" x2="408" y2="370" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- Small Clinical Cross Badge on Upper-Right of Ring -->
+  <circle cx="490" cy="188" r="20" fill="#013777" />
+  <path d="M490 179V197M481 188H499" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" />
+</svg>
