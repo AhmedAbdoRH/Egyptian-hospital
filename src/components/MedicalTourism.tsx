@@ -9,7 +9,7 @@ import { Reveal } from './ScrollReveal';
 
 interface MedicalTourismProps {
   onOpenWhatsAppBooking: () => void;
-  onNavigateTourism: () => void;
+  onNavigateTourism?: () => void;
 }
 
 export const MedicalTourism: React.FC<MedicalTourismProps> = ({
@@ -80,16 +80,18 @@ export const MedicalTourism: React.FC<MedicalTourismProps> = ({
 
             {/* CTA Button */}
             <div className="flex flex-wrap gap-3 pt-4 border-t border-white/10">
-              <button
-                onClick={onNavigateTourism}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#fdc33e] hover:bg-[#e5b12f] !text-[#092545] font-bold text-sm transition-all shadow-lg shadow-[#fdc33e]/30 group"
-              >
-                <span>Explore Medical Tourism Hub</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              {onNavigateTourism && (
+                <button
+                  onClick={onNavigateTourism}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#fdc33e] hover:bg-[#e5b12f] !text-[#092545] font-bold text-sm transition-all shadow-lg shadow-[#fdc33e]/30 group cursor-pointer"
+                >
+                  <span>Explore Medical Tourism Hub</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              )}
               <button
                 onClick={onOpenWhatsAppBooking}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 !text-white font-bold text-sm transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 !text-white font-bold text-sm transition-all cursor-pointer"
               >
                 <Plane className="w-4 h-4" />
                 <span>Inquire Now</span>

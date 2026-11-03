@@ -87,7 +87,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                 </div>
 
                 <p className="text-xs !text-white/90 leading-relaxed">
-                  {chairman.specialty}
+                  {chairman.specialty || chairman.title}
                 </p>
               </div>
             </div>
@@ -112,7 +112,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                       {member.name}
                     </h4>
                     <p className="text-xs text-[#013777] font-bold mt-1">{member.role}</p>
-                    <p className="text-xs text-[#334155] mt-2 line-clamp-2">{member.specialty}</p>
+                    <p className="text-xs text-[#334155] mt-2 line-clamp-2">{member.specialty || member.title}</p>
                   </div>
                 </div>
               </div>

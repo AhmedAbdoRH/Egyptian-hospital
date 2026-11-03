@@ -38,12 +38,14 @@ interface ServicesSubpageProps {
   onNavigateHome: () => void;
   onSelectServiceForBooking: (serviceTitle: string) => void;
   onOpenWhatsAppBooking: () => void;
+  onNavigateTourism?: () => void;
 }
 
 export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
   onNavigateHome,
   onSelectServiceForBooking,
   onOpenWhatsAppBooking,
+  onNavigateTourism,
 }) => {
   const [activeDepartment, setActiveDepartment] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -408,6 +410,7 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
         {/* Medical Tourism Overseas Coordination Section */}
         <MedicalTourism
           onOpenWhatsAppBooking={() => onSelectServiceForBooking('Medical Tourism')}
+          onNavigateTourism={onNavigateTourism}
         />
 
         {/* Services FAQ Accordion */}

@@ -34,7 +34,8 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'booking', label: 'Book via WhatsApp' },
   ];
 
-  const handleLinkClick = (id: string) => {
+  const handleLinkClick = (id: string, e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
     onNavigate(id);
     setMobileMenuOpen(false);
   };
@@ -68,7 +69,8 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="max-w-7xl mx-auto flex items-center justify-between h-20">
           {/* Official Logo */}
           <button
-            onClick={() => handleLinkClick('home')}
+            type="button"
+            onClick={(e) => handleLinkClick('home', e)}
             className="flex items-center gap-3 cursor-pointer text-left group"
           >
             <div className="relative w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform">
@@ -93,7 +95,8 @@ export const Header: React.FC<HeaderProps> = ({
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => handleLinkClick(item.id)}
+                type="button"
+                onClick={(e) => handleLinkClick(item.id, e)}
                 className={`text-xs sm:text-sm transition-all relative py-1 cursor-pointer font-bold ${
                   activeTab === item.id
                     ? 'text-[#013777] font-black'
@@ -111,7 +114,8 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Direct Actions */}
           <div className="hidden sm:flex items-center gap-3">
             <button
-              onClick={() => handleLinkClick('booking')}
+              type="button"
+              onClick={(e) => handleLinkClick('booking', e)}
               className="glass-button-whatsapp inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-white font-extrabold text-xs sm:text-sm transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-md"
             >
               <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
@@ -121,6 +125,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Mobile hamburger menu */}
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden p-2 rounded-xl bg-slate-100 border border-slate-200 text-[#013777] hover:bg-slate-200"
             aria-label="Toggle navigation"
@@ -137,7 +142,8 @@ export const Header: React.FC<HeaderProps> = ({
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => handleLinkClick(item.id)}
+                type="button"
+                onClick={(e) => handleLinkClick(item.id, e)}
                 className={`text-left w-full px-4 py-3 rounded-xl text-sm font-bold transition-colors ${
                   activeTab === item.id
                     ? 'bg-[#013777]/10 text-[#013777] border border-[#013777]/20 font-black'
@@ -151,7 +157,9 @@ export const Header: React.FC<HeaderProps> = ({
 
           <div className="pt-3 border-t border-slate-100">
             <button
-              onClick={() => {
+              type="button"
+              onClick={(e) => {
+                if (e) e.preventDefault();
                 setMobileMenuOpen(false);
                 onNavigate('booking');
               }}

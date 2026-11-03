@@ -9,7 +9,7 @@ import { Reveal } from './ScrollReveal';
 
 interface OrthobiologicsHighlightProps {
   onOpenWhatsAppBooking: () => void;
-  onNavigateServices: () => void;
+  onNavigateServices?: () => void;
 }
 
 export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = ({
@@ -73,16 +73,18 @@ export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = (
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-3 pt-4 border-t border-white/10">
-              <button
-                onClick={onNavigateServices}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 !text-white font-bold text-sm hover:bg-white/20 transition-all group"
-              >
-                <span>Learn About Orthobiologics</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              {onNavigateServices && (
+                <button
+                  onClick={onNavigateServices}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 !text-white font-bold text-sm hover:bg-white/20 transition-all group cursor-pointer"
+                >
+                  <span>Learn About Orthobiologics</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              )}
               <button
                 onClick={onOpenWhatsAppBooking}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-teal-500 hover:bg-teal-600 !text-white font-bold text-sm transition-all shadow-lg shadow-teal-500/30"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-teal-500 hover:bg-teal-600 !text-white font-bold text-sm transition-all shadow-lg shadow-teal-500/30 cursor-pointer"
               >
                 <Dna className="w-4 h-4" />
                 <span>Book Consultation</span>

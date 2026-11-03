@@ -4,6 +4,7 @@ export interface TeamMember {
   name: string;
   role: string;
   title: string;
+  specialty?: string;
   education?: string;
   qualifications: string[];
   careerHighlights: string[];

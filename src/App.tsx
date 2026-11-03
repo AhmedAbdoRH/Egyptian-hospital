@@ -20,6 +20,8 @@ import { TeamSubpage } from './components/subpages/TeamSubpage';
 import { ContactSubpage } from './components/subpages/ContactSubpage';
 import { BookingSubpage } from './components/subpages/BookingSubpage';
 import { MedicalTourismSubpage } from './components/subpages/MedicalTourismSubpage';
+import { CairoProfileUpdates } from './components/CairoProfileUpdates';
+import { CairoArticles } from './components/CairoArticles';
 import { LoadingScreen } from './components/LoadingScreen';
 import { RevealReadyContext } from './components/ScrollReveal';
 
@@ -43,7 +45,7 @@ export default function App() {
   const [preselectedSpecialty, setPreselectedSpecialty] = useState('');
   const [preselectedDoctor, setPreselectedDoctor] = useState('');
   const loaderTimers = useRef<number[]>([]);
-  const lastProcessedPage = useRef(() => getPageFromLocation());
+  const lastProcessedPage = useRef<string>(getPageFromLocation());
 
   useEffect(() => {
     return () => {
@@ -72,11 +74,9 @@ export default function App() {
   useEffect(() => {
     const syncPageFromHistory = () => {
       const newPage = getPageFromLocation();
-      if (newPage !== lastProcessedPage.current) {
-        lastProcessedPage.current = newPage;
-        setActiveTab(newPage);
-        window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-      }
+      lastProcessedPage.current = newPage;
+      setActiveTab(newPage);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     };
     window.addEventListener('popstate', syncPageFromHistory);
     return () => window.removeEventListener('popstate', syncPageFromHistory);
@@ -91,7 +91,6 @@ export default function App() {
     if (doctorName) setPreselectedDoctor(doctorName);
     if (specialtyName) setPreselectedSpecialty(specialtyName);
     navigateTo('booking');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const navigateTo = (tabId: string) => {
@@ -101,10 +100,11 @@ export default function App() {
       return;
     }
     lastProcessedPage.current = tabId;
-    const nextUrl = tabId === 'home' ? window.location.pathname : `${window.location.pathname}?page=${tabId}`;
+    const basePath = window.location.pathname.split('?')[0] || '/';
+    const nextUrl = tabId === 'home' ? basePath : `${basePath}?page=${tabId}`;
     setActiveTab(tabId);
     window.history.pushState({ page: tabId }, '', nextUrl);
-    showLoader();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleNavigate = (tabId: string) => navigateTo(tabId);
@@ -180,6 +180,13 @@ export default function App() {
               />
               <PartnersSection onOpenWhatsAppBooking={() => handleOpenBooking()} />
               <AccreditationSection />
+              <CairoProfileUpdates
+                onOpenWhatsAppBooking={() => handleOpenBooking()}
+                onNavigateTourism={() => handleNavigate('tourism')}
+              />
+              <CairoArticles
+                onOpenWhatsAppBooking={() => handleOpenBooking()}
+              />
               <div className="contrast-dark py-8 sm:py-14 bg-gradient-to-b from-[#001d40] via-[#012654] to-[#001d40] text-white relative">
                 <WhatsAppBookingPage
                   isDarkBg={true}
@@ -207,6 +214,7 @@ export default function App() {
               onNavigateHome={() => handleNavigate('home')}
               onSelectServiceForBooking={(service) => handleOpenBooking(undefined, service)}
               onOpenWhatsAppBooking={() => handleOpenBooking()}
+              onNavigateTourism={() => handleNavigate('tourism')}
             />
           )}
 

@@ -24,8 +24,8 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
 
   // Auto-expand (unfold) for 3 seconds, then stay folded (collapsed) for 12 seconds
   useEffect(() => {
-    let collapseTimer: NodeJS.Timeout | null = null;
-    let expandInterval: NodeJS.Timeout | null = null;
+    let collapseTimer: ReturnType<typeof setTimeout> | null = null;
+    let expandInterval: ReturnType<typeof setInterval> | null = null;
 
     // Initially expand for 3 seconds so visitor sees the helpline label, then fold
     setIsAutoExpanded(true);

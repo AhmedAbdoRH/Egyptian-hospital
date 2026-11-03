@@ -350,6 +350,7 @@ export const Hero: React.FC<HeroProps> = ({
             {/* CTAs */}
             <div className="ch-reveal flex flex-col sm:flex-row sm:flex-wrap gap-3 pt-1" style={delay(460)}>
               <button
+                type="button"
                 onClick={onOpenWhatsAppBooking}
                 className="group relative overflow-hidden ch-shimmer inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-extrabold text-base shadow-[0_10px_40px_-10px_rgba(16,185,129,0.7)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_50px_-10px_rgba(16,185,129,0.85)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 cursor-pointer"
               >
@@ -359,11 +360,25 @@ export const Hero: React.FC<HeroProps> = ({
               </button>
 
               <button
+                type="button"
                 onClick={onExploreServices}
                 className="hero-explore group inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl glass-panel border border-white/15 text-white font-bold text-base transition-all duration-300 hover:bg-white/10 hover:border-sky-400/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 cursor-pointer"
               >
                 <Activity className="w-4 h-4 text-sky-400 transition-transform group-hover:scale-110" aria-hidden="true" />
                 <span>Explore Specialties</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onExploreTourism();
+                }}
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-gradient-to-r from-[#0b5599] to-[#013777] hover:from-[#0d63b2] hover:to-[#014392] border border-sky-400/30 text-white font-bold text-base transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-sky-500/20 cursor-pointer"
+              >
+                <Plane className="w-4 h-4 text-sky-300" aria-hidden="true" />
+                <span>Medical Tourism</span>
+                <ArrowRight className="w-4 h-4 text-sky-300 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </button>
             </div>
 
@@ -455,7 +470,11 @@ export const Hero: React.FC<HeroProps> = ({
                   <div className="bg-slate-950 border-t border-sky-400/20 relative overflow-hidden">
                     <div aria-hidden="true" className="absolute top-0 right-0 w-48 h-full bg-gradient-to-l from-sky-500/10 to-transparent pointer-events-none" />
                     <button
-                      onClick={onExploreTourism}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        onExploreTourism();
+                      }}
                       type="button"
                       className="w-full group p-4 sm:p-4.5 flex items-center justify-between gap-3 text-left bg-gradient-to-r from-slate-950 via-[#011a38] to-slate-950 hover:from-[#012654] hover:to-[#013777] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 cursor-pointer"
                     >
