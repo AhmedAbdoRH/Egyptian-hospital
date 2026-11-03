@@ -1,217 +1,95 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Dna,
-  Zap,
-  Bone,
   CheckCircle,
-  MessageCircle,
-  Activity,
   ArrowRight,
-  ShieldCheck,
   Sparkles,
 } from 'lucide-react';
-import { ORTHOBIOLOGICS_DATA } from '../data/cairoHospitalData';
 import { Reveal } from './ScrollReveal';
 
 interface OrthobiologicsHighlightProps {
   onOpenWhatsAppBooking: () => void;
+  onNavigateServices: () => void;
 }
 
 export const OrthobiologicsHighlight: React.FC<OrthobiologicsHighlightProps> = ({
   onOpenWhatsAppBooking,
+  onNavigateServices,
 }) => {
-  const [selectedProcIndex, setSelectedProcIndex] = useState(0);
-  const activeProc = ORTHOBIOLOGICS_DATA[selectedProcIndex];
+  const highlightProcedures = [
+    'Stem Cell Therapy for joint regeneration',
+    'Platelet-Rich Plasma (PRP) injections',
+    'Bone Marrow Aspirate Concentrate (BMAC)',
+    'BEMER Therapy for enhanced microcirculation',
+  ];
 
   return (
     <section id="orthobiologics" className="py-10 sm:py-16 lg:py-20 relative overflow-hidden">
       <div className="ambient-glow-navy top-20 left-1/3" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-10 sm:space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-8 sm:space-y-10">
         {/* Section Header */}
         <Reveal variant="up">
-          <div className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
               <Dna className="w-4 h-4 text-[#013777]" />
-              <span>Orthobiologics Listed in the Profile</span>
+              <span>Regenerative Medicine Excellence</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-[#092545] tracking-tight">
-              Orthobiologics & BEMER Therapy
+              Orthobiologics & Stem Cell Therapy
             </h2>
-            <p className="text-sm sm:text-base text-[#2d435e] leading-relaxed">
-              Cairo Hospital’s profile lists stem-cell-based orthobiologics, prolotherapy, PRP, and BMAC for musculoskeletal degenerative or traumatic disorders, with applications including sports medicine, spinal care, minimally invasive procedures, and viscosupplementation.
+            <p className="text-sm sm:text-base text-[#1e293b] font-medium leading-relaxed">
+              Advanced regenerative treatments using stem cells, PRP, and biologics for musculoskeletal conditions, sports medicine, and spinal care.
             </p>
           </div>
         </Reveal>
 
-        {/* Orthopedic Surgeries Banner */}
+        {/* Highlight Banner Card */}
         <Reveal variant="scale">
-          <div className="contrast-dark glass-panel-dark p-6 sm:p-8 rounded-3xl border border-sky-400/40 shadow-xl bg-gradient-to-r from-[#012f66] via-[#013777] to-[#08284d]">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-white/10">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2 text-xs font-bold text-sky-300 uppercase tracking-wider">
-                  <Bone className="w-4 h-4" />
-                  <span>Orthopedic Surgeries Listed in the Profile</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-black text-white">
-                  Orthopedic Surgeries & Joint Arthroplasty
-                </h3>
+          <div className="contrast-dark glass-panel-dark p-8 sm:p-10 rounded-3xl border border-teal-400/40 shadow-xl bg-gradient-to-r from-[#012f66] via-[#013777] to-[#08284d]">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center shadow-lg">
+                <Sparkles className="w-7 h-7 text-white" />
               </div>
-              <button
-                onClick={onOpenWhatsAppBooking}
-                className="glass-button-whatsapp px-5 py-3 rounded-xl text-white font-extrabold text-xs inline-flex items-center gap-2 transition-transform hover:scale-105 active:scale-95 cursor-pointer shadow-md"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>Request an Orthopedic Appointment</span>
-              </button>
+              <div>
+                <h3 className="text-2xl font-black !text-white leading-tight">
+                  Cutting-Edge Regenerative Care
+                </h3>
+                <p className="text-sm !text-teal-200 font-semibold">
+                  Stem-cell based therapies for joint & tissue repair
+                </p>
+              </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
-              <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
-                <div className="text-sm font-black text-white">Arthroplasty</div>
-                <div className="text-xs text-sky-100">Listed orthopedic surgery</div>
-              </div>
-              <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
-                <div className="text-sm font-black text-white">Hand Surgeries</div>
-                <div className="text-xs text-sky-100">Listed orthopedic surgery</div>
-              </div>
-              <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
-                <div className="text-sm font-black text-white">Foot & Ankle</div>
-                <div className="text-xs text-sky-100">Listed orthopedic surgery</div>
-              </div>
-              <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
-                <div className="text-sm font-black text-white">External Fixation</div>
-                <div className="text-xs text-sky-100">External fixation and deformities</div>
-              </div>
+            {/* 4 Bullet Points */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              {highlightProcedures.map((proc, idx) => (
+                <div key={idx} className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 !text-teal-300 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm !text-white font-medium leading-snug">{proc}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-3 pt-4 border-t border-white/10">
+              <button
+                onClick={onNavigateServices}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 !text-white font-bold text-sm hover:bg-white/20 transition-all group"
+              >
+                <span>Learn About Orthobiologics</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button
+                onClick={onOpenWhatsAppBooking}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-teal-500 hover:bg-teal-600 !text-white font-bold text-sm transition-all shadow-lg shadow-teal-500/30"
+              >
+                <Dna className="w-4 h-4" />
+                <span>Book Consultation</span>
+              </button>
             </div>
           </div>
         </Reveal>
-
-        {/* Orthobiologics Interactive Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Procedure Navigation Selector */}
-          <div className="lg:col-span-5">
-            <Reveal variant="left" className="space-y-3">
-              <div className="text-xs font-bold uppercase tracking-wider text-[#64748b] mb-2">
-                Profile-listed modalities:
-              </div>
-            {ORTHOBIOLOGICS_DATA.map((proc, idx) => (
-              <button
-                key={proc.abbr}
-                onClick={() => setSelectedProcIndex(idx)}
-                className={`w-full text-left p-4 rounded-2xl transition-all cursor-pointer border ${
-                  selectedProcIndex === idx
-                    ? 'bg-white border-[#013777] shadow-lg ring-2 ring-[#013777]/20 scale-102'
-                    : 'glass-panel border-white/80 text-[#2d435e] hover:bg-white'
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-[#013777]">
-                    {proc.abbr}
-                  </span>
-                  <span className="text-[10px] text-emerald-700 font-bold px-2 py-0.5 rounded-md bg-emerald-50">
-                      Profile listing
-                  </span>
-                </div>
-                <h4 className="text-sm sm:text-base font-black text-[#092545] mt-1">
-                  {proc.title}
-                </h4>
-              </button>
-            ))}
-
-            {/* BEMER Highlight Card */}
-            <div className="p-5 rounded-2xl glass-panel border border-amber-300 bg-amber-50/60 mt-4 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-bold text-amber-900 uppercase tracking-wider">
-                <Zap className="w-4 h-4 text-amber-600" />
-                <span>BEMER Therapy</span>
-              </div>
-              <p className="text-xs text-[#2d435e] leading-relaxed">
-                The hospital profile describes BEMER as Bio Electro Magnetic Energy Resonance Therapy. Discuss suitability and expected outcomes with the treating team.
-              </p>
-            </div>
-            </Reveal>
-          </div>
-
-          {/* Procedure Detail & Clinical Photo Card */}
-          <div className="lg:col-span-7">
-            <Reveal variant="right" delay={120}>
-              <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/80 shadow-xl space-y-6 bg-white/90">
-              {/* Clinical procedure image from presentation */}
-              <div className="relative h-60 rounded-2xl overflow-hidden border border-slate-200 shadow-inner">
-                <img
-                  src="/images/facility/prolotherapy.png"
-                  alt="Illustrative orthobiologics image"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#021329]/95 via-[#021329]/45 to-transparent" />
-                <div className="contrast-dark photo-caption absolute bottom-3.5 left-4 right-4 text-white flex items-end justify-between gap-3">
-                  <div className="space-y-0.5">
-                    <div className="text-[11px] font-extrabold !text-[#bae6fd] uppercase tracking-wider drop-shadow-sm">
-                      Orthobiologics listed in profile
-                    </div>
-                    <h3 className="text-base sm:text-lg font-black !text-white drop-shadow-md">
-                      {activeProc.title}
-                    </h3>
-                  </div>
-                  <span className="shrink-0 text-xs font-extrabold px-3 py-1 rounded-lg bg-white/20 backdrop-blur-md !text-white border border-white/40 shadow-sm">
-                    {activeProc.abbr}
-                  </span>
-                </div>
-              </div>
-
-              {/* Description */}
-              <p className="text-xs sm:text-sm text-[#2d435e] leading-relaxed">
-                {activeProc.description}
-              </p>
-
-              {/* Indications & Benefits Columns */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                  <div className="text-xs font-black text-[#013777] uppercase tracking-wider">
-                    Profile-Listed Scope
-                  </div>
-                  <ul className="space-y-1.5 text-xs text-[#334155]">
-                    {activeProc.indications.map((ind, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="w-3.5 h-3.5 text-[#0b5599] flex-shrink-0 mt-0.5" />
-                        <span>{ind}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="p-4 rounded-xl bg-teal-50/70 border border-teal-200 space-y-2">
-                  <div className="text-xs font-black text-teal-800 uppercase tracking-wider">
-                    Clinical Considerations
-                  </div>
-                  <ul className="space-y-1.5 text-xs text-[#334155]">
-                    {activeProc.benefits.map((ben, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="w-3.5 h-3.5 text-teal-700 flex-shrink-0 mt-0.5" />
-                        <span>{ben}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* CTA */}
-              <div className="pt-2 flex items-center justify-between border-t border-slate-100">
-                <div className="text-xs text-[#64748b]">
-                  Treatment route depends on clinical assessment
-                </div>
-                <button
-                  onClick={onOpenWhatsAppBooking}
-                  className="glass-button-whatsapp px-5 py-2.5 rounded-xl text-white font-bold text-xs inline-flex items-center gap-2 hover:scale-105 transition-all cursor-pointer shadow-md"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Inquire on WhatsApp</span>
-                </button>
-              </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -117,9 +117,13 @@ export default function App() {
                 onExploreTourism={() => handleNavigate('tourism')}
               />
               <EmergencyBanner onOpenWhatsAppBooking={() => handleOpenBooking()} />
-              <AboutUs onOpenWhatsAppBooking={() => handleOpenBooking()} />
+              <AboutUs 
+                onOpenWhatsAppBooking={() => handleOpenBooking()} 
+                onNavigateAbout={() => handleNavigate('about')}
+              />
               <ServicesSection
                 onSelectServiceForBooking={(service) => handleOpenBooking(undefined, service)}
+                onNavigateServices={() => handleNavigate('services')}
               />
               <OrthobiologicsHighlight
                 onOpenWhatsAppBooking={() =>
@@ -128,9 +132,13 @@ export default function App() {
                     'Orthobiologics (Stem Cells Regenerative Therapy)'
                   )
                 }
+                onNavigateServices={() => handleNavigate('services')}
               />
               <FacilityGallery />
-              <TeamSection onOpenWhatsAppBooking={(doctor) => handleOpenBooking(doctor)} />
+              <TeamSection 
+                onOpenWhatsAppBooking={(doctor) => handleOpenBooking(doctor)} 
+                onNavigateTeam={() => handleNavigate('team')}
+              />
               <MedicalTourism
                 onOpenWhatsAppBooking={() =>
                   handleOpenBooking(undefined, 'Medical Tourism')
