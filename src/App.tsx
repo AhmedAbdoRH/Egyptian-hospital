@@ -19,6 +19,7 @@ import { ServicesSubpage } from './components/subpages/ServicesSubpage';
 import { TeamSubpage } from './components/subpages/TeamSubpage';
 import { ContactSubpage } from './components/subpages/ContactSubpage';
 import { BookingSubpage } from './components/subpages/BookingSubpage';
+import { MedicalTourismSubpage } from './components/subpages/MedicalTourismSubpage';
 import { LoadingScreen } from './components/LoadingScreen';
 import { RevealReadyContext } from './components/ScrollReveal';
 
@@ -113,7 +114,7 @@ export default function App() {
               <Hero
                 onOpenWhatsAppBooking={() => handleOpenBooking()}
                 onExploreServices={() => handleNavigate('services')}
-                onExploreTourism={() => handleScrollToSection('tourism')}
+                onExploreTourism={() => handleNavigate('tourism')}
               />
               <EmergencyBanner onOpenWhatsAppBooking={() => handleOpenBooking()} />
               <AboutUs onOpenWhatsAppBooking={() => handleOpenBooking()} />
@@ -134,6 +135,7 @@ export default function App() {
                 onOpenWhatsAppBooking={() =>
                   handleOpenBooking(undefined, 'Medical Tourism')
                 }
+                onNavigateTourism={() => handleNavigate('tourism')}
               />
               <PartnersSection onOpenWhatsAppBooking={() => handleOpenBooking()} />
               <AccreditationSection />
@@ -189,6 +191,14 @@ export default function App() {
               onNavigateHome={() => handleNavigate('home')}
               preselectedSpecialty={preselectedSpecialty}
               preselectedDoctor={preselectedDoctor}
+            />
+          )}
+
+          {/* DEDICATED MEDICAL TOURISM TAB */}
+          {activeTab === 'tourism' && (
+            <MedicalTourismSubpage
+              onNavigateHome={() => handleNavigate('home')}
+              onOpenWhatsAppBooking={(specialty) => handleOpenBooking(undefined, specialty)}
             />
           )}
         </main>

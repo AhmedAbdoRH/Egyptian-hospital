@@ -65,7 +65,7 @@ export const WhatsAppBookingPage: React.FC<WhatsAppBookingPageProps> = ({
         matchedOption = 'Dr. Ahmed Shaker (Chairman - Obstetrics & Gyn)';
         if (!preselectedSpecialty) matchedSpecialty = 'Obstetrics & Gynaecology';
       } else if (normalized.includes('hesham')) {
-        matchedOption = 'Dr. Mohammed Hesham (CMD - Orthopedic Surgery)';
+        matchedOption = 'Dr. Mohammed Hesham Shaker (CEO & CMD - Orthopedic & Arthroplasty)';
         if (!preselectedSpecialty) matchedSpecialty = 'Orthopedic Surgery';
       } else if (normalized.includes('bassam')) {
         matchedOption = 'Dr. Bassam (Physical Therapy, Myofascial Therapy, Cupping & Acupuncture)';
@@ -227,8 +227,8 @@ _Sent via Cairo Hospital Official Website_`;
                 <option value="Dr. Ahmed Shaker (Chairman - Obstetrics & Gyn)" className="text-[#092545]">
                   Dr. Ahmed Shaker (Chairman - Obstetrics & Gyn)
                 </option>
-                <option value="Dr. Mohammed Hesham (CMD - Orthopedic Surgery)" className="text-[#092545]">
-                  Dr. Mohammed Hesham (CMD - Orthopedic Surgery)
+                <option value="Dr. Mohammed Hesham Shaker (CEO & CMD - Orthopedic & Arthroplasty)" className="text-[#092545]">
+                  Dr. Mohammed Hesham Shaker (CEO & CMD - Orthopedic & Arthroplasty)
                 </option>
                 <option value="Dr. Bassam (Physical Therapy, Myofascial Therapy, Cupping & Acupuncture)" className="text-[#092545]">
                   Dr. Bassam (Physical Therapy, Myofascial Therapy, Cupping & Acupuncture)

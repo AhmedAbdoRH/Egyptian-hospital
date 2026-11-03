@@ -64,7 +64,7 @@ export const BookingSubpage: React.FC<BookingSubpageProps> = ({
         matchedOption = 'Dr. Ahmed Shaker (Chairman - MRCOG Obs & Gyn)';
         if (!preselectedSpecialty) matchedSpecialty = 'Obstetrics & Gynaecology';
       } else if (normalized.includes('hesham')) {
-        matchedOption = 'Dr. Mohammed Hesham (CMD - Orthopedic Surgery)';
+        matchedOption = 'Dr. Mohammed Hesham Shaker (CEO & CMD - Orthopedic & Arthroplasty)';
         if (!preselectedSpecialty) matchedSpecialty = 'Orthopedic Surgery';
       } else if (normalized.includes('bassam')) {
         matchedOption = 'Dr. Bassam (Physical Therapy, Myofascial Therapy, Cupping & Acupuncture)';
@@ -244,8 +244,8 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
                       onChange={(e) => setFormData({ ...formData, doctorPreference: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm text-[#092545] focus:ring-2 focus:ring-[#013777] outline-none bg-white cursor-pointer"
                     >
-                      <option value="Dr. Mohammed Hesham (CMD - Orthopedic Surgery)">
-                        Dr. Mohammed Hesham (CMD - Orthopedics & Arthroplasty)
+                      <option value="Dr. Mohammed Hesham Shaker (CEO & CMD - Orthopedic & Arthroplasty)">
+                        Dr. Mohammed Hesham Shaker (CEO & CMD - Orthopedic & Arthroplasty)
                       </option>
                       <option value="Dr. Ahmed Shaker (Chairman - MRCOG Obs & Gyn)">
                         Dr. Ahmed Shaker (Chairman - MRCOG Obs & Gyn)

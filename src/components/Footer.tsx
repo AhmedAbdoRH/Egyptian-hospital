@@ -69,6 +69,7 @@ export const Footer: React.FC<FooterProps> = ({
               {[
                 ['about', 'About Us & 4 Pillars'],
                 ['services', 'Medical Services Directory'],
+                ['tourism', 'Medical Tourism'],
                 ['team', 'Executive Medical Team'],
                 ['contact', 'Campus Location & Contact'],
                 ['booking', 'Direct WhatsApp Scheduling'],
@@ -151,7 +152,7 @@ export const Footer: React.FC<FooterProps> = ({
 
           <div className="text-sky-100 font-medium">
             <span>© {new Date().getFullYear()} Cairo Hospital Abuja. All rights reserved.</span>
-            <span className="text-sky-300">Version 0.0.1</span>
+            <span className="text-sky-300">Version 1.0.2 · Updated Nov 3, 2026</span>
           </div>
         </Reveal>
       </div>

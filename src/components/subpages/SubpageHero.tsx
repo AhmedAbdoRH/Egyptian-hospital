@@ -9,7 +9,7 @@ interface SubpageHeroProps {
   title: string;
   highlightedText?: string;
   description: string;
-  breadcrumbs: { label: string; tab?: string }[];
+  breadcrumbs?: { label: string; tab?: string }[];
   onNavigateHome: () => void;
   onOpenWhatsAppBooking?: () => void;
   stats?: { label: string; value: string }[];
@@ -21,7 +21,7 @@ export const SubpageHero: React.FC<SubpageHeroProps> = ({
   title,
   highlightedText,
   description,
-  breadcrumbs,
+  breadcrumbs = [],
   onNavigateHome,
   onOpenWhatsAppBooking,
   stats,
@@ -43,7 +43,7 @@ export const SubpageHero: React.FC<SubpageHeroProps> = ({
               <Home className="w-3.5 h-3.5 text-slate-600" />
               <span>Home</span>
             </button>
-            {breadcrumbs.map((crumb, idx) => (
+            {breadcrumbs && breadcrumbs.map((crumb, idx) => (
               <React.Fragment key={idx}>
                 <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
                 <span

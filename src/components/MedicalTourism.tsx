@@ -17,10 +17,12 @@ import { Reveal } from './ScrollReveal';
 
 interface MedicalTourismProps {
   onOpenWhatsAppBooking: () => void;
+  onNavigateTourism?: () => void;
 }
 
 export const MedicalTourism: React.FC<MedicalTourismProps> = ({
   onOpenWhatsAppBooking,
+  onNavigateTourism,
 }) => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -60,6 +62,18 @@ export const MedicalTourism: React.FC<MedicalTourismProps> = ({
             <p className="text-sm sm:text-base text-[#2d435e] leading-relaxed">
               {MEDICAL_TOURISM_DETAILS.description}
             </p>
+            {onNavigateTourism && (
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={onNavigateTourism}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 text-white font-bold rounded-xl shadow-md transition-all cursor-pointer"
+                >
+                  <span>Explore Dedicated Medical Tourism Hub</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            )}
           </div>
         </Reveal>
 
@@ -130,7 +144,7 @@ export const MedicalTourism: React.FC<MedicalTourismProps> = ({
               <h4 className="text-xl sm:text-2xl font-black text-white">
                 Representative Follow-up Until Return to Nigeria
               </h4>
-              <p className="text-xs sm:text-sm text-sky-100 leading-relaxed">
+              <p className="text-xs sm:text-sm text-white leading-relaxed">
                 The supplied profile states that a representative follows up until the patient returns to Nigeria, with follow-up at Cairo Hospital after the return. Contact the hospital to confirm current arrangements.
               </p>
             </div>

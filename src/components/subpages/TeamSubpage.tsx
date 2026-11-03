@@ -47,8 +47,8 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
     },
     {
       dept: 'Orthopedic Surgery',
-      lead: 'Dr. Mohammed Hesham · CMD',
-      specialty: 'Consultant Orthopedic Surgery · Ain Shams University',
+      lead: 'Dr. Mohammed Hesham Shaker · Founder, CEO & CMD',
+      specialty: 'Consultant Orthopedic & Arthroplasty Surgeon · Ain Shams University (1997)',
       procedures: ['Arthroplasty', 'Hand surgeries', 'Foot and ankle surgeries', 'External fixation & deformities'],
     },
     {
@@ -97,7 +97,7 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
         badgeIcon={<Users className="w-4 h-4 text-[#013777]" />}
         title="Clinical & Administrative Team,"
         highlightedText="Cairo Hospital Abuja."
-        description="The supplied profile lists Dr. Ahmed Shaker as Chairman, Dr. Mohammed Hesham as CMD and Consultant Orthopedic Surgery, Dr. Wael Khalil as Bariatric Surgeon, and Dr. Bassam under Physical Therapy. Confirm current clinician and appointment availability directly with Cairo Hospital."
+        description="The team is led by Dr. Ahmed Shaker (Chairman) and Dr. Mohammed Hesham Shaker (Founder, CEO & CMD — Consultant Orthopedic & Arthroplasty Surgeon), supported by Dr. Wael Khalil (Bariatric Surgeon) and Dr. Bassam (Physical Therapy). Confirm current clinician and appointment availability directly with Cairo Hospital."
         breadcrumbs={[{ label: 'Our Medical Team' }]}
         onNavigateHome={onNavigateHome}
         onOpenWhatsAppBooking={() => onOpenWhatsAppBooking()}

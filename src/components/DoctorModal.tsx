@@ -34,6 +34,7 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
   if (!member) return null;
 
   const isChairman = member.id === 'dr-ahmed-shaker';
+  const isCmd = member.id === 'dr-mohammed-hesham';
 
   return (
     <div
@@ -49,9 +50,11 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
       >
         {/* Top Architectural Hairline Accent */}
         <div
-          className={`h-1 w-full shrink-0 ${
+          className={`h-1.5 w-full shrink-0 ${
             isChairman
               ? 'bg-gradient-to-r from-[#fdc33e] via-[#38bdf8] to-[#013777]'
+              : isCmd
+              ? 'bg-gradient-to-r from-teal-400 via-sky-400 to-[#013777]'
               : 'bg-gradient-to-r from-[#013777] via-[#0284c7] to-[#38bdf8]'
           }`}
         />
@@ -72,6 +75,8 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
               className={`w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden shrink-0 bg-[#061a33] shadow-xl ${
                 isChairman
                   ? 'border-2 border-[#fdc33e]/65'
+                  : isCmd
+                  ? 'border-2 border-teal-400/80 shadow-teal-500/20'
                   : 'border-2 border-white/25'
               }`}
             >
@@ -94,7 +99,7 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
             {/* Identity & Pedigree */}
             <div className="space-y-2.5">
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 text-xs font-bold tracking-wide">
-                <span className={isChairman ? '!text-[#fdc33e]' : '!text-[#bae6fd]'}>
+                <span className={isChairman ? '!text-[#fdc33e]' : isCmd ? '!text-teal-300' : '!text-[#bae6fd]'}>
                   {isChairman ? 'Chairman' : member.role}
                 </span>
                 {isChairman && (
@@ -105,6 +110,17 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
                     <span className="inline-flex items-center gap-1 !text-[#bae6fd]">
                       <ShieldCheck className="w-3.5 h-3.5 !text-[#fdc33e]" />
                       <span>Worked in Nigeria since 1970</span>
+                    </span>
+                  </>
+                )}
+                {isCmd && (
+                  <>
+                    <span className="text-white/40" aria-hidden="true">
+                      ·
+                    </span>
+                    <span className="inline-flex items-center gap-1 !text-teal-200">
+                      <ShieldCheck className="w-3.5 h-3.5 text-teal-400" />
+                      <span>Ain Shams '97 · African Union ASRIC Member</span>
                     </span>
                   </>
                 )}
@@ -125,7 +141,7 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
                 <div className="text-xs !text-[#bae6fd] flex items-center justify-center sm:justify-start gap-1.5 font-medium pt-0.5">
                   <GraduationCap
                     className={`w-4 h-4 shrink-0 ${
-                      isChairman ? '!text-[#fdc33e]' : '!text-[#bae6fd]'
+                      isChairman ? '!text-[#fdc33e]' : isCmd ? '!text-teal-300' : '!text-[#bae6fd]'
                     }`}
                   />
                   <span>{member.education}</span>
@@ -139,8 +155,8 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
         <div className="p-6 sm:p-8 overflow-y-auto space-y-7">
           {/* Executive / Clinical Biography */}
           <div className="space-y-2">
-            <div className="text-xs font-bold text-[#013777] tracking-wide">
-              {member.isDoctor ? 'Clinical Mandate & Biography' : 'Executive Mandate & Biography'}
+            <div className="text-xs font-bold text-[#013777] tracking-wide uppercase">
+              {member.isDoctor ? 'Clinical Mandate & Medical Biography' : 'Executive Mandate & Biography'}
             </div>
             <p className="text-sm text-[#1e293b] font-medium leading-relaxed">
               {member.fullBio}
@@ -151,8 +167,8 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
           <div className="pt-6 border-t border-slate-200/80 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-3">
               <h4 className="text-sm font-black text-[#061a33] flex items-center gap-2">
-                <Award className="w-4 h-4 text-[#b87c08] shrink-0" />
-                <span>{member.isDoctor ? 'Clinical Scope & Qualifications' : 'Professional Qualifications'}</span>
+                <Award className={`w-4 h-4 ${isCmd ? 'text-teal-600' : 'text-[#b87c08]'} shrink-0`} />
+                <span>{member.isDoctor ? 'Specialties & Academic Credentials' : 'Professional Qualifications'}</span>
               </h4>
               <ul className="space-y-2.5">
                 {member.qualifications.map((q, i) => (
@@ -160,7 +176,7 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
                     key={i}
                     className="flex items-start gap-2.5 text-xs sm:text-[13px] text-[#0f172a] font-medium leading-snug"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-[#013777] shrink-0 mt-0.5" />
+                    <CheckCircle2 className={`w-4 h-4 ${isCmd ? 'text-teal-600' : 'text-[#013777]'} shrink-0 mt-0.5`} />
                     <span>{q}</span>
                   </li>
                 ))}

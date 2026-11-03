@@ -81,7 +81,7 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
       name: 'Orthopedic & Arthroplasty Clinic',
       phone: HOSPITAL_CONTACT.phone1,
       hours: 'By appointment · confirm schedule',
-      desc: 'Contact the hospital to confirm consultation availability with Dr. Mohammed Hesham.',
+      desc: 'Contact the hospital to confirm consultation availability with Dr. Mohammed Hesham Shaker (Founder, CEO & CMD).',
     },
     {
       name: 'Obstetrics & Gynaecology Clinic',
