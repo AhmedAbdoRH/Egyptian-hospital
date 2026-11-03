@@ -102,9 +102,9 @@ export default function App() {
     }
     lastProcessedPage.current = tabId;
     const nextUrl = tabId === 'home' ? window.location.pathname : `${window.location.pathname}?page=${tabId}`;
+    setActiveTab(tabId);
     window.history.pushState({ page: tabId }, '', nextUrl);
     showLoader();
-    setActiveTab(tabId);
   };
 
   const handleNavigate = (tabId: string) => navigateTo(tabId);
