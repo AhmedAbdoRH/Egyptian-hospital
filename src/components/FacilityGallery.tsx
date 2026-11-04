@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
-import {
-  Building2,
-  X,
-  Maximize2,
-  Sparkles,
-  ChevronLeft,
-  ChevronRight,
-  ShieldCheck,
-} from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Building2, X } from 'lucide-react';
 import { FACILITY_GALLERY } from '../data/cairoHospitalData';
 import { HospitalFacilityItem } from '../types/hospital';
 import { Reveal } from './ScrollReveal';
 
+// Curated photo collage: one large feature tile plus two smaller ones stacked beside it.
+// 2 columns on mobile, 3 columns from md up — both layouts fill the grid with no gaps.
+const COLLAGE_TILES = [
+  'col-span-2 row-span-2 md:col-span-2 md:row-span-2',
+  'col-span-1 row-span-1 md:col-span-1 md:row-span-1',
+  'col-span-1 row-span-1 md:col-span-1 md:row-span-1',
+];
+
+// Keep faces in frame when a portrait photo is cropped into a square tile.
+const COLLAGE_FOCUS = ['object-center', 'object-top', 'object-center'];
+
 export const FacilityGallery: React.FC = () => {
   const [selectedFacility, setSelectedFacility] = useState<HospitalFacilityItem | null>(null);
-  const [filterCategory, setFilterCategory] = useState<string>('All');
 
-  const categories = ['All', ...Array.from(new Set(FACILITY_GALLERY.map((item) => item.category)))];
-
-  const filteredItems = FACILITY_GALLERY.filter((item) => {
-    if (filterCategory === 'All') return true;
-    return item.category === filterCategory;
-  });
+  useEffect(() => {
+    if (!selectedFacility) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSelectedFacility(null);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [selectedFacility]);
 
   return (
     <section id="facilities" className="py-10 sm:py-16 lg:py-20 relative overflow-hidden">
@@ -45,129 +49,59 @@ export const FacilityGallery: React.FC = () => {
           </div>
         </Reveal>
 
-        {/* Filter Pills */}
-        <Reveal variant="up" delay={90}>
-          <div className="flex items-center justify-center gap-2 overflow-x-auto pb-2 text-xs font-bold scrollbar-none">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilterCategory(cat)}
-                className={`px-5 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap ${
-                  filterCategory === cat
-                    ? 'bg-[#013777] text-white font-black shadow-md shadow-[#013777]/25 scale-105'
-                    : 'bg-white/80 border border-slate-200 text-[#2d435e] hover:text-[#013777] hover:bg-white shadow-xs'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </Reveal>
-
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredItems.map((item, idx) => (
+        {/* Photo Collage */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4 auto-rows-[140px] sm:auto-rows-[180px] lg:auto-rows-[210px]">
+          {FACILITY_GALLERY.map((item, idx) => (
             <Reveal
-              key={`${filterCategory}-${item.id}`}
+              key={item.id}
               variant="scale"
-              delay={(idx % 4) * 75}
-              className="h-full"
+              delay={(idx % 3) * 80}
+              className={COLLAGE_TILES[idx] ?? 'col-span-1 row-span-1'}
             >
-              <div
+              <button
+                type="button"
                 onClick={() => setSelectedFacility(item)}
-                className="h-full glass-panel rounded-3xl overflow-hidden border border-slate-200/90 group cursor-pointer glass-panel-hover flex flex-col justify-between bg-white/90 shadow-sm"
+                aria-label={`Enlarge photo: ${item.title}`}
+                className="group relative block w-full h-full overflow-hidden rounded-2xl sm:rounded-3xl bg-slate-100 ring-1 ring-slate-200/70 shadow-sm hover:shadow-xl transition-shadow duration-500 cursor-zoom-in focus:outline-none focus-visible:ring-4 focus-visible:ring-[#013777]/50"
               >
-                <div
-                  className={`relative h-52 overflow-hidden ${
-                    item.image.endsWith('.svg')
-                      ? 'bg-gradient-to-br from-[#edf4fc] to-[#c9dced]'
-                      : 'bg-slate-100'
-                  }`}
-                >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className={`w-full h-full ${
-                      item.image.endsWith('.svg')
-                        ? 'object-contain group-hover:scale-105'
-                        : 'object-cover group-hover:scale-108'
-                    } transition-transform duration-500`}
-                  />
-                  {!item.image.endsWith('.svg') && (
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#012654]/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-                  )}
-                  <span className="absolute top-3 left-3 text-[10px] font-extrabold tracking-wide px-2.5 py-1 rounded-lg bg-[#061a33]/75 backdrop-blur-md !text-white border border-white/25 shadow-md shadow-black/25">
-                    {item.category}
-                  </span>
-                  <div className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-[#013777] opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
-                    <Maximize2 className="w-4 h-4" />
-                  </div>
-                </div>
-
-                <div className="p-4.5 space-y-1.5">
-                  <h4 className="text-sm font-black text-[#092545] group-hover:text-[#013777] transition-colors">
-                    {item.title}
-                  </h4>
-                  <p className="text-[11px] text-[#2d435e] line-clamp-2 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  className={`w-full h-full object-cover ${
+                    COLLAGE_FOCUS[idx] ?? 'object-center'
+                  } transition-transform duration-700 ease-out group-hover:scale-105`}
+                />
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#012654]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </button>
             </Reveal>
           ))}
         </div>
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox: photo only, no captions or info */}
       {selectedFacility && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#011633]/70 backdrop-blur-md">
-          <div className="relative max-w-4xl w-full rounded-3xl border border-slate-200 overflow-hidden shadow-2xl space-y-4 p-6 sm:p-7 bg-white text-[#2d435e]">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <div>
-                <span className="text-xs font-black text-[#013777] uppercase tracking-wider">
-                  {selectedFacility.category}
-                </span>
-                <h3 className="text-lg sm:text-xl font-black text-[#092545] mt-0.5">
-                  {selectedFacility.title}
-                </h3>
-              </div>
-              <button
-                onClick={() => setSelectedFacility(null)}
-                className="p-2 text-slate-400 hover:text-slate-800 rounded-xl bg-slate-100 transition-colors cursor-pointer"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            <div
-              className={`relative h-80 sm:h-[420px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner ${
-                selectedFacility.image.endsWith('.svg')
-                  ? 'bg-gradient-to-br from-[#edf4fc] via-[#dceaf7] to-[#c9dced]'
-                  : ''
-              }`}
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={selectedFacility.title}
+          onClick={() => setSelectedFacility(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#011633]/85 backdrop-blur-md"
+        >
+          <div className="relative w-full max-w-5xl" onClick={(event) => event.stopPropagation()}>
+            <button
+              type="button"
+              onClick={() => setSelectedFacility(null)}
+              aria-label="Close photo"
+              className="absolute -top-2 -right-2 sm:top-3 sm:right-3 z-10 p-2 rounded-full bg-white/95 text-[#013777] shadow-lg hover:bg-white transition-colors cursor-pointer"
             >
-              <img
-                src={selectedFacility.image}
-                alt={selectedFacility.title}
-                className={`w-full h-full ${
-                  selectedFacility.image.endsWith('.svg') ? 'object-contain' : 'object-cover'
-                }`}
-              />
-            </div>
-
-            <p className="text-xs sm:text-sm text-[#2d435e] leading-relaxed">
-              {selectedFacility.description}
-            </p>
-
-            <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-xs text-slate-500">
-              <span className="font-semibold text-[#013777]">16 Oke Agbe Street, Garki 2, Abuja</span>
-              <button
-                onClick={() => setSelectedFacility(null)}
-                className="px-5 py-2.5 rounded-xl bg-[#013777] text-white font-bold cursor-pointer hover:bg-[#0b5599] transition-colors"
-              >
-                Close Preview
-              </button>
-            </div>
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+            <img
+              src={selectedFacility.image}
+              alt={selectedFacility.title}
+              className="w-full max-h-[82vh] object-contain rounded-2xl sm:rounded-3xl shadow-2xl"
+            />
           </div>
         </div>
       )}

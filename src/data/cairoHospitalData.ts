@@ -460,18 +460,4 @@ export const FACILITY_GALLERY: HospitalFacilityItem[] = [
     image: '/images/delegation/cairo-hospital-team-visit.jpg',
     description: 'Cairo Hospital team photograph extracted from the supplied profile.',
   },
-  {
-    id: 'dr-wael-profile',
-    title: 'Dr. Wael Khalil · Bariatric Surgeon',
-    category: 'Clinical Team',
-    image: '/images/team/dr-wael-khalil.jpg',
-    description: 'Doctor photograph extracted from the supplied profile. Listed clinical scope includes laparoscopic, bariatric, and oncology surgeries.',
-  },
-  {
-    id: 'dr-bassam-profile',
-    title: 'Dr. Bassam · Physical Therapy',
-    category: 'Clinical Profile',
-    image: '/images/team/dr-bassam-physical-therapy.jpg',
-    description: 'Clinical photograph extracted from the supplied profile. Dr. Bassam is listed under physical therapy, myofascial therapy, cupping, and acupuncture.',
-  },
 ];
