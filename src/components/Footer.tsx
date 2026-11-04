@@ -150,9 +150,10 @@ export const Footer: React.FC<FooterProps> = ({
             <span className="text-sky-200">Garki 2, Abuja, Nigeria</span>
           </div>
 
-          <div className="text-sky-100 font-medium">
+          <div className="flex items-center gap-2 flex-wrap text-sky-100 font-medium">
             <span>© {new Date().getFullYear()} Cairo Hospital Abuja. All rights reserved.</span>
-            <span className="text-sky-300">Version 1.0.2 · Updated Nov 3, 2026</span>
+            <span className="text-sky-400">·</span>
+            <span className="text-sky-300">Version 1.0.3 · Updated Nov 4, 2026</span>
           </div>
         </Reveal>
       </div>
