@@ -552,7 +552,7 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
           'Egyptian & International Medicines: Pharmaceutical products from approved supply channels.',
           'Medication Counseling: Guidance on dosage, administration, and precautions.',
           'Patient Safety: Support for appropriate medication use and awareness of drug interactions.',
-          'On-Site Convenience: Convenient access to authentic medications during hospital visits (Mon – Sat: 10:00 AM – 6:00 PM).',
+          'On-Site Convenience: Cairo Pharmacy is available 24 hours.',
         ],
       },
     ],
@@ -564,7 +564,7 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
     headline: 'Comfortable Inpatient Admissions & Dedicated Recovery Suites',
     paragraphs: [
       'Cairo Hospital provides inpatient admissions designed for patients undergoing surgical procedures, specialized medical observations, and comprehensive clinical care.',
-      'Our inpatient department features comfortable private and semi-private recovery rooms, continuous 24-hour nursing observation, and daily consultant rounds.',
+      'Our inpatient department features comfortable private and semi-private recovery rooms, continuous nursing observation, and daily consultant rounds.',
     ],
     sections: [
       {
@@ -655,23 +655,4 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
     closing: 'Book a consultation to discuss urosurgical treatment options at Cairo Hospital.',
   },
 
-  // Ambulance Call-Out
-  'ambulance-services': {
-    headline: 'Scheduled Ambulance Transport Services',
-    paragraphs: [
-      'Cairo Hospital provides scheduled patient ambulance transport services by advance arrangement.',
-      'Please note that this is non-resuscitation medical transport; the hospital does not operate a 24/7 emergency resuscitation or acute trauma service.',
-    ],
-    sections: [
-      {
-        title: 'Arrangement Guidelines',
-        items: [
-          'Transport scheduled in advance for hospital admission or outpatient appointments',
-          'Comfortable, equipped patient transfer vehicle',
-          'Advance booking required via phone or WhatsApp desk',
-        ],
-      },
-    ],
-    closing: 'Contact Cairo Hospital front desk to schedule patient transport.',
-  },
 };

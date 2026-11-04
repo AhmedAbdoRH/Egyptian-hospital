@@ -81,10 +81,10 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
       procedures: ['Cardiology', 'Neurology', 'Nephrology', 'Gastroenterology', 'Endocrinology', 'Family Medicine', 'Tropical Medicine'],
     },
     {
-      dept: 'Emergency & Ambulance',
-      lead: 'Services listed in the profile',
-      specialty: 'Call to confirm current availability',
-      procedures: ['Emergency Department', 'Ambulance Service'],
+      dept: 'Inpatient Admissions',
+      lead: 'Hospital admissions and recovery rooms',
+      specialty: 'Contact the hospital to arrange admission',
+      procedures: ['Inpatient admissions', 'Dedicated recovery rooms'],
     },
     {
       dept: 'Diagnostics & Pharmacy',
@@ -564,8 +564,8 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
           <Reveal variant="up">
             <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-900 shadow-xl max-w-5xl mx-auto flex items-center justify-center">
               <img
-                src="/images/delegation/cairo-hospital-team-visit.jpg"
-                alt="Cairo Hospital Medical Mission"
+                src="/images/team/care-team-2026.jpg"
+                alt="Cairo Hospital clinical team"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-auto max-h-[620px] object-contain sm:object-cover sm:object-center"
@@ -625,42 +625,6 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
             ))}
           </div>
         </section>
-
-        {/* Academic Foundations & Royal College Accreditations */}
-        <Reveal variant="scale">
-          <section className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200/90 bg-gradient-to-br from-white via-sky-50/40 to-slate-50 shadow-lg space-y-8">
-            <div className="max-w-3xl space-y-3">
-              <span className="text-xs font-black uppercase tracking-widest text-[#013777]">
-                Backgrounds Named in the Profile
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#092545] tracking-tight">
-                Education & Professional Background
-              </h2>
-              <p className="text-xs sm:text-sm text-[#2d435e] leading-relaxed">
-                The supplied profile names Ain Shams University, the entry “ACC. AZHAR UNIVERSITY,” Cairo University, and Dr. Ahmed Shaker’s MRCOG qualification. Descriptions below retain the source wording where relevant.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-1">
-                <div className="text-sm font-black text-[#092545]">MRCOG</div>
-                <div className="text-[11px] text-slate-500">Profile wording: “member of the Royal College of Surgeons in Dublin”</div>
-              </div>
-              <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-1">
-                <div className="text-sm font-black text-[#092545]">Ain Shams University</div>
-                <div className="text-[11px] text-slate-500">Named in the profiles of Dr. Ahmed Shaker and Dr. Mohammed Hesham</div>
-              </div>
-              <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-1">
-                <div className="text-sm font-black text-[#092545]">“ACC. AZHAR UNIVERSITY”</div>
-                <div className="text-[11px] text-slate-500">Source wording shown for Mr. Mohammed Fadl</div>
-              </div>
-              <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-1">
-                <div className="text-sm font-black text-[#092545]">Cairo University</div>
-                <div className="text-[11px] text-slate-500">Faculty of Science · Mr. Bassem Makhlouf</div>
-              </div>
-            </div>
-          </section>
-        </Reveal>
 
         {/* Direct Executive Consultation Suite */}
         <Reveal variant="scale">

@@ -107,8 +107,8 @@ const ARTICLES_DATA: ArticleItem[] = [
     title: 'Inpatient Admissions & Cairo Pharmacy',
     subtitle: 'Hospital facilities and patient care',
     intro: 'The hospital profile lists an Inpatient Department with dedicated recovery rooms and an on-site Cairo Pharmacy.',
-    bullets: ['Inpatient admissions and recovery rooms', 'Cairo Pharmacy providing genuine medications', 'Outpatient clinics Mon-Sat 10:00 AM - 6:00 PM by appointment', 'Ambulance transport by scheduled arrangement (non-resuscitation)'],
-    note: 'Cairo Hospital operates scheduled outpatient clinics, inpatient rooms, and pharmacy. It does not provide emergency resuscitation services.',
+    bullets: ['Inpatient admissions and recovery rooms', 'Cairo Pharmacy providing genuine medications 24 hours', 'Outpatient clinics Mon-Sat 10:00 AM - 6:00 PM by appointment'],
+    note: 'No emergency services. Inpatient admissions are available.',
   },
 ];
 
@@ -147,7 +147,7 @@ export const CairoArticles: React.FC<CairoArticlesProps> = ({ onOpenWhatsAppBook
               </div>
             </div>
             <strong className="text-xs text-[#fdc33e] max-w-md text-left md:text-right">
-              Emergency Department & ambulance service are listed; call {HOSPITAL_CONTACT.whatsappDisplay} to confirm current access.
+              No emergency services. Contact {HOSPITAL_CONTACT.whatsappDisplay} for appointments and general inquiries.
             </strong>
           </div>
         </Reveal>

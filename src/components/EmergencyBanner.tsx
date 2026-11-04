@@ -21,7 +21,7 @@ export const EmergencyBanner: React.FC<EmergencyBannerProps> = ({
               <div className="flex items-center gap-2.5 flex-wrap">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-100 font-extrabold text-xs tracking-wider uppercase">
                   <Clock className="w-3.5 h-3.5" />
-                  Official Hospital Working Hours
+                  Working Hours & Clinical Notice
                 </span>
                 <span className="text-sky-300/60 hidden sm:inline">|</span>
                 <span className="text-xs text-sky-100 font-semibold flex items-center gap-1">
@@ -31,11 +31,11 @@ export const EmergencyBanner: React.FC<EmergencyBannerProps> = ({
               </div>
 
               <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
-                Outpatient Clinics by Appointment · Cairo Pharmacy
+                Clinic, Pharmacy & Hospital Information
               </h3>
 
               {/* Working hours grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 pt-1 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5 pt-1 text-xs">
                 <div className="p-2.5 rounded-xl bg-white/10 border border-white/15">
                   <div className="text-[11px] font-bold text-sky-200">Outpatient Clinics</div>
                   <div className="text-white font-extrabold">Mon – Sat: 10:00 AM – 6:00 PM</div>
@@ -47,19 +47,25 @@ export const EmergencyBanner: React.FC<EmergencyBannerProps> = ({
                     <Pill className="w-3 h-3 text-emerald-300" />
                     <span>Cairo Pharmacy</span>
                   </div>
-                  <div className="text-white font-extrabold">Mon – Sat: 10 AM – 6 PM</div>
+                  <div className="text-white font-extrabold">24 Hours</div>
                   <div className="text-[10px] text-emerald-200">Genuine medicines on-site</div>
                 </div>
 
                 <div className="p-2.5 rounded-xl bg-white/10 border border-white/15">
-                  <div className="text-[11px] font-bold text-sky-200">Laboratory & Tourism</div>
+                  <div className="text-[11px] font-bold text-sky-200">Laboratory</div>
                   <div className="text-white font-extrabold">Mon – Sat: 10:00 AM – 6:00 PM</div>
                   <div className="text-[10px] text-sky-200">Automated diagnostic testing</div>
+                </div>
+
+                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15">
+                  <div className="text-[11px] font-bold text-sky-200">Medical Tourism</div>
+                  <div className="text-white font-extrabold">Mon – Sat: 10:00 AM – 6:00 PM</div>
+                  <div className="text-[10px] text-sky-200">By appointment</div>
                 </div>
               </div>
 
               <p className="text-xs text-sky-100/90 leading-relaxed font-medium pt-1">
-                <strong className="text-white">Note:</strong> Cairo Hospital operates scheduled outpatient clinics, inpatient admissions, and pharmacy services. We do not operate emergency resuscitation services. Ambulance transport is available strictly by advance scheduled arrangement.
+                <strong className="text-white">Note:</strong> No emergency services. Inpatient admissions are available. Outpatient clinics are by appointment.
               </p>
             </div>
 

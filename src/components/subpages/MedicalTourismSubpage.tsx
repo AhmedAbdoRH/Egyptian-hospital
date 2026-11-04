@@ -474,13 +474,13 @@ export const MedicalTourismSubpage: React.FC<MedicalTourismSubpageProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-16">
           <Reveal>
             <div className="text-center max-w-3xl mx-auto space-y-4">
-              <span className="text-xs font-black uppercase tracking-widest text-sky-300">
+              <span className="text-xs font-black uppercase tracking-widest text-sky-200">
                 Patient Safety & Clinical Accountability
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
                 The Cairo Hospital Advantage
               </h2>
-              <p className="text-base sm:text-lg text-slate-300">
+              <p className="text-base sm:text-lg text-slate-200">
                 Traveling independently for surgery leaves you vulnerable to unrecognized clinics and zero post-operative follow-up back home. See how Cairo Hospital protects you.
               </p>
             </div>
@@ -496,7 +496,7 @@ export const MedicalTourismSubpage: React.FC<MedicalTourismSubpageProps> = ({
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white">Independent Medical Travel</h3>
-                    <p className="text-xs text-rose-300">High Risk & Post-Op Abandonment</p>
+                    <p className="text-xs text-rose-200">High Risk & Post-Op Abandonment</p>
                   </div>
                 </div>
                 <ul className="space-y-4 text-sm text-slate-300">
@@ -524,7 +524,7 @@ export const MedicalTourismSubpage: React.FC<MedicalTourismSubpageProps> = ({
             <Reveal variant="right">
               <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-[#012654] to-[#013777] border border-sky-400/50 space-y-6 shadow-2xl relative">
                 <div className="absolute top-4 right-4">
-                  <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-bold">
+                  <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-200 text-xs font-bold">
                     Recommended Protocol
                   </span>
                 </div>
@@ -759,14 +759,14 @@ export const MedicalTourismSubpage: React.FC<MedicalTourismSubpageProps> = ({
           <Reveal>
             <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-10 backdrop-blur-md">
               <div className="space-y-3 text-center md:text-left">
-                <span className="px-3 py-1 rounded-full bg-sky-400/20 text-sky-300 text-xs font-bold uppercase tracking-wider">
+                <span className="px-3 py-1 rounded-full bg-sky-400/20 text-sky-200 text-xs font-bold uppercase tracking-wider">
                   Direct Medical Travel Liaison
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-black tracking-tight">
+                <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
                   Ready to Discuss Your Case with Our Consultants?
                 </h3>
-                <p className="text-sm sm:text-base text-slate-300 max-w-xl">
-                  Visit our clinic at 16 Oke Agbe Street, Garki 2, Abuja, or connect directly through our 24/7 dedicated WhatsApp coordination desk.
+                <p className="text-sm sm:text-base text-slate-200 max-w-xl">
+                  Visit our clinic at 16 Oke Agbe Street, Garki 2, Abuja, or contact our WhatsApp coordination desk to arrange an appointment.
                 </p>
               </div>
 

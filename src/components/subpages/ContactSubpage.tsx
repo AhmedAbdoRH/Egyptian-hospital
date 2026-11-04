@@ -9,12 +9,9 @@ import {
   Copy,
   CheckCircle2,
   ExternalLink,
-  ShieldCheck,
-  Ambulance,
   Car,
   Accessibility,
   Building,
-  AlertTriangle,
 } from 'lucide-react';
 import { SubpageHero } from './SubpageHero';
 import { HOSPITAL_CONTACT, MEDICAL_SERVICES } from '../../data/cairoHospitalData';
@@ -65,28 +62,21 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
 
   const departments = [
     {
-      name: 'Emergency Department & Ambulance Services',
-      phone: HOSPITAL_CONTACT.phone1,
-      hours: 'Call to confirm current availability',
-      desc: 'Emergency Department and ambulance services are listed in the hospital profile. Call the hospital to confirm immediate access and response arrangements.',
-      urgent: true,
-    },
-    {
       name: 'Specialist Outpatient Clinics',
       phone: HOSPITAL_CONTACT.phone1,
-      hours: 'By appointment · confirm schedule',
+      hours: 'Mon - Sat: 10:00 AM - 6:00 PM · By appointment',
       desc: 'Contact the hospital to confirm current clinic and consultant availability.',
     },
     {
       name: 'Orthopedic & Arthroplasty Clinic',
       phone: HOSPITAL_CONTACT.phone1,
-      hours: 'By appointment · confirm schedule',
+      hours: 'Mon - Sat: 10:00 AM - 6:00 PM · By appointment',
       desc: 'Contact the hospital to confirm consultation availability with Dr. Mohammed Hesham Shaker (Founder, CEO & CMD).',
     },
     {
       name: 'Obstetrics & Gynaecology Clinic',
       phone: HOSPITAL_CONTACT.phone1,
-      hours: 'By appointment · confirm schedule',
+      hours: 'Mon - Sat: 10:00 AM - 6:00 PM · By appointment',
       desc: 'Contact the hospital to arrange an appointment with Dr. Ahmed Shaker.',
     },
     {
@@ -104,19 +94,19 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
     {
       name: 'Diagnostic Laboratory & Digital X-Ray',
       phone: HOSPITAL_CONTACT.phone1,
-      hours: 'Call to confirm availability',
+      hours: 'Mon - Sat: 10:00 AM - 6:00 PM',
       desc: 'Laboratory and digital X-ray services are listed in the hospital profile.',
     },
     {
       name: 'Cairo Hospital Pharmacy Department',
       phone: HOSPITAL_CONTACT.phone1,
-      hours: 'Call to confirm opening hours',
-      desc: 'A pharmacy department is listed in the profile; contact the hospital to confirm hours and product availability.',
+      hours: '24 Hours',
+      desc: 'Cairo Pharmacy is available 24 hours.',
     },
     {
       name: 'Medical Tourism',
       phone: HOSPITAL_CONTACT.phone1,
-      hours: 'Contact the hospital for inquiries',
+      hours: 'Mon - Sat: 10:00 AM - 6:00 PM',
       desc: 'Support for overseas destinations: Egypt, Dubai, the United Kingdom, and Turkey.',
     },
   ];
@@ -129,13 +119,13 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
         badgeIcon={<MapPin className="w-4 h-4 text-[#013777]" />}
         title="Connect with Cairo Hospital,"
         highlightedText="Garki 2, Abuja."
-        description="Contact Cairo Hospital for outpatient appointments, information about the Emergency Department and ambulance services, or directions to the hospital campus in Garki 2, Abuja."
+        description="Contact Cairo Hospital for outpatient appointments, specialist consultations, or directions to the hospital campus in Garki 2, Abuja."
         breadcrumbs={[{ label: 'Contact Us' }]}
         onNavigateHome={onNavigateHome}
         onOpenWhatsAppBooking={onOpenWhatsAppBooking}
         stats={[
-          { label: 'Emergency Department', value: 'Listed' },
-          { label: 'Ambulance Services', value: 'Listed' },
+          { label: 'Outpatient Clinics', value: 'By Appointment' },
+          { label: 'Cairo Pharmacy', value: '24 Hours' },
           { label: 'Garki 2 Campus', value: '16 Oke Agbe' },
           { label: 'Appointment Requests', value: 'WhatsApp' },
         ]}
@@ -143,36 +133,9 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-20">
         {/* Core Contact Cards Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Card 1: Emergency & Hotline */}
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Card 1: Campus Address */}
           <Reveal variant="up" delay={0} className="h-full">
-            <div className="h-full glass-panel p-6 rounded-3xl border border-rose-300 bg-rose-50/70 shadow-sm space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold">
-                  <Ambulance className="w-6 h-6" />
-                </div>
-                <div className="space-y-1">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-rose-700 bg-rose-100 px-2 py-0.5 rounded-md">
-                    Emergency & Ambulance Services
-                  </span>
-                  <h3 className="text-base font-black text-[#092545]">Emergency Department</h3>
-                </div>
-                <p className="text-xs text-[#1e293b] font-medium">
-                  Emergency Department and ambulance services are listed in the hospital profile. Call to confirm current access and availability.
-                </p>
-              </div>
-              <a
-                href={`tel:${HOSPITAL_CONTACT.phone1}`}
-                className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-black text-xs shadow-xs transition-colors cursor-pointer"
-              >
-                <Phone className="w-4 h-4" />
-                <span>{HOSPITAL_CONTACT.phone1}</span>
-              </a>
-            </div>
-          </Reveal>
-
-          {/* Card 2: Campus Address */}
-          <Reveal variant="up" delay={70} className="h-full">
             <div className="h-full glass-panel p-6 rounded-3xl border border-slate-300 bg-white shadow-sm space-y-4 flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#013777] flex items-center justify-center font-bold border border-sky-200">
@@ -207,8 +170,8 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
             </div>
           </Reveal>
 
-          {/* Card 3: WhatsApp Desk */}
-          <Reveal variant="up" delay={140} className="h-full">
+          {/* Card 2: WhatsApp Desk */}
+          <Reveal variant="up" delay={70} className="h-full">
             <div className="h-full glass-panel p-6 rounded-3xl border border-emerald-300 bg-emerald-50/70 shadow-sm space-y-4 flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
@@ -236,8 +199,8 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
             </div>
           </Reveal>
 
-          {/* Card 4: Operating Hours */}
-          <Reveal variant="up" delay={210} className="h-full">
+          {/* Card 3: Operating Hours */}
+          <Reveal variant="up" delay={140} className="h-full">
             <div className="h-full glass-panel p-6 rounded-3xl border border-slate-300 bg-white shadow-sm space-y-4 flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="w-12 h-12 rounded-2xl bg-slate-100 text-[#092545] flex items-center justify-center font-bold border border-slate-200">
@@ -250,10 +213,10 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                   <h3 className="text-base font-black text-[#092545]">Confirm Before Visiting</h3>
                 </div>
                 <div className="text-xs text-[#1e293b] space-y-1 font-medium">
-                  <div><span className="font-bold text-[#092545]">Emergency Department & Ambulance:</span> Call to confirm availability</div>
-                  <div><span className="font-bold text-[#092545]">Outpatient Clinics:</span> Call to confirm schedules</div>
-                  <div><span className="font-bold text-[#092545]">Pharmacy:</span> Call to confirm opening hours</div>
-                  <div><span className="font-bold text-[#092545]">Laboratory & diagnostics:</span> Call to confirm availability</div>
+                  <div><span className="font-bold text-[#092545]">Outpatient Clinic:</span> Mon - Sat, 10:00 AM - 6:00 PM (By appointment)</div>
+                  <div><span className="font-bold text-[#092545]">Cairo Pharmacy:</span> 24 Hours</div>
+                  <div><span className="font-bold text-[#092545]">Lab:</span> Mon - Sat, 10:00 AM - 6:00 PM</div>
+                  <div><span className="font-bold text-[#092545]">Medical Tourism:</span> Mon - Sat, 10:00 AM - 6:00 PM</div>
                 </div>
               </div>
               <div className="py-2.5 px-3 rounded-xl bg-slate-100 text-center text-xs font-black text-slate-800 border border-slate-200">
@@ -314,10 +277,10 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                 </div>
 
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200/60">
-                  <ShieldCheck className="w-5 h-5 text-indigo-600 shrink-0" />
+                  <Building className="w-5 h-5 text-indigo-600 shrink-0" />
                   <div>
-                    <div className="text-xs font-bold text-[#092545]">Emergency & Ambulance</div>
-                    <div className="text-[10px] text-slate-500">Listed in the profile; call to confirm availability</div>
+                    <div className="text-xs font-bold text-[#092545]">Inpatient Admissions</div>
+                    <div className="text-[10px] text-slate-500">Available</div>
                   </div>
                 </div>
               </div>
@@ -435,21 +398,10 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {departments.map((dept, idx) => (
               <Reveal key={idx} variant="up" delay={(idx % 3) * 75} className="h-full">
-                <div
-                  className={`h-full glass-panel p-6 rounded-3xl border shadow-sm space-y-4 flex flex-col justify-between ${
-                    dept.urgent
-                      ? 'border-rose-200 bg-rose-50/30'
-                      : 'border-slate-200/90 bg-white/95'
-                  }`}
-                >
+                <div className="h-full glass-panel p-6 rounded-3xl border border-slate-200/90 bg-white/95 shadow-sm space-y-4 flex flex-col justify-between">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold text-[#013777]">{dept.hours}</span>
-                      {dept.urgent && (
-                        <span className="text-[10px] font-bold text-rose-700 bg-rose-100 px-2 py-0.5 rounded-md">
-                          Call to confirm
-                        </span>
-                      )}
                     </div>
                     <h3 className="text-base font-black text-[#092545]">{dept.name}</h3>
                     <p className="text-xs text-[#2d435e]">{dept.desc}</p>

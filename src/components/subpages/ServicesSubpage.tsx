@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   Activity,
-  Ambulance,
   Bone,
   Dna,
   Zap,
@@ -30,7 +29,6 @@ import {
   MEDICAL_SERVICES,
   SERVICE_DEPARTMENTS,
   HOSPITAL_CONTACT,
-  CLINIC_HOURS,
 } from '../../data/cairoHospitalData';
 import { MedicalService } from '../../types/hospital';
 import { OrthobiologicsHighlight } from '../OrthobiologicsHighlight';
@@ -57,8 +55,6 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
 
   const getServiceIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Ambulance':
-        return <Ambulance className="w-6 h-6 text-indigo-600" />;
       case 'Bone':
         return <Bone className="w-6 h-6 text-[#013777]" />;
       case 'Dna':
@@ -131,11 +127,11 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
   const serviceFaqs = [
     {
       q: 'What are the official clinic and department working hours?',
-      a: 'Outpatient clinic & Cairo Pharmacy: Monday – Saturday: 10:00 AM – 6:00 PM (strictly by appointments only). Laboratory Diagnostic testing: Monday – Saturday: 10:00 AM – 6:00 PM. Medical Tourism Desk: Monday – Saturday: 10:00 AM – 6:00 PM.',
+      a: 'Outpatient Clinic: Monday – Saturday, 10:00 AM – 6:00 PM (by appointments only). Cairo Pharmacy: 24 Hours. Lab: Monday – Saturday, 10:00 AM – 6:00 PM. Medical Tourism: Monday – Saturday, 10:00 AM – 6:00 PM.',
     },
     {
-      q: 'Does Cairo Hospital provide emergency or 24/7 acute trauma services?',
-      a: 'No. Cairo Hospital operates scheduled outpatient clinics, inpatient admissions, and pharmacy services. We do not operate emergency resuscitation services. Patient ambulance transport is available strictly by advance scheduled arrangement without emergency resuscitation.',
+      q: 'Are emergency services available?',
+      a: 'No emergency services are available. Inpatient admissions are available.',
     },
     {
       q: 'Do you offer non-surgical orthobiologic alternatives for joint arthritis?',
@@ -162,7 +158,7 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
         stats={[
           { label: 'Services Listed', value: '22' },
           { label: 'Outpatient Clinic', value: '10 AM - 6 PM' },
-          { label: 'Cairo Pharmacy', value: 'Mon - Sat' },
+          { label: 'Cairo Pharmacy', value: '24 Hours' },
           { label: 'Appointments', value: 'By Schedule' },
         ]}
       />
@@ -177,10 +173,11 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
                 <span>Working Hours & Clinical Notice</span>
               </div>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-                <strong>Outpatient Clinic & Pharmacy:</strong> Mon – Sat: 10:00 AM – 6:00 PM (By Appointments only) ·{' '}
+                <strong>Outpatient Clinic:</strong> Mon – Sat: 10:00 AM – 6:00 PM (By Appointments only) ·{' '}
+                <strong>Cairo Pharmacy:</strong> 24 Hours ·{' '}
                 <strong>Laboratory:</strong> Mon – Sat: 10:00 AM – 6:00 PM ·{' '}
                 <strong>Medical Tourism:</strong> Mon – Sat: 10:00 AM – 6:00 PM ·{' '}
-                <span className="text-[#013777] font-semibold">Inpatient admissions available.</span> (No emergency services; ambulance by scheduled arrangement only).
+                <span className="text-[#013777] font-semibold">Inpatient admissions available. No emergency services.</span>
               </p>
             </div>
             <button

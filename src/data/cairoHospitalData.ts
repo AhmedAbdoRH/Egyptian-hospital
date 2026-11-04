@@ -22,55 +22,45 @@ export const HOSPITAL_CONTACT = {
   whatsappDisplay: '+234 912 979 9999',
   email: 'nigeria.crc@gmail.com',
   workingHours:
-    'Outpatient Clinic & Pharmacy: Mon - Sat: 10:00 AM - 6:00 PM (By Appointments only) · Laboratory: Mon - Sat: 10:00 AM - 6:00 PM · Medical Tourism: Mon - Sat: 10:00 AM - 6:00 PM (No emergency services)',
+    'Outpatient Clinic: Mon - Sat: 10:00 AM - 6:00 PM (By Appointments only) · Cairo Pharmacy: 24 Hours · Lab: Mon - Sat: 10:00 AM - 6:00 PM · Medical Tourism: Mon - Sat: 10:00 AM - 6:00 PM · No emergency services',
 };
 
 export const CLINIC_HOURS = {
   outpatient: 'Mon - Sat: 10:00 AM - 6:00 PM (By Appointments only)',
-  pharmacy: 'Mon - Sat: 10:00 AM - 6:00 PM',
+  pharmacy: '24 Hours',
   laboratory: 'Mon - Sat: 10:00 AM - 6:00 PM',
   medicalTourism: 'Mon - Sat: 10:00 AM - 6:00 PM',
-  emergency: 'No emergency services (Ambulance by scheduled arrangement, non-resuscitation)',
+  emergency: 'No emergency services',
   inpatient: 'Inpatient Admissions & Dedicated Recovery Rooms Available',
 };
 
 export const HOSPITAL_STATS = [
   { value: '1970', label: 'Chairman’s Work in Nigeria', sublabel: 'Working in Nigeria since 1970' },
   { value: '22', label: 'Clinical Services', sublabel: 'Multispecialty departments & clinics' },
-  { value: 'Mon-Sat', label: 'Cairo Pharmacy', sublabel: 'Genuine medicines & pharmaceutical care' },
+  { value: '24 Hours', label: 'Cairo Pharmacy', sublabel: 'Genuine medicines & pharmaceutical care' },
   { value: 'Mon-Sat', label: 'Outpatient & Lab', sublabel: '10:00 AM - 6:00 PM (By Appointment)' },
 ];
 
 export const PILLARS_OF_CARE = [
   {
-    title: 'PATIENT COMPLIANCE & SATISFACTION',
+    title: 'Patient Compliance & Satisfaction',
     description: 'A named aim in the supplied hospital profile.',
     icon: 'Users',
   },
   {
-    title: 'ACCURATE DIAGNOSIS & EFFECTIVE TREATMENT',
-    description: 'A named aim in the supplied hospital profile.',
-    icon: 'Microscope',
-  },
-  {
-    title: 'HYGIENE',
+    title: 'Hygiene',
     description: 'A named pillar of the hospital’s stated aim.',
     icon: 'ShieldCheck',
   },
   {
-    title: 'COMFORT',
+    title: 'Comfort',
     description: 'A named pillar of the hospital’s stated aim.',
     icon: 'HeartHandshake',
   },
   {
-    title: 'CARE',
+    title: 'Care',
     description: 'A named pillar of the hospital’s stated aim.',
     icon: 'Stethoscope',
-  },
-  {
-    title: 'REASSURANCE',
-    description: 'A named pillar of the hospital’s stated aim.',
-    icon: 'Activity',
   },
 ];
 
@@ -552,10 +542,12 @@ export const MEDICAL_SERVICES: MedicalService[] = [
       'Advanced Orthopedic Care for Better Movement and Quality of Life. Joint replacement (knee & hip), hand reconstruction, foot and ankle surgery, and complex trauma reconstruction.',
     iconName: 'Bone',
     details: [
+      'Stem Cell Injections',
       'Total knee and hip replacement',
+      'Complex trauma reconstruction & external fixation',
+      'PRP Injection',
       'Hand and microsurgical reconstruction',
       'Foot and ankle surgeries',
-      'Complex trauma reconstruction & external fixation',
     ],
     featured: true,
   },
@@ -571,7 +563,7 @@ export const MEDICAL_SERVICES: MedicalService[] = [
       'Consultant outpatient appointments: Mon – Sat: 10:00 AM – 6:00 PM (By Appointments only). Coordinated specialist consultations across major disciplines.',
     iconName: 'Stethoscope',
     details: [
-      'Mon – Sat: 10:00 AM – 6:00 PM',
+      'Mon – Sat: 10:00 AM – 6:00 PM (By Appointments only)',
       'Consultations strictly by appointment',
       'Multispecialty physician network',
     ],
@@ -750,7 +742,7 @@ export const MEDICAL_SERVICES: MedicalService[] = [
       'Genuine Egyptian & international medicines',
       'Prescription dispensing from approved channels',
       'Medication counseling and patient safety checks',
-      'Mon – Sat: 10:00 AM – 6:00 PM',
+      '24 Hours',
     ],
     featured: true,
   },
@@ -770,21 +762,6 @@ export const MEDICAL_SERVICES: MedicalService[] = [
       'Post-operative wound care and rehabilitation',
     ],
     featured: true,
-  },
-  {
-    id: 'ambulance-services',
-    title: 'Ambulance Call-Out',
-    departmentId: 'diagnostics-support',
-    departmentLabel: 'Diagnostics & Pharmacy',
-    category: 'support',
-    description:
-      'Scheduled patient transfer and hospital transport call-out (available by advance arrangement; non-resuscitation, no emergency resuscitation).',
-    iconName: 'Ambulance',
-    details: [
-      'Patient transport by scheduled arrangement',
-      'Non-resuscitation medical transport',
-      'Contact hospital to book transport in advance',
-    ],
   },
 ];
 

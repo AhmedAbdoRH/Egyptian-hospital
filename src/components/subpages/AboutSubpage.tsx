@@ -122,7 +122,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
           { label: 'Chairman’s Experience', value: 'Since 1970' },
           { label: 'Hospital Founded', value: '2019' },
           { label: 'Services Listed', value: '22' },
-          { label: 'Cairo Pharmacy', value: 'Mon - Sat' },
+          { label: 'Cairo Pharmacy', value: '24 Hours' },
         ]}
       />
 
@@ -144,7 +144,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
             </p>
 
             <p className="text-sm sm:text-base text-[#1e293b] font-medium leading-relaxed">
-              In 2021, Cairo Centre expanded its specialties and added a fully equipped surgery room, an inpatient department, and a pharmacy department. The supplied profile also lists outpatient clinics, emergency and ambulance services, orthobiologics, specialist clinics, diagnostics, and medical tourism.
+              In 2021, Cairo Centre expanded its specialties and added a fully equipped surgery room, an inpatient department, and a pharmacy department. The supplied profile also lists outpatient clinics, orthobiologics, specialist clinics, diagnostics, and medical tourism. No emergency services are available.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4">
@@ -346,7 +346,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                   0{activePillar + 1}
                 </div>
                 <div>
-                  <h3 className="text-2xl font-black text-[#092545]">
+                  <h3 className="text-2xl font-black text-[#092545] normal-case">
                     Pillar: {PILLARS_OF_CARE[activePillar].title}
                   </h3>
                   <p className="text-xs font-bold text-[#013777]">Cairo Hospital Abuja Clinical Standard</p>

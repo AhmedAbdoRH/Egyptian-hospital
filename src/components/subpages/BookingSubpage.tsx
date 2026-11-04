@@ -127,8 +127,8 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
       a: 'Yes, absolutely! Once you initiate the chat using this button, you can directly upload your PDF reports, DICOM imaging summaries, or photos of your prior prescriptions for preliminary review.',
     },
     {
-      q: 'What if I need immediate emergency medical attention?',
-      a: 'The hospital profile lists an Emergency Department and ambulance services. For urgent care, contact Cairo Hospital by phone at +234 912 979 9999 or go to 16 Oke Agbe Street, Garki 2, Abuja. Do not wait for a WhatsApp response in a life-threatening emergency.',
+      q: 'Are emergency services available?',
+      a: 'No emergency services are available. Inpatient admissions are available.',
     },
   ];
 
@@ -425,7 +425,7 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
             <div className="p-5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 space-y-2">
               <div className="flex items-center gap-2 text-xs font-bold text-amber-800">
                 <AlertCircle className="w-4 h-4 text-amber-600" />
-                <span>Emergency Department & Ambulance</span>
+                <span>Inpatient Admissions · No Emergency Services</span>
               </div>
               <p className="text-xs text-amber-700 leading-relaxed">
                 These services are listed in the supplied profile. Call directly to confirm current access; do not wait for a WhatsApp reply in a life-threatening emergency. Hospital phone:{' '}

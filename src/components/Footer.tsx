@@ -100,8 +100,9 @@ export const Footer: React.FC<FooterProps> = ({
               <li>• Obstetrics, Gynaecology & Infertility</li>
               <li>• Family & Tropical Medicine</li>
               <li>• Laboratory & Digital X-Ray</li>
-              <li>• Cairo Pharmacy (Mon - Sat)</li>
+              <li>• Cairo Pharmacy (24 Hours)</li>
               <li>• Inpatient Admissions & Recovery</li>
+              <li>• No Emergency Services</li>
             </ul>
           </Reveal>
 
@@ -120,7 +121,7 @@ export const Footer: React.FC<FooterProps> = ({
               </button>
 
               <div className="p-3 rounded-xl bg-white/10 border border-white/20 space-y-1 text-white">
-                <div className="text-[11px] text-white font-bold">Hospital Phone Desk (By Appointment)</div>
+                <div className="text-[11px] text-white font-bold">Hospital Desk · Appointments & Inquiries</div>
                 <a
                   href={`tel:${HOSPITAL_CONTACT.phone1}`}
                   className="text-white font-mono font-black hover:text-sky-300 text-sm block"

@@ -8,7 +8,6 @@ import {
   Send,
   Navigation,
   ShieldCheck,
-  Ambulance,
 } from 'lucide-react';
 import { HOSPITAL_CONTACT } from '../data/cairoHospitalData';
 import { Reveal } from './ScrollReveal';
