@@ -13,10 +13,12 @@ export interface TeamMember {
 }
 
 export type ServiceDepartmentId =
-  | 'orthopedics'
+  | 'orthobiologics'
   | 'physiotherapy'
-  | 'obgyn'
   | 'general-surgery'
+  | 'medical-tourism'
+  | 'obgyn'
+  | 'orthopedics'
   | 'specialist-clinics'
   | 'family-tropical'
   | 'diagnostics-support';

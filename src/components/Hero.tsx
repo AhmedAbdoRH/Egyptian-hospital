@@ -25,7 +25,7 @@ const SPECIALTIES = [
   'Orthopedic Surgery',
   'Orthobiologics',
   'Physiotherapy',
-  'Emergency Department & Ambulance',
+  'General Surgery & Inpatient Care',
   'Medical Tourism',
 ];
 
@@ -33,7 +33,7 @@ const TRUST_PARTNERS = [
   'Advanced Orthopedic Surgery',
   'Stem Cells Regenerative Therapy',
   'Joint Arthroplasty',
-  '24/7 Emergency & Trauma Care',
+  'Inpatient Admissions & Recovery',
   'Specialist Physiotherapy',
   'Cross-Border Medical Tourism',
   'Rehabilitation & Sports Medicine',
@@ -461,7 +461,7 @@ export const Hero: React.FC<HeroProps> = ({
                       <h2 className="text-lg sm:text-xl font-bold text-white mt-0.5">
                         Cairo Hospital & Rehabilitation Centre
                       </h2>
-                      <p className="text-xs text-slate-400 mt-1">On-site medical team available around the clock</p>
+                      <p className="text-xs text-sky-200 mt-1">Outpatient Clinics Mon-Sat 10:00 AM - 6:00 PM · 24h Cairo Pharmacy</p>
                     </div>
                   </div>
 

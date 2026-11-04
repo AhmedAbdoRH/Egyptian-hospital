@@ -104,11 +104,11 @@ const ARTICLES_DATA: ArticleItem[] = [
     note: 'Consultant schedules and appointment availability should be confirmed with the hospital.',
   },
   {
-    title: 'Emergency Department & Ambulance Service',
-    subtitle: 'Services listed in the hospital profile',
-    intro: 'The hospital profile includes an Emergency Department and Ambulance Service.',
-    bullets: ['Emergency Department', 'Ambulance Service', 'Call the hospital to confirm current access and availability'],
-    note: 'For a life-threatening emergency, do not wait for a website or WhatsApp reply; call the hospital directly or contact local emergency services.',
+    title: 'Inpatient Admissions & Cairo Pharmacy',
+    subtitle: 'Hospital facilities and patient care',
+    intro: 'The hospital profile lists an Inpatient Department with dedicated recovery rooms and Cairo Pharmacy operating 24 hours daily.',
+    bullets: ['Inpatient admissions and recovery rooms', 'Cairo Pharmacy open 24 Hours', 'Outpatient clinics Mon-Sat 10:00 AM - 6:00 PM by appointment', 'Ambulance transport by scheduled arrangement (non-resuscitation)'],
+    note: 'Cairo Hospital operates scheduled outpatient clinics, inpatient rooms, and pharmacy. It does not provide emergency resuscitation services.',
   },
 ];
 

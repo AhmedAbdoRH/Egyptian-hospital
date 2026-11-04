@@ -53,7 +53,7 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="text-sky-600 hidden sm:inline">|</span>
             <div className="flex items-center gap-1.5 text-sky-100">
               <Clock className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Emergency Department & Ambulance listed · Call to confirm</span>
+              <span>Outpatient Mon-Sat 10:00 AM - 6:00 PM · 24h Cairo Pharmacy</span>
             </div>
             <span className="text-sky-600 hidden md:inline">|</span>
             <div className="hidden md:flex items-center gap-1.5 text-[#fdc33e] font-semibold">

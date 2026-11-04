@@ -21,14 +21,24 @@ export const HOSPITAL_CONTACT = {
   whatsappNumber: '2349129799999',
   whatsappDisplay: '+234 912 979 9999',
   email: 'nigeria.crc@gmail.com',
-  workingHours: 'Contact the hospital to confirm clinic schedules, pharmacy hours, emergency access, and ambulance availability.',
+  workingHours:
+    'Outpatient Clinic: Mon - Sat: 10:00 AM - 6:00 PM (By Appointments only) · Cairo Pharmacy: 24 Hours · Laboratory: Mon - Sat: 10:00 AM - 6:00 PM · Medical Tourism: Mon - Sat: 10:00 AM - 6:00 PM (No emergency services)',
+};
+
+export const CLINIC_HOURS = {
+  outpatient: 'Mon - Sat: 10:00 AM - 6:00 PM (By Appointments only)',
+  pharmacy: '24 Hours Open',
+  laboratory: 'Mon - Sat: 10:00 AM - 6:00 PM',
+  medicalTourism: 'Mon - Sat: 10:00 AM - 6:00 PM',
+  emergency: 'No emergency services (Ambulance by scheduled arrangement, non-resuscitation)',
+  inpatient: 'Inpatient Admissions & Dedicated Recovery Rooms Available',
 };
 
 export const HOSPITAL_STATS = [
   { value: '1970', label: 'Chairman’s Work in Nigeria', sublabel: 'Working in Nigeria since 1970' },
-  { value: '22', label: 'Services Listed', sublabel: 'Items in the profile’s services list' },
-  { value: '3 listed', label: 'Diagnostics', sublabel: 'Laboratory · X-Ray · Ultrasound' },
-  { value: 'Listed', label: 'Emergency & Ambulance', sublabel: 'Call to confirm current availability' },
+  { value: '22', label: 'Clinical Services', sublabel: 'Multispecialty departments & clinics' },
+  { value: '24h', label: 'Cairo Pharmacy', sublabel: 'Open 24 hours daily on-site' },
+  { value: 'Mon-Sat', label: 'Outpatient & Lab', sublabel: '10:00 AM - 6:00 PM (By Appointment)' },
 ];
 
 export const PILLARS_OF_CARE = [
@@ -97,6 +107,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     specialty: 'Orthopedic Consultant · Arthroplasty & Stem Cells Regenerative Therapy',
     education: 'Ain Shams University Medical School, Cairo, Egypt (Graduated 1997)',
     qualifications: [
+      'PRP Injection & Stem Cell Regenerative Therapy',
       'Orthopedic Consultant',
       'Graduated from Ain Shams University Medical School in Cairo, Egypt (1997)',
       'Specialized in Arthroplasty and stem cells regenerative therapy in musculoskeletal disorders',
@@ -105,6 +116,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
       'Specialized in Orthopedic Arthroplasty, Trauma Surgeries, and Orthobiologics stem cells regenerative therapy',
     ],
     careerHighlights: [
+      'PRP Injection, BMAC & Joint Regenerative Therapy Pioneer',
       'Currently Founder, CEO & CMD of Cairo Hospital in Abuja, Nigeria',
       'Worked in Nozha International Hospital, Cairo, Egypt for 10 years',
       'Worked with the Stuttgart German orthopedic team for 10 years in Elrazi Trauma Center in Kuwait',
@@ -113,7 +125,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     ],
     image: '/images/team/dr-mohammed-hesham.png',
     fullBio:
-      'Dr. Mohammed Hesham Shaker is an Orthopedic Consultant and the Founder, CEO & CMD of Cairo Hospital in Abuja, Nigeria. He graduated from Ain Shams University Medical School in Cairo, Egypt in 1997. Dr. Shaker specializes in Arthroplasty and stem cells regenerative therapy in musculoskeletal disorders, orthopedic trauma surgeries, and orthobiologics. His distinguished clinical journey spans over 25 years, including 10 years at Nozha International Hospital in Cairo, Egypt, and 10 years working with the renowned Stuttgart German orthopedic team in Elrazi Trauma Center in Kuwait. An active academic and regional healthcare pioneer, Dr. Shaker is a Member of the ASRIC (African Scientific Research and Innovation Council) of the African Union, and serves as a Lecturer in Abuja University of Science and Technology in collaboration with Push Africa Organisation.',
+      'Dr. Mohammed Hesham Shaker is an Orthopedic Consultant and the Founder, CEO & CMD of Cairo Hospital in Abuja, Nigeria. He graduated from Ain Shams University Medical School in Cairo, Egypt in 1997. Dr. Shaker specializes in Arthroplasty, PRP Injection, and stem cells regenerative therapy in musculoskeletal disorders, orthopedic trauma surgeries, and orthobiologics. His distinguished clinical journey spans over 25 years, including 10 years at Nozha International Hospital in Cairo, Egypt, and 10 years working with the renowned Stuttgart German orthopedic team in Elrazi Trauma Center in Kuwait. An active academic and regional healthcare pioneer, Dr. Shaker is a Member of the ASRIC (African Scientific Research and Innovation Council) of the African Union, and serves as a Lecturer in Abuja University of Science and Technology in collaboration with Push Africa Organisation.',
   },
   {
     id: 'dr-wael',
@@ -197,20 +209,40 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
 ];
 
+// Reordered strictly according to user prompt and PDF instructions:
+// 1. Orthobiologics (First on top)
+// 2. Physiotherapy
+// 3. General Surgery
+// 4. Medical Tourism (Separated, directly after General Surgery)
+// 5. Obstetrics & Gynaecology
+// 6. Orthopedics & Arthroplasty
+// 7. Specialist Clinics
+// 8. Family & Tropical Medicine
+// 9. Diagnostics & Support
 export const SERVICE_DEPARTMENTS: {
   id: ServiceDepartmentId;
   label: string;
   shortLabel: string;
 }[] = [
   {
-    id: 'orthopedics',
-    label: 'Orthopedics',
-    shortLabel: 'Orthopedics',
+    id: 'orthobiologics',
+    label: 'Orthobiologics & Stem Cells',
+    shortLabel: 'Orthobiologics',
   },
   {
     id: 'physiotherapy',
-    label: 'Physiotherapy',
+    label: 'Physiotherapy & Rehabilitation',
     shortLabel: 'Physiotherapy',
+  },
+  {
+    id: 'general-surgery',
+    label: 'General Surgery & Urosurgery',
+    shortLabel: 'General Surgery',
+  },
+  {
+    id: 'medical-tourism',
+    label: 'Medical Tourism Desk',
+    shortLabel: 'Medical Tourism',
   },
   {
     id: 'obgyn',
@@ -218,9 +250,9 @@ export const SERVICE_DEPARTMENTS: {
     shortLabel: 'Obstetrics & Gynaecology',
   },
   {
-    id: 'general-surgery',
-    label: 'General Surgery & Urosurgery',
-    shortLabel: 'General · Urosurgery',
+    id: 'orthopedics',
+    label: 'Orthopedics & Arthroplasty',
+    shortLabel: 'Orthopedic Surgery',
   },
   {
     id: 'specialist-clinics',
@@ -229,147 +261,587 @@ export const SERVICE_DEPARTMENTS: {
   },
   {
     id: 'family-tropical',
-    label: 'Family & Tropical Medicine',
-    shortLabel: 'Family · Tropical',
+    label: 'Family, Tropical & Herbal Medicine',
+    shortLabel: 'Family & Tropical',
   },
   {
     id: 'diagnostics-support',
-    label: 'Diagnostics, Support & Medical Tourism',
-    shortLabel: 'Diagnostics · Pharmacy · Ambulance · Tourism',
+    label: 'Diagnostics, Pharmacy & Inpatient Care',
+    shortLabel: 'Diagnostics & Pharmacy',
   },
 ];
 
 export const MEDICAL_SERVICES: MedicalService[] = [
+  // 1. Orthobiologics (Top department)
   {
-    id: 'emergency-department', title: 'Emergency Department', departmentId: 'diagnostics-support', departmentLabel: 'Diagnostics & Support', category: 'support',
-    description: 'Emergency Department is listed in the supplied hospital profile. Contact the hospital directly to confirm current access and availability.', iconName: 'Ambulance', details: ['Emergency Department listed in the profile', 'Call to confirm current access and availability'], featured: true,
+    id: 'orthobiologics-bmac',
+    title: 'Orthobiologics (BMAC & Stem Cells)',
+    departmentId: 'orthobiologics',
+    departmentLabel: 'Orthobiologics',
+    category: 'regenerative',
+    description:
+      'From Your Body, Back to Your Body. Bone Marrow Aspirate Concentrate (BMAC) therapy, cellular regenerative treatments, and autologous orthobiologics for joint and musculoskeletal conditions.',
+    iconName: 'Dna',
+    details: [
+      'Bone marrow collection with precise local technique',
+      'Cellular concentration process',
+      'Targeted image-guided administration',
+      'Minimally invasive approach with shorter recovery',
+    ],
+    featured: true,
   },
   {
-    id: 'general-surgery', title: 'General Surgery', departmentId: 'general-surgery', departmentLabel: 'General Surgery & Urosurgery', category: 'surgical',
-    description: 'General Surgery is listed among the hospital services. The profile also lists laparoscopic, bariatric, and oncology surgeries in Dr. Wael Khalil’s scope.', iconName: 'Scissors', details: ['General Surgery', 'Dr. Wael Khalil: laparoscopic surgeries', 'Dr. Wael Khalil: bariatric surgeries', 'Dr. Wael Khalil: oncology surgeries'], featured: true,
+    id: 'prp-therapy',
+    title: 'Platelet-Rich Plasma (PRP Injections)',
+    departmentId: 'orthobiologics',
+    departmentLabel: 'Orthobiologics',
+    category: 'regenerative',
+    description:
+      'Autologous platelet-rich plasma injections administered by Dr. Mohammed Hesham Shaker (CMD) for tendon, ligament, and cartilage healing.',
+    iconName: 'Dna',
+    details: [
+      'PRP Injections for joint and tendon conditions',
+      'Autologous growth factor therapy',
+      'Consultant-led joint assessment',
+    ],
+    featured: true,
   },
   {
-    id: 'outpatient-clinics', title: 'Outpatient Clinics', departmentId: 'specialist-clinics', departmentLabel: 'Specialist Clinics', category: 'clinical',
-    description: 'Outpatient clinics are listed in the hospital profile. Contact the hospital to confirm clinic schedules and consultant availability.', iconName: 'Stethoscope', details: ['Outpatient Clinics listed in the profile', 'Appointments and availability confirmed by the hospital'], featured: true,
+    id: 'diabetic-foot',
+    title: 'Diabetic Foot Clinic',
+    departmentId: 'orthobiologics',
+    departmentLabel: 'Orthobiologics',
+    category: 'clinical',
+    description:
+      'Protecting Your Feet. Preserving Your Mobility. Specialized assessment, diabetic neuropathy testing, advanced wound care, debridement, and ulcer prevention.',
+    iconName: 'Footprints',
+    details: [
+      'Diabetic neuropathy assessment',
+      'Advanced wound care & specialized dressings',
+      'Ulcer prevention and off-loading guidance',
+      'Limb preservation coordination',
+    ],
+    featured: true,
   },
   {
-    id: 'ambulance-services', title: 'Ambulance Service', departmentId: 'diagnostics-support', departmentLabel: 'Diagnostics & Support', category: 'support',
-    description: 'Ambulance Service is listed in the supplied profile. Call Cairo Hospital to confirm current availability and arrangements.', iconName: 'Ambulance', details: ['Ambulance service listed in the profile', 'Call to confirm current availability and arrangements'], featured: true,
+    id: 'pain-management',
+    title: 'Pain Management Clinic',
+    departmentId: 'orthobiologics',
+    departmentLabel: 'Orthobiologics',
+    category: 'clinical',
+    description:
+      'Understanding Your Pain. Improving Your Everyday Life. Comprehensive assessment and targeted treatment planning for acute, chronic, back, neck, and joint pain.',
+    iconName: 'Activity',
+    details: [
+      'Comprehensive pain diagnosis',
+      'Targeted interventional treatment planning',
+      'Coordinated rehabilitation and mobility recovery',
+    ],
+    featured: true,
   },
   {
-    id: 'urosurgery', title: 'Urosurgery', departmentId: 'general-surgery', departmentLabel: 'General Surgery & Urosurgery', category: 'surgical',
-    description: 'Urosurgery is listed in the hospital profile. Contact the hospital to confirm consultant availability and the services relevant to your case.', iconName: 'Scissors', details: ['Urosurgery listed in the profile', 'Case-specific availability confirmed by the hospital'],
+    id: 'bemer-therapy',
+    title: 'BEMER Therapy',
+    departmentId: 'orthobiologics',
+    departmentLabel: 'Orthobiologics',
+    category: 'regenerative',
+    description:
+      'A Non-Invasive Approach to Supportive Care. Bio Electro Magnetic Energy Resonance Therapy using pulsed electromagnetic fields to support temporary local microcirculation.',
+    iconName: 'Zap',
+    details: [
+      'Non-invasive, comfortable procedure',
+      'Pulsed electromagnetic signal delivery',
+      'Supportive care alongside physiotherapy and medical management',
+    ],
+  },
+
+  // 2. Physiotherapy & Rehabilitation
+  {
+    id: 'physiotherapy',
+    title: 'Physiotherapy & Rehabilitation',
+    departmentId: 'physiotherapy',
+    departmentLabel: 'Physiotherapy',
+    category: 'clinical',
+    description:
+      'Restore Movement. Rebuild Strength. Improve Your Quality of Life. Comprehensive physical therapy with modern rehabilitation equipment and targeted therapeutic exercise.',
+    iconName: 'Activity',
+    details: [
+      'Orthopedic rehabilitation post-surgery and fracture',
+      'Kinetic rehabilitation for strength and balance',
+      'Pediatric neuromuscular rehabilitation',
+      'Spinal decompression traction therapy',
+    ],
+    featured: true,
   },
   {
-    id: 'cardiology', title: 'Cardiology', departmentId: 'specialist-clinics', departmentLabel: 'Specialist Clinics', category: 'clinical',
-    description: 'Cardiology is listed among the outpatient services in the hospital profile. Contact the hospital to confirm clinic availability.', iconName: 'HeartPulse', details: ['Cardiology listed in the profile', 'Consultant schedule confirmed at booking'],
+    id: 'cupping-therapy',
+    title: 'Cupping Therapy',
+    departmentId: 'physiotherapy',
+    departmentLabel: 'Physiotherapy',
+    category: 'clinical',
+    description:
+      'A Complementary Approach to Muscle Relaxation and Recovery. Clinically supervised cupping to relieve muscle tension, tightness, and myofascial discomfort.',
+    iconName: 'Activity',
+    details: [
+      'Relief for localized muscle tension',
+      'Myofascial discomfort therapy',
+      'Supervised clinical hygiene protocols',
+    ],
   },
   {
-    id: 'orthopedic-surgery', title: 'Orthopedic Surgery', departmentId: 'orthopedics', departmentLabel: 'Orthopedics', category: 'surgical',
-    description: 'The profile lists orthopedic surgeries including arthroplasty, hand surgeries, foot and ankle surgeries, external fixation, and deformities.', iconName: 'Bone', details: ['Arthroplasty', 'Hand surgeries', 'Foot and ankle surgeries', 'External fixation and deformities'], featured: true,
+    id: 'acupuncture',
+    title: 'Acupuncture',
+    departmentId: 'physiotherapy',
+    departmentLabel: 'Physiotherapy',
+    category: 'clinical',
+    description:
+      'Targeted Support for Pain Management and Rehabilitation. Very fine, sterile, single-use needles placed at targeted points to help manage musculoskeletal pain.',
+    iconName: 'Activity',
+    details: [
+      'Sterile single-use acupuncture technique',
+      'Neuromuscular support and pain management',
+      'Integrated with medical rehabilitation plans',
+    ],
+  },
+
+  // 3. General Surgery & Urosurgery
+  {
+    id: 'general-surgery',
+    title: 'General Surgery',
+    departmentId: 'general-surgery',
+    departmentLabel: 'General Surgery & Urosurgery',
+    category: 'surgical',
+    description:
+      'Expert Surgical Care. Personalized for You. Operating theatres designed for sterile procedures, abdominal surgery, hernia repair, gallbladder surgery, and soft-tissue excision.',
+    iconName: 'Scissors',
+    details: [
+      'Abdominal surgery for internal conditions',
+      'Open and minimally invasive hernia repair',
+      'Gallbladder surgery and gallstones management',
+      'Soft-tissue and cyst surgical treatment',
+    ],
+    featured: true,
   },
   {
-    id: 'family-medicine', title: 'Family Medicine', departmentId: 'family-tropical', departmentLabel: 'Family & Tropical Medicine', category: 'clinical',
-    description: 'Family Medicine is listed among the hospital services. Contact the hospital to confirm clinic availability.', iconName: 'Users', details: ['Family Medicine listed in the profile', 'Consultation availability confirmed by the hospital'],
+    id: 'endoscopic-surgery',
+    title: 'Endoscopic Surgery',
+    departmentId: 'general-surgery',
+    departmentLabel: 'General Surgery & Urosurgery',
+    category: 'surgical',
+    description:
+      'Precision-Focused Care Through Minimally Invasive Techniques. High-definition camera-guided visualization and targeted internal interventions without open surgery.',
+    iconName: 'Scissors',
+    details: [
+      'Diagnostic endoscopy for internal structures',
+      'Therapeutic endoscopic interventions',
+      'High-definition imaging precision',
+      'Reduced post-operative discomfort',
+    ],
   },
   {
-    id: 'neurology', title: 'Neurology', departmentId: 'specialist-clinics', departmentLabel: 'Specialist Clinics', category: 'clinical',
-    description: 'Neurology is listed among the outpatient services in the hospital profile. Contact the hospital to confirm clinic availability.', iconName: 'Activity', details: ['Neurology listed in the profile', 'Consultant schedule confirmed at booking'],
+    id: 'laparoscopic-surgery',
+    title: 'Laparoscopic Surgery',
+    departmentId: 'general-surgery',
+    departmentLabel: 'General Surgery & Urosurgery',
+    category: 'surgical',
+    description:
+      'Smaller Incisions. Advanced Surgical Care. Minimally invasive gallbladder removal, appendectomy, and abdominal repairs with shorter recovery times and smaller scars.',
+    iconName: 'Scissors',
+    details: [
+      'Laparoscopic gallbladder removal',
+      'Laparoscopic appendectomy',
+      'Minimally invasive abdominal repairs',
+      'Individualized post-operative monitoring',
+    ],
+    featured: true,
   },
   {
-    id: 'physiotherapy', title: 'Physiotherapy', departmentId: 'physiotherapy', departmentLabel: 'Physiotherapy', category: 'clinical',
-    description: 'The profile lists Physical Therapy, Myofascial Therapy, Cupping, and Acupuncture with Dr. Bassam, including neurological and musculoskeletal disorders.', iconName: 'Activity', details: ['Physical therapy', 'Myofascial therapy', 'Cupping', 'Acupuncture', 'Neurological and musculoskeletal disorders'], featured: true,
+    id: 'urosurgery',
+    title: 'Urosurgery',
+    departmentId: 'general-surgery',
+    departmentLabel: 'General Surgery & Urosurgery',
+    category: 'surgical',
+    description:
+      'Urosurgical consultations, assessment, and surgical procedures for urinary and renal conditions by qualified surgeons.',
+    iconName: 'Scissors',
+    details: [
+      'Urosurgical evaluation and diagnosis',
+      'Urinary tract procedure planning',
+      'Sterile operating theatre capabilities',
+    ],
+  },
+
+  // 4. Medical Tourism (Dedicated department, placed immediately after General Surgery)
+  {
+    id: 'medical-tourism',
+    title: 'Medical Tourism Coordination',
+    departmentId: 'medical-tourism',
+    departmentLabel: 'Medical Tourism',
+    category: 'support',
+    description:
+      'Your Health Journey Beyond Borders, Guided by Cairo Hospital. Referrals to top medical centres in Egypt, Dubai, the United Kingdom, and Turkey. Visa guidance, tickets, accommodation, transport, treatment plan, and follow-up in Abuja upon return.',
+    iconName: 'Globe2',
+    details: [
+      'Medical assessment & international hospital referral',
+      'Medical visa guidance & travel logistics',
+      'Coordination of international appointments',
+      'Post-treatment recovery & follow-up in Abuja',
+    ],
+    featured: true,
+  },
+
+  // 5. Obstetrics & Gynaecology
+  {
+    id: 'obstetrics-gynaecology',
+    title: 'Obstetrics & Gynaecology',
+    departmentId: 'obgyn',
+    departmentLabel: 'Obstetrics & Gynaecology',
+    category: 'clinical',
+    description:
+      'Comprehensive Women’s Healthcare. Dedicated delivery facilities, clinical and surgical gynaecology, and consultant-led care supported by MRCOG-qualified specialists.',
+    iconName: 'Baby',
+    details: [
+      'Consultant-led obstetric care',
+      'Clinical and surgical gynaecology',
+      'Dedicated delivery facilities',
+      'Postnatal care and maternal health',
+    ],
+    featured: true,
   },
   {
-    id: 'tropical-medicine', title: 'Tropical Medicine', departmentId: 'family-tropical', departmentLabel: 'Family & Tropical Medicine', category: 'clinical',
-    description: 'Tropical Medicine is listed among the hospital services. Contact the hospital to confirm clinic availability.', iconName: 'Stethoscope', details: ['Tropical Medicine listed in the profile', 'Consultation availability confirmed by the hospital'],
+    id: 'antenatal-care',
+    title: 'Antenatal Care',
+    departmentId: 'obgyn',
+    departmentLabel: 'Obstetrics & Gynaecology',
+    category: 'clinical',
+    description:
+      'Caring for You Throughout Your Pregnancy. Trimester screenings, ultrasound monitoring, high-risk pregnancy management, delivery planning, and personalized guidance.',
+    iconName: 'Baby',
+    details: [
+      'Trimester screenings & health check-ups',
+      'High-risk pregnancy monitoring',
+      'Fetal ultrasound tracking',
+      'Delivery planning and postnatal guidance',
+    ],
   },
   {
-    id: 'nephrology', title: 'Nephrology', departmentId: 'specialist-clinics', departmentLabel: 'Specialist Clinics', category: 'clinical',
-    description: 'Nephrology is listed among the outpatient services in the hospital profile. Contact the hospital to confirm clinic availability.', iconName: 'Activity', details: ['Nephrology listed in the profile', 'Consultant schedule confirmed at booking'],
+    id: 'infertility',
+    title: 'Infertility Services',
+    departmentId: 'obgyn',
+    departmentLabel: 'Obstetrics & Gynaecology',
+    category: 'clinical',
+    description:
+      'Personalized Fertility Care for Your Parenthood Journey. Male and female fertility evaluations, hormonal investigations, ovulation induction, and treatment planning.',
+    iconName: 'Baby',
+    details: [
+      'Male and female fertility evaluations',
+      'Comprehensive hormonal testing',
+      'Ovulation induction when indicated',
+      'Private, compassionate consultations',
+    ],
+  },
+
+  // 6. Orthopedic Surgery & Arthroplasty
+  {
+    id: 'orthopedic-surgery',
+    title: 'Orthopedic Surgery & Arthroplasty',
+    departmentId: 'orthopedics',
+    departmentLabel: 'Orthopedics',
+    category: 'surgical',
+    description:
+      'Advanced Orthopedic Care for Better Movement and Quality of Life. Joint replacement (knee & hip), hand reconstruction, foot and ankle surgery, and complex trauma reconstruction.',
+    iconName: 'Bone',
+    details: [
+      'Total knee and hip replacement',
+      'Hand and microsurgical reconstruction',
+      'Foot and ankle surgeries',
+      'Complex trauma reconstruction & external fixation',
+    ],
+    featured: true,
+  },
+
+  // 7. Specialist Clinics
+  {
+    id: 'outpatient-clinics',
+    title: 'Outpatient Specialist Clinics',
+    departmentId: 'specialist-clinics',
+    departmentLabel: 'Specialist Clinics',
+    category: 'clinical',
+    description:
+      'Consultant outpatient appointments: Mon – Sat: 10:00 AM – 6:00 PM (By Appointments only). Coordinated specialist consultations across major disciplines.',
+    iconName: 'Stethoscope',
+    details: [
+      'Mon – Sat: 10:00 AM – 6:00 PM',
+      'Consultations strictly by appointment',
+      'Multispecialty physician network',
+    ],
+    featured: true,
   },
   {
-    id: 'orthobiologics', title: 'Orthobiologics', departmentId: 'orthopedics', departmentLabel: 'Orthopedics', category: 'regenerative',
-    description: 'The profile lists stem-cell regenerative therapy, prolotherapy, PRP, and BMAC under orthobiologics for musculoskeletal degenerative or traumatic disorders.', iconName: 'Dna', details: ['Stem-cell regenerative therapy', 'Prolotherapy', 'PRP', 'BMAC', 'Page 7 lists sports medicine, spinal implications, minimal invasive procedures, demand for viscosupplementation, and stem-cells-based treatments'], featured: true,
+    id: 'cardiology',
+    title: 'Cardiology',
+    departmentId: 'specialist-clinics',
+    departmentLabel: 'Specialist Clinics',
+    category: 'clinical',
+    description:
+      'Cardiology outpatient consultations, cardiovascular screening, hypertension management, and specialist clinical assessment.',
+    iconName: 'HeartPulse',
+    details: [
+      'Cardiovascular assessment',
+      'Hypertension and heart health management',
+      'Specialist consultant schedule confirmed at booking',
+    ],
   },
   {
-    id: 'laboratory-services', title: 'Laboratory', departmentId: 'diagnostics-support', departmentLabel: 'Diagnostics & Support', category: 'diagnostic',
-    description: 'A fully equipped laboratory diagnostic department is listed in the hospital profile. Contact the hospital to confirm tests and arrangements.', iconName: 'Microscope', details: ['Fully equipped laboratory diagnostic department listed in the profile'], featured: true,
+    id: 'neurology',
+    title: 'Neurology',
+    departmentId: 'specialist-clinics',
+    departmentLabel: 'Specialist Clinics',
+    category: 'clinical',
+    description:
+      'Neurological outpatient clinic for brain, spinal, and nerve disorder assessment and ongoing medical management.',
+    iconName: 'Activity',
+    details: [
+      'Neurological evaluation',
+      'Headache, neuropathy, and movement disorder assessment',
+      'Coordinated rehabilitation referrals',
+    ],
   },
   {
-    id: 'gastroenterology', title: 'Gastroenterology', departmentId: 'specialist-clinics', departmentLabel: 'Specialist Clinics', category: 'clinical',
-    description: 'Gastroenterology is listed among the outpatient services in the hospital profile. Contact the hospital to confirm clinic availability.', iconName: 'Stethoscope', details: ['Gastroenterology listed in the profile', 'Consultant schedule confirmed at booking'],
+    id: 'nephrology',
+    title: 'Nephrology',
+    departmentId: 'specialist-clinics',
+    departmentLabel: 'Specialist Clinics',
+    category: 'clinical',
+    description:
+      'Renal health assessment, kidney function evaluation, and medical management of acute and chronic kidney conditions.',
+    iconName: 'Activity',
+    details: [
+      'Renal function evaluation',
+      'Kidney disease medical management',
+      'Laboratory-guided metabolic monitoring',
+    ],
   },
   {
-    id: 'diabetic-foot', title: 'Diabetic Foot Clinic', departmentId: 'orthopedics', departmentLabel: 'Orthopedics', category: 'clinical',
-    description: 'Diabetic Foot Clinic is listed among the hospital services. Contact the hospital to confirm clinic availability.', iconName: 'Footprints', details: ['Diabetic Foot Clinic listed in the profile', 'Contact the hospital for assessment availability'],
+    id: 'gastroenterology',
+    title: 'Gastroenterology',
+    departmentId: 'specialist-clinics',
+    departmentLabel: 'Specialist Clinics',
+    category: 'clinical',
+    description:
+      'Digestive health evaluations for liver, stomach, bowel, and gastrointestinal conditions.',
+    iconName: 'Stethoscope',
+    details: [
+      'Digestive symptom assessment',
+      'Liver and gastrointestinal work-up',
+      'Dietary and medication guidance',
+    ],
   },
   {
-    id: 'x-ray', title: 'X-Ray', departmentId: 'diagnostics-support', departmentLabel: 'Diagnostics & Support', category: 'diagnostic',
-    description: 'Digital X-ray is listed in the hospital profile. Contact the hospital to confirm the investigation and arrangements.', iconName: 'Scan', details: ['Digital X-ray department listed in the profile'],
+    id: 'endocrinology',
+    title: 'Endocrinology',
+    departmentId: 'specialist-clinics',
+    departmentLabel: 'Specialist Clinics',
+    category: 'clinical',
+    description:
+      'Specialized care for diabetes, thyroid conditions, metabolic disorders, and hormonal imbalances.',
+    iconName: 'Stethoscope',
+    details: [
+      'Diabetes optimization & monitoring',
+      'Thyroid and hormonal disorder care',
+      'Metabolic health guidance',
+    ],
+  },
+
+  // 8. Family, Tropical & Herbal Medicine
+  {
+    id: 'family-medicine',
+    title: 'Family Medicine',
+    departmentId: 'family-tropical',
+    departmentLabel: 'Family & Tropical Medicine',
+    category: 'clinical',
+    description:
+      'Comprehensive Healthcare for Every Stage of Life. Routine medical check-ups, chronic disease management (hypertension, diabetes), vaccinations, and preventive healthcare.',
+    iconName: 'Users',
+    details: [
+      'Comprehensive health check-ups',
+      'Chronic disease management',
+      'Preventive screenings & vaccination guidance',
+      'Family-centered healthcare across all ages',
+    ],
   },
   {
-    id: 'endocrinology', title: 'Endocrinology', departmentId: 'specialist-clinics', departmentLabel: 'Specialist Clinics', category: 'clinical',
-    description: 'Endocrinology is listed among the outpatient services in the hospital profile. Contact the hospital to confirm clinic availability.', iconName: 'Stethoscope', details: ['Endocrinology listed in the profile', 'Consultant schedule confirmed at booking'],
+    id: 'tropical-medicine',
+    title: 'Tropical Medicine',
+    departmentId: 'family-tropical',
+    departmentLabel: 'Family & Tropical Medicine',
+    category: 'clinical',
+    description:
+      'Specialized Care for Tropical and Infectious Diseases. Laboratory-supported diagnosis and targeted treatment for malaria, typhoid fever, and regional endemic infections.',
+    iconName: 'Stethoscope',
+    details: [
+      'Malaria laboratory diagnosis & targeted therapy',
+      'Typhoid fever testing & medical management',
+      'Evaluation of persistent and unexplained fevers',
+      'Travel health guidance and infection prevention',
+    ],
   },
   {
-    id: 'obstetrics-gynaecology', title: 'Obstetrics & Gynaecology', departmentId: 'obgyn', departmentLabel: 'Obstetrics & Gynaecology', category: 'clinical',
-    description: 'Obstetrics & Gynaecology is listed in the profile. Dr. Ahmed Shaker is identified as a Consultant in Obstetrics & Gynaecology.', iconName: 'Baby', details: ['Obstetrics & Gynaecology service listed in the profile', 'Consultant availability confirmed by the hospital'], featured: true,
+    id: 'herbal-medicine',
+    title: 'Herbal Medicine',
+    departmentId: 'family-tropical',
+    departmentLabel: 'Family & Tropical Medicine',
+    category: 'clinical',
+    description:
+      'Natural Wellness Supported by Medical Guidance. Clinically supervised botanical and plant-based approaches as responsible complementary care.',
+    iconName: 'Leaf',
+    details: [
+      'Botanical wellness assessment',
+      'Clinician-guided complementary care',
+      'Safety and medication interaction review',
+      'Integrated wellness planning',
+    ],
+  },
+
+  // 9. Diagnostics, Pharmacy & Inpatient Care
+  {
+    id: 'laboratory-services',
+    title: 'Laboratory Services',
+    departmentId: 'diagnostics-support',
+    departmentLabel: 'Diagnostics & Pharmacy',
+    category: 'diagnostic',
+    description:
+      'Reliable Testing for Better Health Decisions. Automated diagnostic testing, hematology, clinical biochemistry (kidney, liver, glucose), hormonal assays, and infection screening.',
+    iconName: 'Microscope',
+    details: [
+      'Mon – Sat: 10:00 AM – 6:00 PM',
+      'Hematology & full blood counts',
+      'Clinical biochemistry (liver, kidney, glucose, lipids)',
+      'Hormonal testing & infection screening',
+    ],
+    featured: true,
   },
   {
-    id: 'ultrasound', title: 'Ultrasound', departmentId: 'diagnostics-support', departmentLabel: 'Diagnostics & Support', category: 'diagnostic',
-    description: 'Ultrasound is listed among the diagnostic services in the hospital profile. Contact the hospital to confirm availability and arrangements.', iconName: 'Scan', details: ['Ultrasound department listed in the profile'],
+    id: 'x-ray',
+    title: 'X-Ray & Ultrasound Department',
+    departmentId: 'diagnostics-support',
+    departmentLabel: 'Diagnostics & Pharmacy',
+    category: 'diagnostic',
+    description:
+      'Accurate Imaging. Better Diagnosis. High-resolution digital radiography for fractures, joints, and chest, plus abdominal, pelvic, and obstetric ultrasound.',
+    iconName: 'Scan',
+    details: [
+      'Digital X-rays for trauma, fractures, and joints',
+      'Abdominal and pelvic ultrasound',
+      'Obstetric ultrasound for fetal monitoring',
+      'Rapid diagnostic imaging reports',
+    ],
   },
   {
-    id: 'infertility', title: 'Infertility', departmentId: 'obgyn', departmentLabel: 'Obstetrics & Gynaecology', category: 'clinical',
-    description: 'Infertility is listed among the hospital services. Contact the hospital to confirm consultation availability.', iconName: 'Baby', details: ['Infertility service listed in the profile', 'Consultation availability confirmed by the hospital'],
+    id: 'pharmacy',
+    title: 'Cairo Pharmacy',
+    departmentId: 'diagnostics-support',
+    departmentLabel: 'Diagnostics & Pharmacy',
+    category: 'support',
+    description:
+      'Trusted Medications. Professional Care. Located within Cairo Hospital, open 24 Hours, providing genuine Egyptian and international medicines with professional pharmacist guidance.',
+    iconName: 'Pill',
+    details: [
+      '24 Hours Open daily',
+      'Genuine Egyptian & international medicines',
+      'Prescription dispensing from approved channels',
+      'Medication counseling and patient safety checks',
+    ],
+    featured: true,
   },
   {
-    id: 'pharmacy', title: 'Pharmacy', departmentId: 'diagnostics-support', departmentLabel: 'Diagnostics & Support', category: 'support',
-    description: 'The profile lists a pharmacy department. Contact Cairo Hospital to confirm current opening hours and product availability.', iconName: 'Pill', details: ['Pharmacy department listed in the profile', 'Hours and product availability confirmed by phone'], featured: true,
+    id: 'inpatient-admissions',
+    title: 'Inpatient Admissions',
+    departmentId: 'diagnostics-support',
+    departmentLabel: 'Diagnostics & Pharmacy',
+    category: 'support',
+    description:
+      'Comfortable Inpatient Admissions & Dedicated Post-Surgical Recovery. Private and semi-private rooms equipped with modern patient monitoring and dedicated nursing supervision.',
+    iconName: 'Building',
+    details: [
+      'Dedicated inpatient recovery suites',
+      'Continuous clinical observation & nursing care',
+      'Daily consultant medical rounds',
+      'Post-operative wound care and rehabilitation',
+    ],
+    featured: true,
   },
   {
-    id: 'bemer-therapy', title: 'BEMER Therapy', departmentId: 'orthopedics', departmentLabel: 'Orthopedics', category: 'regenerative',
-    description: 'BEMER Therapy is listed in the profile as Bio Electro Magnetic Energy Resonance Therapy.', iconName: 'Zap', details: ['Bio Electro Magnetic Energy Resonance Therapy', 'Discuss suitability and expected outcomes with a qualified clinician'],
-  },
-  {
-    id: 'medical-tourism', title: 'Medical Tourism', departmentId: 'diagnostics-support', departmentLabel: 'Diagnostics & Support', category: 'support',
-    description: 'The hospital coordinates medical travel to Egypt, Dubai, the United Kingdom, and Turkey, with visa provision, tickets, accommodation, transport, a medical plan, and representative follow-up.', iconName: 'Globe2', details: ['Visa provision', 'Tickets', 'Accommodation', 'Transport', 'Medical plan', 'Representative follow-up until return to Nigeria and follow-up at Cairo Hospital'], featured: true,
+    id: 'ambulance-services',
+    title: 'Ambulance Call-Out',
+    departmentId: 'diagnostics-support',
+    departmentLabel: 'Diagnostics & Pharmacy',
+    category: 'support',
+    description:
+      'Scheduled patient transfer and hospital transport call-out (available by advance arrangement; non-resuscitation, no emergency resuscitation).',
+    iconName: 'Ambulance',
+    details: [
+      'Patient transport by scheduled arrangement',
+      'Non-resuscitation medical transport',
+      'Contact hospital to book transport in advance',
+    ],
   },
 ];
 
 export const ORTHOBIOLOGICS_DATA: OrthobiologicProcedure[] = [
   {
-    title: 'Stem Cell Regenerative Therapy', abbr: 'Stem Cells',
-    description: 'Listed in the hospital profile under orthobiologics for musculoskeletal degenerative or traumatic disorders.',
-    indications: ['Musculoskeletal degenerative or traumatic disorders', 'Page 7 lists sports medicine, spinal implications, minimal invasive procedures, and demand for viscosupplementation'],
-    benefits: ['Suitability, evidence, alternatives, and risks should be discussed with the treating clinician.'],
+    title: 'Stem Cell Regenerative Therapy (BMAC)',
+    abbr: 'Stem Cells',
+    description:
+      'From Your Body, Back to Your Body. Minimally invasive, patient-derived Bone Marrow Aspirate Concentrate for musculoskeletal and joint conditions.',
+    indications: [
+      'Musculoskeletal degenerative or traumatic disorders',
+      'Sports medicine and joint wear',
+      'Minimally invasive biological procedures',
+    ],
+    benefits: [
+      'Autologous preparation from the patient’s own bone marrow',
+      'Consultant assessment to evaluate individual appropriateness',
+    ],
   },
   {
-    title: 'Prolotherapy', abbr: 'Prolotherapy',
-    description: 'Prolotherapy is listed among the orthobiologics services in the hospital profile.',
-    indications: ['Listed under orthobiologics in the profile'],
-    benefits: ['Individual assessment and discussion with a qualified clinician are needed.'],
+    title: 'Platelet-Rich Plasma Injections',
+    abbr: 'PRP',
+    description:
+      'Concentrated autologous platelets and growth factors administered by Dr. Mohammed Hesham Shaker (CMD) for tendon, ligament, and cartilage healing.',
+    indications: [
+      'Chronic tendon injuries and joint inflammation',
+      'Ligament sprains and partial tears',
+      'Degenerative joint disease support',
+    ],
+    benefits: [
+      'Concentrated patient growth factors',
+      'Targeted ultrasound-guided injection',
+    ],
   },
   {
-    title: 'Platelet-Rich Plasma', abbr: 'PRP',
-    description: 'PRP is listed among the orthobiologics services in the hospital profile.',
-    indications: ['Listed under orthobiologics in the profile'],
-    benefits: ['Individual assessment and discussion with a qualified clinician are needed.'],
+    title: 'Prolotherapy',
+    abbr: 'Prolotherapy',
+    description:
+      'Targeted regenerative injection technique designed to stimulate healing in weakened ligaments and tendons.',
+    indications: ['Ligament laxity', 'Chronic joint instability', 'Musculoskeletal pain'],
+    benefits: ['Non-surgical supportive therapy tailored by clinical specialists.'],
   },
   {
-    title: 'Bone Marrow Aspirate Concentrate', abbr: 'BMAC',
-    description: 'BMAC is listed among the orthobiologics services in the hospital profile.',
-    indications: ['Listed under orthobiologics in the profile'],
-    benefits: ['Individual assessment and discussion with a qualified clinician are needed.'],
+    title: 'BEMER Physical Vascular Therapy',
+    abbr: 'BEMER',
+    description:
+      'Pulsed electromagnetic field therapy designed to support microcirculation and complementary tissue wellness.',
+    indications: ['Supportive care within rehabilitation', 'Circulatory muscle support'],
+    benefits: ['Non-invasive, comfortable sessions supervised by clinical team.'],
   },
 ];
 
 export const MEDICAL_TOURISM_DETAILS = {
   title: 'Medical Tourism Services',
-  subtitle: 'Travel Support and Follow-up Listed in the Profile',
+  subtitle: 'Your Health Journey Beyond Borders, Guided by Cairo Hospital',
   description:
-    'The hospital coordinates medical travel across Egypt, Dubai, the United Kingdom, and Turkey. Support includes visa provision, tickets, accommodation, transport, and a medical plan. A representative follows up until the patient returns to Nigeria, with follow-up at Cairo Hospital after return.',
+    'Cairo Hospital coordinates medical travel to top specialist hospitals in Egypt, Dubai, the United Kingdom, and Turkey. From medical consultations and hospital referrals to visa guidance, tickets, accommodation, transport, and continuous follow-up upon returning to Abuja.',
   destinations: [
     { country: 'Egypt', flag: '🇪🇬', cities: 'Cairo, Alexandria & Partner Centres' },
     { country: 'Dubai', flag: '🇦🇪', cities: 'Dubai Healthcare City & Private Hospitals' },
@@ -377,39 +849,83 @@ export const MEDICAL_TOURISM_DETAILS = {
     { country: 'Turkey', flag: '🇹🇷', cities: 'Istanbul & Ankara' },
   ],
   services: [
-    { title: 'Visa Provision', description: 'Visa provision is included in the medical-travel support listed in the profile.', icon: 'FileCheck' },
-    { title: 'Tickets', description: 'Tickets are included in the medical-travel support listed in the profile.', icon: 'Plane' },
-    { title: 'Accommodation', description: 'Accommodation is included in the medical-travel support listed in the profile.', icon: 'Building' },
-    { title: 'Transport', description: 'Transport is included in the medical-travel support listed in the profile.', icon: 'Car' },
-    { title: 'Medical Plan', description: 'A medical plan is included in the support listed in the profile.', icon: 'ClipboardList' },
-    { title: 'Representative Follow-up', description: 'The profile states that a representative follows up until the patient returns to Nigeria, with follow-up at Cairo Hospital after return.', icon: 'CheckCircle2' },
+    {
+      title: '1. Medical Assessment & Treatment Planning',
+      description: 'Specialists review medical history, diagnostic reports, and identify appropriate international care options.',
+      icon: 'ClipboardList',
+    },
+    {
+      title: '2. International Hospital Referrals',
+      description: 'Facilitating referrals to accredited hospital partners abroad and sharing clinical files securely.',
+      icon: 'Building',
+    },
+    {
+      title: '3. Medical Visa & Travel Assistance',
+      description: 'Guidance on visa applications, flights, accommodation, and appointment scheduling with overseas hospitals.',
+      icon: 'Plane',
+    },
+    {
+      title: '4. Pre-Travel Medical Preparation',
+      description: 'Organizing essential documentation, medications, and clinical readiness prior to departure.',
+      icon: 'FileCheck',
+    },
+    {
+      title: '5. Post-Treatment Follow-up in Abuja',
+      description: 'Comprehensive recovery monitoring and coordinated follow-up at Cairo Hospital in Abuja after return.',
+      icon: 'CheckCircle2',
+    },
   ],
 };
 
+// Accreditations confirmed per PDF pages 1 & 4:
+// "Trusted and enrolled by: NHIS – FCDA – African Union"
+export const ACCREDITATIONS_DATA: AccreditationOrg[] = [
+  {
+    name: 'NHIS (National Health Insurance Authority)',
+    type: 'accreditation',
+    description:
+      'Accredited provider under the National Health Insurance Scheme for enrolled members and insured corporate beneficiaries in Nigeria.',
+  },
+  {
+    name: 'FCDA Health Department',
+    type: 'accreditation',
+    description:
+      'Registered and certified private tertiary healthcare facility by the Federal Capital Development Authority (FCDA) Health and Human Services Secretariat.',
+  },
+  {
+    name: 'African Union (AU)',
+    type: 'enrolled',
+    description:
+      'Approved and enrolled healthcare facility serving diplomatic personnel and official delegations of the African Union stationed in Nigeria.',
+  },
+];
 
-
-export const ACCREDITATIONS_DATA: AccreditationOrg[] = [];
-
+// Per PDF page 5:
+// The Executive Medical Board in Abuja photo is the featured main image.
+// The crossed-out secondary photos have been removed.
 export const FACILITY_GALLERY: HospitalFacilityItem[] = [
   {
     id: 'profile-leadership',
-    title: 'Cairo Hospital Representatives',
-    category: 'Leadership',
+    title: 'Hospital Governance · Executive Medical Board in Abuja',
+    category: 'Executive Leadership',
     image: '/images/delegation/cairo-hospital-leadership.jpg',
-    description: 'Institutional photograph extracted from the supplied Cairo Hospital profile.',
+    description:
+      'Executive Medical Board photograph from the supplied Cairo Hospital profile, showing Dr. Ahmed Shaker and hospital directors.',
   },
   {
     id: 'profile-institutional-event',
-    title: 'Institutional Event',
-    category: 'Institutional',
+    title: 'Institutional Partnership & Official Engagement',
+    category: 'Governance',
     image: '/images/delegation/cairo-hospital-partnership-handshake.jpg',
-    description: 'A formal event photograph extracted from the supplied Cairo Hospital profile.',
+    description:
+      'Formal institutional photograph from the official hospital profile.',
   },
   {
     id: 'profile-team-visit',
-    title: 'Cairo Hospital Team Visit',
-    category: 'Team',
+    title: 'Cairo Hospital Medical Mission',
+    category: 'Clinical Team',
     image: '/images/delegation/cairo-hospital-team-visit.jpg',
-    description: 'Cairo Hospital team photograph extracted from the supplied profile.',
+    description:
+      'Cairo Hospital medical and administration delegation.',
   },
 ];

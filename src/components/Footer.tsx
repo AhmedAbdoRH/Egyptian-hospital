@@ -47,7 +47,7 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
 
             <p className="text-xs text-sky-100 leading-relaxed font-medium">
-              Cairo Hospital was established in Abuja in 2019 by a group of Egyptian doctors and administrators. Its current profile lists multispecialty care, surgery, rehabilitation, diagnostics, pharmacy, and medical-tourism services.
+              Cairo Hospital was established in Abuja in 2019 by a group of Egyptian doctors and administrators. Its current profile lists multispecialty care, surgery, rehabilitation, diagnostics, Cairo Pharmacy, and medical-tourism services.
             </p>
 
             <div className="space-y-1.5 text-xs text-sky-100 pt-1 font-medium">
@@ -55,8 +55,8 @@ export const Footer: React.FC<FooterProps> = ({
                 <MapPin className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
                 <span>{HOSPITAL_CONTACT.address}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-white flex-shrink-0" />
+              <div className="flex items-start gap-2">
+                <Clock className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
                 <span>{HOSPITAL_CONTACT.workingHours}</span>
               </div>
             </div>
@@ -69,7 +69,7 @@ export const Footer: React.FC<FooterProps> = ({
               {[
                 ['about', 'About Us & 4 Pillars'],
                 ['services', 'Medical Services Directory'],
-                ['tourism', 'Medical Tourism'],
+                ['tourism', 'Medical Tourism Desk'],
                 ['team', 'Executive Medical Team'],
                 ['contact', 'Campus Location & Contact'],
                 ['booking', 'Direct WhatsApp Scheduling'],
@@ -92,20 +92,20 @@ export const Footer: React.FC<FooterProps> = ({
               Medical Services
             </h4>
             <ul className="space-y-1.5 text-xs text-sky-100 font-medium">
-              <li>• Orthopedics & Orthobiologics</li>
-              <li>• Physical & Myofascial Therapy, Cupping, Acupuncture</li>
+              <li>• Orthobiologics & Stem Cells (BMAC)</li>
+              <li>• Orthopedics & Arthroplasty (PRP)</li>
+              <li>• Physical Therapy, Cupping & Acupuncture</li>
+              <li>• General, Laparoscopic & Endoscopic Surgery</li>
+              <li>• Medical Tourism (Egypt, Dubai, UK, Turkey)</li>
               <li>• Obstetrics, Gynaecology & Infertility</li>
-              <li>• General, Bariatric, Laparoscopic, Oncology & Urosurgery</li>
-              <li>• Cardiology, Neurology & Nephrology</li>
-              <li>• Gastroenterology & Endocrinology</li>
               <li>• Family & Tropical Medicine</li>
-              <li>• Outpatient Clinics, Emergency & Ambulance</li>
-              <li>• X-Ray, Laboratory & Pharmacy</li>
-              <li>• Medical Tourism</li>
+              <li>• Laboratory & Digital X-Ray</li>
+              <li>• Cairo Pharmacy (Open 24 Hours)</li>
+              <li>• Inpatient Admissions & Recovery</li>
             </ul>
           </Reveal>
 
-          {/* WhatsApp & Emergency Helpline */}
+          {/* WhatsApp & Hospital Desk */}
           <Reveal variant="up" delay={210} className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-black uppercase tracking-wider text-white">
               Patient Helplines
@@ -120,7 +120,7 @@ export const Footer: React.FC<FooterProps> = ({
               </button>
 
               <div className="p-3 rounded-xl bg-white/10 border border-white/20 space-y-1 text-white">
-                <div className="text-[11px] text-white font-bold">Emergency Ambulance Hotline</div>
+                <div className="text-[11px] text-white font-bold">Hospital Phone Desk (By Appointment)</div>
                 <a
                   href={`tel:${HOSPITAL_CONTACT.phone1}`}
                   className="text-white font-mono font-black hover:text-sky-300 text-sm block"
@@ -153,7 +153,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="flex items-center gap-2 flex-wrap text-sky-100 font-medium">
             <span>© {new Date().getFullYear()} Cairo Hospital Abuja. All rights reserved.</span>
             <span className="text-sky-400">·</span>
-            <span className="text-sky-300">Version 1.0.3 · Updated Nov 4, 2026</span>
+            <span className="text-sky-300">Version 1.0.4 · Updated Nov 4, 2026</span>
           </div>
         </Reveal>
       </div>

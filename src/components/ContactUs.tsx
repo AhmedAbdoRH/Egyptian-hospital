@@ -48,7 +48,7 @@ Message: ${message}`;
             Contact Cairo Hospital Abuja
           </h2>
           <p className="text-sm sm:text-base text-[#2d435e] leading-relaxed">
-            Located in Garki 2, Abuja. The supplied hospital profile lists an Emergency Department and Ambulance Service; call the hospital directly to confirm current access and availability.
+            Located in Garki 2, Abuja. Outpatient clinics operate Monday – Saturday 10:00 AM – 6:00 PM by appointment. Cairo Pharmacy is open 24 Hours. Contact the hospital desk to schedule consultations.
           </p>
         </Reveal>
 
@@ -84,8 +84,8 @@ Message: ${message}`;
                   </a>
                 </div>
               </div>
-              <div className="pt-2 text-[11px] font-bold text-rose-700">
-                For emergency and ambulance access, call to confirm current availability
+              <div className="pt-2 text-[11px] font-bold text-[#013777]">
+                Mon – Sat: 10:00 AM – 6:00 PM (By Appointments only)
               </div>
             </div>
           </Reveal>
