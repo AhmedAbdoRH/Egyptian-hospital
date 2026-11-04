@@ -42,6 +42,15 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-50 w-full">
+      {/* Version Info Strip */}
+      <div className="bg-white border-b border-gray-200 text-xs text-gray-600 py-1.5 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto flex items-center justify-center gap-4">
+          <span className="font-semibold">Update Version 4</span>
+          <span className="text-gray-400">|</span>
+          <span>November 4, 2026 - 1:30 PM</span>
+        </div>
+      </div>
+
       {/* Top Notification Strip */}
       <div className="header-utility bg-[#002654] border-b border-white/10 text-xs text-sky-100 py-2.5 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">

@@ -184,29 +184,13 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
         </div>
 
         {/* Authentic Team Photograph from Cairo Hospital Profile */}
-        <Reveal variant="up" delay={180}>
-          <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 bg-slate-900 shadow-xl max-w-4xl mx-auto">
-            <img
-              src="/images/delegation/cairo-hospital-team-visit.jpg"
-              alt="Cairo Hospital Medical Mission"
-              className="w-full h-auto max-h-[500px] object-contain sm:object-cover sm:object-center"
-            />
-          </div>
-        </Reveal>
-
-        {/* CTA: Meet the Full Team */}
-        <Reveal variant="up" delay={240}>
-          <div className="text-center pt-4">
-            <button
-              onClick={onNavigateTeam}
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#013777] to-[#0284c7] text-white font-bold text-sm hover:shadow-2xl hover:shadow-[#013777]/30 hover:-translate-y-0.5 transition-all duration-300 group"
-            >
-              <Users className="w-5 h-5" />
-              <span>Meet the Full Team</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </Reveal>
+        <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 bg-slate-900 shadow-xl max-w-4xl mx-auto">
+          <img
+            src="/images/team/care-team-2026.jpg"
+            alt="Cairo Hospital Medical Team"
+            className="w-full h-auto max-h-[500px] object-contain sm:object-cover sm:object-center"
+          />
+        </div>
       </div>
     </section>
   );
