@@ -100,7 +100,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>• Obstetrics, Gynaecology & Infertility</li>
               <li>• Family & Tropical Medicine</li>
               <li>• Laboratory & Digital X-Ray</li>
-              <li>• Cairo Pharmacy (Open 24 Hours)</li>
+              <li>• Cairo Pharmacy (Mon - Sat)</li>
               <li>• Inpatient Admissions & Recovery</li>
             </ul>
           </Reveal>

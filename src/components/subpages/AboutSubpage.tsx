@@ -122,7 +122,7 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
           { label: 'Chairman’s Experience', value: 'Since 1970' },
           { label: 'Hospital Founded', value: '2019' },
           { label: 'Services Listed', value: '22' },
-          { label: 'Cairo Pharmacy', value: '24 Hours' },
+          { label: 'Cairo Pharmacy', value: 'Mon - Sat' },
         ]}
       />
 

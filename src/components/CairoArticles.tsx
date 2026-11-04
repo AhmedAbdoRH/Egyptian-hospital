@@ -106,8 +106,8 @@ const ARTICLES_DATA: ArticleItem[] = [
   {
     title: 'Inpatient Admissions & Cairo Pharmacy',
     subtitle: 'Hospital facilities and patient care',
-    intro: 'The hospital profile lists an Inpatient Department with dedicated recovery rooms and Cairo Pharmacy operating 24 hours daily.',
-    bullets: ['Inpatient admissions and recovery rooms', 'Cairo Pharmacy open 24 Hours', 'Outpatient clinics Mon-Sat 10:00 AM - 6:00 PM by appointment', 'Ambulance transport by scheduled arrangement (non-resuscitation)'],
+    intro: 'The hospital profile lists an Inpatient Department with dedicated recovery rooms and an on-site Cairo Pharmacy.',
+    bullets: ['Inpatient admissions and recovery rooms', 'Cairo Pharmacy providing genuine medications', 'Outpatient clinics Mon-Sat 10:00 AM - 6:00 PM by appointment', 'Ambulance transport by scheduled arrangement (non-resuscitation)'],
     note: 'Cairo Hospital operates scheduled outpatient clinics, inpatient rooms, and pharmacy. It does not provide emergency resuscitation services.',
   },
 ];

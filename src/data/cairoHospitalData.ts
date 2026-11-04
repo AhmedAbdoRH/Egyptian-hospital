@@ -22,12 +22,12 @@ export const HOSPITAL_CONTACT = {
   whatsappDisplay: '+234 912 979 9999',
   email: 'nigeria.crc@gmail.com',
   workingHours:
-    'Outpatient Clinic: Mon - Sat: 10:00 AM - 6:00 PM (By Appointments only) · Cairo Pharmacy: 24 Hours · Laboratory: Mon - Sat: 10:00 AM - 6:00 PM · Medical Tourism: Mon - Sat: 10:00 AM - 6:00 PM (No emergency services)',
+    'Outpatient Clinic & Pharmacy: Mon - Sat: 10:00 AM - 6:00 PM (By Appointments only) · Laboratory: Mon - Sat: 10:00 AM - 6:00 PM · Medical Tourism: Mon - Sat: 10:00 AM - 6:00 PM (No emergency services)',
 };
 
 export const CLINIC_HOURS = {
   outpatient: 'Mon - Sat: 10:00 AM - 6:00 PM (By Appointments only)',
-  pharmacy: '24 Hours Open',
+  pharmacy: 'Mon - Sat: 10:00 AM - 6:00 PM',
   laboratory: 'Mon - Sat: 10:00 AM - 6:00 PM',
   medicalTourism: 'Mon - Sat: 10:00 AM - 6:00 PM',
   emergency: 'No emergency services (Ambulance by scheduled arrangement, non-resuscitation)',
@@ -37,7 +37,7 @@ export const CLINIC_HOURS = {
 export const HOSPITAL_STATS = [
   { value: '1970', label: 'Chairman’s Work in Nigeria', sublabel: 'Working in Nigeria since 1970' },
   { value: '22', label: 'Clinical Services', sublabel: 'Multispecialty departments & clinics' },
-  { value: '24h', label: 'Cairo Pharmacy', sublabel: 'Open 24 hours daily on-site' },
+  { value: 'Mon-Sat', label: 'Cairo Pharmacy', sublabel: 'Genuine medicines & pharmaceutical care' },
   { value: 'Mon-Sat', label: 'Outpatient & Lab', sublabel: '10:00 AM - 6:00 PM (By Appointment)' },
 ];
 
@@ -744,13 +744,13 @@ export const MEDICAL_SERVICES: MedicalService[] = [
     departmentLabel: 'Diagnostics & Pharmacy',
     category: 'support',
     description:
-      'Trusted Medications. Professional Care. Located within Cairo Hospital, open 24 Hours, providing genuine Egyptian and international medicines with professional pharmacist guidance.',
+      'Trusted Medications. Professional Care. Located within Cairo Hospital, providing genuine Egyptian and international medicines with professional pharmacist guidance.',
     iconName: 'Pill',
     details: [
-      '24 Hours Open daily',
       'Genuine Egyptian & international medicines',
       'Prescription dispensing from approved channels',
       'Medication counseling and patient safety checks',
+      'Mon – Sat: 10:00 AM – 6:00 PM',
     ],
     featured: true,
   },

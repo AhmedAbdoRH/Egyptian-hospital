@@ -559,37 +559,17 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
           </div>
         </section>
 
-        {/* Hospital Care Team Group Photo Section */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch" aria-labelledby="care-team-photo-title">
-          <Reveal
-            as="figure"
-            variant="left"
-            className="lg:col-span-7 relative min-h-[18rem] sm:min-h-[22rem] overflow-hidden rounded-[2rem] border border-slate-200 shadow-xl bg-slate-100"
-          >
-            <img
-              src="/images/delegation/cairo-hospital-team-visit.jpg"
-              alt="Cairo Hospital team photo from the supplied profile"
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 w-full h-full object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#011633]/65 via-transparent to-transparent" />
-            <figcaption className="photo-caption absolute bottom-4 left-4 right-4 !text-white text-sm font-bold drop-shadow-md">
-              Team photograph from the supplied hospital profile
-            </figcaption>
-          </Reveal>
-          <Reveal variant="right" delay={100} className="lg:col-span-5 flex">
-            <div className="w-full glass-panel rounded-[2rem] border border-white/80 bg-white/90 p-7 sm:p-9 flex flex-col justify-center gap-4 shadow-sm">
-              <span className="text-xs font-bold text-[#013777] tracking-wide flex items-center gap-2">
-                <Users className="w-4 h-4 text-[#013777]" aria-hidden="true" />
-                <span>Cairo Hospital Care Team</span>
-              </span>
-              <h2 id="care-team-photo-title" className="text-2xl sm:text-3xl font-black tracking-tight text-[#092545]">
-                Team and Institutional Photographs
-              </h2>
-              <p className="text-sm leading-relaxed text-[#2d435e]">
-                The supplied profile includes photographs of hospital representatives and the team. Contact Cairo Hospital to confirm current departments, clinicians, and appointment availability.
-              </p>
+        {/* Hospital Care Team Photograph (Clean album style, no text on photo) */}
+        <section className="space-y-4">
+          <Reveal variant="up">
+            <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-900 shadow-xl max-w-5xl mx-auto flex items-center justify-center">
+              <img
+                src="/images/delegation/cairo-hospital-team-visit.jpg"
+                alt="Cairo Hospital Medical Mission"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-auto max-h-[620px] object-contain sm:object-cover sm:object-center"
+              />
             </div>
           </Reveal>
         </section>

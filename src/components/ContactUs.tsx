@@ -48,7 +48,7 @@ Message: ${message}`;
             Contact Cairo Hospital Abuja
           </h2>
           <p className="text-sm sm:text-base text-[#2d435e] leading-relaxed">
-            Located in Garki 2, Abuja. Outpatient clinics operate Monday – Saturday 10:00 AM – 6:00 PM by appointment. Cairo Pharmacy is open 24 Hours. Contact the hospital desk to schedule consultations.
+            Located in Garki 2, Abuja. Outpatient clinics operate Monday – Saturday 10:00 AM – 6:00 PM by appointment. Cairo Pharmacy provides genuine medicines and clinical support on-site. Contact the hospital desk to schedule consultations.
           </p>
         </Reveal>
 

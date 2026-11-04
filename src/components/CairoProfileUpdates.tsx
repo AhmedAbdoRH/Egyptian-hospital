@@ -90,7 +90,7 @@ export const CairoProfileUpdates: React.FC<CairoProfileUpdatesProps> = ({
               <span className="text-[11px] font-black uppercase tracking-wider text-[#0879b8]">Hospital Services</span>
               <h3 className="text-base font-black text-[#092545]">Diagnostics, Surgery & Support</h3>
               <p className="text-xs text-[#38516b] leading-relaxed">
-                Inpatient admissions, surgery room, diabetic foot clinic, laboratory, X-ray, ultrasound, and 24-hour Cairo Pharmacy are listed in the profile.
+                Inpatient admissions, surgery room, diabetic foot clinic, laboratory, X-ray, ultrasound, and on-site Cairo Pharmacy are listed in the profile.
               </p>
             </article>
           </Reveal>

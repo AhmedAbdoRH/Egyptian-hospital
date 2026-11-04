@@ -131,7 +131,7 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
   const serviceFaqs = [
     {
       q: 'What are the official clinic and department working hours?',
-      a: 'Outpatient clinic: Monday – Saturday: 10:00 AM – 6:00 PM (strictly by appointments only). Cairo Pharmacy: Open 24 Hours daily. Laboratory Diagnostic testing: Monday – Saturday: 10:00 AM – 6:00 PM. Medical Tourism Desk: Monday – Saturday: 10:00 AM – 6:00 PM.',
+      a: 'Outpatient clinic & Cairo Pharmacy: Monday – Saturday: 10:00 AM – 6:00 PM (strictly by appointments only). Laboratory Diagnostic testing: Monday – Saturday: 10:00 AM – 6:00 PM. Medical Tourism Desk: Monday – Saturday: 10:00 AM – 6:00 PM.',
     },
     {
       q: 'Does Cairo Hospital provide emergency or 24/7 acute trauma services?',
@@ -162,7 +162,7 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
         stats={[
           { label: 'Services Listed', value: '22' },
           { label: 'Outpatient Clinic', value: '10 AM - 6 PM' },
-          { label: 'Cairo Pharmacy', value: '24 Hours' },
+          { label: 'Cairo Pharmacy', value: 'Mon - Sat' },
           { label: 'Appointments', value: 'By Schedule' },
         ]}
       />
@@ -177,8 +177,7 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
                 <span>Working Hours & Clinical Notice</span>
               </div>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-                <strong>Outpatient Clinic:</strong> Mon – Sat: 10:00 AM – 6:00 PM (By Appointments only) ·{' '}
-                <strong>Cairo Pharmacy:</strong> 24 Hours Open ·{' '}
+                <strong>Outpatient Clinic & Pharmacy:</strong> Mon – Sat: 10:00 AM – 6:00 PM (By Appointments only) ·{' '}
                 <strong>Laboratory:</strong> Mon – Sat: 10:00 AM – 6:00 PM ·{' '}
                 <strong>Medical Tourism:</strong> Mon – Sat: 10:00 AM – 6:00 PM ·{' '}
                 <span className="text-[#013777] font-semibold">Inpatient admissions available.</span> (No emergency services; ambulance by scheduled arrangement only).

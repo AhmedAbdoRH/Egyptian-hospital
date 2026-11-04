@@ -539,10 +539,10 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
 
   // Page 22 of PDF
   pharmacy: {
-    headline: 'Trusted Medications. Professional Care. Open 24 Hours.',
+    headline: 'Trusted Medications. Professional Care.',
     paragraphs: [
       'Cairo Pharmacy, located within Cairo Hospital, provides convenient access to genuine Egyptian and international medications, supported by professional pharmaceutical guidance.',
-      'Our pharmacy team helps patients understand their prescriptions and use medications safely and effectively. Open 24 Hours daily to serve inpatients and outpatients.',
+      'Our pharmacy team helps patients understand their prescriptions and use medications safely and effectively, serving inpatients and clinic attendees with dedicated care.',
     ],
     sections: [
       {
@@ -552,7 +552,7 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
           'Egyptian & International Medicines: Pharmaceutical products from approved supply channels.',
           'Medication Counseling: Guidance on dosage, administration, and precautions.',
           'Patient Safety: Support for appropriate medication use and awareness of drug interactions.',
-          'On-Site Convenience: 24 Hours easy access to medications during hospital visits.',
+          'On-Site Convenience: Convenient access to authentic medications during hospital visits (Mon – Sat: 10:00 AM – 6:00 PM).',
         ],
       },
     ],

@@ -31,7 +31,7 @@ export const EmergencyBanner: React.FC<EmergencyBannerProps> = ({
               </div>
 
               <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
-                Outpatient Clinics by Appointment · 24-Hour Cairo Pharmacy
+                Outpatient Clinics by Appointment · Cairo Pharmacy
               </h3>
 
               {/* Working hours grid */}
@@ -47,7 +47,7 @@ export const EmergencyBanner: React.FC<EmergencyBannerProps> = ({
                     <Pill className="w-3 h-3 text-emerald-300" />
                     <span>Cairo Pharmacy</span>
                   </div>
-                  <div className="text-white font-extrabold">24 Hours Daily</div>
+                  <div className="text-white font-extrabold">Mon – Sat: 10 AM – 6 PM</div>
                   <div className="text-[10px] text-emerald-200">Genuine medicines on-site</div>
                 </div>
 

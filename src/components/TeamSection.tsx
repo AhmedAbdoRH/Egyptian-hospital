@@ -20,11 +20,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
     TEAM_MEMBERS.find((m) => m.id === 'dr-ahmed-shaker') || TEAM_MEMBERS[0];
   const ceo =
     TEAM_MEMBERS.find((m) => m.id === 'dr-mohammed-hesham') || TEAM_MEMBERS[1];
-  
-  // Show remaining specialists below executive leadership
-  const featuredTeam = TEAM_MEMBERS.filter(
-    (m) => m.id !== chairman.id && m.id !== ceo.id
-  ).slice(0, 2);
+
 
   return (
     <section id="team" className="py-10 sm:py-16 lg:py-20 relative overflow-hidden">
@@ -187,31 +183,16 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
           </Reveal>
         </div>
 
-        {/* Featured Specialists (Dr. Wael Khalil, Dr. Bassam) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {featuredTeam.map((member, idx) => (
-            <Reveal key={member.id} variant="up" delay={idx * 120}>
-              <div className="glass-panel p-6 rounded-2xl border border-slate-200 bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="relative w-20 h-20 rounded-xl overflow-hidden border-2 border-[#013777]/20 bg-slate-100 shrink-0">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-black text-[#092545] leading-tight">
-                      {member.name}
-                    </h4>
-                    <p className="text-xs text-[#013777] font-bold mt-1">{member.role}</p>
-                    <p className="text-xs text-[#334155] mt-2 line-clamp-2">{member.specialty || member.title}</p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        {/* Authentic Team Photograph from Cairo Hospital Profile */}
+        <Reveal variant="up" delay={180}>
+          <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 bg-slate-900 shadow-xl max-w-4xl mx-auto">
+            <img
+              src="/images/delegation/cairo-hospital-team-visit.jpg"
+              alt="Cairo Hospital Medical Mission"
+              className="w-full h-auto max-h-[500px] object-contain sm:object-cover sm:object-center"
+            />
+          </div>
+        </Reveal>
 
         {/* CTA: Meet the Full Team */}
         <Reveal variant="up" delay={240}>

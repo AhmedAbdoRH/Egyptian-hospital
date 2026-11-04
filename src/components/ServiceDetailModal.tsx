@@ -153,7 +153,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                 <span>Working Hours & Appointments</span>
               </div>
               <p className="text-slate-600">
-                Outpatient clinic: Mon – Sat: 10:00 AM – 6:00 PM (By Appointments only). Pharmacy: 24 Hours.
+                Outpatient clinic & Pharmacy: Mon – Sat: 10:00 AM – 6:00 PM (By Appointments only).
               </p>
             </div>
             <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white border border-sky-200 text-sky-800 font-bold shrink-0 self-start sm:self-auto">

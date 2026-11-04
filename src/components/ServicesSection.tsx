@@ -27,7 +27,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 }) => {
   const [selectedService, setSelectedService] = useState<MedicalService | null>(null);
 
-  // Top services for homepage highlight, ordered with Orthobiologics top, no emergency card, and Cairo Pharmacy 24h
+  // Top services for homepage highlight, ordered with Orthobiologics top, no emergency card, and Cairo Pharmacy
   const highlightServices = [
     {
       id: 'orthobiologics-bmac',
@@ -62,8 +62,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
     {
       id: 'pharmacy',
       icon: <Pill className="w-6 h-6 text-purple-600" />,
-      title: 'Cairo Pharmacy (24 Hours)',
-      description: 'Open 24 hours daily within Cairo Hospital, stocking genuine Egyptian and international approved medications.',
+      title: 'Cairo Pharmacy',
+      description: 'On-site dispensary within Cairo Hospital, stocking genuine Egyptian and international approved medications.',
     },
   ];
 
