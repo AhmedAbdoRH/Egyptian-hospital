@@ -23,7 +23,6 @@ import {
 } from 'lucide-react';
 import { SubpageHero } from './SubpageHero';
 import { PILLARS_OF_CARE, HOSPITAL_CONTACT, TEAM_MEMBERS } from '../../data/cairoHospitalData';
-import { AccreditationSection } from '../AccreditationSection';
 import { FacilityGallery } from '../FacilityGallery';
 import { Reveal } from '../ScrollReveal';
 
@@ -418,9 +417,6 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
 
         {/* Facilities Section */}
         <FacilityGallery />
-
-        {/* Accreditations Section */}
-        <AccreditationSection />
 
         {/* Direct Chairman & Clinical Desk Call to Action Banner */}
         <Reveal variant="scale">

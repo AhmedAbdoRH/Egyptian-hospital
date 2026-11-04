@@ -16,7 +16,12 @@ export const MedicalTourism: React.FC<MedicalTourismProps> = ({
   onOpenWhatsAppBooking,
   onNavigateTourism,
 }) => {
-  const destinations = ['Dubai', 'United Kingdom', 'Egypt', 'India', 'Jordan', 'Tunisia'];
+  const destinations = [
+    { name: 'Egypt', flag: '🇪🇬' },
+    { name: 'Dubai', flag: '🇦🇪' },
+    { name: 'United Kingdom', flag: '🇬🇧' },
+    { name: 'Turkey', flag: '🇹🇷' },
+  ];
   
   const keyFeatures = [
     'Visa provision and travel tickets coordination',
@@ -55,13 +60,14 @@ export const MedicalTourism: React.FC<MedicalTourismProps> = ({
                 <Globe2 className="w-5 h-5 !text-[#fdc33e]" />
                 <span>Available Destinations</span>
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2.5">
                 {destinations.map((dest) => (
                   <span
-                    key={dest}
-                    className="px-4 py-2 rounded-xl bg-white/10 border border-white/20 text-xs font-bold !text-white backdrop-blur-sm"
+                    key={dest.name}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/10 border border-white/20 text-xs sm:text-sm font-bold !text-white backdrop-blur-sm hover:bg-white/15 transition-colors"
                   >
-                    {dest}
+                    <span>{dest.flag}</span>
+                    <span>{dest.name}</span>
                   </span>
                 ))}
               </div>

@@ -7,10 +7,8 @@ import { ServicesSection } from './components/ServicesSection';
 import { OrthobiologicsHighlight } from './components/OrthobiologicsHighlight';
 import { FacilityGallery } from './components/FacilityGallery';
 import { MedicalTourism } from './components/MedicalTourism';
-import { PartnersSection } from './components/PartnersSection';
 import { TeamSection } from './components/TeamSection';
 import { ContactUs } from './components/ContactUs';
-import { AccreditationSection } from './components/AccreditationSection';
 import { WhatsAppBookingPage } from './components/WhatsAppBookingPage';
 import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton';
 import { Footer } from './components/Footer';
@@ -178,8 +176,6 @@ export default function App() {
                 }
                 onNavigateTourism={() => handleNavigate('tourism')}
               />
-              <PartnersSection onOpenWhatsAppBooking={() => handleOpenBooking()} />
-              <AccreditationSection />
               <CairoProfileUpdates
                 onOpenWhatsAppBooking={() => handleOpenBooking()}
                 onNavigateTourism={() => handleNavigate('tourism')}

@@ -334,7 +334,7 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                       <span className="text-white/40" aria-hidden="true">
                         ·
                       </span>
-                      <span className="!text-[#bae6fd]">Ain Shams University (1997) · ASRIC African Union</span>
+                      <span className="!text-[#bae6fd]">Ain Shams University (1997) · Arthroplasty & Trauma</span>
                     </div>
 
                     <h3 className="text-3xl sm:text-4xl font-black !text-white tracking-tight leading-tight">

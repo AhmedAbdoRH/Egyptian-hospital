@@ -166,7 +166,7 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
     },
     {
       q: 'How does Cairo Hospital facilitate medical tourism to Egypt?',
-      a: 'The hospital profile lists Dubai, the UK, Nigeria, Egypt, the USA, and Turkey as medical-tourism destinations, with support for visas, flights, accommodation, transportation, a medical plan, and representative follow-up until the patient returns to Nigeria.',
+      a: 'The hospital coordinates medical travel across Egypt, Dubai, the United Kingdom, and Turkey, with support for visas, flights, accommodation, transportation, a medical plan, and representative follow-up until the patient returns to Nigeria.',
     },
   ];
 

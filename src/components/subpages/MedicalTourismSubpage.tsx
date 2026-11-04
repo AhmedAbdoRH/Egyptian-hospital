@@ -72,7 +72,7 @@ export const MedicalTourismSubpage: React.FC<MedicalTourismSubpageProps> = ({
       region: 'middle-east',
       flag: '🇪🇬',
       tagline: 'Premier Orthopedic, Stem Cell & Tertiary Surgical Care in Cairo',
-      network: 'Cleopatra Hospitals Group & Leading University Surgical Centres',
+      network: 'Leading University & Tertiary Specialized Surgical Centres in Cairo',
       leadTime: '3 - 5 Days Expedited Coordination',
       badge: 'Flagship Partner Hub',
       specialties: [
@@ -152,50 +152,6 @@ export const MedicalTourismSubpage: React.FC<MedicalTourismSubpageProps> = ({
         'Exceptional price-to-quality ratio with internationally trained surgeons',
         'Turnkey packages covering hotel, VIP transfers, and translation',
         'Modern medical recovery facilities situated in Istanbul',
-      ],
-    },
-    {
-      id: 'usa',
-      country: 'United States',
-      region: 'americas',
-      flag: '🇺🇸',
-      tagline: 'Cutting-Edge Clinical Trials, Rare Disease & Landmark Cancer Centres',
-      network: 'Premier US Medical Centres & Academic Referral Consortia',
-      leadTime: '14 - 21 Days Medical B-2 Visa Facilitation',
-      badge: 'Advanced Research Protocols',
-      specialties: [
-        'Genomic Targeted Oncology & CAR-T Cell Therapies',
-        'Complex Pediatric & Adult Neurosurgery',
-        'Novel Experimental Treatment Protocols',
-        'Advanced Organ Transplantation & Complex GI',
-        'Multi-Disciplinary Diagnostic Quests',
-      ],
-      highlights: [
-        'Access to the latest FDA-approved therapeutics and breakthrough trials',
-        'Formal medical invitation letters for US embassy visa appointments',
-        'Coordinated follow-up protocol back in Nigeria with our physicians',
-      ],
-    },
-    {
-      id: 'nigeria',
-      country: 'Nigeria (Interstate)',
-      region: 'africa',
-      flag: '🇳🇬',
-      tagline: 'Premium Interstate Referral Coordination Across Abuja & Lagos',
-      network: 'Cairo Hospital Abuja & Partner Tertiary Centres in Lagos',
-      leadTime: 'Same-Day or 24h Coordination',
-      badge: 'Local Excellence',
-      specialties: [
-        'Orthopedics, Spine & Joint Reconstruction',
-        'Comprehensive Physical Rehabilitation & Hydrotherapy',
-        'Inpatient Surgical & Observation Wards',
-        'On-site Diagnostics, 24/7 Pharmacy & Emergency Ambulance',
-        'Orthobiologics & Stem Cell Consultations',
-      ],
-      highlights: [
-        'Zero visa or international travel friction for Nigerian residents',
-        'On-site medical team and surgical suite right in Garki 2, Abuja',
-        'Full administrative support with major HMOs (NHIS, Alamida, Zenith Medica, Cleopatra)',
       ],
     },
   ];
@@ -324,12 +280,12 @@ export const MedicalTourismSubpage: React.FC<MedicalTourismSubpageProps> = ({
         badgeIcon={<Globe className="w-4 h-4 text-[#013777]" />}
         title="World-Class Medical Tourism,"
         highlightedText="Coordinated with Abuja Excellence."
-        description="Access premier hospital networks across Dubai, the UK, Nigeria, Egypt, USA, and Turkey. Cairo Hospital coordinates every step—from medical visa expediting and flight booking to personalized surgical protocols and vital post-operative rehabilitation right here in Garki 2, Abuja."
+        description="Access premier hospital networks across Egypt, Dubai, the United Kingdom, and Turkey. Cairo Hospital coordinates every step—from medical visa expediting and flight booking to personalized surgical protocols and vital post-operative rehabilitation right here in Garki 2, Abuja."
         breadcrumbs={[{ label: 'Medical Tourism Hub' }]}
         onNavigateHome={onNavigateHome}
         onOpenWhatsAppBooking={() => onOpenWhatsAppBooking('Medical Tourism Coordination')}
         stats={[
-          { label: 'Destinations Listed', value: '6 Global Hubs' },
+          { label: 'Destinations Listed', value: '4 Global Hubs' },
           { label: 'Concierge Care', value: '100% End-to-End' },
           { label: 'Physician Liaison', value: 'Until Return' },
           { label: 'Follow-up Rehab', value: 'Cairo Hospital Abuja' },
@@ -346,20 +302,18 @@ export const MedicalTourismSubpage: React.FC<MedicalTourismSubpageProps> = ({
                 <span>Destinations Listed in Hospital Profile</span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#092545] tracking-tight">
-                Explore Our 6 Medical Destinations
+                Explore Our 4 Medical Destinations
               </h2>
               <p className="text-base sm:text-lg text-slate-600">
-                Cairo Hospital maintains direct physician networks and institutional relationships with top-tier hospitals across three continents.
+                Cairo Hospital maintains direct physician networks and institutional relationships with top-tier hospitals across Egypt, Dubai, the UK, and Turkey.
               </p>
 
               {/* Region Filter Tabs */}
               <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
                 {[
-                  { id: 'all', label: 'All Destinations (6)' },
+                  { id: 'all', label: 'All Destinations (4)' },
                   { id: 'middle-east', label: 'Egypt & Dubai' },
                   { id: 'europe', label: 'UK & Turkey' },
-                  { id: 'americas', label: 'United States' },
-                  { id: 'africa', label: 'Nigeria (Interstate)' },
                 ].map((tab) => (
                   <button
                     key={tab.id}
@@ -586,7 +540,7 @@ export const MedicalTourismSubpage: React.FC<MedicalTourismSubpageProps> = ({
                 <ul className="space-y-4 text-sm text-slate-100">
                   <li className="flex items-start gap-3">
                     <span className="text-emerald-400 font-bold mt-0.5">✓</span>
-                    <span><strong>Accredited Institutional Tier:</strong> Direct referral only to internationally accredited institutions (JCI / Cleopatra / NHS / DHCC).</span>
+                    <span><strong>Accredited Institutional Tier:</strong> Direct referral only to internationally accredited institutions (JCI / NHS / DHCC / MOH).</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-emerald-400 font-bold mt-0.5">✓</span>
@@ -685,12 +639,10 @@ export const MedicalTourismSubpage: React.FC<MedicalTourismSubpageProps> = ({
                     onChange={(e) => setPlannerDestination(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-800 text-sm font-semibold focus:ring-2 focus:ring-sky-500 focus:outline-none"
                   >
-                    <option value="Egypt (Cairo)">Egypt 🇪🇬 (Cleopatra & Partner Hospitals)</option>
+                    <option value="Egypt (Cairo)">Egypt 🇪🇬 (Cairo Specialist & Partner Hospitals)</option>
                     <option value="Dubai (UAE)">Dubai 🇦🇪 (Robotic & Advanced Care)</option>
                     <option value="United Kingdom">United Kingdom 🇬🇧 (Harley Street)</option>
                     <option value="Turkey (Istanbul)">Turkey 🇹🇷 (Spine & Aesthetics)</option>
-                    <option value="United States">United States 🇺🇸 (Advanced Protocols)</option>
-                    <option value="Nigeria (Interstate)">Nigeria 🇳🇬 (Abuja - Lagos Transfer)</option>
                   </select>
                 </div>
 

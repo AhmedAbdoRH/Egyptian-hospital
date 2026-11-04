@@ -147,7 +147,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                         Orthopedic Consultant
                       </p>
                       <p className="text-[11px] !text-[#fdc33e] font-medium mt-1">
-                        Ain Shams (1997) · ASRIC African Union
+                        Ain Shams (1997) · Arthroplasty & Trauma Surgeries
                       </p>
                     </div>
                   </div>

@@ -141,35 +141,6 @@ export const CairoProfileUpdates: React.FC<CairoProfileUpdatesProps> = ({
           </div>
         </Reveal>
 
-        {/* Accreditations & Enrolments Badges */}
-        <Reveal variant="up" delay={240}>
-          <div className="p-6 rounded-2xl border border-teal-200 bg-[#f7fffd] grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-            <div className="md:col-span-4 space-y-1">
-              <span className="text-xs font-black uppercase tracking-wider text-[#007b78]">Accreditation & Enrolment</span>
-              <h3 className="text-base font-black text-[#092545]">Organisations Listed in Profile</h3>
-            </div>
-            <div className="md:col-span-8 flex flex-wrap gap-2">
-              {[
-                'Accreditation · NHIS',
-                'Accreditation · FCDA Health Department',
-                'Accreditation · African Union',
-                'Enrolled · Alamida',
-                'Enrolled · Zenith Medica',
-                'Enrolled · Cleopatra',
-                'Enrolled · NNPH',
-                'Enrolled · Push Africa NGO',
-                'Enrolled · ASRIC',
-              ].map((badge, idx) => (
-                <span
-                  key={idx}
-                  className="text-xs font-bold px-3 py-1 rounded-full bg-white border border-teal-200 text-[#075985] shadow-xs"
-                >
-                  {badge}
-                </span>
-              ))}
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

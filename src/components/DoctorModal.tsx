@@ -116,7 +116,7 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
                     </span>
                     <span className="inline-flex items-center gap-1 !text-[#bae6fd]">
                       <ShieldCheck className="w-3.5 h-3.5 !text-[#fdc33e]" />
-                      <span>Ain Shams '97 · African Union ASRIC</span>
+                      <span>Ain Shams '97 · Arthroplasty & Trauma</span>
                     </span>
                   </>
                 )}

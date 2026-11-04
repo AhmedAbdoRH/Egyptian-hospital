@@ -334,7 +334,7 @@ export const MEDICAL_SERVICES: MedicalService[] = [
   },
   {
     id: 'medical-tourism', title: 'Medical Tourism', departmentId: 'diagnostics-support', departmentLabel: 'Diagnostics & Support', category: 'support',
-    description: 'The profile lists Dubai, UK, Nigeria, Egypt, USA, and Turkey as destinations, with visa provision, tickets, accommodation, transport, a medical plan, and representative follow-up.', iconName: 'Globe2', details: ['Visa provision', 'Tickets', 'Accommodation', 'Transport', 'Medical plan', 'Representative follow-up until return to Nigeria and follow-up at Cairo Hospital'], featured: true,
+    description: 'The hospital coordinates medical travel to Egypt, Dubai, the United Kingdom, and Turkey, with visa provision, tickets, accommodation, transport, a medical plan, and representative follow-up.', iconName: 'Globe2', details: ['Visa provision', 'Tickets', 'Accommodation', 'Transport', 'Medical plan', 'Representative follow-up until return to Nigeria and follow-up at Cairo Hospital'], featured: true,
   },
 ];
 
@@ -369,14 +369,12 @@ export const MEDICAL_TOURISM_DETAILS = {
   title: 'Medical Tourism Services',
   subtitle: 'Travel Support and Follow-up Listed in the Profile',
   description:
-    'The profile lists Dubai, the UK, Nigeria, Egypt, the USA, and Turkey as destinations. Support includes visa provision, tickets, accommodation, transport, and a medical plan. A representative follows up until the patient returns to Nigeria, with follow-up at Cairo Hospital after return.',
+    'The hospital coordinates medical travel across Egypt, Dubai, the United Kingdom, and Turkey. Support includes visa provision, tickets, accommodation, transport, and a medical plan. A representative follows up until the patient returns to Nigeria, with follow-up at Cairo Hospital after return.',
   destinations: [
-    { country: 'Dubai', flag: '◆', cities: 'As listed in profile' },
-    { country: 'UK', flag: '🇬🇧', cities: 'As listed in profile' },
-    { country: 'Nigeria', flag: '🇳🇬', cities: 'As listed in profile' },
-    { country: 'Egypt', flag: '🇪🇬', cities: 'As listed in profile' },
-    { country: 'USA', flag: '🇺🇸', cities: 'As listed in profile' },
-    { country: 'Turkey', flag: '🇹🇷', cities: 'As listed in profile' },
+    { country: 'Egypt', flag: '🇪🇬', cities: 'Cairo, Alexandria & Partner Centres' },
+    { country: 'Dubai', flag: '🇦🇪', cities: 'Dubai Healthcare City & Private Hospitals' },
+    { country: 'United Kingdom', flag: '🇬🇧', cities: 'London & Harley Street' },
+    { country: 'Turkey', flag: '🇹🇷', cities: 'Istanbul & Ankara' },
   ],
   services: [
     { title: 'Visa Provision', description: 'Visa provision is included in the medical-travel support listed in the profile.', icon: 'FileCheck' },
@@ -390,53 +388,7 @@ export const MEDICAL_TOURISM_DETAILS = {
 
 
 
-export const ACCREDITATIONS_DATA: AccreditationOrg[] = [
-  {
-    name: 'NHIS (National Health Insurance System)',
-    type: 'accreditation',
-    description: 'Listed as an accreditation in the current Cairo Hospital profile.',
-  },
-  {
-    name: 'FCDA Health Department',
-    type: 'accreditation',
-    description: 'Listed as an accreditation in the current Cairo Hospital profile.',
-  },
-  {
-    name: 'African Union',
-    type: 'accreditation',
-    description: 'Listed as an accreditation in the current Cairo Hospital profile.',
-  },
-  {
-    name: 'Alamida',
-    type: 'enrolled',
-    description: 'Listed as an enrolled organization in the current Cairo Hospital profile.',
-  },
-  {
-    name: 'Zenith Medica',
-    type: 'enrolled',
-    description: 'Listed as an enrolled organization in the current Cairo Hospital profile.',
-  },
-  {
-    name: 'Cleopatra',
-    type: 'enrolled',
-    description: 'Listed as an enrolled organization in the current Cairo Hospital profile.',
-  },
-  {
-    name: 'NNPH',
-    type: 'enrolled',
-    description: 'Listed as an enrolled organization in the current Cairo Hospital profile.',
-  },
-  {
-    name: 'Push Africa NGO',
-    type: 'enrolled',
-    description: 'Listed as an enrolled organization in the current Cairo Hospital profile.',
-  },
-  {
-    name: 'ASRIC',
-    type: 'enrolled',
-    description: 'Listed as an enrolled organization in the current Cairo Hospital profile.',
-  },
-];
+export const ACCREDITATIONS_DATA: AccreditationOrg[] = [];
 
 export const FACILITY_GALLERY: HospitalFacilityItem[] = [
   {

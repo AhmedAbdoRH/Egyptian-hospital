@@ -7,6 +7,10 @@ export const AccreditationSection: React.FC = () => {
   const accreditedBy = ACCREDITATIONS_DATA.filter((a) => a.type === 'accreditation');
   const enrolledOrgs = ACCREDITATIONS_DATA.filter((a) => a.type === 'enrolled');
 
+  if (accreditedBy.length === 0 && enrolledOrgs.length === 0) {
+    return null;
+  }
+
   return (
     <section className="py-10 sm:py-16 lg:py-20 relative overflow-hidden">
       <div className="ambient-glow-navy top-10 right-10 pointer-events-none" />

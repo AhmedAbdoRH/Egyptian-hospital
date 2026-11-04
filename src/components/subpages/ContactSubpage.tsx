@@ -117,7 +117,7 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
       name: 'Medical Tourism',
       phone: HOSPITAL_CONTACT.phone1,
       hours: 'Contact the hospital for inquiries',
-      desc: 'Support for the destinations listed in the profile: Dubai, the UK, Nigeria, Egypt, the USA, and Turkey.',
+      desc: 'Support for overseas destinations: Egypt, Dubai, the United Kingdom, and Turkey.',
     },
   ];
 

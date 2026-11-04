@@ -13,6 +13,10 @@ export const PartnersSection: React.FC<PartnersSectionProps> = ({
   const accreditations = ACCREDITATIONS_DATA.filter((item) => item.type === 'accreditation');
   const enrolled = ACCREDITATIONS_DATA.filter((item) => item.type === 'enrolled');
 
+  if (accreditations.length === 0 && enrolled.length === 0) {
+    return null;
+  }
+
   const groups = [
     { title: 'Accreditation', note: 'Listed under “Accreditation” in the supplied profile', items: accreditations },
     { title: 'Enrolled Organisations', note: 'Listed under “Enrolled Organisations” in the supplied profile', items: enrolled },

@@ -30,15 +30,14 @@ const SPECIALTIES = [
 ];
 
 const TRUST_PARTNERS = [
-  'Accreditation · NHIS',
-  'Accreditation · FCDA Health Department',
-  'Accreditation · African Union',
-  'Enrolled · Alamida',
-  'Enrolled · Zenith Medica',
-  'Enrolled · Cleopatra',
-  'Enrolled · NNPH',
-  'Enrolled · Push Africa NGO',
-  'Enrolled · ASRIC',
+  'Advanced Orthopedic Surgery',
+  'Stem Cells Regenerative Therapy',
+  'Joint Arthroplasty',
+  '24/7 Emergency & Trauma Care',
+  'Specialist Physiotherapy',
+  'Cross-Border Medical Tourism',
+  'Rehabilitation & Sports Medicine',
+  'Minimally Invasive Surgery',
 ];
 
 /* ------------------------------------------------------------------ */
@@ -310,7 +309,7 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="ch-reveal flex flex-wrap items-center gap-2" style={delay(0)}>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#fdc33e]/15 border border-[#fdc33e]/40 text-xs font-bold text-[#fdc33e]">
                 <BadgeCheck className="w-3.5 h-3.5 text-[#fdc33e]" aria-hidden="true" />
-                NHIS Accredited
+                Private Specialist Hospital Abuja
               </span>
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-pill text-xs font-semibold text-sky-200">
                 <span className="relative flex w-2 h-2">
@@ -385,7 +384,7 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Trust marquee */}
             <div className="ch-reveal pt-3" style={delay(660)}>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 mb-3">
-                Trusted & enrolled by
+                Clinical Excellence & Specialized Services
               </p>
               <div className="ch-marquee-wrap relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
                 <ul className="ch-marquee flex w-max gap-3">
@@ -488,11 +487,11 @@ export const Hero: React.FC<HeroProps> = ({
                               Medical Tourism Hub
                             </span>
                             <span className="px-2 py-0.5 rounded-full bg-sky-500/20 border border-sky-400/40 text-[10px] font-semibold text-sky-300 uppercase tracking-wider hidden xs:inline-block">
-                              6 Hubs
+                              4 Hubs
                             </span>
                           </div>
                           <div className="text-xs text-slate-300 truncate mt-0.5">
-                            Destinations: Dubai · UK · Nigeria · Egypt · USA · Turkey
+                            Destinations: Egypt · Dubai · United Kingdom · Turkey
                           </div>
                         </div>
                       </div>

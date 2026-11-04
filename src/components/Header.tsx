@@ -58,7 +58,7 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="text-sky-600 hidden md:inline">|</span>
             <div className="hidden md:flex items-center gap-1.5 text-[#fdc33e] font-semibold">
               <Shield className="w-3.5 h-3.5 text-[#fdc33e]" />
-              <span>Accreditations & enrolled organisations listed in the profile</span>
+              <span>Specialized Orthopedic & Surgical Care</span>
             </div>
           </div>
         </div>

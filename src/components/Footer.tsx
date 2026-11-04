@@ -145,9 +145,9 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom Bar */}
         <Reveal variant="fade" delay={180} className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs border-t border-white/10">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-sky-100 font-semibold">Accreditation: NHIS · FCDA Health Department · African Union</span>
+            <span className="text-sky-100 font-semibold">Exemplary Healthcare from Cairo to Abuja</span>
             <span className="text-sky-400">·</span>
-            <span className="text-sky-100 font-semibold">Enrolled: Alamida · Zenith Medica · Cleopatra · NNPH · Push Africa NGO · ASRIC</span>
+            <span className="text-sky-200">Garki 2, Abuja, Nigeria</span>
           </div>
 
           <div className="text-sky-100 font-medium">
