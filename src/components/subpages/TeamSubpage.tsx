@@ -564,8 +564,8 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
           <Reveal variant="up">
             <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-900 shadow-xl max-w-5xl mx-auto flex items-center justify-center">
               <img
-                src="/images/team/care-team-2026.jpg"
-                alt="Cairo Hospital clinical team"
+                src="/assets/aistudio/image_acf7a5a9.png"
+                alt="Cairo Hospital Nursing & Clinical Care Team"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-auto max-h-[620px] object-contain sm:object-cover sm:object-center"

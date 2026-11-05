@@ -45,9 +45,9 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Version Info Strip */}
       <div className="bg-white border-b border-gray-200 text-xs text-gray-600 py-1.5 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-4">
-          <span className="font-semibold">Update Version 4</span>
+          <span className="font-semibold">Update Version 5</span>
           <span className="text-gray-400">|</span>
-          <span>November 4, 2026 - 5:00 PM</span>
+          <span>November 5, 2026 - 5:00 PM</span>
         </div>
       </div>
 
@@ -62,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="text-sky-600 hidden sm:inline">|</span>
             <div className="flex items-center gap-1.5 text-sky-100">
               <Clock className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Outpatient Clinics by Appointment · Cairo Pharmacy: 24 Hours</span>
+              <span>Outpatient Clinics & Pharmacy: Mon-Sat 10:00 AM - 6:00 PM</span>
             </div>
             <span className="text-sky-600 hidden md:inline">|</span>
             <div className="hidden md:flex items-center gap-1.5 text-[#fdc33e] font-semibold">

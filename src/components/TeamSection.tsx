@@ -184,11 +184,11 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
         </div>
 
         {/* Authentic Team Photograph from Cairo Hospital Profile */}
-        <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 bg-slate-900 shadow-xl max-w-4xl mx-auto">
+        <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 bg-slate-900 shadow-xl max-w-4xl mx-auto flex items-center justify-center">
           <img
-            src="/images/team/care-team-2026.jpg"
-            alt="Cairo Hospital Medical Team"
-            className="w-full h-auto max-h-[500px] object-contain sm:object-cover sm:object-center"
+            src="/assets/aistudio/image_acf7a5a9.png"
+            alt="Cairo Hospital Nursing & Clinical Care Team"
+            className="w-full h-auto max-h-[520px] object-contain sm:object-cover sm:object-center"
           />
         </div>
       </div>
