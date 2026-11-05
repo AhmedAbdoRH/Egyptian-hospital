@@ -20,14 +20,14 @@ export const HOSPITAL_CONTACT = {
   phone1: '+2349129799999',
   whatsappNumber: '2349129799999',
   whatsappDisplay: '+234 912 979 9999',
-  email: 'nigeria.crc@gmail.com',
+  email: 'Info@cairohospitals.com',
   workingHours:
-    'Outpatient Clinic: Mon - Sat: 10:00 AM - 6:00 PM (By Appointments only) · Cairo Pharmacy: 24 Hours · Lab: Mon - Sat: 10:00 AM - 6:00 PM · Medical Tourism: Mon - Sat: 10:00 AM - 6:00 PM · No emergency services',
+    'Outpatient Clinic & Pharmacy: Mon - Sat: 10:00 AM - 6:00 PM (By Appointments only) · Lab: Mon - Sat: 10:00 AM - 6:00 PM · Medical Tourism: Mon - Sat: 10:00 AM - 6:00 PM · No emergency services',
 };
 
 export const CLINIC_HOURS = {
   outpatient: 'Mon - Sat: 10:00 AM - 6:00 PM (By Appointments only)',
-  pharmacy: '24 Hours',
+  pharmacy: 'Mon - Sat: 10:00 AM - 6:00 PM',
   laboratory: 'Mon - Sat: 10:00 AM - 6:00 PM',
   medicalTourism: 'Mon - Sat: 10:00 AM - 6:00 PM',
   emergency: 'No emergency services',
@@ -37,7 +37,7 @@ export const CLINIC_HOURS = {
 export const HOSPITAL_STATS = [
   { value: '1970', label: 'Chairman’s Work in Nigeria', sublabel: 'Working in Nigeria since 1970' },
   { value: '22', label: 'Clinical Services', sublabel: 'Multispecialty departments & clinics' },
-  { value: '24 Hours', label: 'Cairo Pharmacy', sublabel: 'Genuine medicines & pharmaceutical care' },
+  { value: 'Mon-Sat', label: 'Cairo Pharmacy', sublabel: 'Genuine medicines & pharmaceutical care' },
   { value: 'Mon-Sat', label: 'Outpatient & Lab', sublabel: '10:00 AM - 6:00 PM (By Appointment)' },
 ];
 

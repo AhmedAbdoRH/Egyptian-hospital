@@ -113,9 +113,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center shadow-xs">
                       {service.icon}
                     </div>
-                    <span className="text-[11px] font-bold text-[#013777] bg-sky-50 px-2.5 py-1 rounded-full border border-sky-100">
-                      By Appointment
-                    </span>
+                    {service.id !== 'pharmacy' && (
+                      <span className="text-[11px] font-bold text-[#013777] bg-sky-50 px-2.5 py-1 rounded-full border border-sky-100">
+                        By Appointment
+                      </span>
+                    )}
                   </div>
 
                   <div>

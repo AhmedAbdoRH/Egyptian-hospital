@@ -150,16 +150,24 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             <div className="space-y-1">
               <div className="font-bold text-[#013777] flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-[#013777]" />
-                <span>Working Hours & Appointments</span>
+                <span>Working Hours & Availability</span>
               </div>
               <p className="text-slate-600">
-                Outpatient Clinic: Mon – Sat: 10:00 AM – 6:00 PM (By Appointments only) · Cairo Pharmacy: 24 Hours.
+                {service.id === 'pharmacy'
+                  ? 'Cairo Pharmacy: Mon – Sat: 10:00 AM – 6:00 PM (On-site hospital dispensary).'
+                  : 'Outpatient Clinic: Mon – Sat: 10:00 AM – 6:00 PM (By Appointments only).'}
               </p>
             </div>
-            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white border border-sky-200 text-sky-800 font-bold shrink-0 self-start sm:self-auto">
-              <Calendar className="w-3 h-3 text-[#013777]" />
-              By Appointment
-            </span>
+            {service.id !== 'pharmacy' ? (
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white border border-sky-200 text-sky-800 font-bold shrink-0 self-start sm:self-auto">
+                <Calendar className="w-3 h-3 text-[#013777]" />
+                By Appointment
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold shrink-0 self-start sm:self-auto">
+                On-Site Dispensary
+              </span>
+            )}
           </div>
 
           {content?.closing && (

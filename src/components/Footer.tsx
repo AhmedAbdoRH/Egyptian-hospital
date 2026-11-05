@@ -154,7 +154,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="flex items-center gap-2 flex-wrap text-sky-100 font-medium">
             <span>© {new Date().getFullYear()} Cairo Hospital Abuja. All rights reserved.</span>
             <span className="text-sky-400">·</span>
-            <span className="text-sky-300">Version 1.0.5 · Updated Nov 5, 2026</span>
+            <span className="text-sky-300">Version 1.0.6 · Updated Nov 5, 2026</span>
           </div>
         </Reveal>
       </div>

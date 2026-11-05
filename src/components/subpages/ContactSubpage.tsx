@@ -100,14 +100,20 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
     {
       name: 'Cairo Hospital Pharmacy Department',
       phone: HOSPITAL_CONTACT.phone1,
-      hours: '24 Hours',
-      desc: 'Cairo Pharmacy is available 24 hours.',
+      hours: 'Mon - Sat: 10:00 AM - 6:00 PM',
+      desc: 'On-site Cairo Pharmacy providing genuine Egyptian and international medications.',
     },
     {
       name: 'Medical Tourism',
       phone: HOSPITAL_CONTACT.phone1,
       hours: 'Mon - Sat: 10:00 AM - 6:00 PM',
       desc: 'Support for overseas destinations: Egypt, Dubai, the United Kingdom, and Turkey.',
+    },
+    {
+      name: 'Administrative & General Enquiries',
+      phone: HOSPITAL_CONTACT.email,
+      hours: 'Official Email',
+      desc: `Send official correspondence directly to ${HOSPITAL_CONTACT.email}`,
     },
   ];
 
@@ -125,8 +131,8 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
         onOpenWhatsAppBooking={onOpenWhatsAppBooking}
         stats={[
           { label: 'Outpatient Clinics', value: 'By Appointment' },
-          { label: 'Cairo Pharmacy', value: '24 Hours' },
-          { label: 'Garki 2 Campus', value: '16 Oke Agbe' },
+          { label: 'Cairo Pharmacy', value: 'Mon - Sat' },
+          { label: 'Official Email', value: 'Info@cairohospitals.com' },
           { label: 'Appointment Requests', value: 'WhatsApp' },
         ]}
       />
@@ -214,7 +220,7 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                 </div>
                 <div className="text-xs text-[#1e293b] space-y-1 font-medium">
                   <div><span className="font-bold text-[#092545]">Outpatient Clinic:</span> Mon - Sat, 10:00 AM - 6:00 PM (By appointment)</div>
-                  <div><span className="font-bold text-[#092545]">Cairo Pharmacy:</span> 24 Hours</div>
+                  <div><span className="font-bold text-[#092545]">Cairo Pharmacy:</span> Mon - Sat, 10:00 AM - 6:00 PM</div>
                   <div><span className="font-bold text-[#092545]">Lab:</span> Mon - Sat, 10:00 AM - 6:00 PM</div>
                   <div><span className="font-bold text-[#092545]">Medical Tourism:</span> Mon - Sat, 10:00 AM - 6:00 PM</div>
                 </div>
