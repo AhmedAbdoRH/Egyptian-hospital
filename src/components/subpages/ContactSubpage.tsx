@@ -130,9 +130,9 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
         onNavigateHome={onNavigateHome}
         onOpenWhatsAppBooking={onOpenWhatsAppBooking}
         stats={[
-          { label: 'Outpatient Clinics', value: 'By Appointment' },
-          { label: 'Cairo Pharmacy', value: 'Mon - Sat' },
-          { label: 'Official Email', value: 'Info@cairohospitals.com' },
+          { label: 'Outpatient Clinics', value: 'By appointment' },
+          { label: 'Cairo Pharmacy', value: 'Mon – Sat' },
+          { label: 'Emergency Services', value: 'Not offered' },
           { label: 'Appointment Requests', value: 'WhatsApp' },
         ]}
       />
@@ -270,7 +270,7 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                   <Car className="w-5 h-5 text-[#013777] shrink-0" />
                   <div>
                     <div className="text-xs font-bold text-[#092545]">Visitor Parking</div>
-                    <div className="text-[10px] text-slate-500">Contact the hospital to confirm arrangements</div>
+                    <div className="text-[11px] text-slate-500 leading-snug">Contact the hospital to confirm arrangements</div>
                   </div>
                 </div>
 
@@ -278,7 +278,7 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                   <Accessibility className="w-5 h-5 text-teal-600 shrink-0" />
                   <div>
                     <div className="text-xs font-bold text-[#092545]">Accessibility Information</div>
-                    <div className="text-[10px] text-slate-500">Contact the hospital to confirm access arrangements</div>
+                    <div className="text-[11px] text-slate-500 leading-snug">Contact the hospital to confirm access arrangements</div>
                   </div>
                 </div>
 
@@ -286,7 +286,7 @@ export const ContactSubpage: React.FC<ContactSubpageProps> = ({
                   <Building className="w-5 h-5 text-indigo-600 shrink-0" />
                   <div>
                     <div className="text-xs font-bold text-[#092545]">Inpatient Admissions</div>
-                    <div className="text-[10px] text-slate-500">Available</div>
+                    <div className="text-[11px] text-slate-500 leading-snug">Available</div>
                   </div>
                 </div>
               </div>

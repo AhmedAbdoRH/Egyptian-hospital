@@ -107,13 +107,24 @@ export const SubpageHero: React.FC<SubpageHeroProps> = ({
           </div>
 
           {stats && stats.length > 0 && (
-            <div className="flex items-center gap-6 overflow-x-auto pb-1 sm:pb-0">
-              {stats.map((stat, idx) => (
-                <div key={idx} className="border-l-2 border-[#013777]/30 pl-3">
-                  <div className="text-xl sm:text-2xl font-black text-[#013777]">{stat.value}</div>
-                  <div className="text-xs font-black text-slate-700 uppercase tracking-wider">{stat.label}</div>
-                </div>
-              ))}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-5 gap-y-4 w-full sm:w-auto sm:flex-1">
+              {stats.map((stat, idx) => {
+                const isLong = stat.value.length > 9;
+                return (
+                  <div key={idx} className="min-w-0 border-l-2 border-[#013777]/30 pl-3">
+                    <div
+                      className={`font-black text-[#013777] leading-tight break-words ${
+                        isLong ? 'text-sm sm:text-base' : 'text-xl sm:text-2xl'
+                      }`}
+                    >
+                      {stat.value}
+                    </div>
+                    <div className="mt-1 text-[10px] font-black text-slate-600 uppercase tracking-[0.12em] leading-snug">
+                      {stat.label}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           )}
         </Reveal>

@@ -509,3 +509,61 @@ body { background: var(--brand-canvas, #f4f8fc) !important; color: #1e293b; }
   .brand-logo__figure, .brand-logo__node { opacity: 1; transform: none; }
   .brand-loader__track span { width: 100%; transform: none; }
 }
+
+/* ===== Icon Ghost Draw Animation =====
+   Oversized, faint copy of a service icon that "draws itself" stroke by stroke
+   once the card scrolls into view, then stays drawn (no loop, no repeat). */
+.icon-ghost path,
+.icon-ghost circle,
+.icon-ghost line,
+.icon-ghost rect,
+.icon-ghost polyline,
+.icon-ghost polygon,
+.icon-ghost ellipse {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  opacity: 0;
+}
+
+/* The .ghost-drawn class is added by an IntersectionObserver in ServicesSection */
+.ghost-drawn .icon-ghost path,
+.ghost-drawn .icon-ghost circle,
+.ghost-drawn .icon-ghost line,
+.ghost-drawn .icon-ghost rect,
+.ghost-drawn .icon-ghost polyline,
+.ghost-drawn .icon-ghost polygon,
+.ghost-drawn .icon-ghost ellipse {
+  animation: icon-draw 2.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation-delay: var(--draw-delay, 0s);
+}
+
+@keyframes icon-draw {
+  0%   { stroke-dashoffset: 100; opacity: 0; }
+  12%  { opacity: 1; }
+  100% { stroke-dashoffset: 0;   opacity: 1; }   /* drawn once, then stays */
+}
+
+/* Slow floating drift so the ghost never feels static */
+.icon-ghost-wrap {
+  animation: ghost-float 9s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes ghost-float {
+  0%, 100% { transform: rotate(-12deg) translateY(0); }
+  50%      { transform: rotate(-6deg) translateY(-6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon-ghost path,
+  .icon-ghost circle,
+  .icon-ghost line,
+  .icon-ghost rect,
+  .icon-ghost polyline,
+  .icon-ghost polygon,
+  .icon-ghost ellipse {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  .icon-ghost-wrap { animation: none; transform: rotate(-10deg); }
+}

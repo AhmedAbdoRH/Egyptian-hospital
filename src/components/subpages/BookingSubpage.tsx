@@ -153,7 +153,7 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-20">
         {/* Main Booking Interface: Split Form & Live Preview */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column: Intake Form */}
           <Reveal variant="left" className="lg:col-span-7">
             <form
@@ -396,8 +396,9 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
           </Reveal>
 
           {/* Right Column: Live Formatted WhatsApp Smartphone Preview */}
-          <Reveal variant="right" delay={120} className="lg:col-span-5 space-y-6">
-            <div className="glass-panel p-6 sm:p-7 rounded-3xl border border-sky-400/40 bg-[#071324] text-white shadow-xl space-y-4">
+          <Reveal variant="right" delay={120} className="lg:col-span-5">
+            <div className="lg:sticky lg:top-32 space-y-6">
+            <div className="relative overflow-hidden rounded-3xl border border-sky-400/40 bg-gradient-to-br from-[#071324] via-[#0a1b30] to-[#0d2a4a] p-6 sm:p-7 text-white shadow-xl space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-white/20">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse" />
@@ -434,6 +435,7 @@ _Dispatched via Cairo Hospital Official Web Booking Portal_`;
                 </a>
                 .
               </p>
+            </div>
             </div>
           </Reveal>
         </section>

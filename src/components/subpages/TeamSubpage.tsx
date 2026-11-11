@@ -502,9 +502,11 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                     {/* Body Content */}
                     <div className="p-5 space-y-3.5">
                       <div>
-                        <div className="text-xs font-extrabold text-[#013777] line-clamp-2 leading-snug">
-                          {member.title}
-                        </div>
+                        {member.title && member.title !== member.role && (
+                          <div className="text-xs font-extrabold text-[#013777] line-clamp-2 leading-snug">
+                            {member.title}
+                          </div>
+                        )}
                         {member.education && (
                           <div className="flex items-center gap-1.5 text-xs text-slate-700 font-semibold mt-1">
                             <GraduationCap className="w-3.5 h-3.5 text-[#013777] shrink-0" />

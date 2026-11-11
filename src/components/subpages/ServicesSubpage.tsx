@@ -260,12 +260,9 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
                       <div className="h-full glass-panel glass-panel-hover p-6 sm:p-7 rounded-3xl border border-slate-200 bg-white shadow-sm flex flex-col justify-between space-y-5 hover:border-[#013777]/30 transition-all duration-300">
                         <div className="space-y-4">
                           <div className="flex items-center justify-between gap-3">
-                            <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center shadow-xs shrink-0">
+                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-slate-50 to-sky-50/80 border border-slate-200 flex items-center justify-center shadow-xs shrink-0">
                               {getServiceIcon(service.iconName)}
                             </div>
-                            <span className="text-[11px] font-bold text-[#013777] text-right">
-                              {service.departmentLabel}
-                            </span>
                           </div>
 
                           <div className="space-y-2">
@@ -273,7 +270,7 @@ export const ServicesSubpage: React.FC<ServicesSubpageProps> = ({
                               {service.title}
                             </h4>
                             <p className="text-xs sm:text-sm text-[#1e293b] font-medium leading-relaxed line-clamp-3">
-                              {service.description}
+                              {service.description.replace(/\s*(\.\.\.|…)\s*$/, '')}
                             </p>
                           </div>
 
