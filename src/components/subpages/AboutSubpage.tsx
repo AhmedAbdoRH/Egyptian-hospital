@@ -217,9 +217,10 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
                 <div className="flex items-center gap-4">
                   <div className="w-24 h-28 sm:w-28 sm:h-32 rounded-2xl overflow-hidden border-2 border-[#fdc33e]/65 bg-[#061a33] shadow-xl shrink-0">
                     <img
-                      src={chairmanDirector.image}
+                      src={chairmanDirector.avatar || chairmanDirector.image}
                       alt={chairmanDirector.name}
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: chairmanDirector.imagePosition || 'center center' }}
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -494,9 +495,10 @@ export const AboutSubpage: React.FC<AboutSubpageProps> = ({
               <div className="lg:col-span-4 lg:border-l lg:border-white/15 lg:pl-8">
                 <div className="flex items-center gap-4">
                   <img
-                    src={chairmanDirector.image}
+                    src={chairmanDirector.avatar || chairmanDirector.image}
                     alt={chairmanDirector.name}
-                    className="w-20 h-24 rounded-2xl object-cover object-top border-2 border-[#fdc33e]/60 bg-[#061a33] shadow-lg shrink-0"
+                    className="w-20 h-24 rounded-2xl object-cover border-2 border-[#fdc33e]/60 bg-[#061a33] shadow-lg shrink-0"
+                    style={{ objectPosition: chairmanDirector.imagePosition || 'center center' }}
                   />
                   <div className="space-y-1">
                     <div className="text-xs font-bold !text-[#fdc33e]">

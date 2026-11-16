@@ -84,7 +84,9 @@ export const TEAM_MEMBERS: TeamMember[] = [
       'NEPA Medical Director from 1970 to 1991; managed more than 130 hospitals under his authority',
       'Partnered with investors to establish Katameya Hospital until 2019',
     ],
-    image: '/images/team/dr-ahmed-shaker.png',
+    image: '/images/team/dr-ahmed-shaker.webp',
+    avatar: '/images/team/dr-ahmed-shaker-avatar.webp',
+    imagePosition: 'center center',
     fullBio:
       'Dr. Ahmed Shaker is Chairman and Consultant in Obstetrics & Gynaecology. The profile lists Ain Shams University, MRCOG (member of the Royal College of Surgeons in Dublin), his role as Vice President of the Egyptian Committee in Nigeria, and his earlier medical leadership in Nigeria. He worked as NEPA Medical Director from 1970 to 1991, managing more than 130 hospitals under his authority, then managed AGUDA Hospital in Lagos and Weaner Hospital in Abuja, and partnered with investors to establish Katameya Hospital until 2019.',
   },
@@ -113,7 +115,9 @@ export const TEAM_MEMBERS: TeamMember[] = [
       'Pioneering Orthobiologics & Stem Cells Regenerative Therapy in West Africa',
       '25+ years of distinguished international orthopedic surgical leadership',
     ],
-    image: '/images/team/dr-mohammed-hesham.png',
+    image: '/images/team/dr-mohammed-hesham.webp',
+    avatar: '/images/team/dr-mohammed-hesham-avatar.webp',
+    imagePosition: 'center center',
     fullBio:
       'Dr. Mohammed Hesham Shaker is an Orthopedic Consultant and the Founder, CEO & CMD of Cairo Hospital in Abuja, Nigeria. He graduated from Ain Shams University Medical School in Cairo, Egypt in 1997. Dr. Shaker specializes in Arthroplasty, PRP Injection, and stem cells regenerative therapy in musculoskeletal disorders, orthopedic trauma surgeries, and orthobiologics. His distinguished clinical journey spans over 25 years, including 10 years at Nozha International Hospital in Cairo, Egypt, and 10 years working with the renowned Stuttgart German orthopedic team in Elrazi Trauma Center in Kuwait. An active academic and regional healthcare pioneer, Dr. Shaker is a Member of the ASRIC (African Scientific Research and Innovation Council) of the African Union, and serves as a Lecturer in Abuja University of Science and Technology in collaboration with Push Africa Organisation.',
   },
@@ -135,6 +139,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
       'Oncology surgeries',
     ],
     image: '/images/team/dr-wael-khalil.jpg',
+    avatar: '/images/team/dr-wael-khalil-avatar.webp',
+    imagePosition: 'center center',
     fullBio:
       'The current supplied profile identifies Dr. Wael Khalil as a Bariatric Surgeon and lists laparoscopic, bariatric, and oncology surgeries within his clinical scope. Contact Cairo Hospital to confirm consultation availability and case-specific services.',
   },
@@ -157,7 +163,9 @@ export const TEAM_MEMBERS: TeamMember[] = [
       'Myofascial therapy, cupping, and acupuncture',
       'Neurological and musculoskeletal disorders',
     ],
-    image: '/images/team/dr-bassam-physical-therapy.jpg',
+    image: '/images/team/dr-bassam-physical-therapy.webp',
+    avatar: '/images/team/dr-bassam-physical-therapy-avatar.webp',
+    imagePosition: 'center center',
     fullBio:
       'The supplied profile lists Dr. Bassam under Physical Therapy, Myofascial Therapy, Cupping, and Acupuncture, with neurological and musculoskeletal disorders included in the stated scope. Contact the hospital to confirm availability and suitability.',
   },
@@ -166,36 +174,54 @@ export const TEAM_MEMBERS: TeamMember[] = [
     isDoctor: false,
     name: 'Mr. Mohammed Fadl',
     role: 'Finance Director',
-    title: 'Finance Director',
-    education: 'Al-Azhar University',
+    title: 'Businessman · Entrepreneur · Investor',
+    education: 'BSc Accounting, Al-Azhar University',
     qualifications: [
-      'ACC. AZHAR UNIVERSITY',
-      'Director, Rahma Travel Agency',
+      'Degree in Accounting, Al-Azhar University — foundation in accounting, financial management and business administration',
+      'Managing Director, Rahama Reliable Travel Agency',
+      'Co-Founder & Financial Director, Cairo Hospital',
+      'Shareholder in multiple business ventures with diversified sector interests',
+      '20+ years of professional and entrepreneurial experience',
     ],
     careerHighlights: [
-      'Finance Director at Cairo Hospital',
-      'Director of Rahma Travel Agency',
+      'Co-Founder & Financial Director of Cairo Hospital',
+      'Managing Director of Rahama Reliable Travel Agency',
+      '20+ years across business, investment and entrepreneurship',
+      'Expertise in financial oversight, strategic planning and corporate development',
+      'Shareholder in several diversified business ventures',
     ],
-    image: '/images/team/mr-mohammed-fadl.png',
+    image: '/images/team/mr-mohammed-fadl.webp',
+    avatar: '/images/team/mr-mohammed-fadl-avatar.webp',
+    imagePosition: 'center center',
     fullBio:
-      'The supplied profile lists Mr. Mohammed Fadl as Finance Director, notes “ACC. AZHAR UNIVERSITY,” and identifies him as Director of Rahma Travel Agency.',
+      'Mohamed Fadl is an accomplished businessman, entrepreneur, and investor with over 20 years of professional experience spanning various sectors of business and investment. He holds a degree in Accounting from Al-Azhar University, providing him with a solid academic foundation in accounting, financial management, and business administration. He currently serves as the Managing Director of Rahama Reliable Travel Agency, where he provides executive leadership and strategic direction, contributing to the company’s business operations and development. In addition to his involvement in the travel and tourism industry, Mohamed Fadl is a Co-Founder and Financial Director of Cairo Hospital, reflecting his interest in healthcare development and investment. He is also a shareholder in several other business ventures, with diversified interests across different areas of the business sector. With more than two decades of professional and entrepreneurial experience, Mohamed Fadl brings valuable knowledge of business management, financial oversight, strategic planning, investment, and corporate development. His professional journey reflects a commitment to entrepreneurship, business expansion, investment diversification, and the development of sustainable business partnerships.',
   },
   {
     id: 'mr-basem-makhlouf',
     isDoctor: false,
     name: 'Mr. Bassem Makhlouf',
     role: 'Business Development Director',
-    title: 'Business Development Director',
+    title: 'Entrepreneur, Investor & Energy Executive',
     education: 'Faculty of Science, Cairo University',
     qualifications: [
+      'Entrepreneur, investor and energy executive with over two decades of experience across Africa',
+      'Chairman and Founder, Red Sea Green Solutions — sustainability, energy transition and long-term value creation',
+      'Senior technical, operational and strategic roles at Eni and Halliburton across Egypt, Nigeria, Angola and Gabon',
+      'Co-founder of healthcare and medical services businesses in Nigeria',
       'Faculty of Science, Cairo University',
     ],
     careerHighlights: [
+      'Chairman & Founder of Red Sea Green Solutions',
+      '20+ years across energy, entrepreneurship and healthcare in Africa',
+      'Former senior leader at Eni and Halliburton (Egypt, Nigeria, Angola, Gabon)',
+      'Co-founded and scaled healthcare and medical services businesses in Nigeria',
       'Business Development Director at Cairo Hospital',
     ],
-    image: '/images/team/mr-bassem-makhlouf.png',
+    image: '/images/team/mr-bassem-makhlouf.jpg',
+    avatar: '/images/team/mr-bassem-makhlouf-avatar.webp',
+    imagePosition: 'center center',
     fullBio:
-      'The supplied profile lists Mr. Bassem Makhlouf as Business Development Director and names the Faculty of Science, Cairo University.',
+      'An entrepreneur, investor and energy executive with over two decades of experience across Africa. As Chairman and Founder of Red Sea Green Solutions, he leads ventures focused on sustainability, energy transition and long-term value creation. His entrepreneurial journey also includes co-founding and scaling healthcare and medical services businesses in Nigeria, reflecting a broader commitment to building impactful enterprises that address critical market needs. Prior to focusing on entrepreneurship, Bassem built a distinguished career with leading global energy companies, including Eni and Halliburton where he held senior technical, operational and strategic roles across Egypt, Nigeria, Angola and Gabon. Combining entrepreneurial vision with deep industry expertise, Bassem has a proven track record of identifying opportunities, building strategic partnerships and delivering sustainable growth. He is passionate about unlocking Africa’s potential through innovation, responsible investment and businesses that create long-term economic and social impact.',
   },
 ];
 
@@ -765,6 +791,38 @@ export const MEDICAL_SERVICES: MedicalService[] = [
   },
 ];
 
+// Maps every service to its matching facility photo (set by department, with per-service overrides).
+// Used by service cards and the "See More" detail modal.
+const DEPARTMENT_FACILITY_IMAGE: Record<ServiceDepartmentId, string> = {
+  orthobiologics: '/images/facility/operating-room.webp',
+  physiotherapy: '/images/facility/rehabilitation-therapy.webp',
+  'general-surgery': '/images/facility/operating-room.webp',
+  'medical-tourism': '/images/facility/reception.webp',
+  obgyn: '/images/facility/patient-room.webp',
+  orthopedics: '/images/facility/operating-room.webp',
+  'specialist-clinics': '/images/facility/office-admin.webp',
+  'family-tropical': '/images/facility/office-admin.webp',
+  'diagnostics-support': '/images/facility/reception.webp',
+};
+
+const SERVICE_IMAGE_OVERRIDES: Record<string, string> = {
+  physiotherapy: '/images/facility/rehabilitation-therapy.webp',
+  'cupping-therapy': '/images/facility/rehabilitation-therapy.webp',
+  acupuncture: '/images/facility/rehabilitation-therapy.webp',
+  'bemer-therapy': '/images/facility/rehabilitation-therapy.webp',
+  pharmacy: '/images/facility/pharmacy.webp',
+  'inpatient-admissions': '/images/facility/patient-room.webp',
+  'medical-tourism': '/images/facility/reception-lounge.webp',
+  'outpatient-clinics': '/images/facility/reception.webp',
+  'general-surgery': '/images/facility/operating-room.webp',
+  'orthopedic-surgery': '/images/facility/operating-room.webp',
+};
+
+export const getServiceFacilityImage = (service: MedicalService): string =>
+  service.image ||
+  SERVICE_IMAGE_OVERRIDES[service.id] ||
+  DEPARTMENT_FACILITY_IMAGE[service.departmentId];
+
 export const ORTHOBIOLOGICS_DATA: OrthobiologicProcedure[] = [
   {
     title: 'Stem Cell Regenerative Therapy (BMAC)',
@@ -877,32 +935,84 @@ export const ACCREDITATIONS_DATA: AccreditationOrg[] = [
   },
 ];
 
-// Per PDF page 5:
-// The Executive Medical Board in Abuja photo is the featured main image.
-// The crossed-out secondary photos have been removed.
+// Inside Cairo Hospital — facility photo gallery.
+// Facility interiors first (optimized WebP), followed by governance / delegation history.
 export const FACILITY_GALLERY: HospitalFacilityItem[] = [
+  {
+    id: 'reception',
+    title: 'Main Reception',
+    category: 'Welcome & Front Office',
+    image: '/images/facility/reception.webp',
+    description: 'The main reception desk greeting patients and visitors at Cairo Hospital, Abuja.',
+  },
+  {
+    id: 'reception-lounge',
+    title: 'Waiting & Rest Lounge',
+    category: 'Patient Comfort',
+    image: '/images/facility/reception-lounge.webp',
+    description: 'Comfortable waiting and rest lounge for patients and accompanying family members.',
+  },
+  {
+    id: 'operating-room',
+    title: 'Operating Theatre',
+    category: 'Surgery',
+    image: '/images/facility/operating-room.webp',
+    description: 'Modern, fully equipped surgical operating room supporting general and orthopedic surgery.',
+  },
+  {
+    id: 'patient-room',
+    title: 'Inpatient Room',
+    category: 'Inpatient Care',
+    image: '/images/facility/patient-room.webp',
+    description: 'Bright, tidy inpatient admission room designed for patient recovery and comfort.',
+  },
+  {
+    id: 'pharmacy',
+    title: 'Cairo Pharmacy',
+    category: 'On-site Dispensary',
+    image: '/images/facility/pharmacy.webp',
+    description: 'The on-site Cairo Pharmacy with organized medication storage and dispensing.',
+  },
+  {
+    id: 'rehabilitation-therapy',
+    title: 'Rehabilitation & Trampoline Therapy',
+    category: 'Physiotherapy',
+    image: '/images/facility/rehabilitation-therapy.webp',
+    description: 'Rehabilitation hall with IBLA trampoline and movement therapy equipment.',
+  },
+  {
+    id: 'rehabilitation-weights',
+    title: 'Rehabilitation Gym & Weights',
+    category: 'Physiotherapy',
+    image: '/images/facility/rehabilitation-weights.webp',
+    description: 'Multi-station gym with weights and apparatus for physiotherapy and motor rehab.',
+  },
+  {
+    id: 'office-admin',
+    title: 'Administrative & Consultation Offices',
+    category: 'Administration',
+    image: '/images/facility/office-admin.webp',
+    description: 'Administrative and consultation offices supporting hospital operations.',
+  },
   {
     id: 'profile-leadership',
     title: 'Hospital Governance · Executive Medical Board in Abuja',
-    category: 'Executive Leadership',
+    category: 'Leadership',
     image: '/images/delegation/cairo-hospital-leadership.jpg',
-    description:
-      'Executive Medical Board photograph from the supplied Cairo Hospital profile, showing Dr. Ahmed Shaker and hospital directors.',
+    description: 'Executive Medical Board photograph showing Dr. Ahmed Shaker and hospital directors.',
   },
   {
     id: 'profile-institutional-event',
     title: 'Institutional Partnership & Official Engagement',
     category: 'Governance',
     image: '/images/delegation/cairo-hospital-partnership-handshake.jpg',
-    description:
-      'Formal institutional photograph from the official hospital profile.',
+    description: 'Formal institutional photograph from the official hospital profile.',
   },
   {
     id: 'profile-team-visit',
     title: 'Cairo Hospital Medical Mission',
     category: 'Clinical Team',
     image: '/images/delegation/cairo-hospital-team-visit.jpg',
-    description:
-      'Cairo Hospital medical and administration delegation.',
+    description: 'Cairo Hospital medical and administration delegation.',
   },
 ];

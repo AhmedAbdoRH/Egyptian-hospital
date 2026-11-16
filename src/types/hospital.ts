@@ -9,6 +9,8 @@ export interface TeamMember {
   qualifications: string[];
   careerHighlights: string[];
   image?: string;
+  avatar?: string;
+  imagePosition?: string;
   fullBio: string;
 }
 
@@ -33,6 +35,7 @@ export interface MedicalService {
   iconName: string;
   details?: string[];
   featured?: boolean;
+  image?: string;
 }
 
 export interface OrthobiologicProcedure {

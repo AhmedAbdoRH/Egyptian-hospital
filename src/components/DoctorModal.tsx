@@ -78,9 +78,10 @@ export const DoctorModal: React.FC<DoctorModalProps> = ({
             >
               {member.image ? (
                 <img
-                  src={member.image}
+                  src={member.avatar || member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: member.imagePosition || 'center center' }}
                 />
               ) : (
                 <div

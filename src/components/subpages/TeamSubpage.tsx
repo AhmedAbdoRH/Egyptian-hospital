@@ -144,9 +144,10 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                 <div className="lg:col-span-4 space-y-4">
                   <div className="relative mx-auto max-w-[300px] sm:max-w-[340px] aspect-[4/5] rounded-2xl overflow-hidden border-2 border-[#fdc33e]/65 bg-[#061a33] shadow-2xl">
                     <img
-                      src={chairman.image}
+                      src={chairman.avatar || chairman.image}
                       alt={chairman.name}
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: chairman.imagePosition || 'center center' }}
                     />
                     <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#031124] via-[#031124]/75 to-transparent" />
                     <div className="photo-caption absolute bottom-0 inset-x-0 p-4 sm:p-5 flex items-end justify-between gap-3">
@@ -307,9 +308,10 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                 <div className="lg:col-span-4 space-y-4">
                   <div className="relative mx-auto max-w-[300px] sm:max-w-[340px] aspect-[4/5] rounded-2xl overflow-hidden border-2 border-[#fdc33e]/65 bg-[#061a33] shadow-2xl">
                     <img
-                      src={ceo.image}
+                      src={ceo.avatar || ceo.image}
                       alt={ceo.name}
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: ceo.imagePosition || 'center center' }}
                     />
                     <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#031124] via-[#031124]/75 to-transparent" />
                     <div className="photo-caption absolute bottom-0 inset-x-0 p-4 sm:p-5 flex items-end justify-between gap-3">
@@ -472,9 +474,10 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                     <div className="relative h-64 w-full bg-slate-100 overflow-hidden">
                       {member.image ? (
                         <img
-                          src={member.image}
+                          src={member.avatar || member.image}
                           alt={member.name}
-                          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          style={{ objectPosition: member.imagePosition || 'center 35%' }}
                         />
                       ) : (
                         <div
@@ -566,8 +569,8 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
           <Reveal variant="up">
             <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-900 shadow-xl max-w-5xl mx-auto flex items-center justify-center">
               <img
-                src="/assets/aistudio/image_acf7a5a9.png"
-                alt="Cairo Hospital Nursing & Clinical Care Team"
+                src="/images/team/care-team-2026.webp"
+                alt="Cairo Hospital Medical, Nursing & Administrative Team"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-auto max-h-[620px] object-contain sm:object-cover sm:object-center"
@@ -668,9 +671,10 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                   className="w-full text-left flex items-center gap-4 p-3.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-[#fdc33e]/35 transition-colors cursor-pointer"
                 >
                   <img
-                    src={chairman.image}
+                    src={chairman.avatar || chairman.image}
                     alt={chairman.name}
-                    className="w-14 h-16 rounded-xl object-cover object-top border-2 border-[#fdc33e]/60 bg-[#061a33] shrink-0"
+                    className="w-14 h-16 rounded-xl object-cover border-2 border-[#fdc33e]/60 bg-[#061a33] shrink-0"
+                    style={{ objectPosition: chairman.imagePosition || 'center center' }}
                   />
                   <div className="min-w-0 space-y-0.5">
                     <div className="text-[11px] font-bold !text-[#fdc33e]">
@@ -694,9 +698,10 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                   className="w-full text-left flex items-center gap-4 p-3.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-[#fdc33e]/35 transition-colors cursor-pointer"
                 >
                   <img
-                    src={ceo.image}
+                    src={ceo.avatar || ceo.image}
                     alt={ceo.name}
-                    className="w-14 h-16 rounded-xl object-cover object-top border-2 border-[#fdc33e]/60 bg-[#061a33] shrink-0"
+                    className="w-14 h-16 rounded-xl object-cover border-2 border-[#fdc33e]/60 bg-[#061a33] shrink-0"
+                    style={{ objectPosition: ceo.imagePosition || 'center center' }}
                   />
                   <div className="min-w-0 space-y-0.5">
                     <div className="text-[11px] font-bold !text-[#fdc33e]">

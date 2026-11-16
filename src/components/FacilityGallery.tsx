@@ -1,20 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Building2, X } from 'lucide-react';
+import { Building2, X, Maximize2 } from 'lucide-react';
 import { FACILITY_GALLERY } from '../data/cairoHospitalData';
 import { HospitalFacilityItem } from '../types/hospital';
 import { Reveal } from './ScrollReveal';
 
-// Curated photo collage: one large feature tile plus two smaller ones stacked beside it.
-// 2 columns on mobile, 3 columns from md up — both layouts fill the grid with no gaps.
-const COLLAGE_TILES = [
-  'col-span-2 row-span-2 md:col-span-2 md:row-span-2',
-  'col-span-1 row-span-1 md:col-span-1 md:row-span-1',
-  'col-span-1 row-span-1 md:col-span-1 md:row-span-1',
-];
-
-// Keep faces in frame when a portrait photo is cropped into a square tile.
-const COLLAGE_FOCUS = ['object-center', 'object-top', 'object-center'];
-
+// Inside Cairo Hospital — responsive masonry gallery with a click-to-zoom lightbox.
 export const FacilityGallery: React.FC = () => {
   const [selectedFacility, setSelectedFacility] = useState<HospitalFacilityItem | null>(null);
 
@@ -38,48 +28,56 @@ export const FacilityGallery: React.FC = () => {
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#013777] uppercase tracking-wider">
               <Building2 className="w-4 h-4 text-[#013777]" />
-              <span>People & Clinical Practice</span>
+              <span>Inside Cairo Hospital</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-[#092545] tracking-tight">
-              Images from the Hospital Profile
+              A Look Inside Our Hospital
             </h2>
             <p className="text-sm sm:text-base text-[#2d435e] leading-relaxed">
-              These photographs were extracted from the supplied Cairo Hospital profile. They show hospital representatives, the team, and the clinical scope featured in the profile; they are not a facilities or equipment inventory.
+              Explore the reception, operating theatre, inpatient rooms, on-site pharmacy, and
+              rehabilitation facilities that support care at Cairo Hospital, Abuja.
             </p>
           </div>
         </Reveal>
 
-        {/* Photo Collage */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4 auto-rows-[140px] sm:auto-rows-[180px] lg:auto-rows-[210px]">
+        {/* Masonry grid (CSS columns => natural masonry, no gaps) */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-5 [column-fill:_balance]">
           {FACILITY_GALLERY.map((item, idx) => (
-            <Reveal
-              key={item.id}
-              variant="scale"
-              delay={(idx % 3) * 80}
-              className={COLLAGE_TILES[idx] ?? 'col-span-1 row-span-1'}
-            >
+            <Reveal key={item.id} variant="up" delay={(idx % 3) * 70} className="mb-4 sm:mb-5 break-inside-avoid">
               <button
                 type="button"
                 onClick={() => setSelectedFacility(item)}
                 aria-label={`Enlarge photo: ${item.title}`}
-                className="group relative block w-full h-full overflow-hidden rounded-2xl sm:rounded-3xl bg-slate-100 ring-1 ring-slate-200/70 shadow-sm hover:shadow-xl transition-shadow duration-500 cursor-zoom-in focus:outline-none focus-visible:ring-4 focus-visible:ring-[#013777]/50"
+                className="group relative block w-full overflow-hidden rounded-2xl sm:rounded-3xl bg-slate-100 ring-1 ring-slate-200/70 shadow-sm hover:shadow-xl transition-shadow duration-500 cursor-zoom-in focus:outline-none focus-visible:ring-4 focus-visible:ring-[#013777]/50"
               >
                 <img
                   src={item.image}
                   alt={item.title}
                   loading="lazy"
-                  className={`w-full h-full object-cover ${
-                    COLLAGE_FOCUS[idx] ?? 'object-center'
-                  } transition-transform duration-700 ease-out group-hover:scale-105`}
+                  decoding="async"
+                  className="w-full h-auto block object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#012654]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#012654]/75 via-[#012654]/5 to-transparent opacity-90" />
+                <span className="pointer-events-none absolute inset-0 flex items-start justify-end p-3">
+                  <span className="p-1.5 rounded-full bg-white/85 text-[#013777] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Maximize2 className="w-4 h-4" />
+                  </span>
+                </span>
+                <span className="photo-caption pointer-events-none absolute bottom-0 inset-x-0 p-4 text-left">
+                  <span className="block text-[10px] font-bold !text-white/85 uppercase tracking-wider">
+                    {item.category}
+                  </span>
+                  <span className="block text-sm sm:text-base font-black !text-white leading-snug mt-0.5">
+                    {item.title}
+                  </span>
+                </span>
               </button>
             </Reveal>
           ))}
         </div>
       </div>
 
-      {/* Lightbox: photo only, no captions or info */}
+      {/* Lightbox: full photo with caption */}
       {selectedFacility && (
         <div
           role="dialog"
@@ -100,8 +98,17 @@ export const FacilityGallery: React.FC = () => {
             <img
               src={selectedFacility.image}
               alt={selectedFacility.title}
-              className="w-full max-h-[82vh] object-contain rounded-2xl sm:rounded-3xl shadow-2xl"
+              className="w-full max-h-[80vh] object-contain rounded-2xl sm:rounded-3xl shadow-2xl"
             />
+            <div className="photo-caption mt-3 text-center">
+              <p className="text-[11px] font-bold !text-white/80 uppercase tracking-wider">
+                {selectedFacility.category}
+              </p>
+              <h3 className="text-lg sm:text-xl font-black !text-white">{selectedFacility.title}</h3>
+              <p className="text-xs !text-slate-300 mt-1 max-w-2xl mx-auto">
+                {selectedFacility.description}
+              </p>
+            </div>
           </div>
         </div>
       )}

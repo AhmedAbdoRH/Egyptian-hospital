@@ -56,9 +56,10 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                   <div className="flex items-start gap-4">
                     <div className="relative w-24 h-28 sm:w-28 sm:h-32 rounded-xl overflow-hidden border-2 border-[#fdc33e]/60 bg-[#061a33] shadow-lg shrink-0">
                       <img
-                        src={chairman.image}
+                        src={chairman.avatar || chairman.image}
                         alt={chairman.name}
-                        className="w-full h-full object-cover object-top"
+                        className="w-full h-full object-cover"
+                        style={{ objectPosition: chairman.imagePosition || 'center center' }}
                       />
                       <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#031124] to-transparent" />
                     </div>
@@ -124,9 +125,10 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                   <div className="flex items-start gap-4">
                     <div className="relative w-24 h-28 sm:w-28 sm:h-32 rounded-xl overflow-hidden border-2 border-[#fdc33e]/60 bg-[#061a33] shadow-lg shrink-0">
                       <img
-                        src={ceo.image}
+                        src={ceo.avatar || ceo.image}
                         alt={ceo.name}
-                        className="w-full h-full object-cover object-top"
+                        className="w-full h-full object-cover"
+                        style={{ objectPosition: ceo.imagePosition || 'center center' }}
                       />
                       <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#031124] to-transparent" />
                     </div>
@@ -186,8 +188,8 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
         {/* Authentic Team Photograph from Cairo Hospital Profile */}
         <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 bg-slate-900 shadow-xl max-w-4xl mx-auto flex items-center justify-center">
           <img
-            src="/assets/aistudio/image_acf7a5a9.png"
-            alt="Cairo Hospital Nursing & Clinical Care Team"
+            src="/images/team/care-team-2026.webp"
+            alt="Cairo Hospital Medical, Nursing & Administrative Team"
             className="w-full h-auto max-h-[520px] object-contain sm:object-cover sm:object-center"
           />
         </div>

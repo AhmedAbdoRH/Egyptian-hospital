@@ -31,9 +31,10 @@ export const CairoProfileUpdates: React.FC<CairoProfileUpdatesProps> = ({
           <Reveal variant="up" delay={50}>
             <article className="glass-panel p-5 rounded-2xl border border-sky-100 bg-white shadow-sm flex items-center gap-4">
               <img
-                src="/images/team/dr-wael-khalil.jpg"
+                src="/images/team/dr-wael-khalil-avatar.webp"
                 alt="Dr. Wael Khalil, Bariatric Surgeon"
                 className="w-24 h-32 object-cover rounded-xl bg-sky-50 shrink-0 border border-sky-200"
+                style={{ objectPosition: 'center center' }}
                 loading="lazy"
               />
               <div className="space-y-1">
@@ -50,9 +51,10 @@ export const CairoProfileUpdates: React.FC<CairoProfileUpdatesProps> = ({
           <Reveal variant="up" delay={100}>
             <article className="glass-panel p-5 rounded-2xl border border-sky-100 bg-white shadow-sm flex items-center gap-4">
               <img
-                src="/images/team/dr-bassam-physical-therapy.jpg"
-                alt="Dr. Bassam providing physical therapy"
+                src="/images/team/dr-bassam-physical-therapy-avatar.webp"
+                alt="Dr. Bassam, Physical Therapy Specialist"
                 className="w-24 h-32 object-cover rounded-xl bg-teal-50 shrink-0 border border-teal-200"
+                style={{ objectPosition: 'center center' }}
                 loading="lazy"
               />
               <div className="space-y-1">
