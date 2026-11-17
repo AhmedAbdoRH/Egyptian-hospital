@@ -93,7 +93,6 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             <ul className="space-y-1.5 text-xs text-sky-100 font-medium">
               <li>• Orthobiologics & Stem Cells (BMAC)</li>
-              <li>• Orthopedics & Arthroplasty (PRP)</li>
               <li>• Physical Therapy, Cupping & Acupuncture</li>
               <li>• General, Laparoscopic & Endoscopic Surgery</li>
               <li>• Medical Tourism (Egypt, Dubai, UK, Turkey)</li>
