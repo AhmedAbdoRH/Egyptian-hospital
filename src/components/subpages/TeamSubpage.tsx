@@ -573,7 +573,7 @@ export const TeamSubpage: React.FC<TeamSubpageProps> = ({
                 alt="Cairo Hospital Medical, Nursing & Administrative Team"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-auto max-h-[620px] object-contain sm:object-cover sm:object-center"
+                className="w-full h-auto max-h-[620px] object-contain sm:object-cover sm:object-center team-photo-zoom-out"
               />
             </div>
           </Reveal>

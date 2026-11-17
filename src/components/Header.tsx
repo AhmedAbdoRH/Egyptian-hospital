@@ -45,9 +45,9 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Version Info Strip */}
       <div className="bg-white border-b border-gray-200 text-xs text-gray-600 py-1.5 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-4">
-          <span className="font-semibold">Update Version 5</span>
+          <span className="font-semibold">Update Version 9</span>
           <span className="text-gray-400">|</span>
-          <span>November 16, 2026 - 5:00 PM</span>
+          <span>November 17, 2026 - 10:00 AM</span>
         </div>
       </div>
 
