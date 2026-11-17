@@ -58,7 +58,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                       <img
                         src={chairman.avatar || chairman.image}
                         alt={chairman.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover scale-110 origin-center"
                         style={{ objectPosition: chairman.imagePosition || 'center center' }}
                       />
                       <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#031124] to-transparent" />
@@ -127,7 +127,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                       <img
                         src={ceo.avatar || ceo.image}
                         alt={ceo.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover scale-110 origin-center"
                         style={{ objectPosition: ceo.imagePosition || 'center center' }}
                       />
                       <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#031124] to-transparent" />

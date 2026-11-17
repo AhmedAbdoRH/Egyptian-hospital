@@ -42,7 +42,7 @@ const TypewriterCaption: React.FC<TypewriterCaptionProps> = ({
           observer.disconnect();
         }
       },
-      { rootMargin: '0px 0px -160px 0px', threshold: 0.25 }
+      { rootMargin: '0px 0px -200px 0px', threshold: 0.3 }
     );
     observer.observe(host);
     return () => observer.disconnect();

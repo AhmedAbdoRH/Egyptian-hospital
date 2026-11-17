@@ -172,9 +172,9 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'mr-mohammed-fadl',
     isDoctor: false,
-    name: 'Mr. Mohammed Fadl',
+    name: 'Mr. Mohamed Fadl',
     role: 'Finance Director',
-    title: 'Businessman · Entrepreneur · Investor',
+    title: 'Businessman · Entrepreneur · Managing Director · Investor',
     education: 'BSc Accounting, Al-Azhar University',
     qualifications: [
       'Degree in Accounting, Al-Azhar University — foundation in accounting, financial management and business administration',
