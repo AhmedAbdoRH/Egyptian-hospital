@@ -223,6 +223,32 @@ export const TEAM_MEMBERS: TeamMember[] = [
     fullBio:
       'An entrepreneur, investor and energy executive with over two decades of experience across Africa. As Chairman and Founder of Red Sea Green Solutions, he leads ventures focused on sustainability, energy transition and long-term value creation. His entrepreneurial journey also includes co-founding and scaling healthcare and medical services businesses in Nigeria, reflecting a broader commitment to building impactful enterprises that address critical market needs. Prior to focusing on entrepreneurship, Bassem built a distinguished career with leading global energy companies, including Eni and Halliburton where he held senior technical, operational and strategic roles across Egypt, Nigeria, Angola and Gabon. Combining entrepreneurial vision with deep industry expertise, Bassem has a proven track record of identifying opportunities, building strategic partnerships and delivering sustainable growth. He is passionate about unlocking Africa’s potential through innovation, responsible investment and businesses that create long-term economic and social impact.',
   },
+  {
+    id: 'lamees-adnan-saymouah',
+    isDoctor: false,
+    name: 'Lamees Adnan Saymouah',
+    role: 'Anesthesia Technician',
+    title: 'Anesthesia Technician · Sujok & Reflexology Practitioner',
+    specialty: 'Anesthesia & Patient Care · Complementary Therapies',
+    education: 'Damascus University, Syria',
+    qualifications: [
+      'Anesthesia Technician Qualification — Damascus University, Syria',
+      'Over 15 years of experience in anesthesia and patient care',
+      'Certified Sujok Therapy Practitioner — Seed Therapy Techniques',
+      'Certified Reflexology Practitioner — Hand and Foot Reflexology, Reflex Point Stimulation',
+    ],
+    careerHighlights: [
+      'Over 15 years in anesthesia and patient care',
+      'Assisting doctors during medical procedures and preparing anesthesia equipment',
+      'Monitoring patients and maintaining patient safety during procedures',
+      'Certified Sujok and Reflexology practitioner with an interest in holistic wellness',
+    ],
+    image: '/images/team/lamees-adnan-saymouah.webp',
+    avatar: '/images/team/lamees-adnan-saymouah-avatar.webp',
+    imagePosition: 'center center',
+    fullBio:
+      'Lamees Adnan Saymouah is a qualified Anesthesia Technician who graduated from Damascus University, Syria, with over 15 years of professional experience in the field of anesthesia and patient care. She is experienced in assisting doctors during medical procedures, preparing anesthesia equipment, monitoring patients, and supporting medical teams. She is also a certified Sujok and Reflexology Practitioner, with a strong interest in complementary therapies and holistic wellness. Her education and qualifications include an Anesthesia Technician Qualification from Damascus University, Syria. Across more than 15 years in anesthesia she has assisted doctors during procedures, prepared and checked anesthesia equipment, monitored patients, provided patient care and support, maintained patient safety, and worked alongside doctors and medical teams. Her additional certifications include Sujok Therapy Practitioner (Certified Sujok Practitioner, Seed Therapy Techniques) and Reflexology Practitioner (Certified Reflexology Practitioner, hand and foot reflexology, reflex point stimulation). Her professional skills span anesthesia equipment preparation, patient monitoring, patient care, medical team support, Sujok therapy, and reflexology.',
+  },
 ];
 
 // Reordered strictly according to user prompt and PDF instructions:
