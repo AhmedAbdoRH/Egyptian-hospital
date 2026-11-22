@@ -249,6 +249,32 @@ export const TEAM_MEMBERS: TeamMember[] = [
     fullBio:
       'Lamees Adnan Saymouah is a qualified Anesthesia Technician who graduated from Damascus University, Syria, with over 15 years of professional experience in the field of anesthesia and patient care. She is experienced in assisting doctors during medical procedures, preparing anesthesia equipment, monitoring patients, and supporting medical teams. She is also a certified Sujok and Reflexology Practitioner, with a strong interest in complementary therapies and holistic wellness. Her education and qualifications include an Anesthesia Technician Qualification from Damascus University, Syria. Across more than 15 years in anesthesia she has assisted doctors during procedures, prepared and checked anesthesia equipment, monitored patients, provided patient care and support, maintained patient safety, and worked alongside doctors and medical teams. Her additional certifications include Sujok Therapy Practitioner (Certified Sujok Practitioner, Seed Therapy Techniques) and Reflexology Practitioner (Certified Reflexology Practitioner, hand and foot reflexology, reflex point stimulation). Her professional skills span anesthesia equipment preparation, patient monitoring, patient care, medical team support, Sujok therapy, and reflexology.',
   },
+  {
+    id: 'amira-mohamed',
+    isDoctor: false,
+    name: 'Amira Mohamed',
+    role: 'Pharmacy Manager',
+    title: 'Pharmacy Manager · Cairo Hospital',
+    specialty: 'Pharmacy Operations · Inventory & Procurement · Medication Safety',
+    education: '',
+    qualifications: [
+      'Pharmacy Manager, Cairo Hospital',
+      'Pharmacy operations and medication safety',
+      'Inventory management and procurement',
+      'Supplier coordination and compliance',
+    ],
+    careerHighlights: [
+      'Responsible for pharmacy operations at Cairo Hospital',
+      'Medication safety and compliance',
+      'Inventory management and procurement',
+      'Supplier coordination',
+    ],
+    image: '/images/team/amira-mohamed.webp',
+    avatar: '/images/team/amira-mohamed-avatar.webp',
+    imagePosition: 'center center',
+    fullBio:
+      'Amira Mohamed is the Pharmacy Manager at Cairo Hospital, responsible for pharmacy operations, medication safety, inventory management, and supplier coordination. Her core areas of expertise include pharmacy operations, inventory and procurement, and medication safety and compliance. She oversees the day-to-day running of the hospital pharmacy, ensuring medications are managed safely and effectively, stock levels are maintained through careful inventory and procurement planning, and supplier relationships are coordinated to support uninterrupted pharmaceutical services.',
+  },
 ];
 
 // Reordered strictly according to user prompt and PDF instructions:
